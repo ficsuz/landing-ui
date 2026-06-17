@@ -1,0 +1,195 @@
+{
+  "nav": {
+    "aboutCouncil": "About the Council",
+    "home": "Home",
+    "ficHistory": "FIC History",
+    "association": "Association",
+    "management": "Management",
+    "secretariat": "Secretariat",
+
+    "councilMembers": "Council Members",
+    "uzbekSide": "Uzbek side",
+    "experts": "Experts",
+    "becomeAMember": "Become a Member",
+
+    "workingGroups": "Working Groups",
+    "overview": "Overview",
+    "councilWorkingGroups": "Council Working Groups",
+    "interagencyWorkingGroups": "Interagency Working Groups",
+    "sessionOutcomes": "Session Outcomes",
+
+    "results": "Results",
+    "councilResults": "Council Results",
+    "initiatives": "Initiatives",
+    "investments": "Investments",
+    "documents": "Documents",
+
+    "events": "Events",
+    "calendarPlan": "Calendar Plan",
+    "plenarySessions": "Plenary Sessions",
+    "interimSession": "Interim Session",
+    "workingGroupSession": "Working Group Session",
+    "meetings": "Meetings",
+    "weeklyResults": "Weekly Results",
+
+    "media": "Media",
+    "news": "News",
+    "analyticsAndArticles": "Analytics and Articles",
+    "blitzInterview": "Blitz Interview",
+    "reports": "Reports",
+
+    "contact": "Contact"
+  },
+  "common": {
+    "readMore": "Read more",
+    "showAll": "Show all",
+    "search": "Search",
+    "loading": "Loading...",
+    "noData": "No data found",
+    "back": "Back",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "filter": "Filter",
+    "reset": "Reset",
+    "download": "Download",
+    "print": "Print",
+    "share": "Share",
+    "date": "Date",
+    "name": "Name",
+    "status": "Status",
+    "actions": "Actions",
+    "learnMore": "Learn more"
+  },
+  "contact": {
+    "title": "Contacts",
+    "firstName": "First name",
+    "firstNamePlaceholder": "Your name",
+    "lastName": "Last name",
+    "lastNamePlaceholder": "Your last name",
+    "phone": "Phone number",
+    "phonePlaceholder": "+998 99 999 99 99",
+    "email": "Email",
+    "emailPlaceholder": "example{'@'}gmail.com",
+    "message": "Messages",
+    "messagePlaceholder": "Please tell us what you think. Do you have a question for us? Ask it",
+    "submit": "Submit"
+  },
+  "hero": {
+    "scroll": "Scroll",
+    "slide1": {
+      "quote": "Our main goal is to make Uzbekistan a reliable and long-term partner for foreign investors.",
+      "author": "Shavkat Miromonovich Mirziyoyev",
+      "role": "President of the Republic of Uzbekistan"
+    },
+    "slide2": {
+      "quote": "We stand ready to contribute wherever our experience and investment can add value.",
+      "author": "Odile Renaud-Basso",
+      "role": "President of the European Bank for Reconstruction and Development"
+    },
+    "slide3": {
+      "title": "The Council is supported by the EBRD!"
+    }
+  },
+  "council": {
+    "title": "The Foreign Investors Council",
+    "subtitle": "Brings together organizations aimed at supporting sustainable development and economic reforms of the Republic of Uzbekistan.",
+    "management": "Management",
+    "card1": {
+      "name": "Shavkat Miromonovich Mirziyoyev",
+      "role": "Chair of the Council"
+    },
+    "card2": {
+      "name": "Odile Renaud-Basso",
+      "role": "Co-Chair of the Council · President of the EBRD"
+    }
+  },
+  "keyFigures": {
+    "title": "Key Figures",
+    "councilMembers": "Council Members",
+    "activeCompanies": "Active Companies",
+    "countries": "Countries",
+    "workingGroups": "Working Groups",
+    "initiatives": "Initiatives for the IV Plenary Session"
+  },
+  "exec": {
+    "title": "Executive Committee",
+    "m1": {
+      "name": "Laziz Kudratov",
+      "role": "Head of the representative office of MIIT",
+      "quote": "Uzbekistan is demonstrating steady growth in investment activity thanks to ongoing reforms and the creation of favorable conditions for foreign investors."
+    },
+    "m2": {
+      "name": "Andy Aranitasi",
+      "role": "Head of the EBRD in Uzbekistan",
+      "quote": "We attach high importance to improving the country's business environment, which President Mirziyoyev made a strategic national priority."
+    },
+    "m3": {
+      "name": "Kanokpan Lao-Araya",
+      "role": "Country Director of the Asian Development Bank",
+      "quote": "The government demonstrates strong commitment to reforms and seeks to involve all stakeholders, including the private sector, in the development process."
+    },
+    "m4": {
+      "name": "Neil McCain",
+      "role": "Director of the IFC Office for Uzbekistan and Turkmenistan",
+      "quote": "Uzbekistan's key competitive advantages are the largest population in Central Asia and the most diversified economy."
+    },
+    "m5": {
+      "name": "Aziz Gafurov",
+      "role": "Head of the FIC Secretariat",
+      "quote": "We attach high importance to improving the country's business environment, which President Mirziyoyev made a strategic national priority."
+    }
+  },
+  "plenary": {
+    "title": "Plenary Session Highlights",
+    "subtitle": "A dialogue between the state and investors, where reforms are discussed, key decisions are made, and the investment future of Uzbekistan is created.",
+  },
+  "members": {
+    "title": "Council Members",
+    "foreignSubtitle": "Foreign Members of the Foreign Investors Council",
+    "uzbekSubtitle": "Uzbek Members of the Foreign Investors' Council"
+  },
+  "strongPartners": {
+    "title": "Strong Partners Moving Forward With Us",
+    "subtitle": "Together we create results we can be proud of.",
+    "btn": "Working Groups"
+  },
+  "councilCalendar": {
+    "title": "Council Calendar",
+    "allEvents": "All events"
+  },
+  "news": {
+    "title": "News",
+    "allNews": "All news"
+  },
+  "investments": {
+    "title": "Investments in Uzbekistan",
+    "subtitle": "Key Macroeconomic Indicators",
+    "gdp": "GDP (2026 target — >$150 bn)",
+    "gdpGrowth": "GDP growth (IMF, 2025)",
+    "foreignInflow": "foreign investment inflow",
+    "rating": "Fitch and S&P rating; Moody's Ba3 (positive outlook)",
+    "reserves": "gold and foreign exchange reserves (+35%)",
+    "inflation": "inflation (from 9.8% a year earlier)",
+    "exportGrowth": "export growth (~$32 bn)",
+    "totalInvestment": "total investment to GDP",
+    "unemployment": "unemployment (record low)"
+  },
+  "articles": {
+    "title": "Articles"
+  },
+  "investorsVoices": {
+    "title": "Investors Voices",
+    "subtitle": "Representatives of international organizations shared their impressions and results of participating in the FIC."
+  },
+  "footer": {
+    "phoneLabel": "Phone number",
+    "emailLabel": "Email",
+    "addressLabel": "Address",
+    "copyright": "©2019-{year} – Foreign Investors' Council under the President of the Republic of Uzbekistan"
+  }
+}

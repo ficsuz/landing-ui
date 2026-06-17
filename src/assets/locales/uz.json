@@ -1,0 +1,195 @@
+{
+  "nav": {
+    "aboutCouncil": "Kengash haqida",
+    "home": "Bosh sahifa",
+    "ficHistory": "FIK tarixi",
+    "association": "Assotsiatsiya",
+    "management": "Rahbariyat",
+    "secretariat": "Kotibiyat",
+
+    "councilMembers": "Kengash a'zolari",
+    "uzbekSide": "O'zbek tomoni",
+    "experts": "Ekspertlar",
+    "becomeAMember": "A'zo bo'lish",
+
+    "workingGroups": "Ishchi guruhlar",
+    "overview": "Umumiy ko'rinish",
+    "councilWorkingGroups": "Kengash ishchi guruhlari",
+    "interagencyWorkingGroups": "Idoralararo ishchi guruhlar",
+    "sessionOutcomes": "Sessiya natijalari",
+
+    "results": "Natijalar",
+    "councilResults": "Kengash natijalari",
+    "initiatives": "Tashabbuslar",
+    "investments": "Investitsiyalar",
+    "documents": "Hujjatlar",
+
+    "events": "Tadbirlar",
+    "calendarPlan": "Kalendar reja",
+    "plenarySessions": "Plenar sessiyalar",
+    "interimSession": "Navbatdan tashqari sessiya",
+    "workingGroupSession": "Ishchi guruh sessiyasi",
+    "meetings": "Uchrashuvlar",
+    "weeklyResults": "Haftalik natijalar",
+
+    "media": "Media",
+    "news": "Yangiliklar",
+    "analyticsAndArticles": "Tahlil va maqolalar",
+    "blitzInterview": "Blits-intervyu",
+    "reports": "Hisobotlar",
+
+    "contact": "Aloqa"
+  },
+  "common": {
+    "readMore": "Batafsil",
+    "showAll": "Hammasini ko'rish",
+    "search": "Qidirish",
+    "loading": "Yuklanmoqda...",
+    "noData": "Ma'lumot topilmadi",
+    "back": "Orqaga",
+    "close": "Yopish",
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "confirm": "Tasdiqlash",
+    "delete": "O'chirish",
+    "edit": "Tahrirlash",
+    "add": "Qo'shish",
+    "filter": "Filtr",
+    "reset": "Tozalash",
+    "download": "Yuklab olish",
+    "print": "Chop etish",
+    "share": "Ulashish",
+    "date": "Sana",
+    "name": "Nomi",
+    "status": "Holat",
+    "actions": "Amallar",
+    "learnMore": "Batafsil"
+  },
+  "contact": {
+    "title": "Kontaktlar",
+    "firstName": "Ism",
+    "firstNamePlaceholder": "Ismingiz",
+    "lastName": "Familiya",
+    "lastNamePlaceholder": "Familiyangiz",
+    "phone": "Telefon raqami",
+    "phonePlaceholder": "+998 99 999 99 99",
+    "email": "Elektron pochta",
+    "emailPlaceholder": "example{'@'}gmail.com",
+    "message": "Xabar",
+    "messagePlaceholder": "Fikringizni bildiring. Savolingiz bormi? Bizing bilan bo'lishing",
+    "submit": "Yuborish"
+  },
+  "hero": {
+    "scroll": "Pastga",
+    "slide1": {
+      "quote": "Bosh maqsadimiz — O'zbekistonni xorijiy investorlar uchun ishonchli va uzoq muddatli hamkorga aylantirish.",
+      "author": "Shavkat Miromonovich Mirziyoyev",
+      "role": "O'zbekiston Respublikasi Prezidenti"
+    },
+    "slide2": {
+      "quote": "Biz tajribamiz va investitsiyalarimiz qo'shimcha qiymat yarata oladigan har qanday sohada hissa qo'shishga tayyormiz.",
+      "author": "Odile Renaud-Basso",
+      "role": "Yevropa Tiklanish va Taraqqiyot Bankining Prezidenti"
+    },
+    "slide3": {
+      "title": "Kengash YETTB tomonidan qo'llab-quvvatlanmoqda!"
+    }
+  },
+  "council": {
+    "title": "Xorijiy Investorlar Kengashi",
+    "subtitle": "O'zbekiston Respublikasining barqaror rivojlanishi va iqtisodiy islohotlarini qo'llab-quvvatlashga qaratilgan tashkilotlarni birlashtiradi.",
+    "management": "Rahbariyat",
+    "card1": {
+      "name": "Shavkat Miromonovich Mirziyoyev",
+      "role": "Kengash raisi"
+    },
+    "card2": {
+      "name": "Odile Renaud-Basso",
+      "role": "Kengash rais o'rinbosari · YETTB Prezidenti"
+    }
+  },
+  "keyFigures": {
+    "title": "Asosiy ko'rsatkichlar",
+    "councilMembers": "Kengash a'zolari",
+    "activeCompanies": "Faol kompaniyalar",
+    "countries": "Mamlakatlar",
+    "workingGroups": "Ishchi guruhlar",
+    "initiatives": "IV Plenar sessiya uchun tashabbuslar"
+  },
+  "exec": {
+    "title": "Ijroiya Qo'mitasi",
+    "m1": {
+      "name": "Laziz Kudratov",
+      "role": "MIIT vakolatxonasi rahbari",
+      "quote": "O'zbekiston investitsiya faolligida barqaror o'sishni namoyish etmoqda — bu davom etayotgan islohotlar va xorijiy investorlar uchun qulay sharoitlar yaratilishi natijasidir."
+    },
+    "m2": {
+      "name": "Andy Aranitasi",
+      "role": "O'zbekistondagi YETTB rahbari",
+      "quote": "Biz mamlakatning tadbirkorlik muhitini yaxshilashga katta ahamiyat beramiz — bu prezident Mirziyoyev tomonidan strategik milliy ustuvorlik sifatida belgilangan."
+    },
+    "m3": {
+      "name": "Kanokpan Lao-Araya",
+      "role": "Osiyo Taraqqiyot Bankining mamlakatdagi direktori",
+      "quote": "Hukumat islohotlarga qat'iy sodiqligini ko'rsatmoqda va rivojlanish jarayoniga xususiy sektor ham jumladan barcha manfaatdor tomonlarni jalb etishga intilmoqda."
+    },
+    "m4": {
+      "name": "Neil McCain",
+      "role": "O'zbekiston va Turkmaniston bo'yicha XMK ofisi direktori",
+      "quote": "O'zbekistonning asosiy raqobatdosh afzalliklari — Markaziy Osiyodagi eng ko'p aholi va eng xilma-xil iqtisodiyotdir."
+    },
+    "m5": {
+      "name": "Aziz Gafurov",
+      "role": "XIK Kotibiyati rahbari",
+      "quote": "Biz mamlakatning tadbirkorlik muhitini yaxshilashga katta ahamiyat beramiz — bu prezident Mirziyoyev tomonidan strategik milliy ustuvorlik sifatida belgilangan."
+    }
+  },
+  "plenary": {
+    "title": "Plenar Sessiya Yoqlab Yodlari",
+    "subtitle": "Davlat va investorlar o'rtasidagi muloqot — islohotlar muhokama qilinadi, muhim qarorlar qabul qilinadi va O'zbekistonning investitsiya kelajagi shakllanadi.",
+  },
+  "members": {
+    "title": "Kengash a'zolari",
+    "foreignSubtitle": "Xorijiy Investorlar Kengashining xorijiy a'zolari",
+    "uzbekSubtitle": "Xorijiy Investorlar Kengashining o'zbek a'zolari"
+  },
+  "strongPartners": {
+    "title": "Biz bilan oldinga siljayotgan kuchli hamkorlar",
+    "subtitle": "Birgalikda maqtanishga arzigulik natijalar yarataymiz.",
+    "btn": "Ishchi guruhlar"
+  },
+  "councilCalendar": {
+    "title": "Kengash Kalendari",
+    "allEvents": "Barcha tadbirlar"
+  },
+  "news": {
+    "title": "Yangiliklar",
+    "allNews": "Barcha yangiliklar"
+  },
+  "investments": {
+    "title": "O'zbekistonga investitsiyalar",
+    "subtitle": "Asosiy makroiqtisodiy ko'rsatkichlar",
+    "gdp": "YaIM (2026 maqsad — >150 mlrd dollar)",
+    "gdpGrowth": "YaIM o'sishi (XVF, 2025)",
+    "foreignInflow": "xorijiy investitsiyalar oqimi",
+    "rating": "Fitch va S&P reytingi; Moody's Ba3 (musbat istiqbol)",
+    "reserves": "oltin-valyuta zahiralari (+35%)",
+    "inflation": "inflyatsiya (bir yil oldin 9.8% dan)",
+    "exportGrowth": "eksport o'sishi (~32 mlrd dollar)",
+    "totalInvestment": "jami investitsiyalarning YaIMga nisbati",
+    "unemployment": "ishsizlik (rekord past)"
+  },
+  "articles": {
+    "title": "Maqolalar"
+  },
+  "investorsVoices": {
+    "title": "Investorlar Ovozi",
+    "subtitle": "Xalqaro tashkilotlar vakillari FIKda ishtirok etish natijalari va taassurotlarini bo'lishdi."
+  },
+  "footer": {
+    "phoneLabel": "Telefon raqami",
+    "emailLabel": "Elektron pochta",
+    "addressLabel": "Manzil",
+    "copyright": "©2019-{year} – O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi"
+  }
+}

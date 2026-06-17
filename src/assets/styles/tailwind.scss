@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .page-container {
+        @apply max-w-[1400px] mx-auto px-4 md:px-6;
+    }
+
+    .section-title {
+        @apply font-black text-[clamp(32px,5vw,64px)] leading-[1.05] text-[#1a1e2e] uppercase;
+    }
+}

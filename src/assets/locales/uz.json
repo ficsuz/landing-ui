@@ -182,9 +182,75 @@
   "articles": {
     "title": "Maqolalar"
   },
+  "tasks": {
+    "title": "Kengash vazifalari",
+    "subtitle": "Kengash faoliyatining asosiy yo'nalishlari",
+    "tasksLabel": "VAZIFA",
+    "items": {
+      "advising": "Hukumatga maslahat berish",
+      "investment": "Investitsiya muhitini yaxshilash",
+      "dialogue": "Biznes bilan muloqot",
+      "barriers": "To'siqlarni aniqlash",
+      "recommendations": "Tavsiyalar ishlab chiqish",
+      "export": "Eksportni rivojlantirish",
+      "quality": "Sifat standartlari",
+      "legal": "Huquqiy islohotlar",
+      "image": "Xalqaro obro'"
+    }
+  },
+  "chronology": {
+    "title": "Xronologiya",
+    "subtitle": "Kengashning asosiy bosqichlari",
+    "milestones": [
+      { "date": "Noyabr 2019", "description": "Kengashning tashkil etilishi (PP-4519). Birinchi navbatdan tashqari sessiya — 20 noyabr" },
+      { "date": "Noyabr 2022", "description": "I Plenar sessiya — 9 noyabr. Ustav va asosiy strategik qarorlarning qabul qilinishi" },
+      { "date": "May 2024", "description": "II Plenar sessiya — 3 may, III Toshkent xalqaro investitsiya forumi doirasida. PP-179 — to'rtta ishchi guruh tashkil etilishi" },
+      { "date": "Iyun 2025", "description": "Plenar sessiya — 11 iyun. PP-226 — ishchi guruhlarning kengaytirilishi va qayta tashkil etilishi" },
+      { "date": "Noyabr 2025", "description": "Assotsiatsiyaning tashkil etilishi — 4 noyabr. Navbatdan tashqari sessiya — 19 noyabr" },
+      { "date": "Iyun 2026", "description": "III Plenar sessiya — iyun. Yangi investitsiya tashabbuslari va ishchi guruhlar natijalari taqdimoti" }
+    ]
+  },
+  "ficHistory": {
+    "viewDecree": "Farmonni ko'rish",
+    "p1": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy Investorlar Kengashi — O'zbekiston Hukumati va mamlakatda faoliyat yurituvchi investorlar o'rtasidagi bevosita muloqot uchun institutsional platforma. U 2019 yil 13 noyabrdagi PP-4519-sonli Prezident qarori bilan tashkil etilgan.",
+    "p2": "Kengash faoliyati investitsiyalarni jalb etishdagi asosiy to'siqlarni aniqlash, ularni bartaraf etish bo'yicha hukumat idoralari bilan birgalikda yechimlar ishlab chiqish va qulay investitsiya muhitini ta'minlashga qaratilgan. Kengash raisi — O'zbekiston Respublikasi Prezidenti; rais o'rinbosari — YETTB Prezidenti."
+  },
   "investorsVoices": {
     "title": "Investorlar Ovozi",
     "subtitle": "Xalqaro tashkilotlar vakillari FIKda ishtirok etish natijalari va taassurotlarini bo'lishdi."
+  },
+  "management": {
+    "title": "Kengash rahbariyati",
+    "biography": "Biografiya",
+    "execChair": "Ijroiya qo'mita raisi",
+    "execMember": "Ijroiya qo'mita a'zosi"
+  },
+  "association": {
+    "legalBasis": {
+      "title": "Huquqiy asos va institutsional maqom",
+      "p1": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy Investorlar Kengashi 2019 yil 13 noyabrdagi PP-4519-sonli Prezident qarori bilan xorijiy investorlar, xalqaro moliya institutlari va O'zbekiston Respublikasi Hukumati o'rtasidagi bevosita muloqot uchun maslahat-tavsiya organi sifatida tashkil etilgan.",
+      "p2": "Kengash faoliyatining kengayishi munosabati bilan doimiy faoliyat yurituvchi operativ organga ehtiyoj tug'ildi. 2025 yil 18 iyuldagi PP-226-sonli Prezident qarori bilan Kengash a'zolari va xalqaro moliya institutlarining Kengash Kotibiyatini notijorat nodavlat tashkilot shaklida tashkil etish bo'yicha taklifi qo'llab-quvvatlandi.",
+      "p3": "Ushbu qarorni ijro etish doirasida 2025 yil 4 noyabrda «Xorijiy Investorlar Kengashi» yuridik shaxslar assotsiatsiyasi (Assotsiatsiya, Ittifoq), INN 312 551 219, ro'yxatdan o'tkazildi — Kengash Kotibiyati vazifalarini bajaruvchi yuridik shaxs.",
+      "documents": "Hujjatlar"
+    },
+    "functions": {
+      "title": "Kotibiyat vazifalari",
+      "items": [
+        "Plenar va navbatdan tashqari sessiyalarni tashkil etish",
+        "16 ta ishchi guruh faoliyatini muvofiqlashtirish",
+        "Investorlar bilan kundalik o'zaro hamkorlik",
+        "Tashabbuslarni yig'ish va ilgari surish",
+        "Kengash faoliyatini tahliliy qo'llab-quvvatlash"
+      ]
+    },
+    "governance": {
+      "title": "Boshqaruv tuzilmasi",
+      "items": [
+        "Ta'sischilarning umumiy yig'ilishi — oliy organ",
+        "Ijroiya qo'mita — kollegial organ",
+        "Assotsiatsiya rahbari / Kotibiyat rahbari"
+      ]
+    }
   },
   "footer": {
     "phoneLabel": "Telefon raqami",

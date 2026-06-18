@@ -1,7 +1,7 @@
 <template>
     <section ref="sectionEl" class="bg-white py-12 md:py-16 lg:py-24 overflow-hidden">
         <div class="page-container">
-            <div class="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-14 items-start">
+            <div class="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-20 xl:gap-24 items-start">
 
                 <!-- Left: Text -->
                 <div

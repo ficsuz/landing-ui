@@ -182,9 +182,75 @@
   "articles": {
     "title": "Articles"
   },
+  "tasks": {
+    "title": "Tasks of the Council",
+    "subtitle": "Key areas of the Council's activity",
+    "tasksLabel": "TASKS",
+    "items": {
+      "advising": "Advising the Government",
+      "investment": "Improving the investment climate",
+      "dialogue": "Dialogue with business",
+      "barriers": "Identifying barriers",
+      "recommendations": "Developing recommendations",
+      "export": "Export development",
+      "quality": "Quality standards",
+      "legal": "Legal reforms",
+      "image": "International image"
+    }
+  },
+  "chronology": {
+    "title": "Chronology",
+    "subtitle": "Key milestones of the Council",
+    "milestones": [
+      { "date": "November 2019", "description": "Establishment of the Council (PP-4519). First interim session — November 20" },
+      { "date": "November 2022", "description": "I Plenary Session — November 9. Adoption of the Charter and key strategic decisions" },
+      { "date": "May 2024", "description": "II Plenary Session — May 3, within the III Tashkent International Investment Forum. PP-179 — creation of four working groups" },
+      { "date": "June 2025", "description": "Plenary Session — June 11. PP-226 — expansion and restructuring of the working groups" },
+      { "date": "November 2025", "description": "Creation of the Association — November 4. Interim session — November 19" },
+      { "date": "June 2026", "description": "III Plenary Session — June. New investment initiatives and working group results presented" }
+    ]
+  },
+  "ficHistory": {
+    "viewDecree": "View Decree",
+    "p1": "The Foreign Investors Council under the President of the Republic of Uzbekistan is an institutional platform for direct dialogue between the Government of Uzbekistan and investors operating in the country. It was established by Presidential Resolution No. PP-4519 dated November 13, 2019.",
+    "p2": "The Council's activities are aimed at identifying key obstacles to attracting investment, developing solutions jointly with government bodies to eliminate them, and ensuring a favorable investment climate. The Chair of the Council is the President of the Republic of Uzbekistan; the Co-Chair is the President of the EBRD."
+  },
   "investorsVoices": {
     "title": "Investors Voices",
     "subtitle": "Representatives of international organizations shared their impressions and results of participating in the FIC."
+  },
+  "management": {
+    "title": "Council Management",
+    "biography": "Biography",
+    "execChair": "Executive Committee Chair",
+    "execMember": "Executive Committee Member"
+  },
+  "association": {
+    "legalBasis": {
+      "title": "Legal Basis and Institutional Status",
+      "p1": "The Foreign Investors Council under the President of the Republic of Uzbekistan was established by Presidential Resolution No. PP-4519 dated November 13, 2019 as a consultative and advisory body for direct dialogue between foreign investors, international financial institutions and the Government of the Republic of Uzbekistan.",
+      "p2": "As the Council's activities expanded, the need arose for a permanently functioning operational body. By Presidential Resolution No. PP-226 dated July 18, 2025, the proposal of the Council members and international financial institutions to establish the Secretariat of the Council in the form of a non-governmental non-profit organization was supported.",
+      "p3": "In execution of this resolution, on November 4, 2025, the Association of Legal Entities (Association, Union) \"Foreign Investors Council\", TIN 312 551 219, was registered — a legal entity performing the functions of the Secretariat of the Council.",
+      "documents": "Documents"
+    },
+    "functions": {
+      "title": "Functions of the Secretariat",
+      "items": [
+        "Organization of plenary and interim sessions",
+        "Coordination of the activities of 16 working groups",
+        "Daily interaction with investors",
+        "Collection and promotion of initiatives",
+        "Analytical support of the Council"
+      ]
+    },
+    "governance": {
+      "title": "Governance Structure",
+      "items": [
+        "General Meeting of Founders — the supreme body",
+        "Executive Committee — the collegial body",
+        "Head of the Association / Head of the Secretariat"
+      ]
+    }
   },
   "footer": {
     "phoneLabel": "Phone number",

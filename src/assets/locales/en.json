@@ -63,7 +63,8 @@
     "name": "Name",
     "status": "Status",
     "actions": "Actions",
-    "learnMore": "Learn more"
+    "learnMore": "Learn more",
+    "viewDocuments": "View Documents"
   },
   "contact": {
     "title": "Contacts",
@@ -177,7 +178,59 @@
     "inflation": "inflation (from 9.8% a year earlier)",
     "exportGrowth": "export growth (~$32 bn)",
     "totalInvestment": "total investment to GDP",
-    "unemployment": "unemployment (record low)"
+    "unemployment": "unemployment (record low)",
+    "sector": {
+      "energy": "Green energy",
+      "energyP1": "ACWA Power, Masdar, TotalEnergies, EDF, Voltalia",
+      "energyP2": "over $8 bn invested in renewables",
+      "energyP3": "solar, wind, hydrogen, energy storage",
+      "digital": "Digital infrastructure and AI",
+      "digitalP1": "DataVolt — the region's largest 'green' data centre",
+      "digitalP2": "VEON — an AI-powered super-app",
+      "digitalP3": "Yandex — maps and digital services",
+      "infra": "Infrastructure and PPP",
+      "infraP1": "$4.5 bn of PPP projects in 2025",
+      "infraP2": "roads, transport, water supply, irrigation",
+      "infraP3": "blended finance with IFIs",
+      "finance": "Financial services",
+      "financeP1": "Tashkent International Financial Centre",
+      "financeP2": "Islamic finance (Green Sukuk, Takaful)",
+      "financeP3": "debut sovereign bonds in soum",
+      "mfg": "Manufacturing industry",
+      "mfgP1": "chemicals and fertilisers (Indorama)",
+      "mfgP2": "textiles, building materials (Knauf)",
+      "mfgP3": "export-oriented manufacturing",
+      "mining": "Critical minerals and mining",
+      "miningP1": "a significant raw-material base",
+      "miningP2": "value-added processing projects",
+      "miningP3": "international ESG standards"
+    },
+    "g1term": "Legal guarantees.",
+    "g1text": "The Law on Investments guarantees free transfer of funds abroad and protection of investments against nationalisation.",
+    "g2term": "Tax stability.",
+    "g2text": "Core business tax rates will remain unchanged until 2028.",
+    "g3term": "Direct dialogue.",
+    "g3text": "The Foreign Investors Council under the President is the institutional channel for resolving investor issues at the highest level.",
+    "g4term": "Dispute resolution.",
+    "g4text": "Tashkent International Arbitration Centre; Tashkent International Commercial Court.",
+    "g5term": "Benefits for Council members.",
+    "g5text": "Visa-free entry for Council members and their family members.",
+    "sourcesLabel": "Data Sources",
+    "sourcesText": "IMF (Article IV, 2026), World Bank, EBRD; Fitch, S&P, Moody's; Presidential address on the 2025 results; invest.gov.uz / MIFT; PwC Investor Guide.",
+    "introEyebrow": "Overview",
+    "introHeading": "Uzbekistan — one of the most dynamic economies in Eurasia",
+    "intro1": "Since 2017, Uzbekistan has undergone one of the most significant economic transformations in Eurasia. Liberalization of the foreign exchange market, tax and judicial reforms, capital market development, and privatization have transformed a previously closed economy into one of the region's most dynamic investment destinations. Today, it is the largest market in Central Asia by population, with approximately 37.7 million people and steadily growing domestic demand.",
+    "intro2": "2025 reaffirmed this trajectory. GDP growth reached 7.7%, exceeding most forecasts; inflation declined to 7.3%, while unemployment fell to 4.8%. Fitch upgraded the sovereign rating to BB for the first time in seven years, S&P reaffirmed its BB rating, and Moody's maintained Ba3 while improving the outlook to positive. The country's accession process to the World Trade Organization is nearing completion, marking the most significant structural opening of the economy since the currency liberalization reforms of 2017.",
+    "timeline": {
+      "eyebrow": "Nine Years of Reforms",
+      "title": "Trajectory of Reforms",
+      "sub": "From opening the economy to a capital market",
+      "y2017": "Liberalisation of the currency market, the start of systemic reforms; GDP around $56 bn.",
+      "y2019": "Establishment of the Foreign Investors Council under the President — an institutional platform for dialogue with investors.",
+      "y2024": "Energy reforms; record investments by international companies in the green economy.",
+      "y2025": "Fitch and S&P ratings raised to BB; foreign investment inflow ~$42 bn; GDP growth 7.7%.",
+      "y2026": "Completion of WTO accession; creation of the Tashkent International Financial Centre; target — GDP above $150 bn. Over nine years, foreign investments reached ~$125 bn, up from ~$4.5 bn in 2017."
+    }
   },
   "articles": {
     "title": "Articles"
@@ -252,10 +305,418 @@
       ]
     }
   },
+  "secretariatPage": {
+    "title": "Secretariat",
+    "subtitle": "The permanently operating body of the Foreign Investors Council",
+    "missionTitle": "Our Mission",
+    "missionText": "The Secretariat of the Foreign Investors Council is a permanently functioning operational body that ensures the continuity and consistency of the Council's work between sessions. The Secretariat organizes plenary and interim meetings, coordinates the activities of the sixteen working groups, maintains a daily dialogue with Council members and foreign investors, collects and analyzes initiatives to improve the investment climate, and ensures their advancement into the relevant state policy.",
+    "legalText": "With the acquisition of legal entity status, the Secretariat gained the institutional autonomy necessary to effectively fulfil its mandate and to engage with international financial institutions.",
+    "teamTitle": "Our Team",
+    "contactTitle": "Contact Information",
+    "address": "5 Mustaqillik Street, Tashkent, 100084, Republic of Uzbekistan",
+    "phone": "+998 71 239 80 30",
+    "email": "info{'@'}fics.uz",
+    "workHours": "Mon–Fri: 09:00 – 18:00",
+    "roles": {
+      "head": "Head of the Secretariat",
+      "coordinator": "Program Coordinator",
+      "pr": "PR & Marketing Expert",
+      "admin": "Administrative Assistant"
+    },
+    "team": [
+      { "name": "Aziz Gafurov", "role": "Head of the Secretariat", "key": "m5" },
+      { "name": "Madina Kholmatova", "role": "Working Groups Coordinator", "key": "madina" },
+      { "name": "Jorabek Toshmatov", "role": "Analytics and Research", "key": "jorabek" },
+      { "name": "Vladislav Petrov", "role": "Investor Relations", "key": "vladislav" },
+      { "name": "Avaz Yusupov", "role": "Legal Advisory", "key": "avaz" },
+      { "name": "Avazbek Mirzayev", "role": "Communications and Media", "key": "avazbek" }
+    ]
+  },
+  "councilMembersPage": {
+    "intro": "The Foreign Investors Council consists of 43 members — foreign investors, international financial institutions and representatives of the Government of Uzbekistan — bringing together leading companies and organizations operating in Uzbekistan.",
+    "membersIntro": "The members of the Foreign Investors Council are leading international companies, banks and financial institutions making strategic investments in the economy of Uzbekistan. Membership reflects a long-term commitment to the country's development and provides a direct channel of dialogue with the Government on investment policy matters. The Council brings together 43 members from 19 countries, representing 23 sectors of the economy.",
+    "execBoardTitle": "Members of the Executive Board",
+    "fullMembersTitle": "Full Members",
+    "observersTitle": "Observer Members",
+    "tabs": {
+      "all": "All",
+      "foreign": "Foreign Members",
+      "uzbek": "Uzbek Side",
+      "experts": "Experts"
+    }
+  },
+  "uzbekSidePage": {
+    "title": "Uzbek Side",
+    "intro": "The Government of Uzbekistan is represented in the Foreign Investors Council by relevant sector ministers, agency heads and senior officials.",
+    "membersCount": "members"
+  },
+  "expertsPage": {
+    "title": "Experts",
+    "subtitle": "Advisory body members of the Council",
+    "intro": "The Council's experts are recognized international and local specialists who provide expert support to the working groups and initiatives of the Foreign Investors Council. The Council highly values their contribution to the development of Uzbekistan's investment policy and recognizes their professional competence.",
+    "internationalTitle": "International Experts",
+    "internationalDesc": "Representatives of leading consulting, legal and financial organizations involved in developing legislative initiatives and adapting international standards.",
+    "localTitle": "Local Experts",
+    "localDesc": "National specialists in the field of investment policy, corporate governance and sectoral regulation, linking international practice with the conditions of Uzbekistan.",
+    "specialties": {
+      "legal": "Law",
+      "finance": "Finance",
+      "energy": "Energy",
+      "digital": "Digital Economy",
+      "agri": "Agriculture",
+      "logistics": "Logistics"
+    }
+  },
+  "becomeAMemberPage": {
+    "title": "Become a Member",
+    "categoriesSubtitle": "Categories, Influence and Admission Procedure",
+    "intro": "FIC is the main institutional platform for structured dialogue between foreign investors and the Government of Uzbekistan.",
+    "requirementsTitle": "Membership Requirements",
+    "requirements": [
+      "Foreign company or international financial institution registered or operating in Uzbekistan",
+      "Intent and capacity to contribute to the country's economic development",
+      "Active participation in Council sessions and working group activities",
+      "Compliance with the Council Charter"
+    ],
+    "admissionTitle": "Admission Procedure",
+    "admissionNote": "Admission and participation formats are determined in accordance with the Charter, Membership Regulations and applicable protocol rules.",
+    "steps": [
+      { "num": "01", "title": "Application and Documents", "desc": "Submission of a written application together with a complete set of required supporting documents, indicating the requested membership category" },
+      { "num": "02", "title": "Review", "desc": "Assessment, including verification of documents and compliance with requirements" },
+      { "num": "03", "title": "Decision", "desc": "Review and decision-making by the Executive Committee" },
+      { "num": "04", "title": "Formalization", "desc": "Signing of the membership agreement and payment of membership fees" }
+    ],
+    "categoriesTitle": "Membership Categories and Level of Influence",
+    "categories": [
+      {
+        "title": "Executive Committee",
+        "perks": [
+          "Strategic role in governance",
+          "Deciding vote on Charter amendments, reorganization and liquidation"
+        ]
+      },
+      {
+        "title": "Full Members",
+        "limit": "up to 40 members",
+        "perks": [
+          "Key and active investors",
+          "Deciding voting rights",
+          "Participation in plenary sessions with the President of Uzbekistan",
+          "Participation in official protocol and closed working formats"
+        ]
+      },
+      {
+        "title": "Observers",
+        "limit": "up to 60 members",
+        "perks": [
+          "Advisory (without deciding vote) role",
+          "Participation in FIC plenary sessions",
+          "Participation in open sessions, discussions and expert formats"
+        ]
+      }
+    ],
+    "formTitle": "Membership Application",
+    "companyName": "Company Name",
+    "contactPerson": "Contact Person",
+    "position": "Position",
+    "sector": "Industry / Sector",
+    "message": "Additional Information",
+    "submit": "Submit Application"
+  },
+  "workingGroupsPage": {
+    "overviewTitle": "Working Groups",
+    "overviewIntro": "16 working groups operate within the Council — covering priority areas of investment climate, legislative reform and sector development.",
+    "overviewStat1": "working groups",
+    "overviewStat2": "company participations",
+    "overviewStat3": "initiatives",
+    "cwgTitle": "Council Working Groups",
+    "cwgIntro": "Council working groups provide a direct dialogue platform between investors and government agencies on sectoral priorities.",
+    "iwgTitle": "Interagency Working Groups",
+    "iwgIntro": "Interagency working groups address complex cross-cutting economic reform issues jointly with the relevant ministries and agencies of Uzbekistan.",
+    "outcomeTitle": "Session Outcomes",
+    "outcomeIntro": "Detailed reports on decisions made, initiatives submitted and next steps agreed at each session.",
+    "groups": {
+      "g1": { "name": "Energy & Green Transition", "members": 8, "initiatives": 14 },
+      "g2": { "name": "Financial Sector & Capital Markets", "members": 7, "initiatives": 11 },
+      "g3": { "name": "Digital Economy & IT", "members": 9, "initiatives": 16 },
+      "g4": { "name": "Infrastructure & Logistics", "members": 6, "initiatives": 9 },
+      "g5": { "name": "Agriculture & Food Industry", "members": 5, "initiatives": 8 },
+      "g6": { "name": "Mining & Metallurgy", "members": 4, "initiatives": 7 },
+      "g7": { "name": "Tourism & Services", "members": 6, "initiatives": 10 },
+      "g8": { "name": "Manufacturing & Chemicals", "members": 5, "initiatives": 8 },
+      "g9": { "name": "Legal & Regulatory Reform", "members": 7, "initiatives": 12 },
+      "g10": { "name": "Healthcare & Pharmaceuticals", "members": 4, "initiatives": 6 },
+      "g11": { "name": "Trade & Export Promotion", "members": 6, "initiatives": 9 },
+      "g12": { "name": "Human Capital & Education", "members": 5, "initiatives": 7 }
+    },
+    "interagencyGroups": {
+      "i1": { "name": "IWG for Drafting the Law on Alternative Investment Funds", "description": "Developing a modern legislative framework for alternative investment funds to attract diversified capital and expand financial instruments available to foreign investors." },
+      "i2": { "name": "IWG on the Improvement of Pledge Legislation", "description": "Reforming pledge and collateral legislation to reduce risks for creditors, strengthen investor protections and create a more effective secured transactions environment." },
+      "i3": { "name": "IWG on the Implementation of Responsible Business Conduct Principles", "description": "Promoting ESG standards and responsible business practices among companies operating in Uzbekistan, aligning with OECD Guidelines for Multinational Enterprises." },
+      "i4": { "name": "IWG on the Training of Professional Personnel for Foreign Companies", "description": "Developing programmes for professional training and qualification of local personnel to meet the workforce standards required by international companies operating in Uzbekistan." },
+      "i5": { "name": "IWG on the Enhancement of Corporate Governance in Local Companies", "description": "Improving corporate governance standards in Uzbek companies, developing best practices for boards of directors, transparency and accountability to attract foreign partners." },
+      "i6": { "name": "IWG on the Improvement of Tax Administration", "description": "Streamlining tax administration procedures, reducing administrative burden on businesses, improving transparency of the tax system and developing effective dispute resolution mechanisms." },
+      "i7": { "name": "Education, Science & Innovation", "ministry": "Ministry of Higher Education", "description": "Strengthening ties between universities and business, fostering R&D investment and building a pipeline of skilled graduates for the foreign investor community." },
+      "i8": { "name": "Transport & PPP Infrastructure", "ministry": "Ministry of Transport", "description": "Developing public-private partnership mechanisms for transport infrastructure, improving logistics connectivity and removing barriers to infrastructure investment." },
+      "i9": { "name": "Environment & Energy Efficiency", "ministry": "Ministry of Ecology", "description": "Promoting green investment, aligning environmental standards with international frameworks and supporting sustainable development initiatives by foreign companies." },
+      "i10": { "name": "Privatization & State Asset Management", "ministry": "Ministry of Economy", "description": "Accelerating the privatisation of state enterprises, improving corporate governance and expanding opportunities for foreign participation in strategic sectors." }
+    },
+    "membersLabel": "members",
+    "initiativesLabel": "initiatives",
+    "councilStatLabel": "Council Working Groups",
+    "interagencyStatLabel": "Interagency Working Groups",
+    "legalBasisLabel": "Legal Basis",
+    "legalBasisText": "Based on the Presidential Resolution of 18.07.2025 (entered into force on 21.07.2025) — PP-226",
+    "learnMore": "Learn more",
+    "tabCouncil": "Working Groups (WG)",
+    "tabInteragency": "Interagency Working Groups (IWG)",
+    "chairLabel": "Working Group Chair.",
+    "coChairLabel": "Co-chair",
+    "membershipBadge": "Membership of the Interagency Working Group",
+    "participantsTitle": "Working Group Participants",
+    "backButton": "Back to Working Groups",
+    "councilGroups": {
+      "c1": { "name": "WG on Energy Sector", "description": "Promoting private investment in electricity generation, transmission and distribution, developing renewable energy sources and blended-finance mechanisms for energy projects." },
+      "c2": { "name": "WG on Financial Sector and Banking", "description": "Development of the financial and banking sector, expanding financing instruments for investment projects and strengthening investor confidence in the country's financial system." },
+      "c3": { "name": "WG on Talent Acquisition and Human Capital Development", "description": "Training qualified personnel for foreign companies: continuing education programmes, international professional certification and university-business cooperation." },
+      "c4": { "name": "WG on Digitalization and ICT", "description": "Digital transformation of investor-state interaction, development of electronic service platforms and modern digital infrastructure." },
+      "c5": { "name": "WG on Creative Industries", "description": "Transforming creative sectors into an investment- and export-oriented segment of the economy over the coming five years." },
+      "c6": { "name": "WG on Investment Climate", "description": "Systemic improvement of the investment climate: removing administrative barriers, increasing transparency and predictability of regulation." }
+    }
+  },
+  "resultsPage": {
+    "overviewTitle": "Council Results",
+    "overviewIntro": "Over the reporting period, the Foreign Investors Council significantly strengthened its role as a key platform for interaction between the state and foreign investors and as an instrument for the development of Uzbekistan's investment policy.",
+    "stat1Label": "initiatives completed",
+    "stat2Label": "laws amended",
+    "stat3Label": "investments attracted",
+    "stat4Label": "working group sessions",
+    "platformTitle": "PLATFORM FOR INVESTORS",
+    "platform": {
+      "s1": "growth in company engagement",
+      "s2": "active participating companies",
+      "s3": "companies — members of the Council",
+      "s4": "participating countries",
+      "s5": "international institutions (3 on the Executive Committee)",
+      "s6": "sectors of the economy"
+    },
+    "investEnvTitle": "DEVELOPMENT OF THE INVESTMENT ENVIRONMENT",
+    "investEnv": {
+      "s1": "growth in the number of working groups",
+      "s2": "working group meetings",
+      "s3": "initiatives (threefold growth)",
+      "s4": "legal acts developed with the Council's participation",
+      "s5": "strategic initiatives",
+      "s6": "social initiatives"
+    },
+    "legalActs": {
+      "title": "EIGHT LEGAL ACTS DEVELOPED WITH THE COUNCIL'S PARTICIPATION",
+      "subtitle": "Regulatory acts developed with the participation of the Foreign Investors Council",
+      "a1": "Draft Law on Alternative Investment Funds",
+      "a2": "Draft Presidential Resolution on the principles of responsible business conduct",
+      "a3": "Draft law on amendments to the Tax Code",
+      "a4": "Draft law on amendments to the Law on Electric Power",
+      "a5": "Draft Cabinet of Ministers resolution on the rules for the use of electricity and natural gas",
+      "a6": "Draft law on amendments to the Law \"On Public-Private Partnership\"",
+      "a7": "Draft Presidential Resolution on the reservation of land plots",
+      "a8": "Draft resolution on a financial accounting system based on international standards"
+    },
+    "strategic": {
+      "badge": "STRATEGIC INITIATIVE",
+      "description": "Creation of the Regional Alliance of Investment Councils of Central Asia and the Caucasus (RAIC-CAC) to form a competitive investment environment and cross-border coordination."
+    },
+    "reports": {
+      "title": "NEW APPROACHES — FIVE ANALYTICAL REPORTS",
+      "r1": { "cover": "Management Competencies in the Republic of Uzbekistan", "title": "Development of Management Competencies" },
+      "r2": { "cover": "Attracting Creative Investments: Global Experience and Its Adaptation in Uzbekistan", "title": "Creative Investments" },
+      "r3": { "cover": "Comprehensive Assessment of Investment Activity Effects", "title": "Comprehensive Assessment of Investment Activity Effects" },
+      "r4": { "cover": "Central Asia & Caucasus: Investment Priorities", "title": "Central Asia and the Caucasus: Investment Priorities" },
+      "r5": { "cover": "Closing the Loop: The Case for Circularity in a Linear World", "title": "Circular Economy" }
+    },
+    "initiativesPage": {
+      "title": "Initiatives",
+      "pageTitle": "INITIATIVES TO IMPROVE THE INVESTMENT CLIMATE",
+      "intro": "Each initiative is aimed at reforms in taxation and energy, investments, employment, and corporate governance.",
+      "colSession": "Session",
+      "colDocument": "Document",
+      "colGroups": "Working Groups",
+      "colInitiatives": "Initiatives",
+      "r1": {
+        "session": "I Plenary (2022)",
+        "document": "—",
+        "groups": "First thematic directions"
+      },
+      "r2": {
+        "session": "II Plenary (2024)",
+        "document": "ПП-179",
+        "groups": "Four groups: capital market and IFC · responsible business conduct · alternative investments · digitalization of investor relations"
+      },
+      "r3": {
+        "session": "III Plenary (2025)",
+        "document": "ПП-226",
+        "groups": "Interagency working groups; total number brought to 16"
+      },
+      "collected": {
+        "title": "NUMBER OF COLLECTED INITIATIVES (2025–2026)",
+        "subtitle": "Number of initiatives:",
+        "strategic": "Strategic Initiatives",
+        "energy": "Energy Sector",
+        "financial": "Financial Sector and Banking",
+        "taxes": "Taxes and Tax Administration",
+        "investClimate": "Improvement of the Investment Climate",
+        "corporate": "Corporate Governance",
+        "aiDigital": "Artificial Intelligence and Digital Economy",
+        "land": "Land Issues",
+        "alternative": "Alternative Investments",
+        "sustainable": "Sustainable Development",
+        "colInitiative": "Initiative",
+        "colSpeaker": "Speaker"
+      }
+    },
+    "investmentsPage": {
+      "title": "Investments",
+      "intro": "Dynamics of foreign direct investment into Uzbekistan and key indicators.",
+      "sectorsTitle": "Sectors for Investment",
+      "regionsTitle": "By Region",
+      "trendsTitle": "Growth Dynamics",
+      "macroEyebrow": "Macroeconomics",
+      "macroTitle": "Key Indicators",
+      "macroSub": "2025 Results",
+      "sectorsEyebrow": "Opportunity Sectors",
+      "sectorsIntro": "Priority directions with state support",
+      "guaranteesTitle": "Guarantees for Investors",
+      "guaranteesSub": "Legal and institutional protection of capital"
+    },
+    "documentsPage": {
+      "title": "Documents",
+      "pageTitle": "A single source of the Council's official documents: annual reports, meeting minutes, presidential decrees and founding materials.",
+      "pageSubtitle": "Analytical reports and thought-leadership materials are available in the «Publications» section.",
+      "intro": "Council resolutions, session protocols, reports and legal documents.",
+      "filterAll": "All",
+      "filterReports": "Annual reports",
+      "filterWgMinutes": "Working group minutes",
+      "filterDecrees": "Presidential decrees",
+      "filterCouncilMinutes": "Council minutes",
+      "filterCharters": "Founding documents",
+      "filterProtocols": "Protocols",
+      "downloadLabel": "Download",
+      "viewLabel": "View"
+    }
+  },
+  "eventsPage": {
+    "calendarTitle": "Events Calendar",
+    "calendarIntro": "Schedule of Council sessions, working group meetings, bilateral meetings and other official events.",
+    "upcoming": "Upcoming Events",
+    "past": "Past Events",
+    "filterAll": "All",
+    "types": {
+      "plenary": "Plenary Session",
+      "interim": "Interim Session",
+      "wgSession": "Working Group Session",
+      "meeting": "Meeting",
+      "weekly": "Weekly Results"
+    },
+    "plenaryPage": {
+      "title": "Plenary Sessions",
+      "intro": "The Council's principal events chaired by the President. Each session discusses reforms, takes key decisions and presents new investment initiatives.",
+      "keyDecisions": "Key Decisions",
+      "participants": "participants",
+      "initiatives": "initiatives"
+    },
+    "interimPage": {
+      "title": "Interim Sessions",
+      "intro": "Special meetings convened between plenary sessions to address urgent matters."
+    },
+    "wgSessionPage": {
+      "title": "Working Group Sessions",
+      "intro": "Regular meetings of each sectoral working group — discussing initiatives, receiving government responses and setting next steps."
+    },
+    "meetingsPage": {
+      "title": "Meetings",
+      "intro": "Bilateral and multilateral meetings between Council members, investors and government agencies."
+    },
+    "weeklyPage": {
+      "title": "Weekly Results",
+      "intro": "A weekly summary of Council activities — issues discussed, agreements reached and next steps."
+    },
+    "dateLabel": "Date",
+    "locationLabel": "Location",
+    "typeLabel": "Type",
+    "readMore": "Read more"
+  },
+  "mediaPage": {
+    "newsTitle": "News",
+    "newsIntro": "Latest news on the activities of the Foreign Investors Council, Uzbekistan's investment climate and economic reforms.",
+    "analyticsTitle": "Analytics & Articles",
+    "analyticsIntro": "Analytical articles by experts on Uzbekistan's economy, investment climate and reform processes.",
+    "interviewTitle": "Blitz Interviews",
+    "interviewIntro": "Short interviews with Council members and experts — their experience investing in Uzbekistan and future plans.",
+    "reportsTitle": "Reports",
+    "reportsIntro": "The Council's annual and special reports — analysis of the investment climate, working group results and recommendations.",
+    "categories": {
+      "all": "All",
+      "investment": "Investments",
+      "reforms": "Reforms",
+      "events": "Events",
+      "announcements": "Announcements"
+    },
+    "readMore": "Read more",
+    "downloadReport": "Download",
+    "publishedLabel": "Published",
+    "authorLabel": "Author",
+    "analyticsPage": {
+      "intro": "Research and analytical materials prepared by the FIC Secretariat, working group experts, and member companies on Uzbekistan's investment climate and economic reforms.",
+      "topics": {
+        "investment": "Investment",
+        "reform": "Reforms",
+        "macroeconomy": "Macroeconomy",
+        "sector": "Sector Brief"
+      }
+    },
+    "blitzPage": {
+      "intro": "Short interviews with FIC member company representatives, international organisation partners, and working group experts — their perspective on Uzbekistan's investment climate.",
+      "featured": "Featured Interview",
+      "readInterview": "Read Full Interview"
+    },
+    "reportsPage": {
+      "intro": "Official reports, protocols, and policy briefs published by the Foreign Investors Council — available for download.",
+      "categories": {
+        "annualReport": "Annual Report",
+        "plenary": "Plenary Protocol",
+        "wgReport": "WG Report",
+        "investment": "Investment Data",
+        "policy": "Policy Brief"
+      }
+    }
+  },
   "footer": {
     "phoneLabel": "Phone number",
     "emailLabel": "Email",
     "addressLabel": "Address",
     "copyright": "©2019-{year} – Foreign Investors' Council under the President of the Republic of Uzbekistan"
+  },
+  "wg": {
+    "johnZaidi": "John Zaidi",
+    "johnZaidiPos": "CEO of Acwa in Uzbekistan",
+    "johnZaidiText": "John Zaidi has over 25 years of experience in taxation, energy development, and investment infrastructure. He actively participates in promoting energy projects, introducing new technologies, and strengthening Uzbekistan's energy sector. He is a member of the Association of the Council of Foreign Investors of Kazakhstan and represents ACWA in the European Energy Companies Association. Previously, he worked in leading international energy corporations, including projects in the USA and Europe.",
+    "spartak": "Spartak Tetrashvili",
+    "spartakPos": "Chairman of the Board, TBC Bank Uzbekistan",
+    "spartakText": "Chairman of the Board of TBC Bank Uzbekistan, having taken office in December 2020. In Uzbekistan, Tetrashvili has a non-trivial and ambitious task: to establish TBC Bank Uzbekistan, the first fully digital bank in Uzbekistan, where there is not a single process behind which a person stands, and all services can be obtained through the application. Spartak believes that the TBC brand philosophy is about creating transparent, accessible and bold solutions.",
+    "sandro": "Sandro Rtveladze",
+    "sandroPos": "General Director of Ipoteka Bank OTP Group",
+    "sandroText": "Sandro Rtveladze is the General Director of Ipoteka Bank OTP Group. He has extensive experience in banking and financial sector management, having led major transformation initiatives at one of Uzbekistan's leading mortgage banks. Under his leadership, Ipoteka Bank has significantly expanded its retail and corporate banking services, driving digital transformation and strengthening partnerships with international financial institutions. Sandro actively contributes to talent development policy within the FIC working group, focusing on attracting qualified international professionals and building local human capital capacity.",
+    "sergey": "Sergey Salikov",
+    "sergeyPos": "Uzum, General Counsel",
+    "sergeyText": "Sergey Salikov — Uzum, General Counsel. Has over 12 years of experience supporting investment agreements, creating funds and holdings in various jurisdictions. He headed the legal block at the Russian Direct Investment Fund and was among those who supported M&A projects at Gazprombank.",
+    "gayana": "Gayana Umerova",
+    "gayanaPos": "Chairman of the Foundation for the Development of Culture and Arts of Uzbekistan under the Cabinet of Ministers",
+    "gayanaText": "Chairman of the Foundation for the Development of Culture and Arts of Uzbekistan under the Cabinet of Ministers of the Republic of Uzbekistan. Secretary General of the National Commission of Uzbekistan for UNESCO. Graduated from the School of Integrated Arts (West Yorkshire) in 2004 and Westminster International University in 2008 with a degree in Business Management. Has a Master's degree in Contemporary Art and Art Business from the University of Manchester.",
+    "erlan": "Erlan Dosymbekov",
+    "erlanPos": "EY, Managing Partner for the Caucasus and Central Asia",
+    "erlanText": "Erlan has over 25 years of experience in local and international taxation, tax efficiency, tax disputes and tax risk management. Erlan actively participates in projects to improve the business climate and investment attractiveness, oversees projects for the development of the institutional environment, infrastructure, decarbonization and clean technologies. He is Chairman of the Board of the Association 'Kazakhstan Council of Foreign Investors' and the European Business Association in Kazakhstan.",
+    "lazizPos": "Minister of Investments, Industry and Trade",
+    "lazizBio": "Laziz Kudratov has been the Minister of Investments, Industry and Trade of the Republic of Uzbekistan since December 2022. He has extensive experience in foreign economic relations and investment, holding important positions at the Ministry of Foreign Economic Relations, Investments and Trade and at the Embassy of Uzbekistan in the USA. Under his leadership, strategic reforms are being implemented aimed at increasing the country's investment attractiveness, developing industry, and stimulating foreign trade. By actively participating in international initiatives, the Minister contributes to Uzbekistan's integration into the global economy and strengthens its position in the global market.",
+    "kazbekPos": "Vision Invest Senior Vice President and Head of Representative Office in Uzbekistan",
+    "kazbekBio": "Kazbek Bassiyev is the senior vice president of Vision Invest and head of this company's representative office in Uzbekistan. He holds the position of Deputy Chairman of the Working Group, which indicates his important role in coordinating projects and interaction with government structures in the field of public-private partnership and investment. Vision Invest is a large infrastructure holding with assets in energy, water supply, construction, and transport, actively operating in Uzbekistan and Saudi Arabia. Bassiyev participates in the discussion and implementation of promising investment projects that contribute to the development of the country's economy and infrastructure."
   }
 }

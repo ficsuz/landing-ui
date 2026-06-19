@@ -33,8 +33,6 @@ export const websiteMenu: NavMenuItem[] = [
         labelKey: 'nav.workingGroups',
         children: [
             { labelKey: 'nav.overview', path: '/working-groups#overview' },
-            { labelKey: 'nav.councilWorkingGroups', path: '/working-groups#council-working-groups' },
-            { labelKey: 'nav.interagencyWorkingGroups', path: '/working-groups#interagency-working-groups' },
             { labelKey: 'nav.sessionOutcomes', path: '/working-groups#session-outcomes' },
         ],
     },

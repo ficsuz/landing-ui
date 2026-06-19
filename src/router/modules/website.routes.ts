@@ -113,6 +113,12 @@ const websiteRoutes: RouteRecordRaw[] = [
         meta: { title: 'Plenary sessions', titleKey: 'nav.plenarySessions', heroImage: eventsImg },
     },
     {
+        path: 'events/plenary-sessions/:id',
+        name: 'events-plenary-session-detail',
+        component: () => import('../../views/website/events/plenary-sessions/Detail.vue'),
+        meta: { title: 'Plenary session', titleKey: 'nav.plenarySessions', heroImage: eventsImg },
+    },
+    {
         path: 'events/interim-session',
         name: 'events-interim-session',
         component: () => import('../../views/website/events/interim-session/Index.vue'),

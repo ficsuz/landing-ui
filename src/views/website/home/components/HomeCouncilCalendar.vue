@@ -121,6 +121,7 @@
 
         <!-- All events button -->
         <div
+            v-if="showLearnMore"
             class="flex justify-center mt-8 transition-all duration-700 delay-300"
             :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
         >
@@ -131,6 +132,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+
+withDefaults(defineProps<{ showLearnMore?: boolean }>(), { showLearnMore: true })
 
 interface CalendarEvent {
     year: string

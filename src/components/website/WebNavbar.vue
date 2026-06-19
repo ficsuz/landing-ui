@@ -32,6 +32,9 @@
                                 :key="child.path"
                                 :to="child.path"
                                 class="web-navbar__dropdown-link"
+                                :class="{ 'is-active': isActive(child.path) }"
+                                active-class=""
+                                exact-active-class=""
                                 @click="openMenu = null"
                             >
                                 {{ $t(child.labelKey) }}
@@ -119,6 +122,9 @@
                                     <router-link
                                         :to="child.path"
                                         class="web-navbar__panel-link"
+                                        :class="{ 'is-active': isActive(child.path) }"
+                                        active-class=""
+                                        exact-active-class=""
                                         @click="closeAll"
                                     >
                                         {{ $t(child.labelKey) }}
@@ -159,7 +165,16 @@ const closeAll = () => {
 watch(() => route.path, closeAll)
 
 const isActive = (path: string) => {
-    const cleanPath = path.split('#')[0]
+    const hashIndex = path.indexOf('#')
+    if (hashIndex !== -1) {
+        const cleanPath = path.substring(0, hashIndex)
+        const hash = '#' + path.substring(hashIndex + 1)
+        const pathMatches = cleanPath === '/' ? route.path === '/' : route.path === cleanPath
+        if (!pathMatches) return false
+        if (route.hash) return route.hash === hash
+        return hash === '#overview'
+    }
+    const cleanPath = path
     return cleanPath === '/' ? route.path === '/' : route.path.startsWith(cleanPath)
 }
 
@@ -303,7 +318,7 @@ const isParentActive = (item: NavMenuItem) =>
 
         &:hover { background: #f2f4f7; color: #191c1f; }
 
-        &.router-link-exact-active {
+        &.is-active {
             background: #191c1f;
             color: #fff;
             font-weight: 600;
@@ -460,7 +475,7 @@ const isParentActive = (item: NavMenuItem) =>
 
         &:hover { background: rgba(255,255,255,0.06); color: #fff; }
 
-        &.router-link-exact-active {
+        &.is-active {
             background: rgba(255,255,255,0.1);
             color: #fff;
             font-weight: 600;

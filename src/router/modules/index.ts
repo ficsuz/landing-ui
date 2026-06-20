@@ -1,9 +1,16 @@
-import { RouteRecordRaw } from 'vue-router';
-import coursesRoutes from './courses.routes';
+import { RouteRecordRaw } from 'vue-router'
+import newsRoutes from './news.routes'
+import eventsRoutes from './events.routes'
+import mediaRoutes from './media.routes'
+import membersRoutes from './members.routes'
+import coursesRoutes from './courses.routes'
 
-// Combine all route modules
 const routeModules: RouteRecordRaw[] = [
-  ...coursesRoutes
-];
+    ...newsRoutes,
+    ...eventsRoutes,
+    ...mediaRoutes,
+    ...membersRoutes,
+    ...coursesRoutes,
+]
 
-export default routeModules;
+export default routeModules

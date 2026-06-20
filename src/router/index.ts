@@ -25,7 +25,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/admin',
     component: () => import('../layouts/MainLayout.vue'),
-    redirect: '/admin/courses',
+    redirect: '/admin/news',
     children: [
       ...adminRoutes
     ]

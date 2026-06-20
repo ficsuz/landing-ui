@@ -3,7 +3,14 @@
         <div class="h-[95vh] flex items-center justify-center">
             <div class="box w-full">
                 <div class="text-center mx-auto w-full max-w-[370px]">
-                    <LogoIcon class="mx-auto fixed top-8 left-8 max-w-[120px]" />
+                    <div class="flex items-center justify-center gap-3 mb-8">
+                        <LogoIcon class="w-14 h-14 flex-shrink-0" />
+                        <span class="text-left text-[11px] font-bold leading-[1.4] text-[#191c1f] tracking-wide uppercase">
+                            FOREIGN INVESTORS COUNCIL<br />
+                            UNDER THE PRESIDENT OF THE<br />
+                            REPUBLIC OF UZBEKISTAN
+                        </span>
+                    </div>
                     <h5 class="font-bold text-3xl text-primary">Tizimga kirish</h5>
                     <p class="text-base mb-6 mt-1 text-primary opacity-50">Tizimga kirish uchun login va parolingizni <br /> kiriting</p>
 

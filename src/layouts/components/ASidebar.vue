@@ -1,26 +1,35 @@
 <template>
     <aside class="flex relative flex-col justify-between px-4 py-7 mx-auto w-full bg-bg-2 border-r border-gray-200">
         <div>
-            <header class="flex items-center relative h-8 gap-5 pl-2 justify-between w-full">
-                <LogoIcon class="max-w-[90px]" />
+            <header class="flex items-center gap-3 pl-1">
+                <LogoIcon class="w-10 h-10 flex-shrink-0" />
+                <span v-if="!props.isCallapse" class="text-[8px] font-bold leading-[1.35] text-[#191c1f] tracking-wide uppercase">
+                    FOREIGN INVESTORS COUNCIL<br />
+                    UNDER THE PRESIDENT OF THE<br />
+                    REPUBLIC OF UZBEKISTAN
+                </span>
             </header>
             <nav class="mt-8">
-                <ul class="space-y-1">
-                    <template v-for="menu in menuItems" :key="menu.id">
-                        <li v-if="hasRole(menu.role)">
+                <ul class="space-y-0.5">
+                    <template v-for="(entry, i) in menuItems" :key="i">
+                        <!-- Group label -->
+                        <li v-if="entry.kind === 'group'" class="px-2 pt-5 pb-1 first:pt-0">
+                            <span v-if="!props.isCallapse" class="text-[10px] font-bold uppercase tracking-widest text-gray-400 select-none">
+                                {{ entry.title }}
+                            </span>
+                            <hr v-else class="border-gray-200 my-1" />
+                        </li>
+                        <!-- Nav link -->
+                        <li v-else-if="hasRole(entry.role)">
                             <router-link
-                                :to="menu.path"
+                                :to="entry.path"
                                 class="flex items-center gap-3 py-2.5 px-3 font-medium whitespace-nowrap rounded-md text-gray-700 transition-all hover:opacity-60"
-                                :class="{ 'bg-primary text-white': isMenuActive(menu.path) }"
+                                :class="{ 'bg-primary text-white': isMenuActive(entry.path) }"
                             >
-                                <div class="flex items-center justify-center w-6 h-6">
-                                    <Icon
-                                        size="20"
-                                        :color="isMenuActive(menu.path) ? '#FFFFFF' : '#667085'"
-                                        :name="`local-${menu.icon}`"
-                                    />
+                                <div class="flex items-center justify-center w-6 h-6 flex-shrink-0">
+                                    <Icon size="20" :color="isMenuActive(entry.path) ? '#FFFFFF' : '#667085'" :name="`local-${entry.icon}`" />
                                 </div>
-                                <span v-if="!props.isCallapse" class="flex-1 font-medium text-sm">{{ menu.title }}</span>
+                                <span v-if="!props.isCallapse" class="flex-1 font-medium text-sm">{{ entry.title }}</span>
                             </router-link>
                         </li>
                     </template>
@@ -31,7 +40,7 @@
         <div class="w-full border-t flex justify-between items-start pt-5">
             <div class="flex items-center gap-3">
                 <img width="40" height="40" src="@/assets/images/avatars/olivia.png" alt="avatar" />
-                <div>
+                <div v-if="!props.isCallapse">
                     <p class="text-[#344054] text-sm font-semibold">{{ user?.firstName + ' ' + user?.lastName }}</p>
                     <span class="text-[#475467] text-sm">{{ user?.username || '' }}</span>
                 </div>
@@ -68,20 +77,22 @@ const user = computed(() => usersStore.getUser)
 const isMenuActive = (path: string) => router.currentRoute.value.path.startsWith(path)
 
 const hasRole = (roles: string[]) => {
-  const userRole = user.value?.roles[0]?.name || 'admin'
-  return roles.includes(userRole)
+    const userRole = user.value?.roles[0]?.name || 'admin'
+    return roles.includes(userRole)
 }
 
 const logOut = async () => {
-  ElMessageBox.confirm('Tizimdan chiqishni xohlaysizmi?', 'Ogohlantirish', {
-    confirmButtonText: 'Ha',
-    cancelButtonText: "Yo'q",
-    type: 'warning',
-    draggable: true,
-  }).then(async () => {
-    await usersStore.logout()
-    router.push('/admin/login')
-  }).catch(() => {})
+    ElMessageBox.confirm('Tizimdan chiqishni xohlaysizmi?', 'Ogohlantirish', {
+        confirmButtonText: 'Ha',
+        cancelButtonText: "Yo'q",
+        type: 'warning',
+        draggable: true,
+    })
+        .then(async () => {
+            await usersStore.logout()
+            router.push('/admin/login')
+        })
+        .catch(() => {})
 }
 </script>
 

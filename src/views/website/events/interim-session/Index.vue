@@ -1,68 +1,59 @@
 <template>
-    <div class="interim-session-page">
-        <section class="bg-white py-16 md:py-24">
-            <div class="page-container">
-                <p class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-relaxed max-w-3xl mb-12">
-                    {{ $t('eventsPage.interimPage.intro') }}
-                </p>
+    <div class="bg-white py-16 md:py-24">
+        <div class="page-container">
 
-                <div class="flex flex-col gap-5">
+            <!-- Chronology section -->
+            <div>
+                <h2 class="font-black text-[13px] uppercase tracking-widest text-[#1a1e2e] mb-4">
+                    {{ $t('eventsPage.interimPage.chronology') }}
+                </h2>
+                <div class="border-t border-[#1a1e2e] mb-1" />
+
+                <!-- Table header (desktop only) -->
+                <div class="hidden md:grid md:grid-cols-[80px_160px_1fr_140px] gap-4 px-5 py-3">
+                    <span class="text-[11px] font-semibold uppercase tracking-widest text-[#8a94a6]">No.</span>
+                    <span class="text-[11px] font-semibold uppercase tracking-widest text-[#8a94a6]">{{ $t('common.date') }}</span>
+                    <span class="text-[11px] font-semibold uppercase tracking-widest text-[#8a94a6]">{{ $t('eventsPage.interimPage.note') }}</span>
+                    <span />
+                </div>
+
+                <!-- Rows -->
+                <div class="rounded-2xl border border-[#eef0f4] overflow-hidden">
                     <div
                         v-for="(session, i) in sessions"
-                        :key="i"
-                        class="rounded-2xl border border-[#eef0f4] bg-[#f7f8fa] p-6 md:p-7 hover:border-[#1a1e2e] hover:bg-white hover:shadow-[0_4px_24px_rgba(0,0,0,0.07)] transition-all duration-300"
+                        :key="session.id"
+                        class="px-5 py-5 md:py-6 flex flex-col md:grid md:grid-cols-[80px_160px_1fr_140px] gap-2 md:gap-4 md:items-center"
+                        :class="i < sessions.length - 1 ? 'border-b border-[#eef0f4]' : ''"
                     >
-                        <div class="flex flex-col md:flex-row md:items-start gap-5">
-                            <div class="flex-shrink-0 w-[72px] text-center hidden md:block">
-                                <p class="font-black text-[24px] text-[#1a1e2e] leading-none">{{ session.day }}</p>
-                                <p class="text-[12px] text-[#8a94a6] font-semibold">{{ session.month }}</p>
-                                <p class="text-[12px] text-[#8a94a6]">{{ session.year }}</p>
+                        <span class="font-black text-[15px] text-[#1a1e2e]">{{ session.code }}</span>
+                        <!-- Mobile label + value pairs -->
+                        <div class="md:contents">
+                            <div class="flex flex-col gap-0.5 md:contents">
+                                <span class="text-[10px] font-semibold uppercase tracking-widest text-[#8a94a6] md:hidden">{{ $t('common.date') }}</span>
+                                <span class="text-[14px] text-[#505a63]">{{ session.date }}</span>
                             </div>
-                            <div class="w-px bg-[#eef0f4] hidden md:block self-stretch" />
-                            <div class="flex-1">
-                                <p class="text-[11px] text-[#8a94a6] font-semibold mb-2 md:hidden">{{ session.day }} {{ session.month }} {{ session.year }}</p>
-                                <h3 class="font-bold text-[16px] text-[#1a1e2e] leading-snug mb-3">{{ session.title }}</h3>
-                                <p class="text-[14px] text-[#505a63] leading-relaxed mb-4">{{ session.summary }}</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span v-for="tag in session.tags" :key="tag"
-                                        class="text-[11px] font-semibold bg-[#1a1e2e]/8 text-[#1a1e2e] px-2.5 py-0.5 rounded-full">
-                                        {{ tag }}
-                                    </span>
-                                </div>
+                            <div class="flex flex-col gap-0.5 md:contents">
+                                <span class="text-[10px] font-semibold uppercase tracking-widest text-[#8a94a6] md:hidden">{{ $t('eventsPage.interimPage.note') }}</span>
+                                <span class="text-[14px] text-[#505a63] leading-snug">{{ session.note }}</span>
                             </div>
-                            <a v-if="session.protocol" href="#" class="flex-shrink-0 self-start inline-flex items-center gap-2 border border-[#d0d5dd] text-[#1a1e2e] text-[13px] font-semibold px-4 py-2.5 rounded-full hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e] transition-all duration-200">
-                                Protocol
-                            </a>
+                        </div>
+                        <div class="flex justify-start md:justify-end">
+                            <router-link
+                                v-if="session.hasDetail"
+                                :to="{ name: 'events-interim-session-detail', params: { id: session.id } }"
+                                class="inline-flex items-center px-5 py-2 rounded-full text-[13px] font-semibold border border-[#d0d5dd] text-[#1a1e2e] hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e] transition-all duration-200"
+                            >
+                                {{ $t('eventsPage.readMore') }}
+                            </router-link>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-const sessions = [
-    {
-        day: '25', month: 'Nov', year: '2026',
-        title: 'Interim Session — Investment Climate Update Q3 2026',
-        summary: 'Review of implementation status of III Plenary Session decisions. New initiatives from the Digital Economy and Energy working groups presented to government representatives.',
-        tags: ['Investment Climate', 'Digital Economy', 'Energy'],
-        protocol: false,
-    },
-    {
-        day: '19', month: 'Nov', year: '2025',
-        title: 'Interim Session — Post-Association Establishment',
-        summary: 'First session following the formal registration of the FIC Association. Review of working group restructuring under PP-226 and approval of Secretariat operational plan.',
-        tags: ['PP-226', 'Working Groups', 'Association', 'Secretariat'],
-        protocol: true,
-    },
-    {
-        day: '20', month: 'Nov', year: '2019',
-        title: 'First Interim Session — Council Launch',
-        summary: 'Inaugural interim session following establishment of the Foreign Investors Council by Presidential Resolution PP-4519. Governance structure, membership and priority areas discussed.',
-        tags: ['PP-4519', 'Inaugural', 'Governance'],
-        protocol: true,
-    },
-]
+import { interimSessions as sessions } from './interimSessionsData'
 </script>

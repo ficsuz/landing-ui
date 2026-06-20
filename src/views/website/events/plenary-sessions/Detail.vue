@@ -131,7 +131,7 @@
         </div>
     </div>
 
-    <div v-else class="py-24 text-center text-[#8a94a6]">Session not found</div>
+    <div v-else class="py-24 text-center text-[#8a94a6]">{{ $t('eventsPage.sessionNotFound') }}</div>
 </template>
 
 <script setup lang="ts">

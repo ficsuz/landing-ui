@@ -10,16 +10,16 @@
                 <div class="flex flex-wrap gap-2 mb-10">
                     <button
                         v-for="f in wgFilters"
-                        :key="f"
-                        @click="activeWg = f"
+                        :key="f.key"
+                        @click="activeWg = f.key"
                         :class="[
                             'px-4 py-2 rounded-full text-[13px] font-semibold border transition-all duration-200',
-                            activeWg === f
+                            activeWg === f.key
                                 ? 'bg-[#1a1e2e] text-white border-[#1a1e2e]'
                                 : 'bg-white text-[#344054] border-[#d0d5dd] hover:border-[#1a1e2e]'
                         ]"
                     >
-                        {{ f }}
+                        {{ f.label }}
                     </button>
                 </div>
 
@@ -28,18 +28,21 @@
                     <div
                         v-for="(session, i) in filteredSessions"
                         :key="i"
-                        class="rounded-2xl border border-[#eef0f4] p-6 hover:border-[#1a1e2e] hover:bg-[#f7f8fa] transition-all duration-200"
+                        class="rounded-2xl border border-[#eef0f4] p-5 md:p-6 hover:border-[#1a1e2e] hover:bg-[#f7f8fa] transition-all duration-200"
                     >
                         <div class="flex flex-col md:flex-row md:items-center gap-4">
                             <div class="flex-1 min-w-0">
-                                <div class="flex items-center gap-2 mb-2">
+                                <div class="flex flex-wrap items-center gap-2 mb-2">
                                     <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#1a1e2e]/8 text-[#1a1e2e]">
                                         {{ session.wg }}
                                     </span>
                                     <span class="text-[11px] text-[#8a94a6]">{{ session.date }}</span>
                                 </div>
                                 <h3 class="font-bold text-[15px] text-[#1a1e2e] leading-snug mb-1">{{ session.title }}</h3>
-                                <p class="text-[13px] text-[#8a94a6]">{{ session.outcomes }} initiatives discussed · {{ session.participants }} participants</p>
+                                <p class="text-[13px] text-[#8a94a6]">
+                                    {{ session.outcomes }} {{ $t('eventsPage.wgSessionPage.initiativesDiscussed') }}
+                                    · {{ session.participants }} {{ $t('eventsPage.wgSessionPage.participantsLabel') }}
+                                </p>
                             </div>
                             <a href="#" class="flex-shrink-0 inline-flex items-center gap-2 border border-[#d0d5dd] text-[#1a1e2e] text-[13px] font-semibold px-4 py-2.5 rounded-full hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e] transition-all duration-200">
                                 {{ $t('eventsPage.readMore') }}
@@ -54,8 +57,20 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const wgFilters = ['All', 'Energy', 'Digital Economy', 'Finance', 'Infrastructure', 'Agriculture', 'Legal Reform']
+const { t } = useI18n()
+
+const wgFilters = computed(() => [
+    { key: 'All', label: t('eventsPage.wgSessionPage.filters.all') },
+    { key: 'Energy', label: t('eventsPage.wgSessionPage.filters.energy') },
+    { key: 'Digital Economy', label: t('eventsPage.wgSessionPage.filters.digitalEconomy') },
+    { key: 'Finance', label: t('eventsPage.wgSessionPage.filters.finance') },
+    { key: 'Infrastructure', label: t('eventsPage.wgSessionPage.filters.infrastructure') },
+    { key: 'Agriculture', label: t('eventsPage.wgSessionPage.filters.agriculture') },
+    { key: 'Legal Reform', label: t('eventsPage.wgSessionPage.filters.legalReform') },
+])
+
 const activeWg = ref('All')
 
 const sessions = [

@@ -125,6 +125,12 @@ const websiteRoutes: RouteRecordRaw[] = [
         meta: { title: 'Interim session', titleKey: 'nav.interimSession', heroImage: eventsImg },
     },
     {
+        path: 'events/interim-session/:id',
+        name: 'events-interim-session-detail',
+        component: () => import('../../views/website/events/interim-session/Detail.vue'),
+        meta: { title: 'Interim session', titleKey: 'nav.interimSession', heroImage: eventsImg, noHero: true },
+    },
+    {
         path: 'events/working-group-session',
         name: 'events-working-group-session',
         component: () => import('../../views/website/events/working-group-session/Index.vue'),

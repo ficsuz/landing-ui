@@ -625,11 +625,27 @@
     },
     "interimPage": {
       "title": "Interim Sessions",
-      "intro": "Special meetings convened between plenary sessions to address urgent matters."
+      "intro": "Special meetings convened between plenary sessions to address urgent matters.",
+      "chronology": "Chronology",
+      "note": "Note",
+      "roadmapTitle": "Roadmap by Working Group (21 Initiatives)",
+      "initiativesTitle": "Strategic Initiatives of the Session",
+      "legalBasis": "Legal Basis"
     },
     "wgSessionPage": {
       "title": "Working Group Sessions",
-      "intro": "Regular meetings of each sectoral working group — discussing initiatives, receiving government responses and setting next steps."
+      "intro": "Regular meetings of each sectoral working group — discussing initiatives, receiving government responses and setting next steps.",
+      "filters": {
+        "all": "All",
+        "energy": "Energy",
+        "digitalEconomy": "Digital Economy",
+        "finance": "Finance",
+        "infrastructure": "Infrastructure",
+        "agriculture": "Agriculture",
+        "legalReform": "Legal Reform"
+      },
+      "initiativesDiscussed": "initiatives discussed",
+      "participantsLabel": "participants"
     },
     "meetingsPage": {
       "title": "Meetings",
@@ -637,8 +653,13 @@
     },
     "weeklyPage": {
       "title": "Weekly Results",
-      "intro": "A weekly summary of Council activities — issues discussed, agreements reached and next steps."
+      "intro": "A weekly summary of Council activities — issues discussed, agreements reached and next steps.",
+      "sectionTitle": "Weekly Results of the Foreign Investors Council",
+      "cardLabel": "Weekly Results",
+      "cardTitle": "Key Events of the Week",
+      "viewMore": "View more"
     },
+    "sessionNotFound": "Session not found",
     "dateLabel": "Date",
     "locationLabel": "Location",
     "typeLabel": "Type",

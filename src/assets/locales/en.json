@@ -64,7 +64,8 @@
     "status": "Status",
     "actions": "Actions",
     "learnMore": "Learn more",
-    "viewDocuments": "View Documents"
+    "viewDocuments": "View Documents",
+    "comingSoon": "Coming Soon"
   },
   "contact": {
     "title": "Contacts",
@@ -645,11 +646,15 @@
         "legalReform": "Legal Reform"
       },
       "initiativesDiscussed": "initiatives discussed",
-      "participantsLabel": "participants"
+      "participantsLabel": "participants",
+      "emptyTitle": "Coming Soon",
+      "emptyText": "Working group session materials are being prepared. Please check back later."
     },
     "meetingsPage": {
       "title": "Meetings",
-      "intro": "Bilateral and multilateral meetings between Council members, investors and government agencies."
+      "intro": "Bilateral and multilateral meetings between Council members, investors and government agencies.",
+      "emptyTitle": "Coming Soon",
+      "emptyText": "Meeting materials are being prepared. Please check back later."
     },
     "weeklyPage": {
       "title": "Weekly Results",
@@ -695,12 +700,19 @@
       }
     },
     "blitzPage": {
+      "title": "Blitz Interview",
+      "description": "A series of short video interviews with the heads of companies — members of the Council. Participants answer four questions: what is their business in Uzbekistan; what is the country's key competitive advantage; their success story; the main challenge for development.",
       "intro": "Short interviews with FIC member company representatives, international organisation partners, and working group experts — their perspective on Uzbekistan's investment climate.",
       "featured": "Featured Interview",
       "readInterview": "Read Full Interview"
     },
     "reportsPage": {
       "intro": "Official reports, protocols, and policy briefs published by the Foreign Investors Council — available for download.",
+      "quote": "Our main goal is for Uzbekistan to become a reliable and long-term partner for foreign investors.",
+      "newApproaches": {
+        "label": "Featured Series",
+        "title": "New Approaches — Five Analytical Reports"
+      },
       "categories": {
         "annualReport": "Annual Report",
         "plenary": "Plenary Protocol",

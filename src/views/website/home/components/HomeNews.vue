@@ -26,7 +26,7 @@
                     @click="$router.push(item.link || '/media')"
                 >
                     <!-- Image -->
-                    <div class="relative overflow-hidden rounded-xl aspect-[16/10]">
+                    <div class="relative overflow-hidden rounded-xl aspect-[16/10] [transform:translateZ(0)]">
                         <img
                             :src="item.image"
                             :alt="item.title"
@@ -34,9 +34,7 @@
                         />
                         <!-- Category badge -->
                         <div class="absolute top-3 left-3">
-                            <span
-                                class="bg-[#1a1e2e]/80 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1 rounded-full tracking-wide uppercase"
-                            >
+                            <span class="bg-[#1a1e2e]/80 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1 rounded-full tracking-wide uppercase">
                                 {{ item.category }}
                             </span>
                         </div>
@@ -44,9 +42,7 @@
 
                     <!-- Content -->
                     <div class="flex flex-col flex-1 px-2 pt-4 pb-2">
-                        <h3
-                            class="font-bold text-[15px] text-[#1a1e2e] leading-snug mb-2 line-clamp-2 group-hover:text-[#2563eb] transition-colors duration-200"
-                        >
+                        <h3 class="font-bold text-[15px] text-[#1a1e2e] leading-snug mb-2 line-clamp-2 group-hover:text-[#2563eb] transition-colors duration-200">
                             {{ item.title }}
                         </h3>
                         <p class="text-[13px] text-[#8a94a6] leading-relaxed line-clamp-2 mb-4 flex-1">
@@ -56,19 +52,9 @@
                         <!-- Footer -->
                         <div class="flex items-center justify-between pt-4 border-t border-[#eef0f4]">
                             <span class="text-[12px] text-[#b0b8c6] font-medium">{{ item.date }}</span>
-                            <span
-                                class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#1a1e2e] group-hover:text-[#2563eb] transition-all duration-200"
-                            >
+                            <span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#1a1e2e] group-hover:text-[#2563eb] transition-all duration-200">
                                 {{ $t('common.learnMore') }}
-                                <svg
-                                    class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                >
+                                <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </span>
@@ -82,13 +68,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-import { useRouter } from 'vue-router'
 
 import img1 from '@/assets/images/hero/ATM_9764.jpg'
 import img2 from '@/assets/images/hero/SUT_7962.jpg'
 import img3 from '@/assets/images/hero/about-blog.jpg'
-
-const router = useRouter()
 
 interface NewsItem {
     id: number

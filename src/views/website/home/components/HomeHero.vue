@@ -107,28 +107,58 @@ let currentSlide = 0
 let isAnimating = false
 let touchStartY = 0
 let slide3Timer: ReturnType<typeof setTimeout> | null = null
+let snapLock = false
+let scrollDebounceTimer: ReturnType<typeof setTimeout> | null = null
+let scrollListenerEl: HTMLElement | null = null
 
 const q1 = () => gsap.utils.selector(content1.value)
 const q2 = () => gsap.utils.selector(content2.value)
 const q3 = () => gsap.utils.selector(content3.value)
 
-const scrollToNextSection = () => {
-    if (!sceneEl.value) return
-    let parent = sceneEl.value.parentElement
-    while (parent && parent !== document.documentElement) {
-        const { overflowY } = window.getComputedStyle(parent)
-        if (overflowY === 'auto' || overflowY === 'scroll') {
-            const heroRect = sceneEl.value.getBoundingClientRect()
-            const parentRect = parent.getBoundingClientRect()
-            const targetScrollTop = parent.scrollTop + heroRect.bottom - parentRect.top
-            if (parent.scrollTop < targetScrollTop) {
-                parent.scrollTo({ top: targetScrollTop, behavior: 'smooth' })
-            }
-            return
-        }
-        parent = parent.parentElement
+const findScrollParent = (): HTMLElement | null => {
+    let p = sceneEl.value?.parentElement
+    while (p && p !== document.documentElement) {
+        const { overflowY } = window.getComputedStyle(p)
+        if (overflowY === 'auto' || overflowY === 'scroll') return p
+        p = p.parentElement
     }
+    return null
+}
+
+const scrollToNextSection = () => {
+    const parent = findScrollParent()
+    if (parent && sceneEl.value) {
+        const heroRect = sceneEl.value.getBoundingClientRect()
+        const parentRect = parent.getBoundingClientRect()
+        const targetScrollTop = parent.scrollTop + heroRect.bottom - parentRect.top
+        if (parent.scrollTop < targetScrollTop) {
+            snapLock = true
+            parent.scrollTo({ top: targetScrollTop, behavior: 'smooth' })
+            setTimeout(() => { snapLock = false }, 800)
+        }
+        return
+    }
+    snapLock = true
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
+    setTimeout(() => { snapLock = false }, 800)
+}
+
+const handleParentScroll = () => {
+    if (!sceneEl.value || snapLock) return
+    const sp = findScrollParent()
+    const scrollTop = sp ? sp.scrollTop : window.scrollY
+    const heroHeight = sceneEl.value.offsetHeight
+    if (scrollTop > 0 && scrollTop < heroHeight) {
+        if (scrollDebounceTimer) clearTimeout(scrollDebounceTimer)
+        scrollDebounceTimer = setTimeout(() => {
+            const sp2 = findScrollParent()
+            if (sp2) {
+                sp2.scrollTo({ top: 0, behavior: 'smooth' })
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+            }
+        }, 150)
+    }
 }
 
 const goToSlide = (index: number) => {
@@ -179,7 +209,7 @@ const goToSlide = (index: number) => {
         tl.to(dot2.value, { width: 8, backgroundColor: 'rgba(26,30,46,0.2)', duration: 0.3 }, 0.1)
         tl.to(dot3.value, { width: 24, backgroundColor: '#1a1e2e', duration: 0.3 }, 0.1)
         tl.call(() => {
-            slide3Timer = setTimeout(scrollToNextSection, 3000)
+            slide3Timer = setTimeout(scrollToNextSection, 2000)
         })
     } else if (index === 1 && prev === 2) {
         // slide 3 → slide 2
@@ -247,13 +277,26 @@ onMounted(() => {
     sceneEl.value?.addEventListener('wheel', handleWheel, { passive: false })
     sceneEl.value?.addEventListener('touchstart', handleTouchStart, { passive: true })
     sceneEl.value?.addEventListener('touchend', handleTouchEnd, { passive: true })
+
+    scrollListenerEl = findScrollParent()
+    if (scrollListenerEl) {
+        scrollListenerEl.addEventListener('scroll', handleParentScroll, { passive: true })
+    } else {
+        window.addEventListener('scroll', handleParentScroll, { passive: true })
+    }
 })
 
 onUnmounted(() => {
     if (slide3Timer) clearTimeout(slide3Timer)
+    if (scrollDebounceTimer) clearTimeout(scrollDebounceTimer)
     sceneEl.value?.removeEventListener('wheel', handleWheel)
     sceneEl.value?.removeEventListener('touchstart', handleTouchStart)
     sceneEl.value?.removeEventListener('touchend', handleTouchEnd)
+    if (scrollListenerEl) {
+        scrollListenerEl.removeEventListener('scroll', handleParentScroll)
+    } else {
+        window.removeEventListener('scroll', handleParentScroll)
+    }
 })
 </script>
 

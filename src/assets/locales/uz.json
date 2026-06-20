@@ -64,7 +64,8 @@
     "status": "Holat",
     "actions": "Amallar",
     "learnMore": "Batafsil",
-    "viewDocuments": "Hujjatlarni ko'rish"
+    "viewDocuments": "Hujjatlarni ko'rish",
+    "comingSoon": "Tez kunda"
   },
   "contact": {
     "title": "Kontaktlar",
@@ -645,11 +646,15 @@
         "legalReform": "Huquqiy islohot"
       },
       "initiativesDiscussed": "tashabbus muhokama qilindi",
-      "participantsLabel": "ishtirokchi"
+      "participantsLabel": "ishtirokchi",
+      "emptyTitle": "Tez kunda",
+      "emptyText": "Ishchi guruh sessiyalari ma'lumotlari tayyorlanmoqda. Iltimos, keyinroq tashrif buyuring."
     },
     "meetingsPage": {
       "title": "Uchrashuvlar",
-      "intro": "Kengash a'zolari, investorlar va davlat idoralari o'rtasidagi ikki tomonlama va ko'p tomonlama uchrashuvlar."
+      "intro": "Kengash a'zolari, investorlar va davlat idoralari o'rtasidagi ikki tomonlama va ko'p tomonlama uchrashuvlar.",
+      "emptyTitle": "Tez kunda",
+      "emptyText": "Uchrashuvlar ma'lumotlari tayyorlanmoqda. Iltimos, keyinroq tashrif buyuring."
     },
     "weeklyPage": {
       "title": "Haftalik natijalar",
@@ -695,12 +700,19 @@
       }
     },
     "blitzPage": {
+      "title": "Blits-intervyu",
+      "description": "Kengash a'zosi kompaniyalar rahbarlari bilan qisqa video intervyular seriyasi. Ishtirokchilar to'rtta savolga javob beradilar: O'zbekistondagi bizneslari haqida; mamlakat asosiy raqobat afzalligi; muvaffaqiyat tarixi; rivojlanishdagi asosiy muammo.",
       "intro": "FIC a'zo kompaniyalari vakillari, xalqaro tashkilotlar vakillari va ishchi guruh ekspertlari bilan qisqa intervyular — O'zbekistondagi investitsiya muhiti haqida ularning fikrlari.",
       "featured": "Tanlangan Intervyu",
       "readInterview": "To'liq o'qish"
     },
     "reportsPage": {
       "intro": "Xorijiy Investorlar Kengashining rasmiy hisobotlari, bayonnomalar va siyosat hujjatlari — yuklab olish uchun mavjud.",
+      "quote": "Asosiy maqsadimiz — O'zbekistonni xorijiy investorlar uchun ishonchli va uzoq muddatli hamkorga aylantirishdir.",
+      "newApproaches": {
+        "label": "Tanlangan seriya",
+        "title": "Yangi yondashuvlar — beshta tahliliy hisobot"
+      },
       "categories": {
         "annualReport": "Yillik Hisobot",
         "plenary": "Plenar Bayonnoma",

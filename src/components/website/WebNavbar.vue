@@ -48,7 +48,7 @@
                                 :key="child.path"
                                 :to="child.path"
                                 class="web-navbar__dropdown-link"
-                                :class="{ 'is-active': isActive(child.path) }"
+                                :class="{ 'is-active': isActive(child.path, item.children?.map(c => c.path)) }"
                                 active-class=""
                                 exact-active-class=""
                                 @click="openMenu = null"
@@ -152,7 +152,7 @@
                                     <router-link
                                         :to="child.path"
                                         class="web-navbar__panel-link"
-                                        :class="{ 'is-active': isActive(child.path) }"
+                                        :class="{ 'is-active': isActive(child.path, item.children?.map(c => c.path)) }"
                                         active-class=""
                                         exact-active-class=""
                                         @click="closeAll"
@@ -199,7 +199,8 @@ watch(() => route.path, closeAll)
 // Regular paths: exact match only — prevents sibling routes from appearing active simultaneously.
 // Detail pages (e.g. /events/plenary-sessions/1): also matched via startsWith when
 // the remaining segment contains no '/' (one level deep, ID-like).
-const isActive = (path: string): boolean => {
+// siblings: explicit child paths — if current route matches one of them, skip detail matching.
+const isActive = (path: string, siblings?: string[]): boolean => {
     const hashIndex = path.indexOf('#')
     if (hashIndex !== -1) {
         const cleanPath = path.substring(0, hashIndex)
@@ -213,7 +214,11 @@ const isActive = (path: string): boolean => {
     if (route.path === path) return true
     // Match detail sub-pages (/path/123) but NOT named sibling routes (/path/sub)
     const suffix = route.path.slice(path.length)
-    if (suffix.startsWith('/') && !suffix.slice(1).includes('/')) return true
+    if (suffix.startsWith('/') && !suffix.slice(1).includes('/')) {
+        // If the current route exactly matches a known sibling, it's not a detail page
+        if (siblings?.includes(route.path)) return false
+        return true
+    }
     return false
 }
 

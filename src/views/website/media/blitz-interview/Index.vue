@@ -1,153 +1,241 @@
 <template>
-    <div class="blitz-interview-page">
-        <section class="bg-white py-12 md:py-16">
-            <div class="page-container">
-                <p class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-relaxed max-w-3xl mb-12">
-                    {{ $t('mediaPage.blitzPage.intro') }}
-                </p>
+    <div class="blitz-page bg-white py-12 md:py-16">
+        <div class="page-container">
 
-                <!-- Featured interview -->
-                <div class="rounded-2xl overflow-hidden border border-[#1a1e2e] mb-10 bg-[#1a1e2e] text-white">
-                    <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr]">
-                        <!-- Photo column -->
-                        <div class="aspect-[3/4] lg:aspect-auto lg:min-h-[340px] bg-[#2a2e3e] relative overflow-hidden">
-                            <div class="absolute inset-0 flex items-end p-6">
-                                <div class="w-20 h-20 rounded-full bg-white/10 border-2 border-white/30 flex items-center justify-center text-[28px] font-black text-white">
-                                    {{ featuredInterview.initials }}
+            <!-- Intro -->
+            <div class="mb-12 md:mb-16 max-w-2xl">
+                <h2 class="section-title mb-5">{{ $t('mediaPage.blitzPage.title') }}</h2>
+                <p class="text-[clamp(15px,1.3vw,18px)] text-[#505a63] leading-relaxed">
+                    {{ $t('mediaPage.blitzPage.description') }}
+                </p>
+            </div>
+
+            <!-- Cards grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+                <div
+                    v-for="item in voices"
+                    :key="item.id"
+                    class="cursor-pointer group"
+                    @click="openVideo(item)"
+                >
+                    <div class="relative rounded-2xl overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.08)] group-hover:shadow-[0_12px_40px_rgba(0,0,0,0.16)] group-hover:-translate-y-1 transition-all duration-300 [transform:translateZ(0)]">
+                        <div class="relative aspect-[3/4]">
+                            <!-- Thumbnail -->
+                            <img
+                                :src="item.thumbnail"
+                                :alt="item.name"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+
+                            <!-- Gradient overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/50 pointer-events-none" />
+
+                            <!-- Play button -->
+                            <div class="absolute top-4 left-1/2 -translate-x-1/2">
+                                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-white transition-all duration-200">
+                                    <svg class="w-4 h-4 md:w-5 md:h-5 text-[#1a1e2e] ml-0.5" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Content -->
-                        <div class="p-7 md:p-10 flex flex-col justify-center">
-                            <span class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-white/10 text-white/70 w-fit mb-4">
-                                {{ $t('mediaPage.blitzPage.featured') }}
-                            </span>
-                            <blockquote class="text-[clamp(17px,1.8vw,22px)] font-semibold leading-snug text-white mb-6 italic">
-                                "{{ featuredInterview.quote }}"
-                            </blockquote>
-                            <div class="mb-6">
-                                <p class="font-bold text-white text-[15px]">{{ featuredInterview.name }}</p>
-                                <p class="text-white/60 text-[13px]">{{ featuredInterview.role }}</p>
-                                <p class="text-white/40 text-[12px] mt-1">{{ featuredInterview.company }} · {{ featuredInterview.date }}</p>
-                            </div>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span v-for="tag in featuredInterview.topics" :key="tag"
-                                    class="text-[11px] font-semibold bg-white/10 text-white/70 px-2.5 py-0.5 rounded-full">
-                                    {{ tag }}
+
+                            <!-- BLITZ badge -->
+                            <div class="absolute top-4 right-3">
+                                <span class="text-[8px] md:text-[9px] font-bold tracking-widest uppercase bg-[#1a1e2e]/70 backdrop-blur-sm text-white px-2 py-0.5 rounded-sm">
+                                    BLITZ
                                 </span>
                             </div>
-                            <a href="#" class="self-start inline-flex items-center gap-2 border border-white/30 text-white font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-white hover:text-[#1a1e2e] transition-all duration-200">
-                                {{ $t('mediaPage.blitzPage.readInterview') }}
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Interview grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-                    <div
-                        v-for="(interview, i) in interviews"
-                        :key="i"
-                        class="rounded-2xl border border-[#eef0f4] bg-[#f7f8fa] p-6 flex flex-col gap-5 hover:border-[#1a1e2e] hover:bg-white hover:shadow-[0_4px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300"
-                    >
-                        <!-- Interviewer -->
-                        <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 rounded-full bg-[#1a1e2e] flex items-center justify-center text-white font-black text-[16px] shrink-0">
-                                {{ interview.initials }}
+                            <!-- Info box -->
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5 md:bottom-3 md:left-3 md:right-3 bg-white rounded-xl p-2.5 md:p-3 shadow-xl">
+                                <!-- Org row -->
+                                <div class="flex items-center gap-1.5 mb-1.5">
+                                    <img
+                                        v-if="item.org_logo"
+                                        :src="item.org_logo"
+                                        :alt="item.organization"
+                                        class="h-[14px] md:h-[18px] object-contain shrink-0"
+                                    />
+                                    <span
+                                        v-else
+                                        class="text-[8px] md:text-[9px] font-extrabold tracking-wide uppercase px-1.5 py-0.5 rounded shrink-0"
+                                        :style="{ background: item.org_color + '25', color: item.org_color }"
+                                    >
+                                        {{ item.org_short }}
+                                    </span>
+                                    <span class="text-[8px] md:text-[9px] font-semibold text-[#8a94a6] uppercase tracking-wide leading-tight line-clamp-1">
+                                        {{ item.organization }}
+                                    </span>
+                                </div>
+                                <p class="font-bold text-[11px] md:text-[13px] text-[#1a1e2e] leading-snug line-clamp-1">{{ item.name }}</p>
+                                <p class="text-[10px] md:text-[11px] text-[#8a94a6] leading-snug mt-0.5 line-clamp-2">{{ item.position }}</p>
                             </div>
-                            <div>
-                                <p class="font-bold text-[14px] text-[#1a1e2e]">{{ interview.name }}</p>
-                                <p class="text-[12px] text-[#8a94a6]">{{ interview.role }}</p>
-                                <p class="text-[11px] text-[#8a94a6]/70">{{ interview.company }}</p>
-                            </div>
-                        </div>
-
-                        <!-- Quote -->
-                        <blockquote class="text-[14px] text-[#505a63] leading-relaxed italic flex-1 border-l-2 border-[#1a1e2e]/20 pl-4">
-                            "{{ interview.quote }}"
-                        </blockquote>
-
-                        <!-- Topics -->
-                        <div class="flex flex-wrap gap-1.5">
-                            <span v-for="tag in interview.topics" :key="tag"
-                                class="text-[10px] font-semibold bg-[#1a1e2e]/6 text-[#1a1e2e] px-2 py-0.5 rounded-full">
-                                {{ tag }}
-                            </span>
-                        </div>
-
-                        <!-- Footer -->
-                        <div class="flex items-center justify-between pt-4 border-t border-[#eef0f4]">
-                            <span class="text-[11px] text-[#8a94a6]">{{ interview.date }}</span>
-                            <a href="#" class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#1a1e2e] hover:gap-3 transition-all duration-200">
-                                {{ $t('mediaPage.readMore') }}
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+
+        </div>
+
+        <!-- Video modal -->
+        <Teleport to="body">
+            <Transition name="iv-fade">
+                <div
+                    v-if="activeVideo"
+                    class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-6"
+                    @click.self="activeVideo = null"
+                >
+                    <div class="relative w-full max-w-4xl rounded-2xl overflow-hidden bg-black shadow-2xl">
+                        <button
+                            class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
+                            @click="activeVideo = null"
+                        >
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <div class="aspect-video">
+                            <iframe
+                                v-if="activeVideo.video_url"
+                                :src="activeVideo.video_url"
+                                class="w-full h-full"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen
+                                frameborder="0"
+                            />
+                            <div v-else class="w-full h-full flex items-center justify-center text-white/50 text-sm">
+                                {{ $t('common.noData') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Transition>
+        </Teleport>
     </div>
 </template>
 
 <script setup lang="ts">
-const featuredInterview = {
-    name:     'Jean-Marc Peterschmitt',
-    initials: 'JP',
-    role:     'Resident Representative, EBRD Uzbekistan',
-    company:  'EBRD',
-    date:     'September 2026',
-    quote:    'Uzbekistan has made a decade\'s worth of reform progress in three years. The Foreign Investors Council is one of the most effective structured dialogue mechanisms we have seen in any transition economy.',
-    topics:   ['Investment Climate', 'Reform Progress', 'EBRD Outlook'],
+import { ref } from 'vue'
+
+import adbLogo         from '@/assets/images/brands/adb.png'
+import ifcLogo         from '@/assets/images/brands/ifc.png'
+import energyChinaLogo from '@/assets/images/brands/energy-china.png'
+
+import thumb1 from '@/assets/images/planery-session/info2_1.png'
+import thumb2 from '@/assets/images/planery-session/info2_2.png'
+import thumb3 from '@/assets/images/planery-session/info2_3.png'
+import thumb4 from '@/assets/images/planery-session/info2_4.png'
+import thumb5 from '@/assets/images/planery-session/info2_5.png'
+import thumb6 from '@/assets/images/planery-session/info2_6.png'
+import thumb7 from '@/assets/images/planery-session/info2_7.png'
+import thumb8 from '@/assets/images/planery-session/info2_8.png'
+
+interface Voice {
+    id: number
+    name: string
+    position: string
+    organization: string
+    org_short: string
+    org_color: string
+    org_logo?: string
+    thumbnail: string
+    video_url: string
 }
 
-const interviews = [
+const voices = ref<Voice[]>([
     {
-        name: 'Aziz Voitov',         initials: 'AV',
-        role: 'Executive Director',  company: 'FIC Association',
-        date: 'August 2026',
-        quote: 'The transition to a legal entity status for our Secretariat gives us tools we simply did not have before — we can now contract, hold accounts, and represent members formally in government dialogue.',
-        topics: ['Secretariat', 'Governance', 'PP-226'],
+        id: 1,
+        name: 'Kanokpan Lao-Araya',
+        position: 'Country Director for Uzbekistan, Asian Development Bank',
+        organization: 'Asian Development Bank',
+        org_short: 'ADB',
+        org_color: '#e3002a',
+        org_logo: adbLogo,
+        thumbnail: thumb1,
+        video_url: '',
     },
     {
-        name: 'Vladislav Pak',        initials: 'VP',
-        role: 'Head of Legal',        company: 'FIC Secretariat',
-        date: 'July 2026',
-        quote: 'Our working groups are not advisory bodies — they are implementation engines. The legal reform track that started as a recommendation two years ago is now literally written into the new Commercial Procedure Code.',
-        topics: ['Legal Reform', 'Working Groups', 'Advocacy'],
+        id: 2,
+        name: 'Neil McKain',
+        position: 'Country Manager for Uzbekistan and Turkmenistan, IFC',
+        organization: 'International Finance Corporation',
+        org_short: 'IFC',
+        org_color: '#00688f',
+        org_logo: ifcLogo,
+        thumbnail: thumb2,
+        video_url: '',
     },
     {
-        name: 'Shirin Mokhova',       initials: 'SM',
-        role: 'Country Director',     company: 'IFC Uzbekistan',
-        date: 'July 2026',
-        quote: 'We see Uzbekistan as one of IFC\'s highest-priority markets in EMEA. The depth of structural reform and political will to attract quality FDI is unlike anything in this region in the last decade.',
-        topics: ['IFC', 'Private Sector', 'Development Finance'],
+        id: 3,
+        name: 'Alex Wong',
+        position: 'Representative in Uzbekistan, China Energy Overseas Investment',
+        organization: 'Energy China',
+        org_short: 'CGDC',
+        org_color: '#e05c00',
+        org_logo: energyChinaLogo,
+        thumbnail: thumb3,
+        video_url: '',
     },
     {
-        name: 'Thomas Hacker',        initials: 'TH',
-        role: 'CEO, Uzbekistan',      company: 'Siemens Energy',
-        date: 'June 2026',
-        quote: 'The Energy Working Group gave us a direct line to the Ministry on tariff and grid-connection issues that previously took years to resolve informally. Two of our grid code concerns made it into the III Plenary agenda.',
-        topics: ['Energy', 'Working Groups', 'Advocacy'],
+        id: 4,
+        name: 'Andy Aranitasi',
+        position: 'Head of the EBRD office in Uzbekistan',
+        organization: 'European Bank for Reconstruction and Development',
+        org_short: 'EBRD',
+        org_color: '#005b7f',
+        thumbnail: thumb4,
+        video_url: '',
     },
     {
-        name: 'Park Ji-won',          initials: 'PJ',
-        role: 'Head of Tashkent Office', company: 'Korea Trade Center',
-        date: 'May 2026',
-        quote: 'Korean companies feel a structural connection to the FIC community. The transparency around initiative tracking and ministry responses makes it easy to explain to headquarters why Uzbekistan is worth the commitment.',
-        topics: ['Korean Investment', 'Transparency', 'Member Experience'],
+        id: 5,
+        name: 'Laziz Kudratov',
+        position: 'Head of the representative office of MIIT',
+        organization: 'Ministry of Investments and Foreign Trade',
+        org_short: 'MIIT',
+        org_color: '#1e7a3c',
+        thumbnail: thumb5,
+        video_url: '',
     },
     {
-        name: 'Sarah Mitchell',       initials: 'SM',
-        role: 'Managing Director CA', company: 'Citi Uzbekistan',
-        date: 'May 2026',
-        quote: 'Capital market reform is the next frontier. The TSE listing pipeline is real, and the Finance WG has been instrumental in getting the legal groundwork right so that international investors can actually participate.',
-        topics: ['Finance', 'Capital Markets', 'Stock Exchange'],
+        id: 6,
+        name: 'Aziz Gafurov',
+        position: 'Head of the FIC Secretariat',
+        organization: 'Foreign Investors Council',
+        org_short: 'FIC',
+        org_color: '#2563eb',
+        thumbnail: thumb6,
+        video_url: '',
     },
-]
+    {
+        id: 7,
+        name: 'Odile Renaud-Basso',
+        position: 'President of the European Bank for Reconstruction and Development',
+        organization: 'European Bank for Reconstruction and Development',
+        org_short: 'EBRD',
+        org_color: '#005b7f',
+        thumbnail: thumb7,
+        video_url: '',
+    },
+    {
+        id: 8,
+        name: 'Neil McKain',
+        position: 'Director of the IFC Office for Uzbekistan and Turkmenistan',
+        organization: 'World Bank Group · IFC',
+        org_short: 'IFC',
+        org_color: '#00688f',
+        org_logo: ifcLogo,
+        thumbnail: thumb8,
+        video_url: '',
+    },
+])
+
+const activeVideo = ref<Voice | null>(null)
+const openVideo = (item: Voice) => { activeVideo.value = item }
 </script>
+
+<style scoped>
+.iv-fade-enter-active,
+.iv-fade-leave-active { transition: opacity 0.25s ease; }
+.iv-fade-enter-from,
+.iv-fade-leave-to    { opacity: 0; }
+</style>

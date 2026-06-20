@@ -1,5 +1,5 @@
 <template>
-    <div class="website-layout">
+    <div class="website-layout" ref="layoutRef">
         <WebHeader />
         <WebHeroSection
             v-if="!route.meta.noHero"
@@ -18,6 +18,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import WebHeader from '@/components/website/WebHeader.vue'
@@ -26,6 +27,12 @@ import WebHeroSection from '@/components/website/WebHeroSection.vue'
 
 const route = useRoute()
 const { t } = useI18n()
+
+const layoutRef = ref<HTMLElement | null>(null)
+
+watch(() => route.path, () => {
+    layoutRef.value?.scrollTo({ top: 0, behavior: 'instant' })
+})
 </script>
 
 <style scoped lang="scss">

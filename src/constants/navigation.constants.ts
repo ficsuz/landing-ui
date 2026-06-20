@@ -12,6 +12,7 @@ export interface NavMenuItem {
 export const websiteMenu: NavMenuItem[] = [
     {
         labelKey: 'nav.aboutCouncil',
+        path: '/',
         children: [
             { labelKey: 'nav.home', path: '/' },
             { labelKey: 'nav.ficHistory', path: '/fic-history' },
@@ -22,6 +23,7 @@ export const websiteMenu: NavMenuItem[] = [
     },
     {
         labelKey: 'nav.councilMembers',
+        path: '/council-members',
         children: [
             { labelKey: 'nav.councilMembers', path: '/council-members' },
             { labelKey: 'nav.uzbekSide', path: '/council-members/uzbek-side' },
@@ -31,6 +33,7 @@ export const websiteMenu: NavMenuItem[] = [
     },
     {
         labelKey: 'nav.workingGroups',
+        path: '/working-groups',
         children: [
             { labelKey: 'nav.overview', path: '/working-groups#overview' },
             { labelKey: 'nav.sessionOutcomes', path: '/working-groups#session-outcomes' },
@@ -38,6 +41,7 @@ export const websiteMenu: NavMenuItem[] = [
     },
     {
         labelKey: 'nav.results',
+        path: '/results',
         children: [
             { labelKey: 'nav.councilResults', path: '/results' },
             { labelKey: 'nav.initiatives', path: '/results/initiatives' },
@@ -47,6 +51,7 @@ export const websiteMenu: NavMenuItem[] = [
     },
     {
         labelKey: 'nav.events',
+        path: '/events',
         children: [
             { labelKey: 'nav.calendarPlan', path: '/events' },
             { labelKey: 'nav.plenarySessions', path: '/events/plenary-sessions' },
@@ -58,6 +63,7 @@ export const websiteMenu: NavMenuItem[] = [
     },
     {
         labelKey: 'nav.media',
+        path: '/media',
         children: [
             { labelKey: 'nav.news', path: '/media' },
             { labelKey: 'nav.analyticsAndArticles', path: '/media/analytics' },

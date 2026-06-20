@@ -23,9 +23,25 @@
                     @mouseleave="openMenu = null"
                 >
                     <template v-if="item.children">
-                        <button class="web-navbar__link" :class="{ active: isParentActive(item) }">
+                        <!-- Parent is a link if it has a path, otherwise just a toggle button -->
+                        <router-link
+                            v-if="item.path"
+                            :to="item.path"
+                            class="web-navbar__link"
+                            :class="{ active: isParentActive(item) }"
+                            active-class=""
+                            exact-active-class=""
+                        >
+                            {{ $t(item.labelKey) }}
+                        </router-link>
+                        <button
+                            v-else
+                            class="web-navbar__link"
+                            :class="{ active: isParentActive(item) }"
+                        >
                             {{ $t(item.labelKey) }}
                         </button>
+
                         <div class="web-navbar__dropdown" :class="{ 'is-open': openMenu === item.labelKey }">
                             <router-link
                                 v-for="child in item.children"
@@ -104,17 +120,31 @@
                         class="web-navbar__panel-group"
                     >
                         <!-- Group with children: accordion -->
-                        <button
-                            v-if="item.children"
-                            class="web-navbar__panel-title"
-                            :class="{ active: isParentActive(item), expanded: expandedGroup === item.labelKey }"
-                            @click="expandedGroup = expandedGroup === item.labelKey ? null : item.labelKey"
-                        >
-                            {{ $t(item.labelKey) }}
-                            <svg class="web-navbar__panel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
+                        <div v-if="item.children" class="web-navbar__panel-header">
+                            <router-link
+                                v-if="item.path"
+                                :to="item.path"
+                                class="web-navbar__panel-title is-link"
+                                :class="{ active: isParentActive(item) }"
+                                active-class=""
+                                exact-active-class=""
+                                @click="closeAll"
+                            >
+                                {{ $t(item.labelKey) }}
+                            </router-link>
+                            <span v-else class="web-navbar__panel-title" :class="{ active: isParentActive(item) }">
+                                {{ $t(item.labelKey) }}
+                            </span>
+                            <button
+                                class="web-navbar__panel-chevron-btn"
+                                :class="{ expanded: expandedGroup === item.labelKey }"
+                                @click="expandedGroup = expandedGroup === item.labelKey ? null : item.labelKey"
+                            >
+                                <svg class="web-navbar__panel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                        </div>
 
                         <Transition name="accordion">
                             <ul v-if="item.children && expandedGroup === item.labelKey" class="web-navbar__panel-links">
@@ -164,7 +194,12 @@ const closeAll = () => {
 
 watch(() => route.path, closeAll)
 
-const isActive = (path: string) => {
+// Exact-match active check for dropdown links.
+// Hash paths: match base path + hash (default is #overview for working-groups).
+// Regular paths: exact match only — prevents sibling routes from appearing active simultaneously.
+// Detail pages (e.g. /events/plenary-sessions/1): also matched via startsWith when
+// the remaining segment contains no '/' (one level deep, ID-like).
+const isActive = (path: string): boolean => {
     const hashIndex = path.indexOf('#')
     if (hashIndex !== -1) {
         const cleanPath = path.substring(0, hashIndex)
@@ -174,12 +209,24 @@ const isActive = (path: string) => {
         if (route.hash) return route.hash === hash
         return hash === '#overview'
     }
-    const cleanPath = path
-    return cleanPath === '/' ? route.path === '/' : route.path.startsWith(cleanPath)
+    if (path === '/') return route.path === '/'
+    if (route.path === path) return true
+    // Match detail sub-pages (/path/123) but NOT named sibling routes (/path/sub)
+    const suffix = route.path.slice(path.length)
+    if (suffix.startsWith('/') && !suffix.slice(1).includes('/')) return true
+    return false
 }
 
-const isParentActive = (item: NavMenuItem) =>
-    item.children?.some((c) => c.path !== '/' && isActive(c.path)) ?? false
+// Parent button is active when any of its children's base paths match the current route.
+// Uses startsWith so it stays active on detail pages too.
+const isParentActive = (item: NavMenuItem): boolean => {
+    if (!item.children) return false
+    return item.children.some((c) => {
+        const basePath = c.path.split('#')[0]
+        if (!basePath || basePath === '/') return false
+        return route.path === basePath || route.path.startsWith(basePath + '/')
+    })
+}
 </script>
 
 <style scoped lang="scss">
@@ -251,6 +298,7 @@ const isParentActive = (item: NavMenuItem) =>
         position: relative;
         transition: color 0.15s;
         white-space: nowrap;
+        display: inline-block;
 
         &:hover { color: #191c1f; }
 
@@ -274,13 +322,14 @@ const isParentActive = (item: NavMenuItem) =>
         top: calc(100% + 12px);
         left: 50%;
         transform: translate(-50%, 8px);
-        min-width: 280px;
+        min-width: 240px;
         background: #fff;
         border-radius: 16px;
         box-shadow: 0 12px 32px rgba(16, 24, 40, 0.12);
-        padding: 12px;
+        padding: 8px;
         display: flex;
         flex-direction: column;
+        gap: 2px;
         opacity: 0;
         visibility: hidden;
         transition: all 0.2s ease;
@@ -295,9 +344,9 @@ const isParentActive = (item: NavMenuItem) =>
     }
 
     &__dropdown-link {
-        padding: 12px 16px;
+        padding: 10px 14px;
         border-radius: 10px;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 500;
         color: #667085;
         text-decoration: none;
@@ -420,44 +469,62 @@ const isParentActive = (item: NavMenuItem) =>
         padding: 16px 24px 32px;
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: 0;
     }
 
     &__panel-group {
         border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    &__panel-title {
-        width: 100%;
+    /* Header row: label (link or text) + chevron button */
+    &__panel-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 8px;
+    }
+
+    &__panel-title {
+        flex: 1;
         padding: 16px 0;
-        background: none;
-        border: none;
         font-size: 16px;
         font-weight: 500;
         color: rgba(255,255,255,0.65);
+        text-decoration: none;
         transition: color 0.15s;
+        background: none;
+        border: none;
 
         &:hover, &.active { color: #fff; }
-
         &.active { font-weight: 600; }
+
+        &.is-link { display: block; }
+    }
+
+    &__panel-chevron-btn {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: none;
+        border: none;
+        padding: 4px;
+
+        &.expanded .web-navbar__panel-chevron { transform: rotate(180deg); }
     }
 
     &__panel-chevron {
         width: 18px;
         height: 18px;
-        flex-shrink: 0;
-        transition: transform 0.25s ease;
         color: rgba(255,255,255,0.4);
-
-        .expanded & { transform: rotate(180deg); }
+        transition: transform 0.25s ease;
     }
 
     &__panel-links {
         list-style: none;
-        padding: 0 0 12px 12px;
+        padding: 4px 0 12px 12px;
         display: flex;
         flex-direction: column;
         gap: 2px;
@@ -501,12 +568,10 @@ const isParentActive = (item: NavMenuItem) =>
 
 /* ── Responsive ── */
 
-/* Large desktop (≥ 1400px): full nav, logo text visible */
 @media (min-width: 1400px) {
     .web-navbar__mobile-controls { display: none !important; }
 }
 
-/* Medium desktop (1280–1399px): full nav, hide logo text to avoid overflow */
 @media (min-width: 1280px) and (max-width: 1399px) {
     .web-navbar__mobile-controls { display: none !important; }
     .web-navbar__logo-text { display: none; }
@@ -515,7 +580,6 @@ const isParentActive = (item: NavMenuItem) =>
     .web-navbar__link { font-size: 14px; }
 }
 
-/* Tablet, iPad, Mobile (< 1280px): hamburger menu + compact logo WITH text */
 @media (max-width: 1279px) {
     .web-navbar__menu,
     .web-navbar__right { display: none; }
@@ -527,7 +591,6 @@ const isParentActive = (item: NavMenuItem) =>
 
     .web-navbar__inner { gap: 0; padding: 0 16px; }
 
-    /* Compact logo — show icon + text together */
     .web-navbar__logo { gap: 8px; }
     .web-navbar__logo-mark { width: 36px; height: 36px; }
     .web-navbar__logo-text {
@@ -537,7 +600,6 @@ const isParentActive = (item: NavMenuItem) =>
         line-height: 1.4;
     }
 
-    /* Smaller locale buttons */
     .web-navbar__locale {
         width: 28px;
         height: 28px;
@@ -545,7 +607,6 @@ const isParentActive = (item: NavMenuItem) =>
     }
 }
 
-/* Very small phones (< 375px): hide logo text to prevent overflow */
 @media (max-width: 374px) {
     .web-navbar__logo-text { display: none; }
     .web-navbar__logo-mark { width: 32px; height: 32px; }

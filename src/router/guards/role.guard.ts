@@ -25,8 +25,8 @@ export default function roleGuard(
     return
   }
 
-  const userRole = store.user.roles[0]?.name
-  if (meta.roles.includes(userRole)) {
+  const userRole = store.user.roles?.[0]?.name
+  if (userRole && meta.roles.includes(userRole)) {
     next()
     return
   }

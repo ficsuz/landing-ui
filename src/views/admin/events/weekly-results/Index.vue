@@ -1,36 +1,52 @@
 <template>
     <div class="page-wrapper">
         <div class="page-header">
-            <h1 class="page-title">Haftalik natijalar</h1>
-            <el-button type="primary" @click="showDialog = true">+ Qo'shish</el-button>
+            <h1 class="page-title">Weekly Results</h1>
+            <el-button type="primary" @click="showDialog = true">+ Add</el-button>
         </div>
 
         <el-table :data="items" v-loading="loading" class="w-full">
             <el-table-column type="index" label="№" width="60" />
-            <el-table-column prop="title" label="Sarlavha" min-width="220" show-overflow-tooltip />
-            <el-table-column prop="week" label="Hafta" width="100" />
-            <el-table-column prop="date" label="Sana" width="140" />
-            <el-table-column label="Amallar" width="140" fixed="right">
+            <el-table-column prop="title" label="Title" min-width="220" show-overflow-tooltip />
+            <el-table-column prop="week" label="Week" min-width="100" />
+            <el-table-column prop="date" label="Date" min-width="140" />
+            <el-table-column label="Actions" width="120" fixed="right" align="center">
                 <template #default>
-                    <el-button type="primary" link>Tahrirlash</el-button>
-                    <el-button type="danger" link>O'chirish</el-button>
+                    <div class="admin-actions">
+                        <el-tooltip content="Edit" placement="top">
+                            <el-button type="primary" :icon="Edit" circle plain size="small" @click="showDialog = true" />
+                        </el-tooltip>
+                        <el-tooltip content="Delete" placement="top">
+                            <el-button type="danger" :icon="Delete" circle plain size="small" />
+                        </el-tooltip>
+                    </div>
                 </template>
             </el-table-column>
         </el-table>
 
-        <el-empty v-if="!loading && items.length === 0" description="Haftalik natijalar mavjud emas" class="py-16" />
+        <div class="pagination-wrap" v-if="total > pageSize">
+            <el-pagination
+                background
+                layout="prev, pager, next"
+                :total="total"
+                :page-size="pageSize"
+                :current-page="page"
+            />
+        </div>
 
-        <el-dialog v-model="showDialog" title="Haftalik natija qo'shish" width="560px">
+        <el-empty v-if="!loading && items.length === 0" description="No weekly results available" class="py-16" />
+
+        <el-dialog v-model="showDialog" title="Add weekly result" width="560px">
             <el-form label-position="top">
-                <el-form-item label="Sarlavha (UZ)"><el-input placeholder="Kiriting..." /></el-form-item>
-                <el-form-item label="Sarlavha (RU)"><el-input placeholder="Введите..." /></el-form-item>
-                <el-form-item label="Sarlavha (EN)"><el-input placeholder="Enter..." /></el-form-item>
-                <el-form-item label="Hafta raqami"><el-input-number :min="1" :max="52" class="w-full" /></el-form-item>
-                <el-form-item label="Sana"><el-date-picker type="date" class="w-full" /></el-form-item>
+                <el-form-item label="Title (UZ)"><el-input placeholder="Enter..." /></el-form-item>
+                <el-form-item label="Title (RU)"><el-input placeholder="Enter..." /></el-form-item>
+                <el-form-item label="Title (EN)"><el-input placeholder="Enter..." /></el-form-item>
+                <el-form-item label="Week number"><el-input-number :min="1" :max="52" class="w-full" /></el-form-item>
+                <el-form-item label="Date"><el-date-picker type="date" class="w-full" /></el-form-item>
             </el-form>
             <template #footer>
-                <el-button @click="showDialog = false">Bekor qilish</el-button>
-                <el-button type="primary">Saqlash</el-button>
+                <el-button @click="showDialog = false">Cancel</el-button>
+                <el-button type="primary">Save</el-button>
             </template>
         </el-dialog>
     </div>
@@ -38,14 +54,19 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { Edit, Delete } from '@element-plus/icons-vue'
 
 const loading = ref(false)
 const showDialog = ref(false)
 const items = ref<any[]>([])
+const page = ref(1)
+const pageSize = ref(10)
+const total = ref(0)
 </script>
 
 <style scoped>
 .page-wrapper { padding: 24px; }
 .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
 .page-title { font-size: 22px; font-weight: 600; color: #101828; margin: 0; }
+.pagination-wrap { display: flex; justify-content: flex-end; margin-top: 20px; }
 </style>

@@ -35,7 +35,7 @@ Pattern for a new feature:
 2. `src/features/<feature>/store/index.ts` — Pinia store with `loading`, `error`, and state; actions call the service
 3. Component calls `useXxxStore()` and invokes store actions
 
-See `src/features/courses/store/index.ts` for the canonical example (fetchCourses, createCourse, updateCourse, deleteCourse — each sets `loading`, catches to `error`, finally resets `loading`).
+See `src/features/news/store/index.ts` for the canonical example (fetchAll, createItem, updateItem, deleteItem — each sets `loading`, catches to `error`, finally resets `loading`).
 
 ### API layer (`src/services/`)
 - `api.ts` creates a single Axios instance with `VITE_BASE_API` as `baseURL`

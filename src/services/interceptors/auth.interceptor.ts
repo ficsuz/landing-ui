@@ -22,7 +22,7 @@ export const setupAuthResponseInterceptor = (instance: AxiosInstance) => {
       const store = useUserStore()
       if (error.response?.status === 401) {
         store.resetToken()
-        router.push('/login')
+        router.push('/admin/login')
       }
       return Promise.reject(error)
     }

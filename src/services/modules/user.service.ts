@@ -38,7 +38,7 @@ export const userService = {
    * Get current user profile information
    */
   getCurrentUser(): Promise<UserProfileResponse> {
-    return request.get('/v1/users/getMe');
+    return request.get('/v1/users/me');
   },
 
   /**

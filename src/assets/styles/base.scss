@@ -15,6 +15,31 @@
     --el-color-primary-dark-2: #141618;
 }
 
+/* ── Admin dialog: force every form control to fill the row ── */
+.el-dialog {
+    .el-form-item__content > .el-input,
+    .el-form-item__content > .el-select,
+    .el-form-item__content > .el-input-number,
+    .el-form-item__content > .el-date-editor,
+    .el-form-item__content > .el-textarea,
+    .el-form-item__content > .el-autocomplete,
+    .el-form-item__content > .el-cascader {
+        width: 100%;
+    }
+}
+
+/* ── Admin table: keep row action icons on a single line ── */
+.admin-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    .el-button + .el-button {
+        margin-left: 0;
+    }
+}
+
 .item {
     padding: 10px 16px;
     display: flex;

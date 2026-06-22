@@ -41,8 +41,8 @@
             <div class="flex items-center gap-3">
                 <img width="40" height="40" src="@/assets/images/avatars/olivia.png" alt="avatar" />
                 <div v-if="!props.isCallapse">
-                    <p class="text-[#344054] text-sm font-semibold">{{ user?.firstName + ' ' + user?.lastName }}</p>
-                    <span class="text-[#475467] text-sm">{{ user?.username || '' }}</span>
+                    <p class="text-[#344054] text-sm font-semibold">{{ user?.fullName }}</p>
+                    <span class="text-[#475467] text-sm">{{ user?.email || '' }}</span>
                 </div>
             </div>
             <button class="mt-1" @click="logOut">
@@ -77,14 +77,14 @@ const user = computed(() => usersStore.getUser)
 const isMenuActive = (path: string) => router.currentRoute.value.path.startsWith(path)
 
 const hasRole = (roles: string[]) => {
-    const userRole = user.value?.roles[0]?.name || 'admin'
+    const userRole = user.value?.roles?.[0]?.name || 'admin'
     return roles.includes(userRole)
 }
 
 const logOut = async () => {
-    ElMessageBox.confirm('Tizimdan chiqishni xohlaysizmi?', 'Ogohlantirish', {
-        confirmButtonText: 'Ha',
-        cancelButtonText: "Yo'q",
+    ElMessageBox.confirm('Are you sure you want to log out?', 'Warning', {
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No',
         type: 'warning',
         draggable: true,
     })

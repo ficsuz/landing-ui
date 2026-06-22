@@ -32,6 +32,17 @@ export default defineConfig(({ mode }): UserConfig => {
             }),
         ],
         resolve: { alias },
+        server: {
+            proxy: env.VITE_API_PROXY_TARGET
+                ? {
+                      '/api': {
+                          target: env.VITE_API_PROXY_TARGET,
+                          changeOrigin: true,
+                          headers: { 'ngrok-skip-browser-warning': 'true' },
+                      },
+                  }
+                : undefined,
+        },
         build: {
             sourcemap: false,
             outDir: env.VITE_OUT_DIR || 'dist',

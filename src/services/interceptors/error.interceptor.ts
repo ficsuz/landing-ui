@@ -6,7 +6,9 @@ const extractErrorMessage = (error: any): string => {
   if (!data) return 'Xatolik yuz berdi'
 
   if (data.error?.details && Array.isArray(data.error.details)) {
-    return data.error.details.join('. ')
+    return data.error.details
+      .flatMap((d: any) => (Array.isArray(d?.messages) ? d.messages : [d]))
+      .join('. ')
   }
   if (data.message) return data.message
   if (data.error?.message) return data.error.message

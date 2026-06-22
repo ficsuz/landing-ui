@@ -15,6 +15,8 @@ function findSvgFile(dir: string): string[] {
         withFileTypes: true,
     })
     for (const dirent of dirents) {
+        if (!dirent.isDirectory() && !dirent.name.endsWith('.svg')) continue
+
         iconNames.push(`${idPerfix}-${dirent.name.replace('.svg', '')}`)
         if (dirent.isDirectory()) {
             svgRes.push(...findSvgFile(dir + dirent.name + '/'))

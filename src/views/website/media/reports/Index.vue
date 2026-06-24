@@ -23,11 +23,11 @@
                             :href="rep.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="group flex flex-col gap-3"
+                            class="group flex flex-col gap-3 hover:-translate-y-1.5 transition-transform duration-300"
                         >
                             <!-- Cover image -->
                             <div
-                                class="relative rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.10)] group-hover:shadow-[0_12px_40px_rgba(0,0,0,0.18)] group-hover:-translate-y-1.5 transition-all duration-300 [transform:translateZ(0)] aspect-[3/4]"
+                                class="relative rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.10)] group-hover:shadow-[0_12px_40px_rgba(0,0,0,0.18)] transition-shadow duration-300 [transform:translateZ(0)] aspect-[3/4]"
                             >
                                 <img
                                     :src="rep.cover"

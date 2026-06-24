@@ -60,7 +60,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
-import defaultPhoto from '@/assets/images/avatars/default.png'
+import defaultPhoto from '@/assets/images/avatars/default-avatar.svg'
 import avatar1 from '@/assets/images/exports/foreign1.png'
 import avatar2 from '@/assets/images/exports/foreign2.png'
 import avatar3 from '@/assets/images/exports/foreign3.png'

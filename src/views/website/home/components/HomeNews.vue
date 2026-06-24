@@ -15,46 +15,64 @@
                 </router-link>
             </div>
 
+            <!-- Loading skeleton -->
+            <div v-if="newsStore.loading && !news.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div v-for="n in 3" :key="n" class="rounded-2xl bg-white/5 p-3 animate-pulse">
+                    <div class="aspect-[16/10] rounded-xl bg-white/10"></div>
+                    <div class="px-2 pt-4 pb-2 space-y-2">
+                        <div class="h-4 bg-white/10 rounded w-3/4"></div>
+                        <div class="h-3 bg-white/10 rounded w-full"></div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 <article
                     v-for="(item, i) in news"
                     :key="item.id"
                     class="group bg-white rounded-2xl flex flex-col cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] p-3"
                     :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
                     :style="{ transitionDelay: visible ? `${i * 100}ms` : '0ms' }"
-                    @click="$router.push(item.link || '/media')"
+                    @click="openItem(item)"
                 >
                     <!-- Image -->
-                    <div class="relative overflow-hidden rounded-xl aspect-[16/10] [transform:translateZ(0)]">
+                    <div class="relative overflow-hidden rounded-xl aspect-[16/10] lg:h-[480px] bg-[#eef0f4] [transform:translateZ(0)]">
                         <img
-                            :src="item.image"
-                            :alt="item.title"
+                            v-if="getMediaUrl(item.imageId)"
+                            :src="getMediaUrl(item.imageId)"
+                            :alt="resolveTranslation(item.title, locale)"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
-                        <!-- Category badge -->
-                        <div class="absolute top-3 left-3">
-                            <span class="bg-[#1a1e2e]/80 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1 rounded-full tracking-wide uppercase">
-                                {{ item.category }}
-                            </span>
-                        </div>
                     </div>
 
                     <!-- Content -->
-                    <div class="flex flex-col flex-1 px-2 pt-4 pb-2">
-                        <h3 class="font-bold text-[15px] text-[#1a1e2e] leading-snug mb-2 line-clamp-2 group-hover:text-[#2563eb] transition-colors duration-200">
-                            {{ item.title }}
+                    <div class="flex flex-col flex-1 px-2 pt-5 pb-3">
+                        <h3
+                            class="font-bold text-[15px] text-[#1a1e2e] leading-snug mb-2 min-h-[42px] line-clamp-2 group-hover:text-[#2563eb] transition-colors duration-200"
+                        >
+                            {{ resolveTranslation(item.title, locale) }}
                         </h3>
-                        <p class="text-[13px] text-[#8a94a6] leading-relaxed line-clamp-2 mb-4 flex-1">
-                            {{ item.excerpt }}
+                        <p class="text-[13px] text-[#8a94a6] leading-relaxed min-h-[42px] line-clamp-2 mb-4 flex-1">
+                            {{ excerpt(item) }}
                         </p>
 
                         <!-- Footer -->
                         <div class="flex items-center justify-between pt-4 border-t border-[#eef0f4]">
-                            <span class="text-[12px] text-[#b0b8c6] font-medium">{{ item.date }}</span>
-                            <span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#1a1e2e] group-hover:text-[#2563eb] transition-all duration-200">
+                            <span class="text-[12px] text-[#b0b8c6] font-medium">{{ formatDate(item.date) }}</span>
+                            <span
+                                class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#1a1e2e] group-hover:text-[#2563eb] transition-all duration-200"
+                            >
                                 {{ $t('common.learnMore') }}
-                                <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <svg
+                                    class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
                                     <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </span>
@@ -67,49 +85,37 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
+import { useNewsStore } from '@/features/news/store'
+import type { NewsItem } from '@/features/news/types'
+import { resolveTranslation } from '@/utils/i18n'
+import { getMediaUrl } from '@/utils/media'
 
-import img1 from '@/assets/images/hero/ATM_9764.jpg'
-import img2 from '@/assets/images/hero/SUT_7962.jpg'
-import img3 from '@/assets/images/hero/about-blog.jpg'
+const { locale } = useI18n()
+const router = useRouter()
+const newsStore = useNewsStore()
 
-interface NewsItem {
-    id: number
-    title: string
-    excerpt: string
-    date: string
-    category: string
-    image: string
-    link?: string
+const news = computed(() => newsStore.items.filter((i) => i.status === 1).slice(0, 3))
+
+function excerpt(item: NewsItem, length = 100): string {
+    const text = resolveTranslation(item.content, locale.value)
+    return text.length > length ? `${text.slice(0, length).trim()}…` : text
 }
 
-// API tayyor bo'lganda: onMounted ichida news.value = await api.get('/news?limit=3')
-const news = ref<NewsItem[]>([
-    {
-        id: 1,
-        category: 'Announcement',
-        title: 'New Office Location',
-        excerpt: 'We are pleased to announce the relocation of the Foreign Investors Council Secretariat to a new office.',
-        date: 'January 5, 2026',
-        image: img1,
-    },
-    {
-        id: 2,
-        category: 'Legal',
-        title: 'FIC Has Officially Obtained Legal Status as an Association',
-        excerpt: 'A new chapter begins for the Foreign Investors Council under the President of the Republic of Uzbekistan.',
-        date: 'November 6, 2025',
-        image: img2,
-    },
-    {
-        id: 3,
-        category: 'Event',
-        title: 'IV Plenary Session of the Foreign Investors Council',
-        excerpt: 'The IV Plenary Session brought together leading investors and government officials to discuss key reforms.',
-        date: 'October 15, 2025',
-        image: img3,
-    },
-])
+function formatDate(date: string | null): string {
+    if (!date) return ''
+    return new Date(date).toLocaleDateString(locale.value)
+}
+
+function openItem(item: NewsItem) {
+    if (item.otherLink) {
+        window.open(item.otherLink, '_blank', 'noopener')
+    } else {
+        router.push('/media')
+    }
+}
 
 const sectionEl = ref<HTMLElement | null>(null)
 const visible = ref(false)
@@ -126,6 +132,8 @@ const getScrollParent = (el: HTMLElement): Element => {
 }
 
 onMounted(() => {
+    newsStore.fetchAll({ page: 1, limit: 3 })
+
     if (!sectionEl.value) return
     const root = getScrollParent(sectionEl.value)
     observer = new IntersectionObserver(

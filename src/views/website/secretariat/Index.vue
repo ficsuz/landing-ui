@@ -66,7 +66,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import defaultPhoto from '@/assets/images/avatars/default.png'
+import defaultPhoto from '@/assets/images/avatars/default-avatar.svg'
 import photoAziz from '@/assets/images/exports/aziz2.png'
 import photoAvazbek from '@/assets/images/exports/Avazbek.jpg'
 import photoHakimniyaz from '@/assets/images/exports/Hakimniyaz.png'

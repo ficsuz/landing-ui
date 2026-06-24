@@ -104,7 +104,7 @@
 </template>
 
 <script setup lang="ts">
-import defaultAvatar from '@/assets/images/avatars/default.png'
+import defaultAvatar from '@/assets/images/avatars/default-avatar.svg'
 
 import datavolt from '@/assets/images/brands/datavolt.png'
 import deloitte from '@/assets/images/brands/deloitte.png'

@@ -3,7 +3,8 @@ import type { ApiResponse } from '@/types/server/user.types'
 import type { PaginatedResponse } from '@/types/server/api.types'
 import type { AnalyticalReport, AnalyticalReportListParams, AnalyticalReportPayload } from '../types'
 
-const BASE_URL = '/v1/analytical-reports'
+// "Reports" API — admin surface: "New Approaches — Analytical Reports"
+const BASE_URL = '/v1/reports'
 
 export const analyticalReportsService = {
     getAll(params: AnalyticalReportListParams = {}): Promise<PaginatedResponse<AnalyticalReport>> {

@@ -97,31 +97,32 @@
                     <h2 class="text-[clamp(18px,2vw,28px)] font-black uppercase text-[#1a1e2e] leading-tight mb-10">
                         {{ $t('resultsPage.reports.title') }}
                     </h2>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
+                    <div v-loading="reportsStore.loading" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
                         <router-link
-                            v-for="(report, i) in analyticalReports"
-                            :key="i"
+                            v-for="report in publishedReports"
+                            :key="report.id"
                             :to="{ name: 'media-reports' }"
                             class="group flex flex-col"
                         >
                             <!-- Cover image -->
                             <div
-                                class="rounded-2xl overflow-hidden aspect-[3/4] relative shadow-[0_2px_16px_rgba(0,0,0,0.10)] group-hover:shadow-[0_8px_32px_rgba(0,0,0,0.18)] transition-shadow duration-300"
+                                class="rounded-2xl overflow-hidden aspect-[3/4] relative shadow-[0_2px_16px_rgba(0,0,0,0.10)] group-hover:shadow-[0_8px_32px_rgba(0,0,0,0.18)] transition-shadow duration-300 bg-[#eef0f4]"
                             >
                                 <img
-                                    :src="report.image"
-                                    :alt="$t(report.titleKey)"
+                                    v-if="getMediaUrl(report.imageId)"
+                                    :src="getMediaUrl(report.imageId)"
+                                    :alt="resolveTranslation(report.title)"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                                 <span
                                     class="absolute bottom-3 left-3 text-[11px] font-semibold text-white bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-lg"
                                 >
-                                    {{ report.date }}
+                                    {{ formatDate(report.createdAt) }}
                                 </span>
                             </div>
                             <!-- Title + link -->
                             <div class="pt-3 flex flex-col flex-1">
-                                <p class="text-[13px] font-bold text-[#1a1e2e] leading-snug line-clamp-2">{{ $t(report.titleKey) }}</p>
+                                <p class="text-[13px] font-bold text-[#1a1e2e] leading-snug line-clamp-2">{{ resolveTranslation(report.title) }}</p>
                                 <span
                                     class="mt-auto pt-2 inline-flex items-center gap-1 text-[12px] font-semibold text-[#8a94a6] group-hover:text-[#1a1e2e] group-hover:gap-2 transition-all duration-200"
                                 >
@@ -142,6 +143,11 @@
                             </div>
                         </router-link>
                     </div>
+                    <el-empty
+                        v-if="!reportsStore.loading && publishedReports.length === 0"
+                        :description="$t('common.noData')"
+                        class="py-6"
+                    />
                 </div>
                 <div class="mb-10">
                     <div
@@ -166,13 +172,31 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { ElEmpty } from 'element-plus'
+import { useAnalyticalReportsStore } from '@/features/analyticalReports/store'
+import { getMediaUrl } from '@/utils/media'
+import type { Translation } from '@/types/server/api.types'
 
 import imgRaicLogo from '@/assets/documents/raic.png'
-import imgReport2 from '@/assets/documents/report-2.jpg'
-import imgReport3 from '@/assets/documents/report-3.jpg'
-import imgReport4 from '@/assets/documents/report-4.jpg'
-import imgReport5 from '@/assets/documents/report-5.jpg'
+
+const { locale } = useI18n()
+const reportsStore = useAnalyticalReportsStore()
+
+const publishedReports = computed(() => reportsStore.items.filter((r) => r.status))
+
+function resolveTranslation(t: Translation | null | undefined) {
+    if (!t) return ''
+    return t[locale.value as keyof Translation] || t.uz || ''
+}
+
+function formatDate(iso?: string) {
+    if (!iso) return ''
+    const d = new Date(iso)
+    if (Number.isNaN(d.getTime())) return ''
+    return d.toLocaleDateString('en-GB').replace(/\//g, '.')
+}
 
 interface StatItem {
     type: 'simple' | 'range' | 'multiplier'
@@ -212,13 +236,6 @@ const legalActs = [
     { labelKey: 'resultsPage.legalActs.a8' },
 ]
 
-const analyticalReports = [
-    { date: '19.11.2025', image: imgReport2, titleKey: 'resultsPage.reports.r1.title' },
-    { date: '26.11.2025', image: imgReport3, titleKey: 'resultsPage.reports.r2.title' },
-    { date: '23.12.2025', image: imgReport4, titleKey: 'resultsPage.reports.r3.title' },
-    { date: '15.06.2026', image: imgRaicLogo, titleKey: 'resultsPage.reports.r4.title' },
-    { date: '17.06.2026', image: imgReport5, titleKey: 'resultsPage.reports.r5.title' },
-]
 
 const platformDisplay = ref(platformStats.map(() => 0))
 const investDisplay = ref(investStats.map(() => 0))
@@ -264,6 +281,7 @@ let obsB: IntersectionObserver | null = null
 onMounted(() => {
     if (platformRef.value) obsA = makeObserver(platformRef.value, platformVisible, platformStats, platformDisplay)
     if (investRef.value) obsB = makeObserver(investRef.value, investVisible, investStats, investDisplay)
+    reportsStore.fetchAll({ limit: 10, sortBy: 'order', order: 'asc' })
 })
 
 onUnmounted(() => {

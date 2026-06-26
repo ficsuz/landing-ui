@@ -4,6 +4,7 @@ import eventsRoutes from './events.routes'
 import mediaRoutes from './media.routes'
 import membersRoutes from './members.routes'
 import expertsRoutes from './experts.routes'
+import documentsRoutes from './documents.routes'
 
 const routeModules: RouteRecordRaw[] = [
     ...newsRoutes,
@@ -11,6 +12,7 @@ const routeModules: RouteRecordRaw[] = [
     ...mediaRoutes,
     ...membersRoutes,
     ...expertsRoutes,
+    ...documentsRoutes,
 ]
 
 export default routeModules

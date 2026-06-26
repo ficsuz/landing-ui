@@ -15,27 +15,40 @@
                 <!-- Filter tabs -->
                 <div class="flex flex-wrap justify-center gap-2 mb-10 md:mb-12">
                     <button
-                        v-for="f in filters"
-                        :key="f.key"
-                        @click="activeFilter = f.key"
+                        @click="activeCategory = ''"
                         :class="[
                             'px-5 py-2.5 rounded-full text-[13px] font-semibold border transition-all duration-200',
-                            activeFilter === f.key
+                            activeCategory === ''
                                 ? 'bg-[#1a1e2e] text-white border-[#1a1e2e]'
                                 : 'bg-white text-[#344054] border-[#d0d5dd] hover:border-[#1a1e2e]',
                         ]"
                     >
-                        {{ $t(f.labelKey) }}
+                        {{ $t('resultsPage.documentsPage.filterAll') }}
+                    </button>
+                    <button
+                        v-for="cat in categories"
+                        :key="cat.id"
+                        @click="activeCategory = cat.id"
+                        :class="[
+                            'px-5 py-2.5 rounded-full text-[13px] font-semibold border transition-all duration-200',
+                            activeCategory === cat.id
+                                ? 'bg-[#1a1e2e] text-white border-[#1a1e2e]'
+                                : 'bg-white text-[#344054] border-[#d0d5dd] hover:border-[#1a1e2e]',
+                        ]"
+                    >
+                        {{ resolveTranslation(cat.name) }}
                     </button>
                 </div>
 
                 <!-- Document list -->
-                <div class="flex flex-col gap-3 mx-auto">
-                    <a
-                        v-for="(doc, i) in filteredDocs"
-                        :key="i"
-                        :href="doc.file || '#'"
-                        :download="!!doc.file || undefined"
+                <div v-loading="documentsStore.loading" class="flex flex-col gap-3 mx-auto min-h-[80px]">
+                    <component
+                        :is="fileUrl(doc) ? 'a' : 'div'"
+                        v-for="doc in filteredDocs"
+                        :key="doc.id"
+                        :href="fileUrl(doc) || undefined"
+                        target="_blank"
+                        rel="noopener"
                         class="flex items-center gap-4 rounded-2xl border border-[#eef0f4] bg-[#f7f8fa] px-5 py-4 hover:border-[#d0d5dd] hover:bg-white transition-all duration-200 group no-underline"
                     >
                         <!-- File icon -->
@@ -59,11 +72,12 @@
 
                         <!-- Title -->
                         <div class="flex-1 min-w-0">
-                            <p class="font-semibold text-[15px] text-[#1a1e2e] leading-snug">{{ doc.title }}</p>
+                            <p class="font-semibold text-[15px] text-[#1a1e2e] leading-snug">{{ resolveTranslation(doc.title) }}</p>
                         </div>
 
                         <!-- Download button -->
                         <span
+                            v-if="fileUrl(doc)"
                             class="flex-shrink-0 flex items-center gap-1.5 text-[13px] font-semibold text-[#4361ee] bg-[#eff4ff] px-4 py-2 rounded-full group-hover:bg-[#4361ee] group-hover:text-white transition-all duration-200 whitespace-nowrap"
                         >
                             <svg
@@ -82,7 +96,13 @@
                             </svg>
                             {{ $t('resultsPage.documentsPage.downloadLabel') }}
                         </span>
-                    </a>
+                    </component>
+
+                    <el-empty
+                        v-if="!documentsStore.loading && filteredDocs.length === 0"
+                        :description="$t('common.noData')"
+                        class="py-10"
+                    />
                 </div>
             </div>
         </section>
@@ -90,42 +110,41 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { ElEmpty } from 'element-plus'
+import { useDocumentsStore } from '@/features/documents/store'
+import { useDocumentCategoriesStore } from '@/features/documentCategories/store'
+import { getMediaUrl } from '@/utils/media'
+import type { DocumentItem, TranslatedFile } from '@/features/documents/types'
+import type { Translation } from '@/types/server/api.types'
 
-const activeFilter = ref('reports')
+const { locale } = useI18n()
+const documentsStore = useDocumentsStore()
+const categoriesStore = useDocumentCategoriesStore()
 
-const filters = [
-    { key: 'reports', labelKey: 'resultsPage.documentsPage.filterReports' },
-    { key: 'wg-minutes', labelKey: 'resultsPage.documentsPage.filterWgMinutes' },
-    { key: 'decrees', labelKey: 'resultsPage.documentsPage.filterDecrees' },
-    { key: 'council', labelKey: 'resultsPage.documentsPage.filterCouncilMinutes' },
-    { key: 'charters', labelKey: 'resultsPage.documentsPage.filterCharters' },
-]
+const activeCategory = ref('')
 
-type Doc = { title: string; category: string; file?: string }
+const categories = computed(() => categoriesStore.items.filter((c) => c.status))
 
-const documents: Doc[] = [
-    // Annual reports
-    { title: 'Secretariat annual report — 2023', category: 'reports', file: '/assets/documents/AR_2023_finalized.pdf' },
-    { title: 'Secretariat annual report — 2024', category: 'reports', file: '/assets/documents/Final - FIC-Annual_Report-2024.pdf' },
-    { title: 'Secretariat annual report — 2025', category: 'reports' },
-    // Working group minutes
-    { title: 'Working Group on Investment Climate — Session Protocol, 2024', category: 'wg-minutes' },
-    { title: 'Working Group on Tax Policy — Session Protocol, 2025', category: 'wg-minutes' },
-    { title: 'Working Group on Digitalization — Session Protocol, 2025', category: 'wg-minutes' },
-    // Presidential decrees
-    { title: 'Presidential Resolution PP-4519 — Establishment of the Council', category: 'decrees' },
-    { title: 'Presidential Resolution PP-179 — Establishment of Working Groups', category: 'decrees' },
-    { title: 'Presidential Resolution PP-226 — Restructuring and Expansion of Working Groups', category: 'decrees' },
-    // Council minutes
-    { title: 'Protocol of the I Plenary Session — 2021', category: 'council' },
-    { title: 'Protocol of the II Plenary Session — TIIF 2024', category: 'council' },
-    { title: 'Protocol of the III Plenary Session — 2025', category: 'council' },
-    { title: 'Protocol of the Interim Session — November 2025', category: 'council' },
-    // Founding documents
-    { title: 'Charter of the Foreign Investors Council', category: 'charters' },
-    { title: 'Regulations of the Executive Committee', category: 'charters' },
-]
+const publishedDocs = computed(() => documentsStore.items.filter((d) => d.status))
 
-const filteredDocs = computed(() => documents.filter((d) => d.category === activeFilter.value))
+const filteredDocs = computed(() =>
+    activeCategory.value ? publishedDocs.value.filter((d) => d.categoryId === activeCategory.value) : publishedDocs.value
+)
+
+function resolveTranslation(t: Translation | null | undefined) {
+    if (!t) return ''
+    return t[locale.value as keyof Translation] || t.uz || ''
+}
+
+function fileUrl(doc: DocumentItem) {
+    const id = doc.file?.[locale.value as keyof TranslatedFile] || doc.file?.uz || doc.file?.en || doc.file?.ru
+    return id ? getMediaUrl(id) : ''
+}
+
+onMounted(() => {
+    categoriesStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
+    documentsStore.fetchAll({ limit: 200, sortBy: 'order', order: 'asc' })
+})
 </script>

@@ -124,27 +124,32 @@
     "m1": {
       "name": "Laziz Kudratov",
       "role": "MIIT vakolatxonasi rahbari",
-      "quote": "O'zbekiston investitsiya faolligida barqaror o'sishni namoyish etmoqda — bu davom etayotgan islohotlar va xorijiy investorlar uchun qulay sharoitlar yaratilishi natijasidir."
+      "quote": "O'zbekiston investitsiya faolligida barqaror o'sishni namoyish etmoqda — bu davom etayotgan islohotlar va xorijiy investorlar uchun qulay sharoitlar yaratilishi natijasidir.",
+      "bio": "O'zbekiston Respublikasi Investitsiyalar, sanoat va savdo vaziri, Ijroiya qo'mitasi raisi. Mamlakatning investitsiya siyosati, sanoat rivojlanishi va tashqi savdosiga rahbarlik qiladi."
     },
     "m2": {
       "name": "Andy Aranitasi",
       "role": "O'zbekistondagi YETTB rahbari",
-      "quote": "Biz mamlakatning tadbirkorlik muhitini yaxshilashga katta ahamiyat beramiz — bu prezident Mirziyoyev tomonidan strategik milliy ustuvorlik sifatida belgilangan."
+      "quote": "Biz mamlakatning tadbirkorlik muhitini yaxshilashga katta ahamiyat beramiz — bu prezident Mirziyoyev tomonidan strategik milliy ustuvorlik sifatida belgilangan.",
+      "bio": "Direktor, YETTBning O'zbekistondagi vakolatxonasi rahbari. Bank sohasida 25 yildan ortiq tajribaga ega; YETTBning energetika, infratuzilma va O'zbekiston xususiy sektoriga investitsiyalarini kengaytirgan."
     },
     "m3": {
       "name": "Kanokpan Lao-Araya",
       "role": "Osiyo Taraqqiyot Bankining mamlakatdagi direktori",
-      "quote": "Hukumat islohotlarga qat'iy sodiqligini ko'rsatmoqda va rivojlanish jarayoniga xususiy sektor ham jumladan barcha manfaatdor tomonlarni jalb etishga intilmoqda."
+      "quote": "Hukumat islohotlarga qat'iy sodiqligini ko'rsatmoqda va rivojlanish jarayoniga xususiy sektor ham jumladan barcha manfaatdor tomonlarni jalb etishga intilmoqda.",
+      "bio": "OTBning O'zbekistondagi mamlakat direktori. Rivojlanish va iqtisodiy siyosat sohasida 25 yildan ortiq tajribaga ega."
     },
     "m4": {
       "name": "Neil McCain",
       "role": "O'zbekiston va Turkmaniston bo'yicha XMK ofisi direktori",
-      "quote": "O'zbekistonning asosiy raqobatdosh afzalliklari — Markaziy Osiyodagi eng ko'p aholi va eng xilma-xil iqtisodiyotdir."
+      "quote": "O'zbekistonning asosiy raqobatdosh afzalliklari — Markaziy Osiyodagi eng ko'p aholi va eng xilma-xil iqtisodiyotdir.",
+      "bio": "XMKning O'zbekiston va Turkmaniston bo'yicha ofisi direktori. XMKning xususiy sektorni rivojlantirish operatsiyalariga rahbarlik qiladi."
     },
     "m5": {
       "name": "Aziz Gafurov",
       "role": "XIK Kotibiyati rahbari",
-      "quote": "Biz mamlakatning tadbirkorlik muhitini yaxshilashga katta ahamiyat beramiz — bu prezident Mirziyoyev tomonidan strategik milliy ustuvorlik sifatida belgilangan."
+      "quote": "Biz mamlakatning tadbirkorlik muhitini yaxshilashga katta ahamiyat beramiz — bu prezident Mirziyoyev tomonidan strategik milliy ustuvorlik sifatida belgilangan.",
+      "bio": "Kengash Assotsiatsiyasi rahbari va Kotibiyat boshlig'i. Korporativ boshqaruv, risklarni boshqarish va investitsiya siyosati sohasida 20 yildan ortiq tajribaga ega top-menejer."
     }
   },
   "plenary": {
@@ -458,10 +463,10 @@
       "i4": { "name": "Xorijiy kompaniyalar uchun malakali kadrlar tayyorlash bo'yicha IdIG", "description": "O'zbekistonda faoliyat yurituvchi xalqaro kompaniyalar talablariga javob beradigan mahalliy kadrlarni kasbiy tayyorlash va malakasini oshirish dasturlarini ishlab chiqish." },
       "i5": { "name": "Mahalliy kompaniyalarda korporativ boshqaruvni yaxshilash bo'yicha IdIG", "description": "O'zbek kompaniyalarida korporativ boshqaruv standartlarini takomillashtirish, direktorlar kengashi, shaffoflik va hisobdorlik bo'yicha eng yaxshi amaliyotlarni rivojlantirish." },
       "i6": { "name": "Soliq ma'muriyatchiligini yaxshilash bo'yicha IdIG", "description": "Soliq ma'muriyatchilik tartib-qoidalarini soddalashtirish, korxonalarga ma'muriy yukni kamaytirish, soliq tizimining shaffofligini oshirish va nizolarni hal qilishning samarali mexanizmlarini rivojlantirish." },
-      "i7": { "name": "Ta'lim, fan va innovatsiyalar", "ministry": "Oliy ta'lim vazirligi", "description": "Universitetlar va biznes o'rtasidagi aloqalarni mustahkamlash, ilmiy-tadqiqot investitsiyalarini ragʻbatlantirish va xorijiy investorlar uchun malakali kadrlar tayyorlash." },
-      "i8": { "name": "Transport va GXSh infratuzilmasi", "ministry": "Transport vazirligi", "description": "Transport infratuzilmasi uchun davlat-xususiy sheriklik mexanizmlarini rivojlantirish, logistika ulanishini yaxshilash va infratuzilmaga investitsiyalar yo'lidagi to'siqlarni bartaraf etish." },
-      "i9": { "name": "Atrof-muhit va energiya samaradorligi", "ministry": "Ekologiya vazirligi", "description": "Yashil investitsiyalarni ragʻbatlantirish, atrof-muhit standartlarini xalqaro talablar bilan muvofiqlashtirish va xorijiy kompaniyalar tomonidan barqaror rivojlanish tashabbuslari." },
-      "i10": { "name": "Xususiylashtirish va davlat aktivlarini boshqarish", "ministry": "Iqtisodiyot vazirligi", "description": "Davlat korxonalarini xususiylashtirishni tezlashtirish, korporativ boshqaruvni takomillashtirish va strategik sohalarda xorijiy ishtirok imkoniyatlarini kengaytirish." }
+      "i7": { "name": "Yer ajratish tartib-taomillarini takomillashtirish bo'yicha IdIG", "ministry": "Kadastr agentligi", "description": "Yer ajratish tartib-taomillarini soddalashtirish va tezlashtirish, yer resurslaridan foydalanish strategiyasini shakllantirish." },
+      "i8": { "name": "Energetika masalalari bo'yicha IdIG", "ministry": "Energetika vazirligi", "description": "Elektr energiyasini taqsimlash sohasiga xususiy investitsiyalarni jalb etish, tarmoqlarni rivojlantirish rejasini ishlab chiqish va huquqiy-soliq rejimining barqarorligini ta'minlash." },
+      "i9": { "name": "Aylanma iqtisodiyot bo'yicha IdIG", "ministry": "Ekologiya davlat qo'mitasi", "description": "Aylanma iqtisodiyot tamoyillarini joriy etish, chiqindilarni qayta ishlash va resurslarni tejashni rag'batlantirish, xorijiy kompaniyalar orasida barqaror ishlab chiqarish amaliyotlarini qo'llab-quvvatlash." },
+      "i10": { "name": "Sun'iy intellektni rivojlantirish bo'yicha IdIG", "ministry": "Raqamli texnologiyalar vazirligi", "description": "Sun'iy intellektni joriy etish uchun normativ-huquqiy bazani ishlab chiqish, raqamli innovatsiyalarni rag'batlantirish va xorijiy texnologiya kompaniyalarini bu sohaga jalb etish." }
     },
     "membersLabel": "a'zo",
     "initiativesLabel": "tashabbus",
@@ -476,6 +481,8 @@
     "coChairLabel": "Hamrais",
     "membershipBadge": "Idoralararo ishchi guruh a'zoligi",
     "participantsTitle": "Ishchi guruh ishtrokchilari",
+    "stateMembersTitle": "Davlat tomonidan",
+    "councilMembersTitle": "Kengash tomonidan",
     "backButton": "Ishchi guruhlarga qaytish",
     "councilGroups": {
       "c1": { "name": "Energetika sektori bo'yicha IG", "description": "Elektr energiyasini ishlab chiqarish, uzatish va taqsimlashga xususiy investitsiyalarni rag'batlantirish, qayta tiklanuvchi energiya manbalarini va energetika loyihalari uchun aralash moliyalashtirish mexanizmlarini rivojlantirish." },
@@ -751,6 +758,56 @@
     "lazizPos": "Investitsiyalar, sanoat va savdo vaziri",
     "lazizBio": "Laziz Kudratov 2022 yil dekabr oyidan beri O'zbekiston Respublikasining Investitsiyalar, sanoat va savdo vaziri lavozimini egallaydi. U tashqi iqtisodiy munosabatlar va investitsiyalar sohasida keng tajribaga ega bo'lib, Tashqi iqtisodiy aloqalar, investitsiyalar va savdo vazirligi hamda AQShdagi O'zbekiston elchixonasida muhim lavozimlarda ishlagan. Uning rahbarligida mamlakatning investitsion jozibadorligini oshirish, sanoatni rivojlantirish va tashqi savdoni rag'batlantirishga qaratilgan strategik islohotlar amalga oshirilmoqda.",
     "kazbekPos": "Vision Invest katta vitse-prezidenti va O'zbekistondagi vakolatxona rahbari",
-    "kazbekBio": "Kazbek Bassiyev Vision Invest korporatsiyasining katta vitse-prezidenti va O'zbekistondagi vakolatxona rahbaridir. U Ishchi guruhining rais o'rinbosari lavozimini egallaydi, bu esa uning davlat-xususiy sheriklik va investitsiyalar sohasidagi loyihalarni muvofiqlashtirish hamda hukumat tuzilmalari bilan o'zaro hamkorlikdagi muhim rolini ko'rsatadi. Vision Invest energetika, suv ta'minoti, qurilish va transport sohalarida aktivlarga ega yirik infratuzilma xoldingi bo'lib, O'zbekiston va Saudiya Arabistonida faol faoliyat yuritadi."
+    "kazbekBio": "Kazbek Bassiyev Vision Invest korporatsiyasining katta vitse-prezidenti va O'zbekistondagi vakolatxona rahbaridir. U Ishchi guruhining rais o'rinbosari lavozimini egallaydi, bu esa uning davlat-xususiy sheriklik va investitsiyalar sohasidagi loyihalarni muvofiqlashtirish hamda hukumat tuzilmalari bilan o'zaro hamkorlikdagi muhim rolini ko'rsatadi. Vision Invest energetika, suv ta'minoti, qurilish va transport sohalarida aktivlarga ega yirik infratuzilma xoldingi bo'lib, O'zbekiston va Saudiya Arabistonida faol faoliyat yuritadi.",
+    "timurPos": "O'zbekiston Respublikasi Markaziy banki raisi",
+    "timurBio": "Timur Ishmetov 2024 yil dekabr oyidan beri O'zbekiston Respublikasi Markaziy bankining raisi lavozimini egallaydi. U bank sohasida 19 yildan ortiq tajribaga ega bo'lib, Markaziy bank va Moliya vazirligida muhim lavozimlarda ishlagan. Uning rahbarligida mamlakat moliya tizimining shaffofligi, samaradorligi va barqaror rivojlanishini oshirishga qaratilgan islohotlar amalga oshirilmoqda.",
+    "davronPos": "BDO Uzbekistan boshqaruvchi sherigi",
+    "davronBio": "Davron Yakubov BDO Uzbekistan kompaniyasining boshqaruvchi sherigidir. U mahalliy bozorda ham, xalqaro amaliyotda ham audit va konsalting sohasida katta tajribaga ega. Uning rahbarligida kompaniya audit, soliq maslahati va biznes-konsalting bo'yicha professional xizmatlar ko'rsatib, mamlakatda korporativ boshqaruv standartlarini mustahkamlashga hissa qo'shmoqda.",
+    "veraPos": "Crowe Uzbekistan boshqaruvchi sherigi",
+    "veraBio": "Vera Bell Crowe Uzbekistan kompaniyasining boshqaruvchi sherigidir. U Buyuk Britaniya, YEI mamlakatlari va Markaziy Osiyoda ishlash bo'yicha katta xalqaro tajribaga ega. Uning rahbarligida Crowe Uzbekistan yirik xalqaro va milliy kompaniyalar bilan hamkorlikda audit, konsalting va moliyaviy xizmatlar ko'rsatadi.",
+    "kongratbayPos": "Oliy ta'lim, fan va innovatsiyalar vaziri",
+    "kongratbayBio": "Kongratbay Sharipov O'zbekiston Respublikasining Oliy ta'lim, fan va innovatsiyalar vaziri lavozimini egallaydi. U texnika fanlari doktori va professor bo'lib, ta'lim va fan sohasida, jumladan Toshkent arxitektura-qurilish institutiga rahbarlik qilishda boy tajribaga ega. Uning rahbarligida vazirlik malakali kadrlar tayyorlash tizimini rivojlantirish va ta'lim jarayoniga innovatsiyalarni joriy etishga qaratilgan islohotlarni amalga oshirmoqda.",
+    "ilkhomPos": "Iqtisodiyot va moliya birinchi vazir o'rinbosari",
+    "ilkhomBio": "Ilxom Norqulov O'zbekiston Respublikasi iqtisodiyot va moliya birinchi vazir o'rinbosari lavozimini egallaydi. U iqtisodiyot sohasida, jumladan Markaziy bankda rahbarlik lavozimlarida boy tajribaga ega. 2023 yil fevralidan beri iqtisodiy rivojlanish, soliq rag'batlantirish va norasmiy iqtisodiyotga qarshi kurash yo'nalishidagi ishlarga rahbarlik qiladi.",
+    "mariusPos": "Franklin Templeton Markaziy Osiyo bosh direktori",
+    "mariusBio": "Marius Dan Franklin Templeton kompaniyasining Markaziy Osiyo bo'yicha bosh direktori lavozimini egallaydi. U O'zbekiston Respublikasi Milliy investitsiya fondi (UzNIF) boshqaruvi va kompaniyaning mintaqadagi investitsiya strategiyalarini rivojlantirishga rahbarlik qiladi. Uning rahbarligida Franklin Templeton xalqaro investorlarni jalb qilish va UzNIFni fond bozorlarida listingga tayyorlash bo'yicha faol ishlarni olib bormoqda.",
+    "ahadbekPos": "Iqtisodiyot va moliya vazir o'rinbosari",
+    "ahadbekBio": "Ahadbek Haydarov davlat siyosati, makroiqtisodiyot va moliyaviy boshqaruv sohasida tajribali mutaxassisdir. Iqtisodiyot va moliya vazirligiga tayinlanishidan oldin davlat aktivlarini boshqarish, bank va moliya sohalarida rahbarlik lavozimlarida ishlagan. 2019 yildan beri iqtisodiyot va moliya vazir o'rinbosari lavozimida davlat byudjeti va iqtisodiy rivojlanish masalalariga rahbarlik qiladi.",
+    "farrukhPos": "Kadastr agentligi direktori",
+    "farrukhBio": "Farrux Pulatov 2022 yil mart oyidan beri O'zbekiston Respublikasi Davlat soliq qo'mitasi huzuridagi Kadastr agentligi direktori lavozimini egallaydi. U muhandislik va huquqshunoslik sohasida oliy ma'lumotga ega bo'lib, katta boshqaruv tajribasiga ega — ilgari «Uzdonmahsulot» kompaniyasiga rahbarlik qilgan. Uning rahbarligida agentlik yer va mol-mulk hisobini raqamlashtirish bo'yicha islohotlarni amalga oshirmoqda.",
+    "azizbekAkhmadjonovPos": "Kosta Legal boshqaruvchi sherigi",
+    "azizbekAkhmadjonovBio": "Azizbek Ahmadjonov O'zbekistondagi yetakchi yuridik kompaniyalardan biri bo'lgan Kosta Legal firmasining boshqaruvchi sherigidir. U ko'chmas mulk, qurilish, korporativ huquq va sud vakolatxonasi sohalarida boy tajribaga ega. Ahmadjonov O'zbekiston huquq tizimini isloh qilishda, xususan yuridik kasbni tartibga solish va xorijiy investitsiyalarni jalb qilish sohasida faol ishtirok etadi.",
+    "jurabekPos": "O'zbekiston Respublikasi energetika vaziri",
+    "jurabekBio": "Jurabek Mirzamahmudov 2022 yildan beri O'zbekiston Respublikasi Energetika vazirligiga rahbarlik qiladi va tarmoqning strategik rivojlanishi, innovatsiyalarni joriy etish hamda energiya sektoridagi yirik investitsiya loyihalarini amalga oshirish uchun javobgardir. U atom, qayta tiklanadigan va an'anaviy energetika sohasida katta tajribaga ega bo'lib, xalqaro hamkorlik va zamonaviy texnologiyalarni integratsiya qilishga ko'maklashadi.",
+    "azizAbdukhakimovPos": "Ekologiya va iqlim o'zgarishi davlat qo'mitasi raisi",
+    "azizAbdukhakimovBio": "Azizbek Abduhakimov Ekologiya va iqlim o'zgarishi davlat qo'mitasi raisi lavozimini egallaydi. U davlat boshqaruvi, turizm va ekologiya sohasida ko'p yillik tajribaga ega bo'lib, turli yillarda turizmni rivojlantirish bo'yicha Bosh vazir o'rinbosari lavozimida ishlagan. Uning rahbarligida atrof-muhitni muhofaza qilish va iqlim o'zgarishiga qarshi kurashish bo'yicha tizimli islohotlar amalga oshirilmoqda.",
+    "kazumasaPos": "Coca-Cola O'zbekiston bosh menejeri",
+    "kazumasaBio": "Kazumasa Mukae Coca-Cola Bottlers Uzbekistan kompaniyasining bosh menejeridir. U ichimliklar sanoati va xalqaro kompaniyalarni boshqarish bo'yicha katta tajribaga ega bo'lib, kompaniyaning O'zbekistondagi operatsion faoliyatini rivojlantirishda muhim rol o'ynaydi. Uning rahbarligida ishlab chiqarish samaradorligini oshirish va barqaror rivojlanishga qaratilgan tashabbuslar amalga oshirilmoqda.",
+    "olimjonPos": "Raqamli texnologiyalar vazir o'rinbosari",
+    "olimjonBio": "Olimjon Umarov raqamli texnologiyalar vazir o'rinbosaridir. U axborot siyosati, ommaviy komunikatsiyalar va raqamli rivojlanish sohasida ko'p yillik tajribaga ega bo'lib, turli yillarda davlat boshqaruvi tizimida mas'ul lavozimlarda ishlagan. Uning rahbarligida davlat organlari faoliyatining shaffofligini oshirish va zamonaviy axborot texnologiyalarini joriy etishga qaratilgan tashabbuslar ilgari surilmoqda.",
+    "posCentralBankChair": "Markaziy bank raisi",
+    "posJusticeMinister": "Adliya vaziri",
+    "posDigitalMinister": "Raqamli texnologiyalar vaziri",
+    "posDeputyEcoFin": "Iqtisodiyot va moliya vazir o'rinbosari",
+    "posRdfDirector": "Tiklanish va taraqqiyot jamg'armasi ijrochi direktori",
+    "posTaxChairman": "Soliq qo'mitasi raisi",
+    "posDeputyJustice": "Adliya vazirining o'rinbosari",
+    "posDeputyTax": "Soliq qo'mitasi raisining o'rinbosari",
+    "posStockExchange": "«Toshkent» Respublika fond birjasi boshqaruvi raisi",
+    "posOmbudsperson": "O'zbekiston Respublikasi Oliy Majlisi Ombudsmani",
+    "posDeputyPoverty": "Kambag'allikni qisqartirish va bandlik vazirining o'rinbosari",
+    "posCompetition": "Raqobatni rivojlantirish va iste'molchilar huquqlarini himoya qilish qo'mitasi raisining o'rinbosari",
+    "posStatistics": "Statistika qo'mitasi raisining o'rinbosari",
+    "posEcologyDeputy": "Ekologiya, atrof-muhitni muhofaza qilish va iqlim o'zgarishi vazirining o'rinbosari",
+    "posEmployment": "Bandlik va kambag'allikni qisqartirish vaziri",
+    "posLaborMigration": "Tashqi mehnat migratsiyasi agentligi direktori",
+    "posChamber": "Savdo-sanoat palatasi raisi",
+    "posNapp": "Istiqbolli loyihalar milliy agentligi direktorining birinchi o'rinbosari",
+    "posStateAssetsDeputy": "Davlat aktivlarini boshqarish agentligi direktorining o'rinbosari",
+    "posFirstDeputyJustice": "Adliya vazirining birinchi o'rinbosari",
+    "posHududiy": "«Hududiy elektr tarmoqlari» AJ boshqaruvi raisi",
+    "posUzenergo": "«Uzenergosotish» kompaniyasi raisi",
+    "posYashilEnergiya": "«Yashil Energiya» MChJ direktori",
+    "posUztransgaz": "«Uztransgaz» AJ boshqaruvi raisi v.b."
   }
 }

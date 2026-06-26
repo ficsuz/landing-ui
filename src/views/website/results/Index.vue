@@ -98,7 +98,12 @@
                         {{ $t('resultsPage.reports.title') }}
                     </h2>
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
-                        <a v-for="(report, i) in analyticalReports" :key="i" href="#" class="group flex flex-col gap-0">
+                        <router-link
+                            v-for="(report, i) in analyticalReports"
+                            :key="i"
+                            :to="{ name: 'media-reports' }"
+                            class="group flex flex-col"
+                        >
                             <!-- Cover image -->
                             <div
                                 class="rounded-2xl overflow-hidden aspect-[3/4] relative shadow-[0_2px_16px_rgba(0,0,0,0.10)] group-hover:shadow-[0_8px_32px_rgba(0,0,0,0.18)] transition-shadow duration-300"
@@ -115,10 +120,10 @@
                                 </span>
                             </div>
                             <!-- Title + link -->
-                            <div class="pt-3 flex flex-col gap-2">
+                            <div class="pt-3 flex flex-col flex-1">
                                 <p class="text-[13px] font-bold text-[#1a1e2e] leading-snug line-clamp-2">{{ $t(report.titleKey) }}</p>
                                 <span
-                                    class="inline-flex items-center gap-1 text-[12px] font-semibold text-[#8a94a6] group-hover:text-[#1a1e2e] group-hover:gap-2 transition-all duration-200"
+                                    class="mt-auto pt-2 inline-flex items-center gap-1 text-[12px] font-semibold text-[#8a94a6] group-hover:text-[#1a1e2e] group-hover:gap-2 transition-all duration-200"
                                 >
                                     {{ $t('common.learnMore') }}
                                     <svg
@@ -135,7 +140,7 @@
                                     </svg>
                                 </span>
                             </div>
-                        </a>
+                        </router-link>
                     </div>
                 </div>
                 <div class="mb-10">

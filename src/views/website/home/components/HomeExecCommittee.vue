@@ -22,12 +22,7 @@
                 >
                     <!-- Logo area -->
                     <div class="flex items-center justify-center h-[72px] px-4 border-b border-[#eef0f4] bg-white">
-                        <img
-                            :src="member.logo"
-                            :alt="$t(`exec.${member.key}.name`)"
-                            class="max-h-[42px] w-auto object-contain"
-                            style="max-width: 140px"
-                        />
+                        <img :src="member.logo" :alt="$t(`exec.${member.key}.name`)" class="w-auto object-contain" style="max-width: 140px" />
                     </div>
 
                     <!-- Photo -->
@@ -42,9 +37,7 @@
 
                     <!-- Quote -->
                     <div class="px-4 pt-4 pb-3 flex-1">
-                        <p class="text-[12px] text-[#666] italic leading-relaxed line-clamp-4">
-                            "{{ $t(`exec.${member.key}.quote`) }}"
-                        </p>
+                        <p class="text-[12px] text-[#666] italic leading-relaxed line-clamp-4">"{{ $t(`exec.${member.key}.quote`) }}"</p>
                     </div>
 
                     <!-- Name / Role -->
@@ -84,10 +77,10 @@ import logoFic from '@/assets/images/icons/ba12d8ddde154e568c101e56e4a917883a60b
 
 const members = [
     { key: 'm1', logo: logoMinistry, photo: avatar1 },
-    { key: 'm2', logo: logoEbrd,     photo: avatar2 },
-    { key: 'm3', logo: logoAdb,      photo: avatar3 },
-    { key: 'm4', logo: logoIfc,      photo: avatar4 },
-    { key: 'm5', logo: logoFic,      photo: avatar5 },
+    { key: 'm2', logo: logoEbrd, photo: avatar2 },
+    { key: 'm3', logo: logoAdb, photo: avatar3 },
+    { key: 'm4', logo: logoIfc, photo: avatar4 },
+    { key: 'm5', logo: logoFic, photo: avatar5 },
 ]
 
 const visible = ref(false)

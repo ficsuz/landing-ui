@@ -1,27 +1,44 @@
 <template>
     <section class="bg-white py-16 md:py-24">
         <div class="page-container">
-
-            <!-- Stats -->
+            <!-- Stats (act as tabs) -->
             <div ref="statsRef" class="wg-stat-tabs mb-5">
-                <div class="wg-stat-tab">
+                <div
+                    class="wg-stat-tab"
+                    :class="{ 'wg-stat-tab--active': activeTab === 'council' }"
+                    @click="selectTab('council')"
+                >
                     <span class="wg-stat-tab__count">{{ statsDisplay[0] }}</span>
                     <span class="wg-stat-tab__label">{{ $t('workingGroupsPage.councilStatLabel') }}</span>
                 </div>
-                <div class="wg-stat-tab">
+                <div
+                    class="wg-stat-tab"
+                    :class="{ 'wg-stat-tab--active': activeTab === 'interagency' }"
+                    @click="selectTab('interagency')"
+                >
                     <span class="wg-stat-tab__count">{{ statsDisplay[1] }}</span>
                     <span class="wg-stat-tab__label">{{ $t('workingGroupsPage.interagencyStatLabel') }}</span>
                 </div>
             </div>
 
             <!-- Legal basis -->
-            <div class="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#F7F7F7] border border-[#0000000D] mb-10 flex-wrap gap-y-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#505A63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <line x1="16" y1="13" x2="8" y2="13"/>
-                    <line x1="16" y1="17" x2="8" y2="17"/>
-                    <polyline points="10 9 9 9 8 9"/>
+            <div class="flex items-start md:items-center gap-3 px-4 py-3 rounded-xl bg-[#F7F7F7] border border-[#0000000D] mb-10 flex-wrap gap-y-3">
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#505A63"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="shrink-0 mt-0.5"
+                >
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
                 </svg>
                 <div class="flex-1 min-w-0">
                     <span class="block text-xs font-semibold text-[#191C1F] uppercase tracking-wide mb-0.5">
@@ -31,46 +48,45 @@
                         {{ $t('workingGroupsPage.legalBasisText') }}
                     </span>
                 </div>
-                <a href="#" class="shrink-0 flex items-center gap-1 text-sm font-medium text-[#191C1F] hover:opacity-70 transition-opacity whitespace-nowrap">
+                <router-link
+                    :to="{ name: 'results-documents' }"
+                    class="shrink-0 flex items-center gap-1 text-sm font-medium text-[#191C1F] hover:opacity-70 transition-opacity whitespace-nowrap"
+                >
                     {{ $t('workingGroupsPage.learnMore') }}
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
-                </a>
+                </router-link>
             </div>
-
-            <!-- Tabs (only when not in detail view) -->
-            <Transition name="wg-fade">
-                <div v-if="!selected" class="flex gap-2 mb-10 flex-wrap">
-                    <button
-                        @click="activeTab = 'council'"
-                        class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200"
-                        :class="activeTab === 'council'
-                            ? 'bg-[#191C1F] text-white'
-                            : 'border border-[#0000001A] text-[#505A63] hover:border-[#191C1F] hover:text-[#191C1F]'"
-                    >
-                        {{ $t('workingGroupsPage.tabCouncil') }}
-                    </button>
-                    <button
-                        @click="activeTab = 'interagency'"
-                        class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200"
-                        :class="activeTab === 'interagency'
-                            ? 'bg-[#191C1F] text-white'
-                            : 'border border-[#0000001A] text-[#505A63] hover:border-[#191C1F] hover:text-[#191C1F]'"
-                    >
-                        {{ $t('workingGroupsPage.tabInteragency') }}
-                    </button>
-                </div>
-            </Transition>
 
             <!-- Content -->
             <Transition name="wg-fade" mode="out-in">
-
                 <!-- CWG Detail view -->
                 <div v-if="selected && isCWG(selected)" :key="`cwg-detail-${selected.id}`">
-                    <button @click="selected = null" class="flex items-center gap-2 text-[#505A63] hover:text-[#191C1F] transition-colors mb-8 cursor-pointer">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    <button
+                        @click="selected = null"
+                        class="flex items-center gap-2 text-[#505A63] hover:text-[#191C1F] transition-colors mb-8 cursor-pointer"
+                    >
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M19 12H5M12 19l-7-7 7-7" />
                         </svg>
                         {{ $t('workingGroupsPage.backButton') }}
                     </button>
@@ -87,7 +103,7 @@
                             <img
                                 :src="selected.image"
                                 :alt="selected.fullname"
-                                class="w-full lg:w-[300px] rounded-2xl object-cover object-top aspect-[4/5] lg:aspect-auto lg:h-[380px]"
+                                class="w-48 sm:w-56 lg:w-[300px] rounded-2xl object-cover object-top aspect-[4/5] lg:aspect-auto lg:h-[380px]"
                             />
                         </div>
                         <div class="flex flex-col gap-3">
@@ -109,16 +125,28 @@
                             :key="i"
                             class="border border-gray-200 rounded-xl bg-white flex items-center justify-center h-[100px] p-4"
                         >
-                            <img :src="logo" alt="" class="max-w-full max-h-full object-contain"/>
+                            <img :src="logo" alt="" class="max-w-full max-h-full object-contain" />
                         </div>
                     </div>
                 </div>
 
                 <!-- IWG Detail view -->
                 <div v-else-if="selected && !isCWG(selected)" :key="`iwg-detail-${selected.id}`">
-                    <button @click="selected = null" class="flex items-center gap-2 text-[#505A63] hover:text-[#191C1F] transition-colors mb-8 cursor-pointer">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M15 18L9 12L15 6"/>
+                    <button
+                        @click="selected = null"
+                        class="flex items-center gap-2 text-[#505A63] hover:text-[#191C1F] transition-colors mb-8 cursor-pointer"
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M15 18L9 12L15 6" />
                         </svg>
                         {{ $t('workingGroupsPage.backButton') }}
                     </button>
@@ -132,7 +160,7 @@
                     <h1 class="text-[clamp(32px,5vw,64px)] font-black uppercase text-[#191C1F] leading-[1.05] mb-6">
                         {{ $t(selected.nameKey) }}
                     </h1>
-                    <p class="text-sm text-[#505A63] mb-12 leading-relaxed">
+                    <p class="text-base md:text-lg text-[#505A63] font-medium mb-10 md:mb-12 leading-relaxed">
                         {{ $t(selected.descriptionKey) }}
                     </p>
 
@@ -142,10 +170,10 @@
                             <img
                                 :src="selected.chairPhoto"
                                 :alt="selected.chairName"
-                                class="w-full lg:w-[260px] aspect-[3/4] object-cover object-top rounded-2xl"
+                                class="w-40 sm:w-48 lg:w-[260px] aspect-[3/4] object-cover object-top rounded-2xl"
                             />
                         </div>
-                        <div class="shrink-0 lg:w-[220px]">
+                        <div class="shrink-0 lg:w-[320px]">
                             <p class="text-sm text-[#000] mb-1 font-normal">{{ $t('workingGroupsPage.chairLabel') }}</p>
                             <h2 class="text-[clamp(20px,2.5vw,32px)] font-extrabold uppercase text-[#191C1F] leading-tight mb-2">
                                 {{ selected.chairName }}
@@ -155,7 +183,7 @@
                             </p>
                         </div>
                         <div v-if="selected.chairBioKey" class="flex-1">
-                            <p class="text-sm text-[#505A63] leading-relaxed">{{ $t(selected.chairBioKey) }}</p>
+                            <p class="text-base md:text-lg text-[#505A63] leading-relaxed">{{ $t(selected.chairBioKey) }}</p>
                         </div>
                     </div>
 
@@ -165,10 +193,10 @@
                             <img
                                 :src="selected.coChairPhoto"
                                 :alt="selected.coChairName"
-                                class="w-full lg:w-[260px] aspect-[3/4] object-cover object-top rounded-2xl"
+                                class="w-40 sm:w-48 lg:w-[260px] aspect-[3/4] object-cover object-top rounded-2xl"
                             />
                         </div>
-                        <div class="shrink-0 lg:w-[220px]">
+                        <div class="shrink-0 lg:w-[320px]">
                             <p class="text-sm text-[#000] mb-1 font-normal">{{ $t('workingGroupsPage.coChairLabel') }}</p>
                             <h2 class="text-[clamp(20px,2.5vw,32px)] font-extrabold uppercase text-[#191C1F] leading-tight mb-2">
                                 {{ selected.coChairName }}
@@ -178,14 +206,51 @@
                             </p>
                         </div>
                         <div v-if="selected.coChairBioKey" class="flex-1">
-                            <p class="text-sm text-[#505A63] leading-relaxed">{{ $t(selected.coChairBioKey) }}</p>
+                            <p class="text-base md:text-lg text-[#505A63] leading-relaxed">{{ $t(selected.coChairBioKey) }}</p>
+                        </div>
+                    </div>
+
+                    <!-- From the State -->
+                    <div v-if="selected.stateMembers.length" class="mt-12 md:mt-16">
+                        <h4 class="text-[clamp(22px,3vw,40px)] font-extrabold uppercase text-[#191C1F] mb-8">
+                            {{ $t('workingGroupsPage.stateMembersTitle') }}
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div
+                                v-for="(member, i) in selected.stateMembers"
+                                :key="i"
+                                class="border border-[#00000026] rounded-xl p-4 text-center flex flex-col items-center"
+                            >
+                                <img :src="member.image" :alt="member.name" class="w-[93px] h-[93px] rounded-3xl object-cover object-top" />
+                                <p class="mt-2 text-[17px] font-bold text-[#191C1F] leading-tight">
+                                    {{ member.name }}
+                                </p>
+                                <span class="mt-1 text-xs text-[#505A63] leading-snug font-normal">
+                                    {{ $t(member.positionKey) }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- From the Council -->
+                    <div v-if="selected.councilBrands.length" class="mt-12 md:mt-16">
+                        <h4 class="text-[clamp(22px,3vw,40px)] font-extrabold uppercase text-[#191C1F] mb-8">
+                            {{ $t('workingGroupsPage.councilMembersTitle') }}
+                        </h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div
+                                v-for="(logo, i) in selected.councilBrands"
+                                :key="i"
+                                class="border border-gray-200 rounded-xl bg-white flex items-center justify-center h-[100px] p-4"
+                            >
+                                <img :src="logo" alt="" class="max-w-full max-h-full object-contain" />
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card grid -->
                 <div v-else key="grid">
-
                     <!-- Council WG cards -->
                     <div v-if="activeTab === 'council'">
                         <h2 class="text-[clamp(28px,4vw,48px)] font-black uppercase text-[#191C1F] mb-8">
@@ -199,8 +264,18 @@
                                 class="group bg-[#F7F7F7] hover:bg-[#EFEFEF] transition-colors duration-200 rounded-2xl p-6 lg:p-7 flex flex-col cursor-pointer"
                             >
                                 <div class="flex items-center gap-3 flex-1">
-                                    <svg :viewBox="item.viewBox" width="22" height="22" fill="none" stroke="#505A63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
-                                        <path v-for="(d, j) in item.paths" :key="j" :d="d"/>
+                                    <svg
+                                        :viewBox="item.viewBox"
+                                        width="22"
+                                        height="22"
+                                        fill="none"
+                                        stroke="#505A63"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="shrink-0"
+                                    >
+                                        <path v-for="(d, j) in item.paths" :key="j" :d="d" />
                                     </svg>
                                     <h4 class="text-sm font-semibold text-[#191C1F] uppercase leading-snug">
                                         {{ $t(item.directionKey) }}
@@ -231,8 +306,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#505A63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 group-hover:translate-x-1 transition-transform duration-200">
-                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="#505A63"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="shrink-0 group-hover:translate-x-1 transition-transform duration-200"
+                                    >
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
                                     </svg>
                                 </div>
                             </div>
@@ -254,8 +339,11 @@
                                 <!-- Two large photos at top -->
                                 <div class="flex gap-4 mb-6">
                                     <div class="flex-1 flex flex-col items-center gap-2">
-                                        <img :src="item.chairPhoto" :alt="item.chairName"
-                                            class="w-20 h-20 rounded-full object-cover object-top border-2 border-white shadow-md"/>
+                                        <img
+                                            :src="item.chairPhoto"
+                                            :alt="item.chairName"
+                                            class="w-20 h-20 rounded-full object-cover object-top border-2 border-white shadow-md"
+                                        />
                                         <p class="text-[10px] text-[#8a94a6] uppercase tracking-wide text-center leading-tight">
                                             {{ $t('workingGroupsPage.chairLabel') }}
                                         </p>
@@ -265,8 +353,11 @@
                                     </div>
                                     <div class="w-px bg-[#0000000D] self-stretch"></div>
                                     <div class="flex-1 flex flex-col items-center gap-2">
-                                        <img :src="item.coChairPhoto" :alt="item.coChairName"
-                                            class="w-20 h-20 rounded-full object-cover object-top border-2 border-white shadow-md"/>
+                                        <img
+                                            :src="item.coChairPhoto"
+                                            :alt="item.coChairName"
+                                            class="w-20 h-20 rounded-full object-cover object-top border-2 border-white shadow-md"
+                                        />
                                         <p class="text-[10px] text-[#8a94a6] uppercase tracking-wide text-center leading-tight">
                                             {{ $t('workingGroupsPage.coChairLabel') }}
                                         </p>
@@ -281,23 +372,40 @@
                                 <!-- Icon + name + arrow -->
                                 <div class="flex items-center gap-3 mt-auto">
                                     <div class="w-9 h-9 rounded-xl bg-[#191C1F] flex items-center justify-center shrink-0">
-                                        <svg :viewBox="item.viewBox" width="16" height="16" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                            <path v-for="(d, j) in item.paths" :key="j" :d="d"/>
+                                        <svg
+                                            :viewBox="item.viewBox"
+                                            width="16"
+                                            height="16"
+                                            fill="none"
+                                            stroke="white"
+                                            stroke-width="1.8"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                            <path v-for="(d, j) in item.paths" :key="j" :d="d" />
                                         </svg>
                                     </div>
                                     <h4 class="flex-1 text-[12px] font-bold text-[#191C1F] uppercase truncate">
                                         {{ $t(item.nameKey) }}
                                     </h4>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#505A63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 group-hover:translate-x-1 transition-transform duration-200">
-                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="#505A63"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="shrink-0 group-hover:translate-x-1 transition-transform duration-200"
+                                    >
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
                                     </svg>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </Transition>
         </div>
     </section>
@@ -313,25 +421,47 @@ import imgLeader4 from '@/assets/images/leaders/leader4.png'
 import imgLeader5 from '@/assets/images/leaders/leader5.png'
 import imgLeader6 from '@/assets/images/leaders/leader6.png'
 import imgSandro2 from '@/assets/images/leaders/sandro2.png'
-import imgLaziz from '@/assets/images/leaders/laziz.png'
-import imgKazbek from '@/assets/images/leaders/kazbek.png'
-import imgTimur from '@/assets/images/leaders/timur.png'
-import imgDavron from '@/assets/images/leaders/davron.png'
-import imgVera from '@/assets/images/leaders/vera.png'
-import imgKongratbay from '@/assets/images/leaders/kongratbay.png'
-import imgIlhom from '@/assets/images/leaders/ilhom.png'
-import imgMarius from '@/assets/images/leaders/marius.png'
+import imgLaziz from '@/assets/images/leaders/laziz2.png'
+import imgKazbek from '@/assets/images/leaders/kazbek2.png'
+import imgTimur from '@/assets/images/leaders/timur2.png'
+import imgDavron from '@/assets/images/leaders/davron2.png'
+import imgVera from '@/assets/images/leaders/vera2.png'
+import imgKongratbay from '@/assets/images/leaders/kongratbay2.png'
+import imgIlhom from '@/assets/images/leaders/ilhom2.png'
+import imgMarius from '@/assets/images/leaders/marius2.png'
 import imgAxadbek2 from '@/assets/images/leaders/axadbek2.png'
 import imgErlan2 from '@/assets/images/leaders/erlan2.png'
-import imgSandro from '@/assets/images/leaders/sandro.png'
-import imgFarrux from '@/assets/images/leaders/farrux.png'
-import imgJurabek from '@/assets/images/leaders/jurabek.png'
-import imgAsadbek from '@/assets/images/leaders/asadbek.png'
-import imgAziz from '@/assets/images/leaders/aziz.png'
-import imgMaxmud from '@/assets/images/leaders/maxmud.png'
+import imgSandro from '@/assets/images/leaders/sandro2.png'
+import imgFarrux from '@/assets/images/leaders/farrux2.png'
+import imgAziz2 from '@/assets/images/leaders/aziz2.png'
+import imgJurabek2 from '@/assets/images/leaders/jurabek2.png'
 import imgMukae from '@/assets/images/leaders/mukae.png'
 import imgOlimjon2 from '@/assets/images/leaders/olimjon2.png'
 import imgAzizA from '@/assets/images/leaders/aziz-a.png'
+
+import usrXurshid from '@/assets/images/users/xurshid.png'
+import usrAsrar from '@/assets/images/users/asrar.png'
+import usrJaxongir from '@/assets/images/users/jaxongir.png'
+import usrNodirbek from '@/assets/images/users/nodirbek.png'
+import usrAskar from '@/assets/images/users/askar2.png'
+import usrAxadbek from '@/assets/images/users/axadbek.png'
+import usrMaxmud from '@/assets/images/users/maxmud.png'
+import usrFarrux from '@/assets/images/users/farrux.png'
+import usrPak from '@/assets/images/users/pak.png'
+import usrGeorgiy from '@/assets/images/users/georgiy.png'
+import usrBotir from '@/assets/images/users/botir.png'
+import usrBexzod from '@/assets/images/users/bexzod.png'
+import usrDavron from '@/assets/images/users/davron.png'
+import usrIlxom from '@/assets/images/users/ilxom.png'
+import usrFeruza from '@/assets/images/users/feruza.png'
+import usrMarat from '@/assets/images/users/marat.png'
+import usrAgzam from '@/assets/images/users/agzam.png'
+import usrMubin from '@/assets/images/users/mubin.png'
+import usrObidjon from '@/assets/images/users/obidjon.png'
+import usrJaxongirAbdiyev from '@/assets/images/users/jaxongirabdiyev.png'
+import usrAkbar from '@/assets/images/users/akbar.png'
+import usrSherzod from '@/assets/images/users/sherzod.png'
+import usrShuxrat from '@/assets/images/users/shuxrat.png'
 
 import imgAcwaPower from '@/assets/images/brands/acwa-power.png'
 import imgTbc from '@/assets/images/brands/tbc.png'
@@ -402,6 +532,9 @@ import imgSasaIntern from '@/assets/images/brands/sasa-intern.png'
 import imgAzizov from '@/assets/images/brands/azizov.png'
 import imgUzumMarket from '@/assets/images/brands/uzum-market.png'
 import imgLekhim from '@/assets/images/brands/lekhim.png'
+import imgVoltalia from '@/assets/images/brands/voltalia.png'
+import imgWildberries from '@/assets/images/brands/wildberries.png'
+import imgHalykBank from '@/assets/images/brands/halyk-bank.png'
 
 const { t } = useI18n()
 
@@ -420,6 +553,12 @@ interface CWGroup {
     brands: string[]
 }
 
+interface WGMember {
+    image: string
+    name: string
+    positionKey: string
+}
+
 interface IWGroup {
     type: 'iwg'
     id: number
@@ -435,6 +574,8 @@ interface IWGroup {
     coChairPhoto: string
     coChairPositionKey?: string
     coChairBioKey?: string
+    stateMembers: WGMember[]
+    councilBrands: string[]
 }
 
 type AnyGroup = CWGroup | IWGroup
@@ -446,161 +587,470 @@ function isCWG(g: AnyGroup): g is CWGroup {
 const activeTab = ref<'council' | 'interagency'>('council')
 const selected = ref<AnyGroup | null>(null)
 
+function selectTab(tab: 'council' | 'interagency') {
+    activeTab.value = tab
+    selected.value = null
+}
+
 const cwgGroups: CWGroup[] = [
     {
-        type: 'cwg', id: 1,
+        type: 'cwg',
+        id: 1,
         viewBox: '0 0 24 24',
         paths: ['M13 2L3 14h9l-1 8 10-12h-9l1-8z'],
         directionKey: 'workingGroupsPage.councilGroups.c1.name',
         directionDescKey: 'workingGroupsPage.councilGroups.c1.description',
-        image: imgLeader6, fullname: t('wg.johnZaidi'), position: t('wg.johnZaidiPos'),
-        companyImage: imgAcwaPower, text: t('wg.johnZaidiText'),
+        image: imgLeader6,
+        fullname: t('wg.johnZaidi'),
+        position: t('wg.johnZaidiPos'),
+        companyImage: imgAcwaPower,
+        text: t('wg.johnZaidiText'),
         brands: [imgAdBank, imgAcwaPower, imgMasdar, imgEdf, imgTe, imgEyBrand, imgBdo, imgKostaLegal, imgDentos, imgAzizov, imgAirProd, imgSiemens],
     },
     {
-        type: 'cwg', id: 2,
+        type: 'cwg',
+        id: 2,
         viewBox: '0 0 24 24',
         paths: ['M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z', 'M9 22V12h6v10'],
         directionKey: 'workingGroupsPage.councilGroups.c2.name',
         directionDescKey: 'workingGroupsPage.councilGroups.c2.description',
-        image: imgLeader1, fullname: t('wg.spartak'), position: t('wg.spartakPos'),
-        companyImage: imgTbc, text: t('wg.spartakText'),
+        image: imgLeader1,
+        fullname: t('wg.spartak'),
+        position: t('wg.spartakPos'),
+        companyImage: imgTbc,
+        text: t('wg.spartakText'),
         brands: [imgAdBank, imgIdBank, imgWbGroup, imgMiCor, imgCola, imgHalyk, imgMitCo, imgTbcBank, imgJpMorgan, imgEBank, imgAwPart],
     },
     {
-        type: 'cwg', id: 3,
+        type: 'cwg',
+        id: 3,
         viewBox: '0 0 24 24',
-        paths: ['M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2', 'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', 'M23 21v-2a4 4 0 0 0-3-3.87', 'M16 3.13a4 4 0 0 1 0 7.75'],
+        paths: [
+            'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2',
+            'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z',
+            'M23 21v-2a4 4 0 0 0-3-3.87',
+            'M16 3.13a4 4 0 0 1 0 7.75',
+        ],
         directionKey: 'workingGroupsPage.councilGroups.c3.name',
         directionDescKey: 'workingGroupsPage.councilGroups.c3.description',
-        image: imgSandro2, fullname: t('wg.sandro'), position: t('wg.sandroPos'),
-        companyImage: imgIpoteka, text: t('wg.sandroText'),
-        brands: [imgOtpBank, imgHenleyPart, imgSojitz, imgGloboGate, imgKnauf, imgUzCarls, imgPwc, imgCentLaw, imgKostaLegal, imgTbcBank, imgAirProd, imgEpam, imgKpmg, imgEyBrand, imgBdo, imgYandeks, imgCrowe, imgVeon, imgChalikHolding, imgSuez, imgEdf, imgMiCor, imgIdBank, imgChinaSpg, imgHalyk, imgMasdar, imgBatBetter, imgTe, imgEnergyChina, imgAcwaPower, imgAdBank, imgIfc, imgCafa, imgAmcham, imgZiraatBank, imgOrano, imgVisa, imgItfc, imgMitCo, imgAlvarezMar, imgMastercard, imgCola, imgAksa, imgHudson, imgOzguven, imgMinistryIit],
+        image: imgSandro2,
+        fullname: t('wg.sandro'),
+        position: t('wg.sandroPos'),
+        companyImage: imgIpoteka,
+        text: t('wg.sandroText'),
+        brands: [
+            imgOtpBank,
+            imgHenleyPart,
+            imgSojitz,
+            imgGloboGate,
+            imgKnauf,
+            imgUzCarls,
+            imgPwc,
+            imgCentLaw,
+            imgKostaLegal,
+            imgTbcBank,
+            imgAirProd,
+            imgEpam,
+            imgKpmg,
+            imgEyBrand,
+            imgBdo,
+            imgYandeks,
+            imgCrowe,
+            imgVeon,
+            imgChalikHolding,
+            imgSuez,
+            imgEdf,
+            imgMiCor,
+            imgIdBank,
+            imgChinaSpg,
+            imgHalyk,
+            imgMasdar,
+            imgBatBetter,
+            imgTe,
+            imgEnergyChina,
+            imgAcwaPower,
+            imgAdBank,
+            imgIfc,
+            imgCafa,
+            imgAmcham,
+            imgZiraatBank,
+            imgOrano,
+            imgVisa,
+            imgItfc,
+            imgMitCo,
+            imgAlvarezMar,
+            imgMastercard,
+            imgCola,
+            imgAksa,
+            imgHudson,
+            imgOzguven,
+            imgMinistryIit,
+        ],
     },
     {
-        type: 'cwg', id: 4,
+        type: 'cwg',
+        id: 4,
         viewBox: '0 0 24 24',
         paths: ['M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z'],
         directionKey: 'workingGroupsPage.councilGroups.c4.name',
         directionDescKey: 'workingGroupsPage.councilGroups.c4.description',
-        image: imgLeader3, fullname: t('wg.sergey'), position: t('wg.sergeyPos'),
-        companyImage: imgUzum, text: t('wg.sergeyText'),
-        brands: [imgSiemens, imgAdBank, imgWbGroup, imgCola, imgHalyk, imgEBank, imgSilverLeafe, imgSuez, imgTbcBank, imgChalikHolding, imgPwc, imgWhiteCase, imgDentos, imgFintech, imgYandeksUz],
+        image: imgLeader3,
+        fullname: t('wg.sergey'),
+        position: t('wg.sergeyPos'),
+        companyImage: imgUzum,
+        text: t('wg.sergeyText'),
+        brands: [
+            imgSiemens,
+            imgAdBank,
+            imgWbGroup,
+            imgCola,
+            imgHalyk,
+            imgEBank,
+            imgSilverLeafe,
+            imgSuez,
+            imgTbcBank,
+            imgChalikHolding,
+            imgPwc,
+            imgWhiteCase,
+            imgDentos,
+            imgFintech,
+            imgYandeksUz,
+        ],
     },
     {
-        type: 'cwg', id: 5,
+        type: 'cwg',
+        id: 5,
         viewBox: '0 0 24 24',
         paths: ['M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z', 'M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z'],
         directionKey: 'workingGroupsPage.councilGroups.c5.name',
         directionDescKey: 'workingGroupsPage.councilGroups.c5.description',
-        image: imgLeader4, fullname: t('wg.gayana'), position: t('wg.gayanaPos'),
-        companyImage: imgAcdfUz, text: t('wg.gayanaText'),
+        image: imgLeader4,
+        fullname: t('wg.gayana'),
+        position: t('wg.gayanaPos'),
+        companyImage: imgAcdfUz,
+        text: t('wg.gayanaText'),
         brands: [imgWbGroup, imgAcwaPower, imgTbcBank, imgUzumMarket, imgAcdfUz, imgEyBrand, imgHalyk, imgLekhim],
     },
     {
-        type: 'cwg', id: 6,
+        type: 'cwg',
+        id: 6,
         viewBox: '0 0 24 24',
         paths: ['M18 20V10', 'M12 20V4', 'M6 20v-6'],
         directionKey: 'workingGroupsPage.councilGroups.c6.name',
         directionDescKey: 'workingGroupsPage.councilGroups.c6.description',
-        image: imgLeader5, fullname: t('wg.erlan'), position: t('wg.erlanPos'),
-        companyImage: imgEy, text: t('wg.erlanText'),
-        brands: [imgAiiBank, imgIndoorama, imgAvesta, imgBatBetter, imgDeloitte, imgSuez, imgSasaIntern, imgAzizov, imgAmcham, imgPwc, imgUzCarls, imgAdBank, imgMasdar, imgMiCor, imgEyBrand, imgCola, imgMastercard],
+        image: imgLeader5,
+        fullname: t('wg.erlan'),
+        position: t('wg.erlanPos'),
+        companyImage: imgEy,
+        text: t('wg.erlanText'),
+        brands: [
+            imgAiiBank,
+            imgIndoorama,
+            imgAvesta,
+            imgBatBetter,
+            imgDeloitte,
+            imgSuez,
+            imgSasaIntern,
+            imgAzizov,
+            imgAmcham,
+            imgPwc,
+            imgUzCarls,
+            imgAdBank,
+            imgMasdar,
+            imgMiCor,
+            imgEyBrand,
+            imgCola,
+            imgMastercard,
+        ],
     },
 ]
 
 const iwgGroups: IWGroup[] = [
     {
-        type: 'iwg', id: 1,
+        type: 'iwg',
+        id: 1,
         viewBox: '0 0 24 24',
         paths: ['M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'],
         nameKey: 'workingGroupsPage.interagencyGroups.i1.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i1.description',
-        chairName: 'Laziz Kudratov', chairPhoto: imgLaziz,
-        chairPositionKey: 'wg.lazizPos', chairBioKey: 'wg.lazizBio',
-        coChairName: 'Kazbek Bassiev', coChairPhoto: imgKazbek,
-        coChairPositionKey: 'wg.kazbekPos', coChairBioKey: 'wg.kazbekBio',
+        chairName: 'Laziz Kudratov',
+        chairPhoto: imgLaziz,
+        chairPositionKey: 'wg.lazizPos',
+        chairBioKey: 'wg.lazizBio',
+        coChairName: 'Kazbek Bassiev',
+        coChairPhoto: imgKazbek,
+        coChairPositionKey: 'wg.kazbekPos',
+        coChairBioKey: 'wg.kazbekBio',
+        stateMembers: [
+            { image: imgTimur, name: 'Timur Ishmetov', positionKey: 'wg.posCentralBankChair' },
+            { image: usrAkbar, name: 'Akbar Tashkulov', positionKey: 'wg.posJusticeMinister' },
+            { image: usrSherzod, name: 'Sherzod Shermatov', positionKey: 'wg.posDigitalMinister' },
+            { image: usrIlxom, name: 'Ilkhom Norkulov', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrShuxrat, name: 'Shukhrat Vafaev', positionKey: 'wg.posRdfDirector' },
+            { image: usrFarrux, name: 'Farrukh Pulatov', positionKey: 'wg.posTaxChairman' },
+        ],
+        councilBrands: [imgEBank, imgAdBank, imgIfc, imgEyBrand, imgMastercard, imgTbcBank, imgCentLaw],
     },
     {
-        type: 'iwg', id: 2,
+        type: 'iwg',
+        id: 2,
         viewBox: '0 0 24 24',
-        paths: ['M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2', 'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', 'M23 21v-2a4 4 0 0 0-3-3.87', 'M16 3.13a4 4 0 0 1 0 7.75'],
+        paths: [
+            'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2',
+            'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z',
+            'M23 21v-2a4 4 0 0 0-3-3.87',
+            'M16 3.13a4 4 0 0 1 0 7.75',
+        ],
         nameKey: 'workingGroupsPage.interagencyGroups.i2.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i2.description',
-        chairName: 'Timur Ishmetov', chairPhoto: imgTimur,
-        coChairName: 'Davron Yakubov', coChairPhoto: imgDavron,
+        chairName: 'Timur Ishmetov',
+        chairPhoto: imgTimur,
+        chairPositionKey: 'wg.timurPos',
+        chairBioKey: 'wg.timurBio',
+        coChairName: 'Davron Yakubov',
+        coChairPhoto: imgDavron,
+        coChairPositionKey: 'wg.davronPos',
+        coChairBioKey: 'wg.davronBio',
+        stateMembers: [
+            { image: usrMaxmud, name: 'Maxmud Istamov', positionKey: 'wg.posDeputyJustice' },
+            { image: usrAxadbek, name: 'Ahadbek Haydarov', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrJaxongirAbdiyev, name: 'Jahongir Abdiev', positionKey: 'wg.posDeputyTax' },
+            { image: usrGeorgiy, name: 'Georgiy Paresishvili', positionKey: 'wg.posStockExchange' },
+        ],
+        councilBrands: [imgEBank, imgAdBank, imgIfc, imgEyBrand, imgZiraatBank, imgCrowe, imgAzizov, imgIndoorama, imgVeon],
     },
     {
-        type: 'iwg', id: 3,
+        type: 'iwg',
+        id: 3,
         viewBox: '0 0 24 24',
         paths: ['M18 20V10', 'M12 20V4', 'M6 20v-6'],
         nameKey: 'workingGroupsPage.interagencyGroups.i3.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i3.description',
-        chairName: 'Laziz Kudratov', chairPhoto: imgLaziz,
-        coChairName: 'Vera Bell', coChairPhoto: imgVera,
+        chairName: 'Laziz Kudratov',
+        chairPhoto: imgLaziz,
+        chairPositionKey: 'wg.lazizPos',
+        chairBioKey: 'wg.lazizBio',
+        coChairName: 'Vera Bell',
+        coChairPhoto: imgVera,
+        coChairPositionKey: 'wg.veraPos',
+        coChairBioKey: 'wg.veraBio',
+        stateMembers: [
+            { image: imgTimur, name: 'Timur Ishmetov', positionKey: 'wg.posCentralBankChair' },
+            { image: usrIlxom, name: 'Ilkhom Norkulov', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrFeruza, name: 'Feruza Eshmatova', positionKey: 'wg.posOmbudsperson' },
+            { image: usrMarat, name: 'Marat Juraev', positionKey: 'wg.posDeputyPoverty' },
+            { image: usrFarrux, name: 'Farrukh Karabaev', positionKey: 'wg.posCompetition' },
+            { image: usrAgzam, name: 'Rustem Mahmammadiev', positionKey: 'wg.posStatistics' },
+            { image: usrMubin, name: 'Mubin Mirzaev', positionKey: 'wg.posDeputyTax' },
+            { image: usrObidjon, name: 'Obidjon Kudratov', positionKey: 'wg.posEcologyDeputy' },
+        ],
+        councilBrands: [imgEBank, imgAdBank, imgIfc, imgAzizov, imgCrowe, imgVoltalia, imgBatBetter, imgMiCor, imgCola, imgIndoorama, imgVeon],
     },
     {
-        type: 'iwg', id: 4,
+        type: 'iwg',
+        id: 4,
         viewBox: '0 0 24 24',
         paths: ['M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z', 'M12 7v.01M12 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2z'],
         nameKey: 'workingGroupsPage.interagencyGroups.i4.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i4.description',
-        chairName: 'Kongratbay Sharipov', chairPhoto: imgKongratbay,
-        coChairName: 'Sandro Rtveladze', coChairPhoto: imgSandro,
+        chairName: 'Kongratbay Sharipov',
+        chairPhoto: imgKongratbay,
+        chairPositionKey: 'wg.kongratbayPos',
+        chairBioKey: 'wg.kongratbayBio',
+        coChairName: 'Sandro Rtveladze',
+        coChairPhoto: imgSandro,
+        coChairPositionKey: 'wg.sandroPos',
+        coChairBioKey: 'wg.sandroText',
+        stateMembers: [
+            { image: usrBotir, name: 'Botir Zahidov', positionKey: 'wg.posEmployment' },
+            { image: usrBexzod, name: 'Bexzod Musaev', positionKey: 'wg.posLaborMigration' },
+            { image: usrDavron, name: 'Davron Vahobov', positionKey: 'wg.posChamber' },
+        ],
+        councilBrands: [imgEBank, imgAdBank, imgIfc, imgUzCarls, imgVeon, imgBdo, imgEyBrand, imgIndoorama, imgCrowe],
     },
     {
-        type: 'iwg', id: 5,
+        type: 'iwg',
+        id: 5,
         viewBox: '0 0 24 24',
         paths: ['M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z', 'M9 22V12h6v10'],
         nameKey: 'workingGroupsPage.interagencyGroups.i5.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i5.description',
-        chairName: 'Ilkhom Norkulov', chairPhoto: imgIlhom,
-        coChairName: 'Marius Dan', coChairPhoto: imgMarius,
+        chairName: 'Ilkhom Norkulov',
+        chairPhoto: imgIlhom,
+        chairPositionKey: 'wg.ilkhomPos',
+        chairBioKey: 'wg.ilkhomBio',
+        coChairName: 'Marius Dan',
+        coChairPhoto: imgMarius,
+        coChairPositionKey: 'wg.mariusPos',
+        coChairBioKey: 'wg.mariusBio',
+        stateMembers: [
+            { image: usrPak, name: 'Vyacheslav Pak', positionKey: 'wg.posNapp' },
+            { image: usrNodirbek, name: 'Nodirbek Husanov', positionKey: 'wg.posStateAssetsDeputy' },
+            { image: usrGeorgiy, name: 'Georgiy Paresishvili', positionKey: 'wg.posStockExchange' },
+        ],
+        councilBrands: [
+            imgEBank,
+            imgAdBank,
+            imgIfc,
+            imgDentos,
+            imgCrowe,
+            imgKostaLegal,
+            imgCentLaw,
+            imgAzizov,
+            imgBatBetter,
+            imgMiCor,
+            imgIndoorama,
+            imgVeon,
+            imgAvesta,
+        ],
     },
     {
-        type: 'iwg', id: 6,
+        type: 'iwg',
+        id: 6,
         viewBox: '0 0 24 24',
         paths: ['M22 12h-4l-3 9L9 3l-3 9H2'],
         nameKey: 'workingGroupsPage.interagencyGroups.i6.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i6.description',
-        chairName: 'Ahadbek Haydarov', chairPhoto: imgAxadbek2,
-        coChairName: 'Erlan Dosimbekov', coChairPhoto: imgErlan2,
+        chairName: 'Ahadbek Haydarov',
+        chairPhoto: imgAxadbek2,
+        chairPositionKey: 'wg.ahadbekPos',
+        chairBioKey: 'wg.ahadbekBio',
+        coChairName: 'Erlan Dosimbekov',
+        coChairPhoto: imgErlan2,
+        coChairPositionKey: 'wg.erlanPos',
+        coChairBioKey: 'wg.erlanText',
+        stateMembers: [{ image: usrFarrux, name: 'Farrukh Pulatov', positionKey: 'wg.posTaxChairman' }],
+        councilBrands: [imgEBank, imgAdBank, imgIfc, imgDeloitte, imgPwc, imgDentos, imgBatBetter, imgCrowe, imgIndoorama, imgSuez],
     },
     {
-        type: 'iwg', id: 7,
+        type: 'iwg',
+        id: 7,
         viewBox: '0 0 24 24',
         paths: ['M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'],
         nameKey: 'workingGroupsPage.interagencyGroups.i7.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i7.description',
-        chairName: 'Farrux Tashmatov', chairPhoto: imgFarrux,
-        coChairName: 'Jurabek Yusupov', coChairPhoto: imgJurabek,
+        chairName: 'Farrukh Pulatov',
+        chairPhoto: imgFarrux,
+        chairPositionKey: 'wg.farrukhPos',
+        chairBioKey: 'wg.farrukhBio',
+        coChairName: 'Azizbek Akhmadjonov',
+        coChairPhoto: imgAziz2,
+        coChairPositionKey: 'wg.azizbekAkhmadjonovPos',
+        coChairBioKey: 'wg.azizbekAkhmadjonovBio',
+        stateMembers: [
+            { image: usrAxadbek, name: 'Ahadbek Haydarov', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrMaxmud, name: 'Maxmud Istamov', positionKey: 'wg.posFirstDeputyJustice' },
+        ],
+        councilBrands: [imgEBank, imgAdBank, imgIfc, imgAzizov, imgTe, imgCrowe, imgVoltalia, imgIndoorama, imgEyBrand, imgMastercard],
     },
     {
-        type: 'iwg', id: 8,
+        type: 'iwg',
+        id: 8,
         viewBox: '0 0 24 24',
-        paths: ['M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3', 'M9 21h6m-3-3v3', 'M13 13h8a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2z'],
+        paths: [
+            'M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3',
+            'M9 21h6m-3-3v3',
+            'M13 13h8a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2z',
+        ],
         nameKey: 'workingGroupsPage.interagencyGroups.i8.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i8.description',
-        chairName: 'Asadbek Nazarov', chairPhoto: imgAsadbek,
-        coChairName: 'Aziz Karimov', coChairPhoto: imgAziz,
+        chairName: 'Jurabek Mirzamahmudov',
+        chairPhoto: imgJurabek2,
+        chairPositionKey: 'wg.jurabekPos',
+        chairBioKey: 'wg.jurabekBio',
+        coChairName: 'John Zaidi',
+        coChairPhoto: imgLeader6,
+        coChairPositionKey: 'wg.johnZaidiPos',
+        coChairBioKey: 'wg.johnZaidiText',
+        stateMembers: [
+            { image: usrXurshid, name: 'Khurshed Mustafaev', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrAsrar, name: 'Asrarjon Askarov', positionKey: 'wg.posHududiy' },
+            { image: usrJaxongir, name: 'Jahongir Obidjonov', positionKey: 'wg.posUzenergo' },
+            { image: usrNodirbek, name: 'Nodirbek Nasretdinov', positionKey: 'wg.posYashilEnergiya' },
+            { image: usrAskar, name: 'Askar Isakov', positionKey: 'wg.posUztransgaz' },
+        ],
+        councilBrands: [
+            imgEBank,
+            imgAdBank,
+            imgIfc,
+            imgMasdar,
+            imgTe,
+            imgEdf,
+            imgDentos,
+            imgEyBrand,
+            imgSiemens,
+            imgAzizov,
+            imgCentLaw,
+            imgMiCor,
+            imgCrowe,
+            imgVoltalia,
+            imgMitCo,
+            imgIndoorama,
+        ],
     },
     {
-        type: 'iwg', id: 9,
+        type: 'iwg',
+        id: 9,
         viewBox: '0 0 24 24',
         paths: ['M13 2L3 14h9l-1 8 10-12h-9l1-8z'],
         nameKey: 'workingGroupsPage.interagencyGroups.i9.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i9.description',
-        chairName: 'Maxmud Aliyev', chairPhoto: imgMaxmud,
-        coChairName: 'Mukae Sobirov', coChairPhoto: imgMukae,
+        chairName: 'Aziz Abdukhakimov',
+        chairPhoto: imgAzizA,
+        chairPositionKey: 'wg.azizAbdukhakimovPos',
+        chairBioKey: 'wg.azizAbdukhakimovBio',
+        coChairName: 'Kazumasa Mukae',
+        coChairPhoto: imgMukae,
+        coChairPositionKey: 'wg.kazumasaPos',
+        coChairBioKey: 'wg.kazumasaBio',
+        stateMembers: [
+            { image: usrMaxmud, name: 'Maxmud Istamov', positionKey: 'wg.posDeputyJustice' },
+            { image: usrAxadbek, name: 'Ahadbek Haydarov', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrJaxongirAbdiyev, name: 'Jahongir Abdiev', positionKey: 'wg.posDeputyTax' },
+            { image: usrGeorgiy, name: 'Georgiy Paresishvili', positionKey: 'wg.posStockExchange' },
+        ],
+        councilBrands: [imgEBank, imgAdBank, imgIfc, imgEyBrand, imgZiraatBank, imgCrowe, imgAzizov, imgIndoorama, imgVeon],
     },
     {
-        type: 'iwg', id: 10,
+        type: 'iwg',
+        id: 10,
         viewBox: '0 0 24 24',
         paths: ['M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z', 'M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'],
         nameKey: 'workingGroupsPage.interagencyGroups.i10.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i10.description',
-        chairName: 'Olimjon Nazarov', chairPhoto: imgOlimjon2,
-        coChairName: 'Aziz Akhmedov', coChairPhoto: imgAzizA,
+        chairName: 'Olimjon Umarov',
+        chairPhoto: imgOlimjon2,
+        chairPositionKey: 'wg.olimjonPos',
+        chairBioKey: 'wg.olimjonBio',
+        coChairName: 'Erlan Dosimbekov',
+        coChairPhoto: imgErlan2,
+        coChairPositionKey: 'wg.erlanPos',
+        coChairBioKey: 'wg.erlanText',
+        stateMembers: [
+            { image: usrMaxmud, name: 'Maxmud Istamov', positionKey: 'wg.posDeputyJustice' },
+            { image: usrAxadbek, name: 'Ahadbek Haydarov', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrSherzod, name: 'Sherzod Shermatov', positionKey: 'wg.posDigitalMinister' },
+            { image: usrIlxom, name: 'Ilkhom Norkulov', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrShuxrat, name: 'Shukhrat Vafaev', positionKey: 'wg.posRdfDirector' },
+            { image: usrFarrux, name: 'Farrukh Pulatov', positionKey: 'wg.posTaxChairman' },
+        ],
+        councilBrands: [
+            imgEBank,
+            imgAdBank,
+            imgIndoorama,
+            imgDentos,
+            imgCrowe,
+            imgHalykBank,
+            imgYandeks,
+            imgAcwaPower,
+            imgWildberries,
+            imgMiCor,
+            imgCafa,
+            imgBdo,
+            imgIpoteka,
+            imgUzum,
+            imgEnergyChina,
+        ],
     },
 ]
 
@@ -652,7 +1102,9 @@ onBeforeUnmount(() => observer.value?.disconnect())
 }
 
 @media (max-width: 480px) {
-    .wg-stat-tabs { grid-template-columns: 1fr; }
+    .wg-stat-tabs {
+        grid-template-columns: 1fr;
+    }
 }
 
 .wg-stat-tab {
@@ -664,13 +1116,23 @@ onBeforeUnmount(() => observer.value?.disconnect())
     border-radius: 20px;
     border: 1.5px solid rgba(25, 28, 31, 0.1);
     background: #fff;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
 }
 
 .wg-stat-tab:hover {
     border-color: rgba(25, 28, 31, 0.25);
     box-shadow: 0 8px 24px rgba(25, 28, 31, 0.07);
     transform: translateY(-2px);
+}
+
+.wg-stat-tab--active {
+    border-color: #191c1f;
+    background: #191c1f;
+}
+
+.wg-stat-tab--active:hover {
+    border-color: #191c1f;
 }
 
 .wg-stat-tab__count {
@@ -685,6 +1147,14 @@ onBeforeUnmount(() => observer.value?.disconnect())
     font-weight: 500;
     line-height: 1.4;
     color: #505a63;
+}
+
+.wg-stat-tab--active .wg-stat-tab__count {
+    color: #fff;
+}
+
+.wg-stat-tab--active .wg-stat-tab__label {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .diamond-wrapper {

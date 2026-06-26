@@ -50,7 +50,7 @@
                     <TranslationField v-model="form.position" placeholder="Enter position" />
                 </el-form-item>
                 <el-form-item label="Image">
-                    <ImageUploader v-model="form.photoId" />
+                    <FileUploader v-model="form.photoId" />
                 </el-form-item>
                 <el-form-item label="Order number">
                     <el-input-number v-model="form.order" :min="0" class="w-full" />
@@ -70,7 +70,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { Edit, Delete } from '@element-plus/icons-vue'
 import { useI18n } from 'vue-i18n'
 import TranslationField from '@/components/admin/TranslationField.vue'
-import ImageUploader from '@/components/admin/ImageUploader.vue'
+import FileUploader from '@/components/admin/FileUploader.vue'
 import { useMembersStore } from '@/features/members/store'
 import type { CouncilMember, MemberPayload } from '@/features/members/types'
 import type { Translation } from '@/types/server/api.types'

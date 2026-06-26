@@ -48,10 +48,10 @@
                 <el-form-item label="Position"><el-input v-model="form.position" placeholder="Position" /></el-form-item>
                 <el-form-item label="Video link"><el-input v-model="form.videoSource" placeholder="https://youtu.be/..." /></el-form-item>
                 <el-form-item label="Cover image (thumbnail)">
-                    <ImageUploader v-model="form.captionId" />
+                    <FileUploader v-model="form.captionId" />
                 </el-form-item>
                 <el-form-item label="Logo (optional)">
-                    <ImageUploader v-model="form.logoId" />
+                    <FileUploader v-model="form.logoId" />
                 </el-form-item>
                 <el-form-item label="Order number">
                     <el-input-number v-model="form.order" :min="0" class="w-full" />
@@ -72,7 +72,7 @@
 import { reactive, ref, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { VideoPlay, Edit, Delete } from '@element-plus/icons-vue'
-import ImageUploader from '@/components/admin/ImageUploader.vue'
+import FileUploader from '@/components/admin/FileUploader.vue'
 import { useTestimonialsStore } from '@/features/testimonials/store'
 import defaultImage from '@/assets/images/hero/about-blog.jpg'
 import type { Testimonial, TestimonialPayload } from '@/features/testimonials/types'

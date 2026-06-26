@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url><loc>https://fics.uz/</loc><priority>1.0</priority></url>
+
+    <url><loc>https://fics.uz/fic-history</loc><priority>0.7</priority></url>
+    <url><loc>https://fics.uz/association</loc><priority>0.7</priority></url>
+    <url><loc>https://fics.uz/management</loc><priority>0.7</priority></url>
+    <url><loc>https://fics.uz/secretariat</loc><priority>0.7</priority></url>
+
+    <url><loc>https://fics.uz/council-members</loc><priority>0.8</priority></url>
+    <url><loc>https://fics.uz/council-members/uzbek-side</loc><priority>0.6</priority></url>
+    <url><loc>https://fics.uz/council-members/experts</loc><priority>0.6</priority></url>
+    <url><loc>https://fics.uz/council-members/become-a-member</loc><priority>0.6</priority></url>
+
+    <url><loc>https://fics.uz/working-groups</loc><priority>0.7</priority></url>
+
+    <url><loc>https://fics.uz/results</loc><priority>0.7</priority></url>
+    <url><loc>https://fics.uz/results/initiatives</loc><priority>0.6</priority></url>
+    <url><loc>https://fics.uz/results/investments</loc><priority>0.6</priority></url>
+    <url><loc>https://fics.uz/results/documents</loc><priority>0.6</priority></url>
+
+    <url><loc>https://fics.uz/events</loc><priority>0.7</priority></url>
+    <url><loc>https://fics.uz/events/plenary-sessions</loc><priority>0.6</priority></url>
+    <url><loc>https://fics.uz/events/interim-session</loc><priority>0.6</priority></url>
+    <url><loc>https://fics.uz/events/working-group-session</loc><priority>0.6</priority></url>
+    <url><loc>https://fics.uz/events/meetings</loc><priority>0.6</priority></url>
+    <url><loc>https://fics.uz/events/weekly-results</loc><priority>0.6</priority></url>
+
+    <url><loc>https://fics.uz/media</loc><priority>0.8</priority></url>
+    <url><loc>https://fics.uz/media/analytics</loc><priority>0.6</priority></url>
+    <url><loc>https://fics.uz/media/blitz-interview</loc><priority>0.6</priority></url>
+    <url><loc>https://fics.uz/media/reports</loc><priority>0.6</priority></url>
+
+    <url><loc>https://fics.uz/contact</loc><priority>0.5</priority></url>
+</urlset>

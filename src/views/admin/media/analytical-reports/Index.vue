@@ -1,22 +1,21 @@
 <template>
     <div class="page-wrapper">
         <div class="page-header">
-            <h1 class="page-title">News</h1>
+            <h1 class="page-title">New Approaches — Analytical Reports</h1>
             <el-button type="primary" @click="openCreate">+ Add</el-button>
         </div>
 
-        <div class="news-grid" v-loading="newsStore.loading">
-            <div v-for="row in newsStore.items" :key="row.id" class="news-card">
-                <div class="news-card__image">
+        <div class="report-grid" v-loading="reportsStore.loading">
+            <div v-for="row in reportsStore.items" :key="row.id" class="report-card">
+                <div class="report-card__image">
                     <img :src="defaultImage" alt="" />
-                    <el-tag :type="row.status === 1 ? 'success' : 'info'" size="small" class="news-card__status">
-                        {{ row.status === 1 ? 'Published' : 'Draft' }}
+                    <el-tag :type="row.status ? 'success' : 'info'" size="small" class="report-card__status">
+                        {{ row.status ? 'Published' : 'Hidden' }}
                     </el-tag>
                 </div>
-                <div class="news-card__body">
-                    <h3 class="news-card__title">{{ resolveTranslation(row.title) }}</h3>
-                    <p class="news-card__date">{{ formatDate(row.date) }}</p>
-                    <div class="news-card__actions">
+                <div class="report-card__body">
+                    <h3 class="report-card__title">{{ resolveTranslation(row.title) }}</h3>
+                    <div class="report-card__actions">
                         <el-tooltip content="Edit" placement="top">
                             <el-button type="primary" :icon="Edit" circle plain @click="openEdit(row)" />
                         </el-tooltip>
@@ -28,13 +27,13 @@
             </div>
         </div>
 
-        <el-empty v-if="!newsStore.loading && newsStore.items.length === 0" description="No news available" class="py-16" />
+        <el-empty v-if="!reportsStore.loading && reportsStore.items.length === 0" description="No reports available" class="py-16" />
 
-        <div class="pagination-wrap" v-if="newsStore.total > pageSize">
+        <div class="pagination-wrap" v-if="reportsStore.total > pageSize">
             <el-pagination
                 background
                 layout="prev, pager, next"
-                :total="newsStore.total"
+                :total="reportsStore.total"
                 :page-size="pageSize"
                 :current-page="page"
                 @current-change="onPageChange"
@@ -43,8 +42,7 @@
 
         <el-dialog
             v-model="showDialog"
-            :title="editing ? 'Edit news' : 'Add news'"
-            class="news-dialog"
+            :title="editing ? 'Edit report' : 'Add report'"
             width="min(720px, 92vw)"
             top="6vh"
         >
@@ -52,29 +50,20 @@
                 <el-form-item label="Title">
                     <TranslationField v-model="form.title" class="w-full" placeholder="Enter title" />
                 </el-form-item>
-                <el-form-item label="Text">
-                    <TranslationField v-model="form.content" type="textarea" :rows="6" class="w-full" placeholder="Enter text" />
-                </el-form-item>
-                <el-form-item label="Image">
+                <el-form-item label="Cover image">
                     <FileUploader v-model="form.imageId" />
                 </el-form-item>
+                <el-form-item label="File (PDF)">
+                    <TranslatedFileUploader v-model="form.file" />
+                </el-form-item>
                 <div class="grid grid-cols-1 gap-x-5 md:grid-cols-2">
-                    <el-form-item label="Date">
-                        <el-date-picker v-model="form.date" type="date" class="!w-full" placeholder="Select date" />
+                    <el-form-item label="Order number">
+                        <el-input-number v-model="form.order" :min="0" class="!w-full" />
                     </el-form-item>
                     <el-form-item label="Status">
-                        <el-switch
-                            v-model="form.status"
-                            :active-value="1"
-                            :inactive-value="0"
-                            active-text="Published"
-                            inactive-text="Draft"
-                        />
+                        <el-switch v-model="form.status" active-text="Published" inactive-text="Hidden" />
                     </el-form-item>
                 </div>
-                <el-form-item label="Link (optional)">
-                    <el-input v-model="form.otherLink" class="w-full" placeholder="https://..." />
-                </el-form-item>
             </el-form>
             <template #footer>
                 <div class="flex justify-end gap-3">
@@ -93,12 +82,13 @@ import { Edit, Delete } from '@element-plus/icons-vue'
 import { useI18n } from 'vue-i18n'
 import TranslationField from '@/components/admin/TranslationField.vue'
 import FileUploader from '@/components/admin/FileUploader.vue'
-import { useNewsStore } from '@/features/news/store'
+import TranslatedFileUploader from '@/components/admin/TranslatedFileUploader.vue'
+import { useAnalyticalReportsStore } from '@/features/analyticalReports/store'
 import defaultImage from '@/assets/images/hero/about-blog.jpg'
-import type { NewsItem, NewsPayload } from '@/features/news/types'
+import type { AnalyticalReport, AnalyticalReportPayload, TranslatedFile } from '@/features/analyticalReports/types'
 import type { Translation } from '@/types/server/api.types'
 
-const newsStore = useNewsStore()
+const reportsStore = useAnalyticalReportsStore()
 const { locale } = useI18n()
 
 const page = ref(1)
@@ -106,24 +96,22 @@ const pageSize = ref(10)
 
 const showDialog = ref(false)
 const saving = ref(false)
-const editing = ref<NewsItem | null>(null)
+const editing = ref<AnalyticalReport | null>(null)
 
-interface NewsFormState {
+interface ReportFormState {
     title: Translation
-    content: Translation
     imageId: string | null
-    date?: Date
-    otherLink: string
-    status: number
+    file: TranslatedFile
+    order: number
+    status: boolean
 }
 
-const emptyForm = (): NewsFormState => ({
+const emptyForm = (): ReportFormState => ({
     title: { uz: '', ru: '', en: '' },
-    content: { uz: '', ru: '', en: '' },
     imageId: null,
-    date: undefined,
-    otherLink: '',
-    status: 0,
+    file: { uz: null, ru: null, en: null },
+    order: 0,
+    status: true,
 })
 
 const form = reactive(emptyForm())
@@ -133,13 +121,8 @@ function resolveTranslation(t: Translation | null | undefined) {
     return t[locale.value as keyof Translation] || t.uz || ''
 }
 
-function formatDate(date: string | null) {
-    if (!date) return '—'
-    return new Date(date).toLocaleDateString('uz-UZ')
-}
-
 async function loadList() {
-    await newsStore.fetchAll({ page: page.value, limit: pageSize.value })
+    await reportsStore.fetchAll({ page: page.value, limit: pageSize.value, sortBy: 'order', order: 'asc' })
 }
 
 function onPageChange(p: number) {
@@ -153,14 +136,13 @@ function openCreate() {
     showDialog.value = true
 }
 
-function openEdit(row: NewsItem) {
+function openEdit(row: AnalyticalReport) {
     editing.value = row
     Object.assign(form, {
         title: { ...row.title },
-        content: row.content ? { ...row.content } : { uz: '', ru: '', en: '' },
         imageId: row.imageId,
-        date: row.date ? new Date(row.date) : undefined,
-        otherLink: row.otherLink || '',
+        file: { ...row.file },
+        order: row.order,
         status: row.status,
     })
     showDialog.value = true
@@ -169,18 +151,17 @@ function openEdit(row: NewsItem) {
 async function handleSubmit() {
     saving.value = true
     try {
-        const payload: NewsPayload = {
+        const payload: AnalyticalReportPayload = {
             title: form.title,
-            content: form.content,
             imageId: form.imageId || undefined,
-            date: form.date ? new Date(form.date).toISOString() : undefined,
-            otherLink: form.otherLink || undefined,
+            file: form.file,
+            order: form.order,
             status: form.status,
         }
 
         const res = editing.value
-            ? await newsStore.updateItem(editing.value.id, payload)
-            : await newsStore.createItem(payload)
+            ? await reportsStore.updateItem(editing.value.id, payload)
+            : await reportsStore.createItem(payload)
 
         if (res.success) {
             ElMessage.success('Saved')
@@ -192,14 +173,14 @@ async function handleSubmit() {
     }
 }
 
-async function handleDelete(row: NewsItem) {
+async function handleDelete(row: AnalyticalReport) {
     try {
         await ElMessageBox.confirm(`Delete "${resolveTranslation(row.title)}"?`, 'Warning', {
             confirmButtonText: 'Yes',
             cancelButtonText: 'No',
             type: 'warning',
         })
-        const res = await newsStore.deleteItem(row.id)
+        const res = await reportsStore.deleteItem(row.id)
         if (res.success) {
             ElMessage.success('Deleted')
             loadList()
@@ -217,14 +198,14 @@ onMounted(loadList)
 .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
 .page-title { font-size: 22px; font-weight: 600; color: #101828; margin: 0; }
 
-.news-grid {
+.report-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 20px;
     min-height: 120px;
 }
 
-.news-card {
+.report-card {
     border: 1px solid #eef0f4;
     border-radius: 16px;
     overflow: hidden;
@@ -235,39 +216,39 @@ onMounted(loadList)
     flex-direction: column;
 }
 
-.news-card:hover {
+.report-card:hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09);
     transform: translateY(-2px);
 }
 
-.news-card__image {
+.report-card__image {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 10;
     background: #f7f8fa;
 }
 
-.news-card__image img {
+.report-card__image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.news-card__status {
+.report-card__status {
     position: absolute;
     top: 10px;
     right: 10px;
 }
 
-.news-card__body {
+.report-card__body {
     padding: 16px;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-.news-card__title {
+.report-card__title {
     font-size: 15px;
     font-weight: 600;
     color: #101828;
@@ -281,13 +262,7 @@ onMounted(loadList)
     overflow: hidden;
 }
 
-.news-card__date {
-    font-size: 13px;
-    color: #8a94a6;
-    margin: 0;
-}
-
-.news-card__actions {
+.report-card__actions {
     margin-top: 14px;
     padding-top: 12px;
     display: flex;
@@ -296,30 +271,4 @@ onMounted(loadList)
     border-top: 1px solid #f4f5f7;
 }
 .pagination-wrap { display: flex; justify-content: flex-end; margin-top: 20px; }
-</style>
-
-<style>
-.news-dialog {
-    border-radius: 16px;
-    overflow: hidden;
-}
-.news-dialog .el-dialog__header {
-    margin-right: 0;
-    padding: 20px 24px;
-    border-bottom: 1px solid #eef0f4;
-}
-.news-dialog .el-dialog__title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #101828;
-}
-.news-dialog .el-dialog__body {
-    padding: 20px 24px;
-    max-height: 70vh;
-    overflow-y: auto;
-}
-.news-dialog .el-dialog__footer {
-    padding: 16px 24px;
-    border-top: 1px solid #eef0f4;
-}
 </style>

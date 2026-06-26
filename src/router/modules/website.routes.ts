@@ -44,25 +44,25 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'council-members',
         name: 'council-members',
         component: () => import('../../views/website/council-members/Index.vue'),
-        meta: { title: 'Council Members', titleKey: 'nav.councilMembers', heroImage: aboutBlogImg },
+        meta: { title: 'Council Members', titleKey: 'nav.councilMembers', descriptionKey: 'councilMembersPage.intro', heroImage: aboutBlogImg },
     },
     {
         path: 'council-members/uzbek-side',
         name: 'council-members-uzbek-side',
         component: () => import('../../views/website/council-members/uzbek-side/Index.vue'),
-        meta: { title: 'Uzbek side', titleKey: 'nav.uzbekSide', heroImage: aboutBlogImg },
+        meta: { title: 'Uzbek side', titleKey: 'nav.uzbekSide', descriptionKey: 'uzbekSidePage.intro', heroImage: aboutBlogImg },
     },
     {
         path: 'council-members/experts',
         name: 'council-members-experts',
         component: () => import('../../views/website/council-members/experts/Index.vue'),
-        meta: { title: 'Experts', titleKey: 'nav.experts', heroImage: eventsImg },
+        meta: { title: 'Experts', titleKey: 'nav.experts', descriptionKey: 'expertsPage.intro', heroImage: eventsImg },
     },
     {
         path: 'council-members/become-a-member',
         name: 'council-members-become',
         component: () => import('../../views/website/council-members/become-a-member/Index.vue'),
-        meta: { title: 'Become a Member', titleKey: 'nav.becomeAMember', heroImage: aboutBlogImg },
+        meta: { title: 'Become a Member', titleKey: 'nav.becomeAMember', descriptionKey: 'becomeAMemberPage.intro', heroImage: aboutBlogImg },
     },
 
     // ---- Working Groups (single page, anchor sections) ----
@@ -84,19 +84,19 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'results/initiatives',
         name: 'results-initiatives',
         component: () => import('../../views/website/results/initiatives/Index.vue'),
-        meta: { title: 'Initiatives', titleKey: 'nav.initiatives', heroImage: workingImg },
+        meta: { title: 'Initiatives', titleKey: 'nav.initiatives', descriptionKey: 'resultsPage.initiativesPage.intro', heroImage: workingImg },
     },
     {
         path: 'results/investments',
         name: 'results-investments',
         component: () => import('../../views/website/results/investments/Index.vue'),
-        meta: { title: 'Investments', titleKey: 'nav.investments', heroImage: aboutBlogImg },
+        meta: { title: 'Investments', titleKey: 'nav.investments', descriptionKey: 'resultsPage.investmentsPage.intro', heroImage: aboutBlogImg },
     },
     {
         path: 'results/documents',
         name: 'results-documents',
         component: () => import('../../views/website/results/documents/Index.vue'),
-        meta: { title: 'Documents', titleKey: 'nav.documents', heroImage: aboutBlogImg },
+        meta: { title: 'Documents', titleKey: 'nav.documents', descriptionKey: 'resultsPage.documentsPage.intro', heroImage: aboutBlogImg },
     },
 
     // ---- Events ----
@@ -110,7 +110,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'events/plenary-sessions',
         name: 'events-plenary-sessions',
         component: () => import('../../views/website/events/plenary-sessions/Index.vue'),
-        meta: { title: 'Plenary sessions', titleKey: 'nav.plenarySessions', heroImage: eventsImg },
+        meta: { title: 'Plenary sessions', titleKey: 'nav.plenarySessions', descriptionKey: 'eventsPage.plenaryPage.intro', heroImage: eventsImg },
     },
     {
         path: 'events/plenary-sessions/:id',
@@ -122,7 +122,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'events/interim-session',
         name: 'events-interim-session',
         component: () => import('../../views/website/events/interim-session/Index.vue'),
-        meta: { title: 'Interim session', titleKey: 'nav.interimSession', heroImage: eventsImg },
+        meta: { title: 'Interim session', titleKey: 'nav.interimSession', descriptionKey: 'eventsPage.interimPage.intro', heroImage: eventsImg },
     },
     {
         path: 'events/interim-session/:id',
@@ -134,19 +134,19 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'events/working-group-session',
         name: 'events-working-group-session',
         component: () => import('../../views/website/events/working-group-session/Index.vue'),
-        meta: { title: 'Working group session', titleKey: 'nav.workingGroupSession', heroImage: eventsImg },
+        meta: { title: 'Working group session', titleKey: 'nav.workingGroupSession', descriptionKey: 'eventsPage.wgSessionPage.intro', heroImage: eventsImg },
     },
     {
         path: 'events/meetings',
         name: 'events-meetings',
         component: () => import('../../views/website/events/meetings/Index.vue'),
-        meta: { title: 'Meetings', titleKey: 'nav.meetings', heroImage: eventsImg },
+        meta: { title: 'Meetings', titleKey: 'nav.meetings', descriptionKey: 'eventsPage.meetingsPage.intro', heroImage: eventsImg },
     },
     {
         path: 'events/weekly-results',
         name: 'events-weekly-results',
         component: () => import('../../views/website/events/weekly-results/Index.vue'),
-        meta: { title: 'Weekly results', titleKey: 'nav.weeklyResults', heroImage: eventsImg },
+        meta: { title: 'Weekly results', titleKey: 'nav.weeklyResults', descriptionKey: 'eventsPage.weeklyPage.intro', heroImage: eventsImg },
     },
 
     // ---- Media ----
@@ -154,25 +154,25 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'media',
         name: 'media',
         component: () => import('../../views/website/media/Index.vue'),
-        meta: { title: 'News', noHero: true },
+        meta: { title: 'News', descriptionKey: 'mediaPage.newsIntro', noHero: true },
     },
     {
         path: 'media/analytics',
         name: 'media-analytics',
         component: () => import('../../views/website/media/analytics/Index.vue'),
-        meta: { title: 'Analytics and Articles', noHero: true },
+        meta: { title: 'Analytics and Articles', descriptionKey: 'mediaPage.analyticsPage.intro', noHero: true },
     },
     {
         path: 'media/blitz-interview',
         name: 'media-blitz-interview',
         component: () => import('../../views/website/media/blitz-interview/Index.vue'),
-        meta: { title: 'Blitz interview', noHero: true },
+        meta: { title: 'Blitz interview', descriptionKey: 'mediaPage.blitzPage.intro', noHero: true },
     },
     {
         path: 'media/reports',
         name: 'media-reports',
         component: () => import('../../views/website/media/reports/Index.vue'),
-        meta: { title: 'Reports', noHero: true },
+        meta: { title: 'Reports', descriptionKey: 'mediaPage.reportsPage.intro', noHero: true },
     },
 
     // ---- Contact ----

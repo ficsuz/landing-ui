@@ -71,7 +71,7 @@
                     <TranslationField v-model="form.bio" type="textarea" placeholder="Short description" />
                 </el-form-item>
                 <el-form-item label="Image">
-                    <ImageUploader v-model="form.imageId" />
+                    <FileUploader v-model="form.imageId" />
                 </el-form-item>
                 <el-form-item label="Email">
                     <el-input v-model="form.email" placeholder="email@example.com" />
@@ -100,7 +100,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { Edit, Delete } from '@element-plus/icons-vue'
 import { useI18n } from 'vue-i18n'
 import TranslationField from '@/components/admin/TranslationField.vue'
-import ImageUploader from '@/components/admin/ImageUploader.vue'
+import FileUploader from '@/components/admin/FileUploader.vue'
 import { useExpertsStore } from '@/features/experts/store'
 import type { Expert, ExpertPayload, ExpertType } from '@/features/experts/types'
 import type { Translation } from '@/types/server/api.types'

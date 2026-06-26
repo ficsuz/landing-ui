@@ -112,8 +112,8 @@ const LinkedInIcon = () =>
     ])
 
 const socials = [
-    { name: 'Telegram', href: 'https://t.me/fics_uz', icon: TelegramIcon },
-    { name: 'Facebook', href: 'https://facebook.com', icon: FacebookIcon },
-    { name: 'LinkedIn', href: 'https://linkedin.com', icon: LinkedInIcon },
+    { name: 'Telegram', href: 'https://t.me/fic_uz', icon: TelegramIcon },
+    { name: 'Facebook', href: 'https://www.facebook.com/fics.uz', icon: FacebookIcon },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/ficsuz', icon: LinkedInIcon },
 ]
 </script>

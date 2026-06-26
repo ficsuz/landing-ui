@@ -10,6 +10,7 @@ export const menuItems: MenuEntry[] = [
     { kind: 'group', title: 'Media' },
     { kind: 'link', id: 7, title: 'Blitz Interview', icon: 'blitz', path: '/admin/media/blitz-interview', role: ['super_admin', 'admin'] },
     { kind: 'link', id: 8, title: 'Reports', icon: 'reports', path: '/admin/media/reports', role: ['super_admin', 'admin'] },
+    { kind: 'link', id: 10, title: 'New Approaches', icon: 'reports', path: '/admin/media/analytical-reports', role: ['super_admin', 'admin'] },
     // ─── Events ─────────────────────────────────────────────────
     { kind: 'group', title: 'Events' },
     { kind: 'link', id: 3, title: 'Meetings', icon: 'meetings', path: '/admin/events/meetings', role: ['super_admin', 'admin'] },

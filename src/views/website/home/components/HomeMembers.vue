@@ -62,15 +62,16 @@
                     >
                         <div class="w-[52px] h-[52px] rounded-full overflow-hidden ring-2 ring-[#eef0f4] shrink-0">
                             <img
-                                :src="member.photo"
-                                :alt="member.name"
+                                :src="getMediaUrl(member.photoId)"
+                                :alt="resolveTranslation(member.fullName, locale)"
                                 class="w-full h-full object-cover object-top"
-                                @error="(e) => ((e.target as HTMLImageElement).src = defaultAvatar)"
                             />
                         </div>
                         <div class="min-w-0">
-                            <p class="font-bold text-[13px] text-[#1a1e2e] leading-snug truncate">{{ member.name }}</p>
-                            <p class="text-[11px] text-[#8a94a6] leading-snug mt-1 line-clamp-2">{{ member.role }}</p>
+                            <p class="font-bold text-[13px] text-[#1a1e2e] leading-snug truncate">
+                                {{ resolveTranslation(member.fullName, locale) }}
+                            </p>
+                            <p class="text-[11px] text-[#8a94a6] leading-snug mt-1 line-clamp-2">{{ resolveTranslation(member.position, locale) }}</p>
                         </div>
                     </div>
                 </div>
@@ -86,15 +87,16 @@
                     >
                         <div class="w-[52px] h-[52px] rounded-full overflow-hidden ring-2 ring-[#eef0f4] shrink-0">
                             <img
-                                :src="member.photo"
-                                :alt="member.name"
+                                :src="getMediaUrl(member.photoId)"
+                                :alt="resolveTranslation(member.fullName, locale)"
                                 class="w-full h-full object-cover object-top"
-                                @error="(e) => ((e.target as HTMLImageElement).src = defaultAvatar)"
                             />
                         </div>
                         <div class="min-w-0">
-                            <p class="font-bold text-[13px] text-[#1a1e2e] leading-snug truncate">{{ member.name }}</p>
-                            <p class="text-[11px] text-[#8a94a6] leading-snug mt-1 line-clamp-2">{{ member.role }}</p>
+                            <p class="font-bold text-[13px] text-[#1a1e2e] leading-snug truncate">
+                                {{ resolveTranslation(member.fullName, locale) }}
+                            </p>
+                            <p class="text-[11px] text-[#8a94a6] leading-snug mt-1 line-clamp-2">{{ resolveTranslation(member.position, locale) }}</p>
                         </div>
                     </div>
                 </div>
@@ -104,7 +106,11 @@
 </template>
 
 <script setup lang="ts">
-import defaultAvatar from '@/assets/images/avatars/default-avatar.svg'
+import { computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useMembersStore } from '@/features/members/store'
+import { resolveTranslation } from '@/utils/i18n'
+import { getMediaUrl } from '@/utils/media'
 
 import datavolt from '@/assets/images/brands/datavolt.png'
 import deloitte from '@/assets/images/brands/deloitte.png'
@@ -132,97 +138,17 @@ import usaid from '@/assets/images/brands/usaid.png'
 import visa from '@/assets/images/brands/visa.png'
 import wbGroup from '@/assets/images/brands/wb-group.png'
 
-import avatar1 from '@/assets/images/avatars/image.png'
-import avatar2 from '@/assets/images/avatars/image11.png'
-import avatar3 from '@/assets/images/avatars/image12.png'
-import avatar4 from '@/assets/images/avatars/olivia.png'
+const { locale } = useI18n()
+const membersStore = useMembersStore()
+const members = computed(() => membersStore.items)
 
-const allMembers = [
-    {
-        name: 'J.T. Mirzamakhmudov',
-        role: 'Minister of Energy of the Republic of Uzbekistan',
-        photo: defaultAvatar,
-    },
-    {
-        name: 'Sh.Kh. Shermatov',
-        role: 'Minister for Digital Technologies of the Republic of Uzbekistan',
-        photo: avatar1,
-    },
-    {
-        name: 'F.J. Pulatov',
-        role: 'Chairman of the State Tax Committee of the Republic of Uzbekistan',
-        photo: avatar2,
-    },
-    {
-        name: 'Sh.A. Vafaev',
-        role: 'Executive Director of the Fund for Reconstruction and Development of the Republic of Uzbekistan',
-        photo: avatar3,
-    },
-    {
-        name: 'D.A. Vakhabov',
-        role: 'Chairman of the Chamber of Commerce and Industry of the Republic of Uzbekistan',
-        photo: avatar4,
-    },
-    {
-        name: 'J.O. Urunov',
-        role: 'Deputy Commissioner for the Protection of Rights and Legitimate Interests of Business Entities',
-        photo: defaultAvatar,
-    },
-    {
-        name: 'A.T. Ganiev',
-        role: 'Head of the Foreign Investors Council Secretariat',
-        photo: defaultAvatar,
-    },
-    {
-        name: 'B.S. Murodov',
-        role: 'Deputy Minister of Investments, Industry and Trade of the Republic of Uzbekistan',
-        photo: defaultAvatar,
-    },
-    {
-        name: 'I.U. Majidov',
-        role: 'Deputy Minister of Finance of the Republic of Uzbekistan',
-        photo: defaultAvatar,
-    },
-    {
-        name: 'O.T. Toshmatov',
-        role: 'First Deputy Chairman of the Central Bank of the Republic of Uzbekistan',
-        photo: defaultAvatar,
-    },
-    {
-        name: 'N.A. Yusupov',
-        role: 'Deputy Minister of Economy and Finance of the Republic of Uzbekistan',
-        photo: defaultAvatar,
-    },
-    {
-        name: 'A.R. Raximov',
-        role: 'Chairman of the Agency for the Development of the Capital Market',
-        photo: defaultAvatar,
-    },
-    {
-        name: 'B.A. Normatov',
-        role: 'Deputy Minister of Agriculture of the Republic of Uzbekistan',
-        photo: defaultAvatar,
-    },
-    {
-        name: 'Sh.R. Sodiqov',
-        role: 'Chairman of the State Customs Committee of the Republic of Uzbekistan',
-        photo: defaultAvatar,
-    },
-    {
-        name: 'D.O. Qodirov',
-        role: 'Deputy Prime Minister of the Republic of Uzbekistan',
-        photo: defaultAvatar,
-    },
-    {
-        name: 'U.S. Nazarov',
-        role: 'Chairman of the Agency for Strategic Reforms under the President',
-        photo: defaultAvatar,
-    },
-]
+const half = computed(() => Math.ceil(members.value.length / 2))
+const uzbekRow1 = computed(() => members.value.slice(0, half.value))
+const uzbekRow2 = computed(() => members.value.slice(half.value))
 
-const half = Math.ceil(allMembers.length / 2)
-const uzbekRow1 = allMembers.slice(0, half)
-const uzbekRow2 = allMembers.slice(half)
+onMounted(() => {
+    membersStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
+})
 
 const row1 = [
     { name: 'Datavolt', src: datavolt },
@@ -253,7 +179,6 @@ const row2 = [
     { name: 'Visa', src: visa },
     { name: 'World Bank Group', src: wbGroup },
 ]
-
 </script>
 
 <style scoped>

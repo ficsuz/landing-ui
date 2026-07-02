@@ -25,10 +25,8 @@
         <div
             class="w-full overflow-hidden transition-opacity duration-700 delay-300"
             :class="visible ? 'opacity-100' : 'opacity-0'"
-            @mouseenter="pauseMarquee"
-            @mouseleave="resumeMarquee"
         >
-            <div class="marquee-track flex gap-4 pb-16 will-change-transform" ref="trackEl">
+            <div class="marquee-track flex gap-4 pb-16 will-change-transform">
                 <div
                     v-for="(img, i) in track"
                     :key="i"
@@ -48,7 +46,6 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-import { useMarquee } from '@/composables'
 
 import img1 from '@/assets/images/planery-session/info3_4.png'
 import img2 from '@/assets/images/planery-session/info3_2.png'
@@ -58,8 +55,6 @@ import img4 from '@/assets/images/planery-session/info2_4.png'
 const slides = [img1, img2, img3, img4]
 const track = [...slides, ...slides]
 
-const trackEl = ref<HTMLElement | null>(null)
-const { pauseMarquee, resumeMarquee } = useMarquee(trackEl)
 
 const sectionEl = ref<HTMLElement | null>(null)
 const visible = ref(false)

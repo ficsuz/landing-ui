@@ -8,11 +8,11 @@
                 {{ $t('exec.title') }}
             </h2>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 <div
                     v-for="(member, i) in members"
                     :key="i"
-                    class="group bg-white rounded-2xl border border-[#eef0f4] overflow-hidden flex flex-col transition-all duration-500 hover:shadow-[0_8px_32px_rgba(0,0,0,0.09)] hover:-translate-y-1.5"
+                    class="group relative bg-white rounded-2xl border border-[#eef0f4] flex flex-col transition-all duration-500 hover:shadow-[0_8px_32px_rgba(0,0,0,0.09)] hover:-translate-y-1.5 hover:z-20"
                     :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
                     :style="{ transitionDelay: visible ? `${i * 90}ms` : '0ms' }"
                 >
@@ -21,26 +21,14 @@
                         <img :src="member.logo" :alt="$t(`exec.${member.key}.name`)" class="w-auto object-contain" style="max-width: 140px" />
                     </div>
 
-                    <!-- Photo + bio overlay -->
-                    <div class="relative w-full aspect-[3/3.5] overflow-hidden bg-[#eef0f4]">
+                    <!-- Photo -->
+                    <div class="w-full aspect-[3/3.5] overflow-hidden bg-[#eef0f4]">
                         <img
                             :src="member.photo"
                             :alt="$t(`exec.${member.key}.name`)"
                             class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                             @error="(e) => ((e.target as HTMLImageElement).src = defaultPhoto)"
                         />
-                        <!-- Bio overlay -->
-                        <div
-                            class="absolute inset-0 flex flex-col p-4 bg-[#1a1e2e]/95 backdrop-blur-[2px] transition-opacity duration-300 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto"
-                            :class="openBio === i ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'"
-                        >
-                            <p class="text-[10px] uppercase tracking-[0.16em] font-bold text-white/45 mb-2 shrink-0">
-                                {{ $t('management.biography') }}
-                            </p>
-                            <p class="text-[12.5px] leading-relaxed text-white/90 overflow-y-auto pr-1">
-                                {{ $t(`exec.${member.key}.bio`) }}
-                            </p>
-                        </div>
                     </div>
 
                     <!-- Info -->
@@ -54,18 +42,41 @@
                         <p class="mt-2 mb-4 text-[12px] text-[#8a94a6] text-center leading-relaxed">
                             {{ $t(`exec.${member.key}.role`) }}
                         </p>
-                        <button
-                            type="button"
-                            @click="openBio = openBio === i ? null : i"
-                            class="mt-auto px-5 py-1.5 rounded-full border text-[12px] font-semibold transition-all duration-200"
-                            :class="
-                                openBio === i
-                                    ? 'bg-[#1a1e2e] text-white border-[#1a1e2e]'
-                                    : 'border-[#d0d5dd] text-[#1a1e2e] hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e]'
-                            "
-                        >
-                            {{ openBio === i ? $t('common.close') : $t('management.biography') }}
-                        </button>
+                        <div class="group/bio relative mt-auto">
+                            <button
+                                type="button"
+                                class="inline-flex items-center gap-1.5 px-5 py-1.5 rounded-full border border-[#d0d5dd] text-[12px] font-semibold text-[#1a1e2e] transition-all duration-200 group-hover/bio:bg-[#1a1e2e] group-hover/bio:text-white group-hover/bio:border-[#1a1e2e]"
+                            >
+                                {{ $t('management.biography') }}
+                                <svg
+                                    width="12"
+                                    height="12"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="transition-transform duration-300 group-hover/bio:rotate-180"
+                                >
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+
+                            <!-- Hover dropdown -->
+                            <div
+                                class="absolute top-full left-1/2 -translate-x-1/2 z-30 w-[240px] max-w-[80vw] pt-2 opacity-0 invisible translate-y-1 transition-all duration-200 group-hover/bio:opacity-100 group-hover/bio:visible group-hover/bio:translate-y-0"
+                            >
+                                <div class="rounded-xl bg-[#1a1e2e] shadow-[0_12px_40px_rgba(0,0,0,0.25)] p-4 text-left">
+                                    <p class="text-[10px] uppercase tracking-[0.16em] font-bold text-white/45 mb-1.5">
+                                        {{ $t('management.biography') }}
+                                    </p>
+                                    <p class="text-[12px] leading-relaxed text-white/90">
+                                        {{ $t(`exec.${member.key}.bio`) }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,7 +109,6 @@ const members = [
 ]
 
 const visible = ref(false)
-const openBio = ref<number | null>(null)
 const sectionEl = ref<HTMLElement | null>(null)
 let observer: IntersectionObserver | null = null
 

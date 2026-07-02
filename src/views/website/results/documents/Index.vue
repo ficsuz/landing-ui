@@ -4,7 +4,7 @@
             <div class="page-container">
                 <!-- Header -->
                 <div class="text-center mb-12 md:mb-16 mx-auto">
-                    <h2 class="font-black text-[clamp(22px,2.8vw,38px)] leading-snug text-[#1a1e2e] mb-4 md:mb-6">
+                    <h2 class="section-title mb-4 md:mb-6">
                         {{ $t('resultsPage.documentsPage.pageTitle') }}
                     </h2>
                     <p class="text-[clamp(13px,1.1vw,15px)] text-[#8a94a6] leading-relaxed">
@@ -112,7 +112,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { ElEmpty } from 'element-plus'
 import { useDocumentsStore } from '@/features/documents/store'
 import { useDocumentCategoriesStore } from '@/features/documentCategories/store'
 import { getMediaUrl } from '@/utils/media'

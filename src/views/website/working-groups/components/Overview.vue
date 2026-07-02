@@ -263,11 +263,11 @@
                                 @click="selected = item"
                                 class="group bg-[#F7F7F7] hover:bg-[#EFEFEF] transition-colors duration-200 rounded-2xl p-6 lg:p-7 flex flex-col cursor-pointer"
                             >
-                                <div class="flex items-center gap-3 flex-1">
+                                <div class="flex items-center gap-3.5 min-h-[64px]">
                                     <svg
                                         :viewBox="item.viewBox"
-                                        width="22"
-                                        height="22"
+                                        width="30"
+                                        height="30"
                                         fill="none"
                                         stroke="#505A63"
                                         stroke-width="1.8"
@@ -277,7 +277,7 @@
                                     >
                                         <path v-for="(d, j) in item.paths" :key="j" :d="d" />
                                     </svg>
-                                    <h4 class="text-sm font-semibold text-[#191C1F] uppercase leading-snug">
+                                    <h4 class="text-base lg:text-lg font-semibold text-[#191C1F] uppercase leading-snug">
                                         {{ $t(item.directionKey) }}
                                     </h4>
                                 </div>
@@ -295,20 +295,20 @@
                                             </div>
                                         </div>
                                         <div class="min-w-0">
-                                            <div class="text-[11px] text-[#000] font-normal leading-tight mb-0.5">
+                                            <div class="text-[13px] text-[#000] font-normal leading-tight mb-0.5">
                                                 {{ $t('workingGroupsPage.chairLabel') }}
                                             </div>
-                                            <div class="text-xs font-bold uppercase leading-tight text-[#191C1F] truncate">
+                                            <div class="text-sm font-bold uppercase leading-tight text-[#191C1F] truncate">
                                                 {{ item.fullname }}
                                             </div>
-                                            <div class="text-[11px] text-[#505A63] leading-snug mt-0.5 line-clamp-2">
+                                            <div class="text-[13px] text-[#505A63] leading-snug mt-0.5 line-clamp-2">
                                                 {{ item.position }}
                                             </div>
                                         </div>
                                     </div>
                                     <svg
-                                        width="18"
-                                        height="18"
+                                        width="24"
+                                        height="24"
                                         viewBox="0 0 24 24"
                                         fill="none"
                                         stroke="#505A63"
@@ -342,12 +342,12 @@
                                         <img
                                             :src="item.chairPhoto"
                                             :alt="item.chairName"
-                                            class="w-20 h-20 rounded-full object-cover object-top border-2 border-white shadow-md"
+                                            class="w-24 h-24 rounded-full object-cover object-top border-2 border-white shadow-md"
                                         />
-                                        <p class="text-[10px] text-[#8a94a6] uppercase tracking-wide text-center leading-tight">
+                                        <p class="text-[12px] text-[#8a94a6] uppercase tracking-wide text-center leading-tight">
                                             {{ $t('workingGroupsPage.chairLabel') }}
                                         </p>
-                                        <p class="text-[11px] font-bold uppercase text-[#191C1F] text-center leading-tight line-clamp-2">
+                                        <p class="text-[13px] font-bold uppercase text-[#191C1F] text-center leading-tight line-clamp-2 min-h-[32px]">
                                             {{ item.chairName }}
                                         </p>
                                     </div>
@@ -356,12 +356,12 @@
                                         <img
                                             :src="item.coChairPhoto"
                                             :alt="item.coChairName"
-                                            class="w-20 h-20 rounded-full object-cover object-top border-2 border-white shadow-md"
+                                            class="w-24 h-24 rounded-full object-cover object-top border-2 border-white shadow-md"
                                         />
-                                        <p class="text-[10px] text-[#8a94a6] uppercase tracking-wide text-center leading-tight">
+                                        <p class="text-[12px] text-[#8a94a6] uppercase tracking-wide text-center leading-tight">
                                             {{ $t('workingGroupsPage.coChairLabel') }}
                                         </p>
-                                        <p class="text-[11px] font-bold uppercase text-[#191C1F] text-center leading-tight line-clamp-2">
+                                        <p class="text-[13px] font-bold uppercase text-[#191C1F] text-center leading-tight line-clamp-2 min-h-[32px]">
                                             {{ item.coChairName }}
                                         </p>
                                     </div>
@@ -371,11 +371,11 @@
 
                                 <!-- Icon + name + arrow -->
                                 <div class="flex items-center gap-3 mt-auto">
-                                    <div class="w-9 h-9 rounded-xl bg-[#191C1F] flex items-center justify-center shrink-0">
+                                    <div class="w-11 h-11 rounded-xl bg-[#191C1F] flex items-center justify-center shrink-0">
                                         <svg
                                             :viewBox="item.viewBox"
-                                            width="16"
-                                            height="16"
+                                            width="20"
+                                            height="20"
                                             fill="none"
                                             stroke="white"
                                             stroke-width="1.8"
@@ -385,12 +385,12 @@
                                             <path v-for="(d, j) in item.paths" :key="j" :d="d" />
                                         </svg>
                                     </div>
-                                    <h4 class="flex-1 text-[12px] font-bold text-[#191C1F] uppercase truncate">
+                                    <h4 class="flex-1 text-[14px] font-bold text-[#191C1F] uppercase truncate">
                                         {{ $t(item.nameKey) }}
                                     </h4>
                                     <svg
-                                        width="16"
-                                        height="16"
+                                        width="20"
+                                        height="20"
                                         viewBox="0 0 24 24"
                                         fill="none"
                                         stroke="#505A63"
@@ -1158,10 +1158,10 @@ onBeforeUnmount(() => observer.value?.disconnect())
 }
 
 .diamond-wrapper {
-    width: 44px;
-    height: 44px;
+    width: 56px;
+    height: 56px;
     transform: rotate(45deg);
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
     background: white;
     border: 1.5px solid rgba(0, 0, 0, 0.1);

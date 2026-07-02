@@ -3,18 +3,16 @@
         <!-- Hero intro -->
         <section class="bg-white py-16 md:py-24">
             <div class="page-container">
-                <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="font-black text-[clamp(18px,2vw,22px)] uppercase tracking-widest text-[#1a1e2e] mb-5">
-                        {{ $t('becomeAMemberPage.categoriesSubtitle') }}
-                    </h2>
-                    <p class="text-[clamp(16px,1.4vw,19px)] text-[#444] font-semibold leading-relaxed">
-                        {{ $t('becomeAMemberPage.intro') }}
-                    </p>
-                </div>
+                <h2 class="section-title text-center mb-6">
+                    {{ $t('becomeAMemberPage.categoriesSubtitle') }}
+                </h2>
+                <p class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-relaxed max-w-3xl mx-auto text-center">
+                    {{ $t('becomeAMemberPage.intro') }}
+                </p>
 
                 <!-- Admission Procedure -->
                 <div ref="sectionEl" class="mt-20">
-                    <h3 class="font-bold text-[clamp(20px,2vw,26px)] text-[#1a1e2e] mb-8">
+                    <h3 class="text-[clamp(18px,2vw,28px)] font-black uppercase text-[#1a1e2e] leading-tight mb-8">
                         {{ $t('becomeAMemberPage.admissionTitle') }}
                     </h3>
 
@@ -62,7 +60,7 @@
 
                 <!-- Membership Categories -->
                 <div ref="categoriesEl" class="mt-20">
-                    <h3 class="font-bold text-[clamp(20px,2vw,26px)] text-[#1a1e2e] mb-8">
+                    <h3 class="text-[clamp(18px,2vw,28px)] font-black uppercase text-[#1a1e2e] leading-tight mb-8">
                         {{ $t('becomeAMemberPage.categoriesTitle') }}
                     </h3>
 

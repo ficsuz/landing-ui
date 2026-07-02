@@ -22,43 +22,30 @@
                 </div>
 
                 <!-- Company list -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                    <a
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-5">
+                    <div
                         v-for="item in memberSections[activeTab].items"
                         :key="item.filename"
-                        :href="item.website || undefined"
-                        :target="item.website ? '_blank' : undefined"
-                        rel="noopener noreferrer"
                         class="group flex overflow-hidden bg-white border border-[#eef0f4] rounded-2xl shadow-[0_2px_12px_rgba(25,28,31,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d0d5dd] hover:shadow-[0_12px_36px_rgba(25,28,31,0.10)]"
-                        :class="{ 'cursor-default pointer-events-none': !item.website }"
                     >
                         <!-- Logo box -->
-                        <div class="shrink-0 flex items-center justify-center w-[130px] lg:w-[150px] bg-[#f7f8fa] border-r border-[#eef0f4] p-5 transition-colors duration-300 group-hover:bg-[#f0f1f3]">
+                        <div class="shrink-0 flex items-center justify-center w-[160px] md:w-[200px] lg:w-[240px] bg-[#f7f8fa] border-r border-[#eef0f4] p-6 md:p-8 transition-colors duration-300 group-hover:bg-[#f0f1f3]">
                             <img
                                 :src="item.image"
                                 :alt="item.name"
-                                class="max-w-full max-h-[70px] object-contain transition-transform duration-300 group-hover:scale-105"
+                                class="max-w-full max-h-[100px] md:max-h-[130px] lg:max-h-[150px] object-contain transition-transform duration-300 group-hover:scale-105"
                             />
                         </div>
                         <!-- Info -->
-                        <div class="flex-1 flex flex-col justify-center gap-2 px-5 py-4 lg:px-6 min-w-0">
-                            <h3 class="text-[13px] lg:text-[14px] font-bold uppercase tracking-[0.04em] leading-snug text-[#191c1f] line-clamp-2">
+                        <div class="flex-1 flex flex-col justify-center gap-3 px-6 py-6 lg:px-8 lg:py-8 min-w-0">
+                            <h3 class="text-[17px] md:text-[20px] lg:text-[24px] font-extrabold uppercase tracking-[0.02em] leading-tight text-[#191c1f]">
                                 {{ item.name }}
                             </h3>
-                            <p class="text-[12px] lg:text-[13px] leading-[160%] text-[#8a94a6] line-clamp-3">
+                            <p class="text-[14px] md:text-[15px] lg:text-[16px] leading-[165%] text-[#8a94a6]">
                                 {{ item.bio }}
                             </p>
                         </div>
-                        <!-- Arrow -->
-                        <div
-                            v-if="item.website"
-                            class="shrink-0 flex items-center pr-4 text-[#d0d5dd] transition-all duration-300 group-hover:text-[#191c1f] group-hover:translate-x-0.5"
-                        >
-                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                <path d="M3.5 9h11M9.5 4.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>

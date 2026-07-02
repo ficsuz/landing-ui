@@ -7,8 +7,8 @@
         <HomePlenary />
         <HomeExecCommittee />
         <HomeCouncilCalendar />
-        <HomeArticles />
         <HomeStrongPartners />
+        <HomeArticles />
         <HomeInvestments />
         <HomeNews />
         <HomeInvestorsVoices />

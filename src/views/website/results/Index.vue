@@ -11,7 +11,7 @@
 
                 <!-- Platform for Investors -->
                 <div ref="platformRef" class="mb-20">
-                    <h2 class="text-[clamp(18px,2vw,28px)] font-black uppercase text-[#1a1e2e] leading-tight mb-8">
+                    <h2 class="section-title mb-8">
                         {{ $t('resultsPage.platformTitle') }}
                     </h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -42,7 +42,7 @@
 
                 <!-- Development of Investment Environment -->
                 <div ref="investRef" class="mb-20">
-                    <h2 class="text-[clamp(18px,2vw,28px)] font-black uppercase text-[#1a1e2e] leading-tight mb-8">
+                    <h2 class="section-title mb-8">
                         {{ $t('resultsPage.investEnvTitle') }}
                     </h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -72,7 +72,7 @@
 
                 <!-- Legal Acts -->
                 <div class="mb-20">
-                    <h2 class="text-[clamp(18px,2vw,28px)] font-black uppercase text-[#1a1e2e] leading-tight mb-3">
+                    <h2 class="section-title mb-3">
                         {{ $t('resultsPage.legalActs.title') }}
                     </h2>
                     <p class="text-[clamp(14px,1.1vw,16px)] text-[#8a94a6] mb-10">{{ $t('resultsPage.legalActs.subtitle') }}</p>
@@ -94,7 +94,7 @@
 
                 <!-- Analytical Reports -->
                 <div class="mb-10">
-                    <h2 class="text-[clamp(18px,2vw,28px)] font-black uppercase text-[#1a1e2e] leading-tight mb-10">
+                    <h2 class="section-title mb-10">
                         {{ $t('resultsPage.reports.title') }}
                     </h2>
                     <div v-loading="reportsStore.loading" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
@@ -174,7 +174,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { ElEmpty } from 'element-plus'
 import { useAnalyticalReportsStore } from '@/features/analyticalReports/store'
 import { getMediaUrl } from '@/utils/media'
 import type { Translation } from '@/types/server/api.types'

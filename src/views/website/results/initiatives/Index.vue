@@ -3,10 +3,10 @@
         <!-- Plenary sessions table -->
         <section class="bg-white py-16 md:py-24">
             <div class="page-container">
-                <h1 class="font-black leading-[1.05] text-[#1a1e2e] uppercase text-[clamp(22px,3vw,44px)] mb-6">
+                <h1 class="section-title text-center mb-6">
                     {{ $t('resultsPage.initiativesPage.pageTitle') }}
                 </h1>
-                <p class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-relaxed max-w-2xl mb-12">
+                <p class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-relaxed max-w-2xl mx-auto text-center mb-12">
                     {{ $t('resultsPage.initiativesPage.intro') }}
                 </p>
 
@@ -57,10 +57,10 @@
         <!-- Collected initiatives: category tabs + item list -->
         <section class="bg-white pb-16 md:pb-24">
             <div class="page-container">
-                <h2 class="font-black leading-[1.05] text-[#1a1e2e] uppercase text-[clamp(20px,2.5vw,38px)] mb-3">
+                <h2 class="section-title text-center mb-3">
                     {{ $t('resultsPage.initiativesPage.collected.title') }}
                 </h2>
-                <p class="text-[clamp(15px,1.3vw,18px)] text-[#444] mb-10">
+                <p class="text-[clamp(15px,1.3vw,18px)] text-[#444] text-center mb-10">
                     {{ $t('resultsPage.initiativesPage.collected.subtitle') }}&nbsp;<strong class="text-[#1a1e2e]">120</strong>
                 </p>
 

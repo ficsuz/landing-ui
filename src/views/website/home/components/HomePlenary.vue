@@ -60,7 +60,7 @@ import img8 from '@/assets/images/banner/opa.png'
 
 const slides = [img1, img2, img3, img4, img5, img6, img7, img8]
 
-const CARD_RATIO = 0.65
+const CARD_RATIO = 0.82
 const GAP = 16
 const cardWidth = ref(0)
 const cardHeight = ref(0)
@@ -91,7 +91,7 @@ const realIndex = (trackIdx: number) => {
 const measure = () => {
     containerWidth.value = window.innerWidth
     cardWidth.value = Math.round(containerWidth.value * CARD_RATIO)
-    cardHeight.value = Math.round(cardWidth.value * 0.6)
+    cardHeight.value = Math.round(cardWidth.value * 0.52)
 }
 
 const goTo = (index: number) => {

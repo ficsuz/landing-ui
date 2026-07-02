@@ -12,38 +12,41 @@
 
         <!-- Cards grid -->
         <div class="px-4 md:px-10 max-w-[1440px] mx-auto">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 <div
                     v-for="(member, i) in members"
                     :key="i"
-                    class="bg-white rounded-2xl border border-[#eef0f4] overflow-hidden flex flex-col transition-all duration-500 hover:shadow-[0_8px_32px_rgba(0,0,0,0.09)] hover:-translate-y-1.5"
+                    class="group bg-white rounded-2xl border border-[#eef0f4] p-4 flex flex-col transition-all duration-500 hover:shadow-[0_8px_32px_rgba(0,0,0,0.09)] hover:-translate-y-1.5"
                     :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
                     :style="{ transitionDelay: visible ? `${i * 90}ms` : '0ms' }"
                 >
-                    <!-- Logo area -->
-                    <div class="flex items-center justify-center h-[72px] px-4 border-b border-[#eef0f4] bg-white">
-                        <img :src="member.logo" :alt="$t(`exec.${member.key}.name`)" class="w-auto object-contain" style="max-width: 140px" />
+                    <!-- Logo -->
+                    <div class="flex items-center justify-center h-[72px] mb-3">
+                        <img :src="member.logo" :alt="$t(`exec.${member.key}.name`)" class="w-auto object-contain" :style="member.logoStyle" />
                     </div>
 
                     <!-- Photo -->
-                    <div class="w-full aspect-[3/3.5] overflow-hidden bg-[#eef0f4]">
+                    <div class="rounded-2xl overflow-hidden aspect-[3/3.4] bg-[#eef0f4]">
                         <img
                             :src="member.photo"
                             :alt="$t(`exec.${member.key}.name`)"
-                            class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                            class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                             @error="(e) => ((e.target as HTMLImageElement).src = defaultPhoto)"
                         />
                     </div>
 
                     <!-- Quote -->
-                    <div class="px-4 pt-4 pb-3 flex-1">
-                        <p class="text-[12px] text-[#666] italic leading-relaxed line-clamp-4">"{{ $t(`exec.${member.key}.quote`) }}"</p>
+                    <div class="px-1 pt-5 pb-4 flex-1">
+                        <p class="text-[13px] text-[#555] italic leading-relaxed text-center">"{{ $t(`exec.${member.key}.quote`) }}"</p>
                     </div>
 
+                    <!-- Divider -->
+                    <div class="border-t border-[#eef0f4]"></div>
+
                     <!-- Name / Role -->
-                    <div class="shrink-0 px-4 py-3 bg-[#eef0f4] border-t border-[#e2e5ea]">
-                        <p class="font-bold text-[13px] text-[#1a1e2e] truncate">{{ $t(`exec.${member.key}.name`) }}</p>
-                        <p class="text-[11px] text-[#8a94a6] mt-0.5 truncate">{{ $t(`exec.${member.key}.role`) }}</p>
+                    <div class="pt-4 px-1 text-center min-h-[100px]">
+                        <p class="font-extrabold text-[17px] text-[#1a1e2e] leading-tight line-clamp-2">{{ $t(`exec.${member.key}.name`) }}</p>
+                        <p class="text-[12px] text-[#8a94a6] mt-1.5 leading-snug line-clamp-2">{{ $t(`exec.${member.key}.role`) }}</p>
                     </div>
                 </div>
             </div>
@@ -75,12 +78,15 @@ import logoIfc from '@/assets/images/brands/ifc2.png'
 import logoMinistry from '@/assets/images/brands/miit.png'
 import logoFic from '@/assets/images/icons/ba12d8ddde154e568c101e56e4a917883a60b20a.png'
 
+const DEFAULT_LOGO_STYLE = 'max-width: 160px; max-height: 46px'
+const WIDE_LOGO_STYLE = 'max-width: 240px; max-height: 66px'
+
 const members = [
-    { key: 'm1', logo: logoMinistry, photo: avatar1 },
-    { key: 'm2', logo: logoEbrd, photo: avatar2 },
-    { key: 'm3', logo: logoAdb, photo: avatar3 },
-    { key: 'm4', logo: logoIfc, photo: avatar4 },
-    { key: 'm5', logo: logoFic, photo: avatar5 },
+    { key: 'm1', logo: logoMinistry, photo: avatar1, logoStyle: DEFAULT_LOGO_STYLE },
+    { key: 'm2', logo: logoEbrd, photo: avatar2, logoStyle: WIDE_LOGO_STYLE },
+    { key: 'm3', logo: logoAdb, photo: avatar3, logoStyle: WIDE_LOGO_STYLE },
+    { key: 'm4', logo: logoIfc, photo: avatar4, logoStyle: DEFAULT_LOGO_STYLE },
+    { key: 'm5', logo: logoFic, photo: avatar5, logoStyle: DEFAULT_LOGO_STYLE },
 ]
 
 const visible = ref(false)

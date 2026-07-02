@@ -87,7 +87,6 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { ElEmpty } from 'element-plus'
 import { useAnalyticalReportsStore } from '@/features/analyticalReports/store'
 import { getMediaUrl } from '@/utils/media'
 import type { AnalyticalReport, TranslatedFile } from '@/features/analyticalReports/types'

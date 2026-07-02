@@ -18,9 +18,9 @@
                     <div
                         v-for="(logo, i) in [...row1, ...row1]"
                         :key="`r1-${i}`"
-                        class="shrink-0 h-[88px] w-[180px] bg-white rounded-xl border border-[#eef0f4] flex items-center justify-center px-6 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200"
+                        class="shrink-0 h-[108px] w-[280px] bg-white rounded-xl border border-[#eef0f4] flex items-center justify-center px-6 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200"
                     >
-                        <img :src="logo.src" :alt="logo.name" class="max-h-[44px] max-w-[120px] w-auto h-auto object-contain" />
+                        <img :src="logo.src" :alt="logo.name" class="max-h-[76px] max-w-[220px] w-auto h-auto object-contain" />
                     </div>
                 </div>
             </div>
@@ -31,9 +31,9 @@
                     <div
                         v-for="(logo, i) in [...row2, ...row2]"
                         :key="`r2-${i}`"
-                        class="shrink-0 h-[88px] w-[180px] bg-white rounded-xl border border-[#eef0f4] flex items-center justify-center px-6 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200"
+                        class="shrink-0 h-[108px] w-[280px] bg-white rounded-xl border border-[#eef0f4] flex items-center justify-center px-6 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200"
                     >
-                        <img :src="logo.src" :alt="logo.name" class="max-h-[44px] max-w-[120px] w-auto h-auto object-contain" />
+                        <img :src="logo.src" :alt="logo.name" class="max-h-[76px] max-w-[220px] w-auto h-auto object-contain" />
                     </div>
                 </div>
             </div>
@@ -224,9 +224,5 @@ const row2 = [
 .ticker-members-right {
     animation-name: tickerRight;
     animation-duration: 44s;
-}
-
-.ticker-track:hover {
-    animation-play-state: paused;
 }
 </style>

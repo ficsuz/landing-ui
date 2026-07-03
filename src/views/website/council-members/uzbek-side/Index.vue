@@ -2,12 +2,12 @@
     <div class="uzbek-side-page">
         <section class="bg-white py-16 md:py-24">
             <div class="page-container">
-                <p class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-relaxed max-w-3xl mb-14">
+                <!-- <p class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-relaxed max-w-3xl mb-14">
                     {{ $t('uzbekSidePage.intro') }}
-                </p>
+                </p> -->
 
                 <!-- Loading skeleton -->
-                <div v-if="membersStore.loading && !members.length" class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                <div v-if="expertsStore.loading && !members.length" class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     <div v-for="n in 4" :key="n" class="flex bg-white rounded-2xl border border-[#eef0f4] overflow-hidden animate-pulse">
                         <div class="w-[140px] md:w-[180px] shrink-0 bg-[#f0f2f5]"></div>
                         <div class="flex-1 p-5 md:p-6 space-y-2">
@@ -30,10 +30,9 @@
                         :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
                         :style="{ transitionDelay: visible ? `${i * 50}ms` : '0ms' }"
                     >
-                        <!-- Photo -->
                         <div class="w-[140px] md:w-[180px] shrink-0 overflow-hidden bg-[#f0f2f5]">
                             <img
-                                :src="getMediaUrl(member.photoId)"
+                                :src="getMediaUrl(member.imageId)"
                                 :alt="resolveTranslation(member.fullName, locale)"
                                 class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                             />
@@ -47,6 +46,9 @@
                             <h3 class="font-black text-[15px] md:text-[17px] text-[#1a1e2e] uppercase leading-tight tracking-wide">
                                 {{ resolveTranslation(member.fullName, locale) }}
                             </h3>
+                            <p v-if="member.bio" class="text-[13px] md:text-[14px] text-[#505a63] leading-relaxed mt-1 line-clamp-4">
+                                {{ resolveTranslation(member.bio, locale) }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -58,13 +60,13 @@
 <script setup lang="ts">
 import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useMembersStore } from '@/features/members/store'
+import { useExpertsStore } from '@/features/experts/store'
 import { resolveTranslation } from '@/utils/i18n'
 import { getMediaUrl } from '@/utils/media'
 
 const { locale } = useI18n()
-const membersStore = useMembersStore()
-const members = computed(() => membersStore.items)
+const expertsStore = useExpertsStore()
+const members = computed(() => expertsStore.items.filter((e) => e.status))
 
 const gridEl = ref<HTMLElement | null>(null)
 const visible = ref(false)
@@ -81,7 +83,7 @@ const getScrollParent = (el: HTMLElement): Element => {
 }
 
 onMounted(async () => {
-    await membersStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
+    await expertsStore.fetchAll({ type: 'UZBEK', limit: 100, sortBy: 'order', order: 'asc' })
     await nextTick()
     if (!gridEl.value) return
     const root = getScrollParent(gridEl.value)
@@ -92,7 +94,7 @@ onMounted(async () => {
                 observer?.disconnect()
             }
         },
-        { root, threshold: 0.05 },
+        { root, threshold: 0.05 }
     )
     observer.observe(gridEl.value)
 })

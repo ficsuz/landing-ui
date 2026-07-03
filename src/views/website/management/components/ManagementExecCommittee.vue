@@ -67,7 +67,7 @@
                             <div
                                 class="absolute top-full left-1/2 -translate-x-1/2 z-30 w-[240px] max-w-[80vw] pt-2 opacity-0 invisible translate-y-1 transition-all duration-200 group-hover/bio:opacity-100 group-hover/bio:visible group-hover/bio:translate-y-0"
                             >
-                                <div class="rounded-xl bg-[#1a1e2e] shadow-[0_12px_40px_rgba(0,0,0,0.25)] p-4 text-left">
+                                <div class="rounded-xl bg-[#191C1F] shadow-[0_12px_40px_rgba(0,0,0,0.25)] p-4 text-left">
                                     <p class="text-[10px] uppercase tracking-[0.16em] font-bold text-white/45 mb-1.5">
                                         {{ $t('management.biography') }}
                                     </p>

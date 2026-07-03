@@ -1,9 +1,9 @@
 <template>
     <div class="blitz-page bg-white py-12 md:py-16">
         <div class="page-container">
-            <!-- Intro -->
-            <div class="mb-12 md:mb-16 max-w-2xl">
-                <h2 class="section-title mb-5">{{ $t('mediaPage.blitzPage.title') }}</h2>
+            <!-- Title -->
+            <div class="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+                <h1 class="section-title mb-4">{{ $t('mediaPage.interviewTitle') }}</h1>
                 <p class="text-[clamp(15px,1.3vw,18px)] text-[#505a63] leading-relaxed">
                     {{ $t('mediaPage.blitzPage.description') }}
                 </p>

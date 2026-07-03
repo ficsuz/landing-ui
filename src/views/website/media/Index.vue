@@ -3,12 +3,7 @@
         <div class="page-container py-12 md:py-16">
             <!-- Title -->
             <div class="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-                <h1 class="font-black text-[clamp(28px,4vw,44px)] leading-[1.1] text-[#1a1e2e] uppercase mb-4">
-                    {{ $t('mediaPage.newsTitle') }}
-                </h1>
-                <p class="text-[clamp(14px,1.2vw,16px)] text-[#8a94a6] leading-relaxed">
-                    {{ $t('mediaPage.newsIntro') }}
-                </p>
+                <h1 class="section-title mb-4">{{ $t('mediaPage.newsTitle') }}</h1>
             </div>
 
             <!-- Loading skeleton -->
@@ -59,9 +54,19 @@
                             </p>
                             <div class="flex items-center justify-between pt-4 border-t border-[#eef0f4] mt-auto">
                                 <span class="text-[12px] text-[#b0b8c6] font-medium">{{ formatDate(item.date) }}</span>
-                                <span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#1a1e2e] group-hover:text-[#2563eb] transition-all duration-200">
+                                <span
+                                    class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#1a1e2e] group-hover:text-[#2563eb] transition-all duration-200"
+                                >
                                     {{ $t('common.learnMore') }}
-                                    <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg
+                                        class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
                                         <path d="M5 12h14M12 5l7 7-7 7" />
                                     </svg>
                                 </span>

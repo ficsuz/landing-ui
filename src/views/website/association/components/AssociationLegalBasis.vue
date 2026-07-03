@@ -1,7 +1,7 @@
 <template>
     <section class="bg-white py-16 md:py-24">
         <div class="page-container">
-            <h2 class="section-title mb-10">{{ $t('association.legalBasis.title') }}</h2>
+            <h2 class="section-title mb-10 text-center">{{ $t('association.legalBasis.title') }}</h2>
 
             <div class="max-w-3xl">
                 <p class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-relaxed mb-6">

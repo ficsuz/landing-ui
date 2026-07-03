@@ -10,8 +10,8 @@
             <el-table-column label="Name" min-width="240" show-overflow-tooltip>
                 <template #default="{ row }">{{ resolveTranslation(row.name) }}</template>
             </el-table-column>
-            <el-table-column prop="order" label="Order" width="100" align="center" />
-            <el-table-column label="Status" width="120" align="center">
+            <el-table-column prop="order" label="Order" width="120" align="center" />
+            <el-table-column label="Status" width="150" align="center">
                 <template #default="{ row }">
                     <el-tag :type="row.status ? 'success' : 'info'" size="small">
                         {{ row.status ? 'Published' : 'Hidden' }}
@@ -123,7 +123,7 @@ function openCreate() {
     showDialog.value = true
 }
 
-function openEdit(row: DocumentCategory) {
+function openEdit(row: any) {
     editing.value = row
     Object.assign(form, {
         name: { ...row.name },
@@ -152,7 +152,7 @@ async function handleSubmit() {
     }
 }
 
-async function handleDelete(row: DocumentCategory) {
+async function handleDelete(row: any) {
     try {
         await ElMessageBox.confirm(`Delete "${resolveTranslation(row.name)}"?`, 'Warning', {
             confirmButtonText: 'Yes',
@@ -173,9 +173,29 @@ onMounted(loadList)
 </script>
 
 <style scoped>
-.page-wrapper { padding: 24px; }
-.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
-.page-title { font-size: 22px; font-weight: 600; color: #101828; margin: 0; }
-.admin-actions { display: flex; gap: 8px; justify-content: center; }
-.pagination-wrap { display: flex; justify-content: center; margin-top: 24px; }
+.page-wrapper {
+    padding: 24px;
+}
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.page-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #101828;
+    margin: 0;
+}
+.admin-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+.pagination-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
 </style>

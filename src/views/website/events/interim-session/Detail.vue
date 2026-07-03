@@ -52,11 +52,11 @@
 
                 <!-- Stat cards -->
                 <div v-if="session.detail?.stats?.length" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div v-for="(stat, i) in session.detail.stats" :key="i" class="rounded-2xl bg-[#1a1e2e] p-7 md:p-8 flex flex-col gap-3">
-                        <span class="font-black text-[clamp(40px,5vw,64px)] text-white leading-none">
+                    <div v-for="(stat, i) in session.detail.stats" :key="i" class="rounded-2xl border border-[#eef0f4] bg-[#f7f8fa] p-7 md:p-8 flex flex-col gap-3">
+                        <span class="font-black text-[clamp(40px,5vw,64px)] text-[#1a1e2e] leading-none">
                             {{ stat.value }}
                         </span>
-                        <span class="text-[14px] text-white/70 leading-snug">
+                        <span class="text-[15px] md:text-[16px] font-medium text-[#505a63] leading-snug capitalize">
                             {{ stat.label }}
                         </span>
                     </div>

@@ -7,13 +7,13 @@
 
         <div class="news-grid" v-loading="newsStore.loading">
             <div v-for="row in newsStore.items" :key="row.id" class="news-card">
-                <div class="news-card__image">
-                    <img :src="defaultImage" alt="" />
-                    <el-tag :type="row.status === 1 ? 'success' : 'info'" size="small" class="news-card__status">
-                        {{ row.status === 1 ? 'Published' : 'Draft' }}
-                    </el-tag>
+                <div v-if="getMediaUrl(row.imageId)" class="news-card__image">
+                    <img :src="getMediaUrl(row.imageId)!" alt="" />
                 </div>
                 <div class="news-card__body">
+                    <el-tag :type="row.status === 1 ? 'success' : 'info'" size="small" class="mb-2">
+                        {{ row.status === 1 ? 'Published' : 'Draft' }}
+                    </el-tag>
                     <h3 class="news-card__title">{{ resolveTranslation(row.title) }}</h3>
                     <p class="news-card__date">{{ formatDate(row.date) }}</p>
                     <div class="news-card__actions">
@@ -94,7 +94,7 @@ import { useI18n } from 'vue-i18n'
 import TranslationField from '@/components/admin/TranslationField.vue'
 import FileUploader from '@/components/admin/FileUploader.vue'
 import { useNewsStore } from '@/features/news/store'
-import defaultImage from '@/assets/images/hero/about-blog.jpg'
+import { getMediaUrl } from '@/utils/media'
 import type { NewsItem, NewsPayload } from '@/features/news/types'
 import type { Translation } from '@/types/server/api.types'
 
@@ -254,11 +254,6 @@ onMounted(loadList)
     display: block;
 }
 
-.news-card__status {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
 
 .news-card__body {
     padding: 16px;

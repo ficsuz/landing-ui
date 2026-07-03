@@ -7,16 +7,17 @@
 
         <div class="card-grid" v-loading="testimonialsStore.loading">
             <div v-for="row in testimonialsStore.items" :key="row.id" class="b-card">
-                <div class="b-card__image">
-                    <img :src="defaultImage" alt="" />
+                <div v-if="getMediaUrl(row.captionId)" class="b-card__image">
+                    <img :src="getMediaUrl(row.captionId)!" alt="" />
                     <span class="b-card__play"><el-icon :size="18"><VideoPlay /></el-icon></span>
                     <el-tag :type="row.status ? 'success' : 'info'" size="small" class="b-card__status">
                         {{ row.status ? 'Published' : 'Hidden' }}
                     </el-tag>
                 </div>
                 <div class="b-card__body">
-                    <h3 class="b-card__title">{{ row.fullName || '—' }}</h3>
-                    <p class="b-card__position">{{ row.position || '' }}</p>
+                    <el-tag v-if="!getMediaUrl(row.captionId)" :type="row.status ? 'success' : 'info'" size="small" class="mb-2">
+                        {{ row.status ? 'Published' : 'Hidden' }}
+                    </el-tag>
                     <div class="b-card__actions">
                         <el-tooltip content="Edit" placement="top">
                             <el-button type="primary" :icon="Edit" circle plain @click="openEdit(row)" />
@@ -44,8 +45,6 @@
 
         <el-dialog v-model="showDialog" :title="editing ? 'Edit blitz interview' : 'Add blitz interview'" width="560px">
             <el-form label-position="top">
-                <el-form-item label="Name"><el-input v-model="form.fullName" placeholder="Full name" /></el-form-item>
-                <el-form-item label="Position"><el-input v-model="form.position" placeholder="Position" /></el-form-item>
                 <el-form-item label="Video link"><el-input v-model="form.videoSource" placeholder="https://youtu.be/..." /></el-form-item>
                 <el-form-item label="Cover image (thumbnail)">
                     <FileUploader v-model="form.captionId" />
@@ -74,7 +73,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { VideoPlay, Edit, Delete } from '@element-plus/icons-vue'
 import FileUploader from '@/components/admin/FileUploader.vue'
 import { useTestimonialsStore } from '@/features/testimonials/store'
-import defaultImage from '@/assets/images/hero/about-blog.jpg'
+import { getMediaUrl } from '@/utils/media'
 import type { Testimonial, TestimonialPayload } from '@/features/testimonials/types'
 
 const testimonialsStore = useTestimonialsStore()
@@ -87,8 +86,6 @@ const saving = ref(false)
 const editing = ref<Testimonial | null>(null)
 
 interface TestimonialFormState {
-    fullName: string
-    position: string
     videoSource: string
     captionId: string | null
     logoId: string | null
@@ -97,8 +94,6 @@ interface TestimonialFormState {
 }
 
 const emptyForm = (): TestimonialFormState => ({
-    fullName: '',
-    position: '',
     videoSource: '',
     captionId: null,
     logoId: null,
@@ -126,8 +121,6 @@ function openCreate() {
 function openEdit(row: Testimonial) {
     editing.value = row
     Object.assign(form, {
-        fullName: row.fullName || '',
-        position: row.position || '',
         videoSource: row.videoSource || '',
         captionId: row.captionId,
         logoId: row.logoId,
@@ -141,8 +134,6 @@ async function handleSubmit() {
     saving.value = true
     try {
         const payload: TestimonialPayload = {
-            fullName: form.fullName,
-            position: form.position,
             videoSource: form.videoSource,
             captionId: form.captionId || undefined,
             logoId: form.logoId || undefined,

@@ -11,14 +11,14 @@
             <div class="flex justify-center gap-2 flex-wrap mb-14">
                 <button
                     v-for="(m, i) in milestones"
-                    :key="i"
+                    :key="m.id"
                     class="px-5 py-2.5 rounded-full border text-[14px] font-medium transition-all duration-200 whitespace-nowrap"
                     :class="active === i
                         ? 'bg-[#1a1e2e] text-white border-[#1a1e2e]'
                         : 'bg-white text-[#1a1e2e] border-[#d0d5dd] hover:border-[#1a1e2e]'"
                     @click="active = i"
                 >
-                    {{ m.date }}
+                    {{ m.title }}
                 </button>
             </div>
 
@@ -26,7 +26,7 @@
             <div class="relative overflow-hidden" style="height: 380px">
                 <div
                     v-for="(m, i) in milestones"
-                    :key="i"
+                    :key="m.id"
                     class="absolute transition-all duration-500 select-none flex flex-col justify-between"
                     :style="getCardStyle(i)"
                     @click="active = i"
@@ -45,7 +45,7 @@
                             class="font-black text-[22px] mb-2 transition-colors duration-500 leading-tight"
                             :class="active === i ? 'text-[#1a1e2e]' : 'text-[#c0c0c0]'"
                         >
-                            {{ m.date }}
+                            {{ m.title }}
                         </p>
                         <p
                             class="text-[13.5px] leading-relaxed transition-colors duration-500"
@@ -83,21 +83,30 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useChronologyStore } from '@/features/chronology/store'
+import { resolveTranslation } from '@/utils/i18n'
 
-const { t } = useI18n()
+const { locale } = useI18n()
+const chronologyStore = useChronologyStore()
 
-const active = ref(2)
-
-const MILESTONE_COUNT = 6
+const active = ref(0)
 
 const milestones = computed(() =>
-    Array.from({ length: MILESTONE_COUNT }, (_, i) => ({
-        date: t(`chronology.milestones[${i}].date`),
-        description: t(`chronology.milestones[${i}].description`),
-    }))
+    chronologyStore.items
+        .filter((c) => c.status === 1)
+        .map((c) => ({
+            id: c.id,
+            title: resolveTranslation(c.title, locale.value),
+            description: c.description ? resolveTranslation(c.description, locale.value) : '',
+        }))
 )
+
+onMounted(async () => {
+    await chronologyStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
+    active.value = Math.min(2, Math.max(0, milestones.value.length - 1))
+})
 
 const CARD_W = 340
 const CARD_H = 300

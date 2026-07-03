@@ -131,9 +131,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useCouncilCalendarStore } from '@/features/councilCalendar/store'
+import { resolveTranslation } from '@/utils/i18n'
 
 withDefaults(defineProps<{ showLearnMore?: boolean }>(), { showLearnMore: true })
+
+const { locale } = useI18n()
+const calendarStore = useCouncilCalendarStore()
 
 interface CalendarEvent {
     year: string
@@ -142,18 +148,22 @@ interface CalendarEvent {
     link: string
 }
 
-const events: CalendarEvent[] = [
-    { year: '2019', month: 'November', description: 'Establishment and intermediate session', link: '/events/2019' },
-    { year: '2020', month: 'December', description: 'II Intermediate session held', link: '/events/2020' },
-    { year: '2021', month: 'October', description: 'I Plenary Session held', link: '/events/2021' },
-    { year: '2022', month: 'November', description: 'I Plenary Session held', link: '/events/2022' },
-    { year: '2023', month: 'August', description: 'Intermediate session held', link: '/events/2023' },
-    { year: '2024', month: 'September', description: 'Session held (PR-179)', link: '/events/2024' },
-    { year: '2025', month: 'November', description: 'Intermediate session held', link: '/events/2025' },
-]
+const events = computed<CalendarEvent[]>(() =>
+    calendarStore.items
+        .filter((c) => c.status === 1)
+        .map((c) => {
+            const d = c.date ? new Date(c.date) : null
+            return {
+                year: d ? String(d.getFullYear()) : '',
+                month: d ? d.toLocaleString(locale.value, { month: 'long' }) : '',
+                description: resolveTranslation(c.title, locale.value),
+                link: '/events',
+            }
+        })
+)
 
-const n = events.length
-const current = ref(2)
+const n = computed(() => events.value.length)
+const current = ref(0)
 const sectionEl = ref<HTMLElement | null>(null)
 const visible = ref(false)
 let observer: IntersectionObserver | null = null
@@ -174,8 +184,8 @@ const stepCfg = {
 const getOffset = (i: number) => {
     // Circular offset: shortest path around the ring
     let d = i - current.value
-    if (d > n / 2) d -= n
-    if (d < -n / 2) d += n
+    if (d > n.value / 2) d -= n.value
+    if (d < -n.value / 2) d += n.value
     return d
 }
 
@@ -224,10 +234,12 @@ const goTo = (i: number) => {
     current.value = i
 }
 const next = () => {
-    current.value = (current.value + 1) % n
+    if (!n.value) return
+    current.value = (current.value + 1) % n.value
 }
 const prev = () => {
-    current.value = (current.value - 1 + n) % n
+    if (!n.value) return
+    current.value = (current.value - 1 + n.value) % n.value
 }
 const pause = () => {
     paused = true
@@ -263,9 +275,13 @@ const getScrollParent = (el: HTMLElement): Element => {
     return document.documentElement
 }
 
-onMounted(() => {
+onMounted(async () => {
     measure()
     window.addEventListener('resize', measure)
+
+    await calendarStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
+    current.value = Math.min(2, Math.max(0, n.value - 1))
+
     timer = setInterval(() => {
         if (!paused) next()
     }, 4000)

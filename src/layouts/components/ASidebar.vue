@@ -1,7 +1,7 @@
 <template>
-    <aside class="flex relative flex-col justify-between px-4 py-7 mx-auto w-full bg-bg-2 border-r border-gray-200">
-        <div>
-            <header class="flex items-center gap-3 pl-1">
+    <aside class="flex relative flex-col px-4 py-7 mx-auto w-full bg-bg-2 border-r border-gray-200 h-full min-h-0">
+        <div class="flex flex-col flex-1 min-h-0">
+            <header class="flex items-center gap-3 pl-1 flex-shrink-0">
                 <LogoIcon class="w-10 h-10 flex-shrink-0" />
                 <span v-if="!props.isCallapse" class="text-[8px] font-bold leading-[1.35] text-[#191c1f] tracking-wide uppercase">
                     FOREIGN INVESTORS COUNCIL<br />
@@ -9,7 +9,7 @@
                     REPUBLIC OF UZBEKISTAN
                 </span>
             </header>
-            <nav class="mt-8">
+            <nav class="mt-8 flex-1 overflow-y-auto min-h-0">
                 <ul class="space-y-0.5">
                     <template v-for="(entry, i) in menuItems" :key="i">
                         <!-- Group label -->
@@ -37,7 +37,7 @@
             </nav>
         </div>
 
-        <div class="w-full border-t flex justify-between items-start pt-5">
+        <div class="w-full border-t flex justify-between items-start pt-5 flex-shrink-0">
             <div class="flex items-center gap-3">
                 <img width="40" height="40" src="@/assets/images/avatars/olivia.png" alt="avatar" />
                 <div v-if="!props.isCallapse">

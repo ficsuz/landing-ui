@@ -1,82 +1,109 @@
 <template>
     <div class="analytics-page">
-        <section class="bg-white py-12 md:py-16">
+        <section class="bg-[#f7f8fa] py-12 md:py-16">
             <div class="page-container">
-                <p class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-relaxed max-w-3xl mb-12">
-                    {{ $t('mediaPage.analyticsPage.intro') }}
-                </p>
-
-                <!-- Filter tabs -->
-                <div class="flex flex-wrap gap-2 mb-10">
-                    <button
-                        v-for="topic in topics"
-                        :key="topic.key"
-                        @click="activeTopic = topic.key"
-                        :class="[
-                            'px-4 py-2 rounded-full text-[13px] font-semibold border transition-all duration-200',
-                            activeTopic === topic.key
-                                ? 'bg-[#1a1e2e] text-white border-[#1a1e2e]'
-                                : 'bg-white text-[#344054] border-[#d0d5dd] hover:border-[#1a1e2e]',
-                        ]"
-                    >
-                        {{ $t(topic.labelKey) }}
-                    </button>
+                <!-- Title -->
+                <div class="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+                    <h1 class="section-title mb-4">{{ $t('mediaPage.analyticsTitle') }}</h1>
                 </div>
 
-                <!-- Article grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div v-loading="blogStore.loading" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     <router-link
-                        v-for="article in filteredArticles"
+                        v-for="article in articles"
                         :key="article.id"
                         :to="{ name: 'media-analytics-detail', params: { id: article.id } }"
-                        class="group flex flex-col rounded-2xl overflow-hidden border border-[#eef0f4] bg-white hover:shadow-[0_8px_32px_rgba(0,0,0,0.09)] hover:-translate-y-1 transition-all duration-300"
+                        class="group flex flex-col rounded-2xl overflow-hidden bg-white border border-[#eef0f4] shadow-[0_2px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.11)] hover:-translate-y-1 transition-all duration-300"
                     >
-                        <!-- Image with BLOG|FIC badge -->
-                        <div class="relative aspect-[16/10] overflow-hidden bg-[#eef0f4]">
+                        <!-- Image -->
+                        <div class="relative overflow-hidden aspect-[16/10] bg-[#eef0f4] shrink-0">
                             <img
-                                :src="article.image"
-                                :alt="article.title"
+                                :src="getMediaUrl(article.imageId)"
+                                :alt="resolveTranslation(article.title, locale)"
                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             />
-                            <div class="absolute top-4 left-4 flex items-center text-[11px] font-bold tracking-widest">
-                                <span class="bg-[#2563eb] text-white px-2 py-[3px]">BLOG</span>
-                                <span class="bg-white/15 backdrop-blur-sm text-white px-2 py-[3px] border border-white/25">FIC</span>
-                            </div>
-                            <img src="@/assets/images/logo.svg" alt="FIC" class="absolute top-4 right-4 h-7 w-7 object-contain" />
+                            <!-- Subject badge -->
+                            <span
+                                v-if="article.subject"
+                                class="absolute top-3 left-3 text-[11px] font-bold tracking-widest uppercase bg-[#1a1e2e] text-white px-2.5 py-1 rounded-full"
+                            >
+                                {{ resolveTranslation(article.subject, locale) }}
+                            </span>
                         </div>
 
-                        <!-- Category + title + date -->
-                        <div class="p-5 md:p-6 flex flex-col flex-1">
-                            <span class="text-[13px] text-[#8a94a6]">{{ article.category }}</span>
-                            <h3 class="mt-2 font-black text-[clamp(18px,1.5vw,24px)] text-[#1a1e2e] leading-snug">
-                                {{ article.title }}
+                        <!-- Body -->
+                        <div class="flex flex-col flex-1 p-5 md:p-6">
+                            <h3 class="font-bold text-[16px] md:text-[17px] text-[#1a1e2e] leading-snug line-clamp-3 flex-1">
+                                {{ resolveTranslation(article.title, locale) }}
                             </h3>
-                            <span class="text-[13px] text-[#8a94a6] mt-auto pt-4">{{ article.date }}</span>
+
+                            <!-- Footer: date + arrow -->
+                            <div class="mt-4 pt-4 border-t border-[#eef0f4] flex items-center justify-between">
+                                <span class="text-[12px] text-[#8a94a6] flex items-center gap-1.5">
+                                    <svg
+                                        width="13"
+                                        height="13"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                        <line x1="16" y1="2" x2="16" y2="6" />
+                                        <line x1="8" y1="2" x2="8" y2="6" />
+                                        <line x1="3" y1="10" x2="21" y2="10" />
+                                    </svg>
+                                    {{ formatDate(article.date || article.createdAt) }}
+                                </span>
+                                <span
+                                    class="w-8 h-8 rounded-full flex items-center justify-center bg-[#f7f8fa] group-hover:bg-[#1a1e2e] transition-colors duration-300"
+                                >
+                                    <svg
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-[#8a94a6] group-hover:text-white transition-colors duration-300"
+                                    >
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </span>
+                            </div>
                         </div>
                     </router-link>
                 </div>
 
-                <el-empty v-if="filteredArticles.length === 0" :description="$t('common.noData')" class="py-10" />
+                <el-empty v-if="!blogStore.loading && articles.length === 0" :description="$t('common.noData')" class="py-10" />
             </div>
         </section>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { articles } from './articlesData'
+import { computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useBlogStore } from '@/features/blog/store'
+import { resolveTranslation } from '@/utils/i18n'
+import { getMediaUrl } from '@/utils/media'
 
-const activeTopic = ref('all')
+const { locale } = useI18n()
+const blogStore = useBlogStore()
 
-const topics = [
-    { key: 'all', labelKey: 'mediaPage.categories.all' },
-    { key: 'investment', labelKey: 'mediaPage.analyticsPage.topics.investment' },
-    { key: 'reform', labelKey: 'mediaPage.analyticsPage.topics.reform' },
-    { key: 'macroeconomy', labelKey: 'mediaPage.analyticsPage.topics.macroeconomy' },
-    { key: 'sector', labelKey: 'mediaPage.analyticsPage.topics.sector' },
-]
+const articles = computed(() => blogStore.items.filter((b) => b.status === 1))
 
-const filteredArticles = computed(() =>
-    activeTopic.value === 'all' ? articles : articles.filter((a) => a.topic === activeTopic.value)
-)
+function formatDate(iso?: string | null) {
+    if (!iso) return ''
+    const d = new Date(iso)
+    if (Number.isNaN(d.getTime())) return ''
+    return d.toLocaleDateString('en-GB').replace(/\//g, '.')
+}
+
+onMounted(() => {
+    blogStore.fetchAll({ limit: 100, sortBy: 'date', order: 'desc' })
+})
 </script>

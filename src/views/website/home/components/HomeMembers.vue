@@ -58,9 +58,9 @@
                     <div
                         v-for="(member, i) in [...uzbekRow1, ...uzbekRow1]"
                         :key="`m1-${i}`"
-                        class="shrink-0 w-[280px] h-[88px] bg-white rounded-xl border border-[#eef0f4] flex items-center gap-4 px-4 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200 cursor-default"
+                        class="shrink-0 w-[340px] h-[104px] bg-white rounded-xl border border-[#eef0f4] flex items-center gap-4 px-5 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200 cursor-default"
                     >
-                        <div class="w-[52px] h-[52px] rounded-full overflow-hidden ring-2 ring-[#eef0f4] shrink-0">
+                        <div class="w-[68px] h-[68px] rounded-full overflow-hidden ring-2 ring-[#eef0f4] shrink-0">
                             <img
                                 :src="getMediaUrl(member.photoId)"
                                 :alt="resolveTranslation(member.fullName, locale)"
@@ -68,10 +68,10 @@
                             />
                         </div>
                         <div class="min-w-0">
-                            <p class="font-bold text-[13px] text-[#1a1e2e] leading-snug truncate">
+                            <p class="font-bold text-[15px] text-[#1a1e2e] leading-snug truncate">
                                 {{ resolveTranslation(member.fullName, locale) }}
                             </p>
-                            <p class="text-[11px] text-[#8a94a6] leading-snug mt-1 line-clamp-2">{{ resolveTranslation(member.position, locale) }}</p>
+                            <p class="text-[13px] text-[#8a94a6] leading-snug mt-1 line-clamp-2">{{ resolveTranslation(member.position, locale) }}</p>
                         </div>
                     </div>
                 </div>
@@ -83,9 +83,9 @@
                     <div
                         v-for="(member, i) in [...uzbekRow2, ...uzbekRow2]"
                         :key="`m2-${i}`"
-                        class="shrink-0 w-[280px] h-[88px] bg-white rounded-xl border border-[#eef0f4] flex items-center gap-4 px-4 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200 cursor-default"
+                        class="shrink-0 w-[340px] h-[104px] bg-white rounded-xl border border-[#eef0f4] flex items-center gap-4 px-5 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200 cursor-default"
                     >
-                        <div class="w-[52px] h-[52px] rounded-full overflow-hidden ring-2 ring-[#eef0f4] shrink-0">
+                        <div class="w-[68px] h-[68px] rounded-full overflow-hidden ring-2 ring-[#eef0f4] shrink-0">
                             <img
                                 :src="getMediaUrl(member.photoId)"
                                 :alt="resolveTranslation(member.fullName, locale)"
@@ -93,10 +93,10 @@
                             />
                         </div>
                         <div class="min-w-0">
-                            <p class="font-bold text-[13px] text-[#1a1e2e] leading-snug truncate">
+                            <p class="font-bold text-[15px] text-[#1a1e2e] leading-snug truncate">
                                 {{ resolveTranslation(member.fullName, locale) }}
                             </p>
-                            <p class="text-[11px] text-[#8a94a6] leading-snug mt-1 line-clamp-2">{{ resolveTranslation(member.position, locale) }}</p>
+                            <p class="text-[13px] text-[#8a94a6] leading-snug mt-1 line-clamp-2">{{ resolveTranslation(member.position, locale) }}</p>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
             <div class="page-container">
                 <!-- Header -->
                 <div class="text-center mb-12 md:mb-16 mx-auto">
-                    <h2 class="section-title mb-4 md:mb-6">
+                    <h2 class="font-black text-[clamp(22px,2.5vw,36px)] text-[#1a1e2e] leading-snug max-w-3xl mx-auto mb-4 md:mb-6">
                         {{ $t('resultsPage.documentsPage.pageTitle') }}
                     </h2>
                     <p class="text-[clamp(13px,1.1vw,15px)] text-[#8a94a6] leading-relaxed">
@@ -49,10 +49,10 @@
                         :href="fileUrl(doc) || undefined"
                         target="_blank"
                         rel="noopener"
-                        class="flex items-center gap-4 rounded-2xl border border-[#eef0f4] bg-[#f7f8fa] px-5 py-4 hover:border-[#d0d5dd] hover:bg-white transition-all duration-200 group no-underline"
+                        class="flex items-center gap-4 rounded-2xl border border-[#eef0f4] bg-[#fff] px-5 py-4 hover:border-[#d0d5dd] hover:bg-white transition-all duration-200 group no-underline"
                     >
                         <!-- File icon -->
-                        <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-[#eff4ff] flex items-center justify-center">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-[#fff] flex items-center justify-center">
                             <svg
                                 width="18"
                                 height="18"
@@ -98,11 +98,7 @@
                         </span>
                     </component>
 
-                    <el-empty
-                        v-if="!documentsStore.loading && filteredDocs.length === 0"
-                        :description="$t('common.noData')"
-                        class="py-10"
-                    />
+                    <el-empty v-if="!documentsStore.loading && filteredDocs.length === 0" :description="$t('common.noData')" class="py-10" />
                 </div>
             </div>
         </section>
@@ -115,7 +111,7 @@ import { useI18n } from 'vue-i18n'
 import { useDocumentsStore } from '@/features/documents/store'
 import { useDocumentCategoriesStore } from '@/features/documentCategories/store'
 import { getMediaUrl } from '@/utils/media'
-import type { DocumentItem, TranslatedFile } from '@/features/documents/types'
+import type { DocumentItem } from '@/features/documents/types'
 import type { Translation } from '@/types/server/api.types'
 
 const { locale } = useI18n()
@@ -138,12 +134,11 @@ function resolveTranslation(t: Translation | null | undefined) {
 }
 
 function fileUrl(doc: DocumentItem) {
-    const id = doc.file?.[locale.value as keyof TranslatedFile] || doc.file?.uz || doc.file?.en || doc.file?.ru
-    return id ? getMediaUrl(id) : ''
+    return doc.fileId ? getMediaUrl(doc.fileId) : ''
 }
 
 onMounted(() => {
     categoriesStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
-    documentsStore.fetchAll({ limit: 200, sortBy: 'order', order: 'asc' })
+    documentsStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
 })
 </script>

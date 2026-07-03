@@ -1,61 +1,49 @@
 <template>
     <div class="weekly-page">
-
-        <!-- Section heading -->
         <section class="bg-white pt-16 pb-14 md:pt-24 md:pb-20">
             <div class="page-container">
 
-                <h2 class="weekly-section-title">
+                <h2 class="section-title text-center mb-10 md:mb-14">
                     {{ $t('eventsPage.weeklyPage.sectionTitle') }}
                 </h2>
 
-                <!-- Cards grid -->
-                <div class="weekly-grid">
+                <div v-loading="store.loading" class="weekly-grid">
                     <div
-                        v-for="(item, i) in items"
+                        v-for="(item, i) in events"
                         :key="item.id"
                         class="weekly-card"
                         :style="{ '--i': i }"
                     >
-                        <!-- Image -->
                         <div class="weekly-card__img-wrap">
                             <img
-                                v-if="item.image"
-                                :src="item.image"
+                                v-if="getMediaUrl(item.previewImageId)"
+                                :src="getMediaUrl(item.previewImageId)"
                                 :alt="item.dateRange"
                                 class="weekly-card__img"
                             />
-                            <!-- Placeholder when no image yet -->
                             <div v-else class="weekly-card__placeholder">
                                 <span class="weekly-card__placeholder-logo">FIC</span>
                                 <span class="weekly-card__placeholder-week">{{ item.dateRange }}</span>
                             </div>
 
-                            <!-- Overlay on hover -->
-                            <div class="weekly-card__overlay">
-                                <span class="weekly-card__overlay-btn">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                        <polyline points="15 3 21 3 21 9"/>
-                                        <line x1="10" y1="14" x2="21" y2="3"/>
-                                    </svg>
-                                    {{ $t('common.learnMore') }}
-                                </span>
-                            </div>
                         </div>
 
-                        <!-- Text -->
                         <div class="weekly-card__body">
                             <p class="weekly-card__label">{{ $t('eventsPage.weeklyPage.cardLabel') }}</p>
-                            <p class="weekly-card__title">{{ $t('eventsPage.weeklyPage.cardTitle') }}</p>
+                            <p class="weekly-card__title">{{ item.title }}</p>
                             <p class="weekly-card__date">{{ item.dateRange }}</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Load more (ready for backend) -->
-                <div v-if="showMore" class="weekly-more">
-                    <button class="weekly-more__btn" @click="loadMore">
+                <el-empty
+                    v-if="!store.loading && events.length === 0"
+                    :description="$t('common.noData')"
+                    class="py-16"
+                />
+
+                <div v-if="hasMore" class="weekly-more">
+                    <button class="weekly-more__btn" :disabled="store.loading" @click="loadMore">
                         {{ $t('eventsPage.weeklyPage.viewMore') }}
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 5v14M5 12l7 7 7-7"/>
@@ -65,35 +53,53 @@
 
             </div>
         </section>
-
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import gsap from 'gsap'
+import { useEventsStore } from '@/features/events/store'
+import { getMediaUrl } from '@/utils/media'
+import type { Translation } from '@/types/server/api.types'
 
-/* ── Static data (replace with store when backend is ready) ── */
-const items = ref([
-    { id: 1, image: '', dateRange: '23.03.2026 – 29.03.2026' },
-    { id: 2, image: '', dateRange: '16.03.2026 – 22.03.2026' },
-    { id: 3, image: '', dateRange: '09.03.2026 – 15.03.2026' },
-    { id: 4, image: '', dateRange: '02.03.2026 – 08.03.2026' },
-    { id: 5, image: '', dateRange: '23.02.2026 – 01.03.2026' },
-    { id: 6, image: '', dateRange: '16.02.2026 – 22.02.2026' },
-    { id: 7, image: '', dateRange: '09.02.2026 – 15.02.2026' },
-    { id: 8, image: '', dateRange: '02.02.2026 – 08.02.2026' },
-    { id: 9, image: '', dateRange: '26.01.2026 – 01.02.2026' },
-    { id: 10, image: '', dateRange: '19.01.2026 – 25.01.2026' },
-])
+const { locale } = useI18n()
+const store = useEventsStore()
 
-const showMore = ref(false) /* set true when backend pagination is enabled */
+const page = ref(1)
+const PAGE_SIZE = 10
 
-const loadMore = () => {
-    /* hook up to store.fetchItems() when backend is ready */
+function resolveTranslation(t: Translation | null | undefined) {
+    if (!t) return ''
+    return t[locale.value as keyof Translation] || t.uz || ''
 }
 
-onMounted(() => {
+function fmtDate(iso?: string | null) {
+    if (!iso) return ''
+    const d = new Date(iso)
+    return Number.isNaN(d.getTime()) ? '' : d.toLocaleDateString('ru-RU')
+}
+
+const events = computed(() =>
+    store.items.map(e => ({
+        id: e.id,
+        previewImageId: e.previewImageId,
+        title: resolveTranslation(e.title),
+        dateRange: [fmtDate(e.startDate), fmtDate(e.endDate)].filter(Boolean).join(' – '),
+    }))
+)
+
+const hasMore = computed(() => store.total > store.items.length)
+
+async function loadMore() {
+    page.value++
+    const res = await store.fetchAll({ page: page.value, limit: PAGE_SIZE, sortBy: 'startDate', order: 'desc' })
+    store.items.push(...res.data)
+}
+
+onMounted(async () => {
+    await store.fetchAll({ page: 1, limit: PAGE_SIZE, sortBy: 'startDate', order: 'desc' })
     gsap.fromTo(
         '.weekly-card',
         { y: 32, opacity: 0 },
@@ -105,29 +111,17 @@ onMounted(() => {
 <style scoped lang="scss">
 .weekly-page { background: #fff; }
 
-/* ── Section title ── */
-.weekly-section-title {
-    font-size: clamp(16px, 1.6vw, 20px);
-    font-weight: 800;
-    color: #1a1e2e;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 36px;
 
-    @media (min-width: 768px) { margin-bottom: 48px; }
-}
-
-/* ── Grid ── */
 .weekly-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    min-height: 80px;
 
     @media (min-width: 640px)  { grid-template-columns: repeat(3, 1fr); }
     @media (min-width: 1024px) { grid-template-columns: repeat(5, 1fr); gap: 20px; }
 }
 
-/* ── Card ── */
 .weekly-card {
     border-radius: 16px;
     overflow: hidden;
@@ -142,11 +136,10 @@ onMounted(() => {
         border-color: #d0d5dd;
 
         .weekly-card__img  { transform: scale(1.05); }
-        .weekly-card__overlay { opacity: 1; }
+
         .weekly-card__placeholder-logo { opacity: 0.18; }
     }
 
-    /* ── Image ── */
     &__img-wrap {
         position: relative;
         aspect-ratio: 3 / 4;
@@ -162,7 +155,6 @@ onMounted(() => {
         transition: transform 0.5s ease;
     }
 
-    /* Placeholder (no image) */
     &__placeholder {
         width: 100%;
         height: 100%;
@@ -193,32 +185,7 @@ onMounted(() => {
         line-height: 1.4;
     }
 
-    /* Hover overlay */
-    &__overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(26, 30, 46, 0.55);
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        padding-bottom: 20px;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
 
-    &__overlay-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: #fff;
-        color: #1a1e2e;
-        font-size: 12px;
-        font-weight: 700;
-        padding: 8px 16px;
-        border-radius: 999px;
-    }
-
-    /* ── Body ── */
     &__body {
         padding: 14px 14px 16px;
     }
@@ -238,6 +205,11 @@ onMounted(() => {
         color: #1a1e2e;
         line-height: 1.35;
         margin-bottom: 6px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
 
         @media (min-width: 768px) { font-size: 14px; }
     }
@@ -249,7 +221,6 @@ onMounted(() => {
     }
 }
 
-/* ── Load more ── */
 .weekly-more {
     display: flex;
     justify-content: center;
@@ -274,6 +245,8 @@ onMounted(() => {
             color: #fff;
             border-color: #1a1e2e;
         }
+
+        &:disabled { opacity: 0.5; cursor: default; }
     }
 }
 </style>

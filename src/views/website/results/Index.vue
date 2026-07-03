@@ -109,8 +109,8 @@
                                 class="rounded-2xl overflow-hidden aspect-[3/4] relative shadow-[0_2px_16px_rgba(0,0,0,0.10)] group-hover:shadow-[0_8px_32px_rgba(0,0,0,0.18)] transition-shadow duration-300 bg-[#eef0f4]"
                             >
                                 <img
-                                    v-if="getMediaUrl(report.imageId)"
-                                    :src="getMediaUrl(report.imageId)"
+                                    v-if="getMediaUrl(report.previewImageId)"
+                                    :src="getMediaUrl(report.previewImageId)"
                                     :alt="resolveTranslation(report.title)"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
@@ -280,7 +280,7 @@ let obsB: IntersectionObserver | null = null
 onMounted(() => {
     if (platformRef.value) obsA = makeObserver(platformRef.value, platformVisible, platformStats, platformDisplay)
     if (investRef.value) obsB = makeObserver(investRef.value, investVisible, investStats, investDisplay)
-    reportsStore.fetchAll({ limit: 10, sortBy: 'order', order: 'asc' })
+    reportsStore.fetchAll({ limit: 10, sortBy: 'date', order: 'desc' })
 })
 
 onUnmounted(() => {

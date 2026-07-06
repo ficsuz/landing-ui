@@ -5,9 +5,9 @@
                 <!-- Back button -->
                 <button
                     @click="router.back()"
-                    class="inline-flex items-center gap-2 text-[14px] font-semibold text-[#1a1e2e] mb-10 hover:opacity-70 transition-opacity duration-200"
+                    class="inline-flex items-center gap-2 text-[14px] font-semibold text-[#1a1e2e] border border-[#d0d5dd] px-4 py-2 rounded-full mb-10 hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e] transition-all duration-200"
                 >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M19 12H5M12 19l-7-7 7-7" />
                     </svg>
                     {{ $t('common.back') }}

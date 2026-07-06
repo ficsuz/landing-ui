@@ -134,13 +134,17 @@ const scrollToNextSection = () => {
         if (parent.scrollTop < targetScrollTop) {
             snapLock = true
             parent.scrollTo({ top: targetScrollTop, behavior: 'smooth' })
-            setTimeout(() => { snapLock = false }, 800)
+            setTimeout(() => {
+                snapLock = false
+            }, 800)
         }
         return
     }
     snapLock = true
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
-    setTimeout(() => { snapLock = false }, 800)
+    setTimeout(() => {
+        snapLock = false
+    }, 800)
 }
 
 const handleParentScroll = () => {
@@ -208,9 +212,7 @@ const goToSlide = (index: number) => {
         tl.to(dot1.value, { width: 8, backgroundColor: 'rgba(26,30,46,0.2)', duration: 0.3 }, 0.1)
         tl.to(dot2.value, { width: 8, backgroundColor: 'rgba(26,30,46,0.2)', duration: 0.3 }, 0.1)
         tl.to(dot3.value, { width: 24, backgroundColor: '#1a1e2e', duration: 0.3 }, 0.1)
-        tl.call(() => {
-            slide3Timer = setTimeout(scrollToNextSection, 2000)
-        })
+        slide3Timer = setTimeout(scrollToNextSection, 1100 + 1000)
     } else if (index === 1 && prev === 2) {
         // slide 3 → slide 2
         tl.to(slide3.value, { xPercent: 100, duration: 1.1, ease: 'power3.inOut' }, 0)

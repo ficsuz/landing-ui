@@ -131,7 +131,7 @@
                             <p class="font-black text-[12px] uppercase tracking-widest text-[#1a1e2e] mb-1">{{ $t('eventsPage.interimPage.legalBasis') }}</p>
                             <p class="text-[14px] text-[#505a63] leading-snug">{{ session.detail.legalBasis.text }}</p>
                         </div>
-                        <AppLearnMore :href="session.detail.legalBasis.docHref" />
+                        <AppLearnMore :to="session.detail.legalBasis.docHref" />
                     </div>
                 </div>
             </div>

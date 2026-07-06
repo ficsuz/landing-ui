@@ -42,7 +42,7 @@
                     </el-form-item>
 
                     <el-form-item>
-                        <el-button type="primary" native-type="submit" size="large" round class="contact-submit-btn" @click="handleSubmit">
+                        <el-button type="primary" native-type="submit" size="large" round class="contact-submit-btn" :loading="loading" @click="handleSubmit">
                             {{ $t('contact.submit') }}
                         </el-button>
                     </el-form-item>
@@ -108,13 +108,14 @@
 
 <script setup lang="ts">
 import { reactive, ref, h } from 'vue'
-import { ElForm, ElFormItem, ElInput, ElButton } from 'element-plus'
+import { ElForm, ElFormItem, ElInput, ElButton, ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
 const formRef = ref<FormInstance>()
+const loading = ref(false)
 
 const form = reactive({
     firstName: '',
@@ -133,10 +134,35 @@ const rules: FormRules = {
 }
 
 const handleSubmit = async () => {
-    await formRef.value?.validate((valid) => {
-        if (!valid) return
-        // submit logic here
-    })
+    const valid = await formRef.value?.validate().catch(() => false)
+    if (!valid) return
+
+    loading.value = true
+    try {
+        const res = await fetch('https://6935988eacba7.xvest1.ru/fic_bot_test/send.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                first_name: form.firstName,
+                last_name: form.lastName,
+                phone: form.phone,
+                email: form.email,
+                message: form.message,
+            }),
+        })
+
+        const data = await res.json()
+        if (data.success) {
+            ElMessage.success(t('contact.successMessage'))
+            formRef.value?.resetFields()
+        } else {
+            ElMessage.error(t('contact.errorMessage'))
+        }
+    } catch {
+        ElMessage.error(t('contact.errorMessage'))
+    } finally {
+        loading.value = false
+    }
 }
 
 const TelegramIcon = () =>

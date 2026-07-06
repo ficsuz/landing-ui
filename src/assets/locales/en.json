@@ -80,7 +80,9 @@
         "emailPlaceholder": "example{'@'}gmail.com",
         "message": "Messages",
         "messagePlaceholder": "Please tell us what you think. Do you have a question for us? Ask it",
-        "submit": "Submit"
+        "submit": "Submit",
+        "successMessage": "Your message has been sent successfully!",
+        "errorMessage": "An error occurred. Please try again."
     },
     "hero": {
         "scroll": "Scroll",

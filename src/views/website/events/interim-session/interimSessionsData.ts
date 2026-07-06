@@ -77,7 +77,8 @@ export const interimSessions: InterimSession[] = [
         detail: {
             heroImage: img5Hero,
             heroTitle: 'V Interim Session of the Council',
-            paragraph: 'The fifth interim session of the Council was chaired by the Minister of Investment, Industry and Trade L. Kudratov. Protocol No. 1 was approved on 23 January 2026. At the session, the interagency working groups presented their results, and Council members put forward a number of strategic initiatives.',
+            paragraph:
+                'The fifth interim session of the Council was chaired by the Minister of Investment, Industry and Trade L. Kudratov. Protocol No. 1 was approved on 23 January 2026. At the session, the interagency working groups presented their results, and Council members put forward a number of strategic initiatives.',
             stats: [
                 { value: '21', label: 'initiatives in the roadmap (Appendix No. 1)' },
                 { value: '3', label: 'new working groups' },
@@ -86,15 +87,18 @@ export const interimSessions: InterimSession[] = [
             initiatives: [
                 {
                     title: 'Regional Alliance of Investment Councils of Central Asia and the Caucasus (RAIC-CAC)',
-                    description: 'harmonisation of investment-climate approaches and cross-border coordination. Curator — Asian Development Bank. Official launch — at the V TIIF.',
+                    description:
+                        'harmonisation of investment-climate approaches and cross-border coordination. Curator — Asian Development Bank. Official launch — at the V TIIF.',
                 },
                 {
                     title: '"Circular Economy" working group',
-                    description: 'analysis and adaptation of leading international practices; establishment of the FIC "Circular Economy" award. Curator — Coca-Cola.',
+                    description:
+                        'analysis and adaptation of leading international practices; establishment of the FIC "Circular Economy" award. Curator — Coca-Cola.',
                 },
                 {
                     title: '"Creative Industries Accelerator" working group',
-                    description: 'transforming creative sectors into investment- and export-oriented industries within five years. Curator — Foundation for the Development of Culture and Art.',
+                    description:
+                        'transforming creative sectors into investment- and export-oriented industries within five years. Curator — Foundation for the Development of Culture and Art.',
                 },
                 {
                     title: 'Artificial Intelligence working group',
@@ -141,7 +145,7 @@ export const interimSessions: InterimSession[] = [
             ],
             legalBasis: {
                 text: 'Based on the Presidential Resolution of 18.07.2025 (entered into force on 21.07.2025) — PP-226',
-                docHref: '#',
+                docHref: '/results/documents',
             },
         },
     },
@@ -155,15 +159,34 @@ export const interimSessions: InterimSession[] = [
             heroImage: img6Hero,
             heroTitle: 'VI Interim Session of the Council',
             gallery: [is6_1, is6_2, is6_3, is6_4, is6_5, is6_6, is6_7, is6_8],
-            paragraph: 'On 18 May, the Foreign Investors Council under the President of the Republic of Uzbekistan held an Interim Session with the Deputy Prime Minister of the Republic of Uzbekistan, H.E. Mr. Jamshid Khodjaev, dedicated to the review of initiatives advanced by our membership ahead of the IV Plenary.',
+            paragraph:
+                'On 18 May, the Foreign Investors Council under the President of the Republic of Uzbekistan held an Interim Session with the Deputy Prime Minister of the Republic of Uzbekistan, H.E. Mr. Jamshid Khodjaev, dedicated to the review of initiatives advanced by our membership ahead of the IV Plenary.',
             stats: [],
             contentBlocks: [
-                { type: 'text', text: '120 initiatives were developed. The thematic blocks covered priorities identified by Council members as key for the next stage of investment climate development — from regulatory and administrative reform to sectoral and cross-border issues.' },
-                { type: 'text', text: 'Each block opened with proposals from working group leaders, followed by responses from the government side and open discussion with participants.' },
-                { type: 'quote', text: 'The outcome: the initiatives received the Government\'s support across the board, with implementation pathways to be reflected in the Plenary\'s deliverables.' },
-                { type: 'text', text: 'This is the model the FIC was built for — a Council where investor priorities are heard at the highest level and converted into commitments that move.' },
-                { type: 'text', text: 'The Council now turns to the Fourth Plenary Session on 18 June 2026 in Tashkent, to be chaired by H.E. President Shavkat Mirziyoyev and co-chaired by EBRD President Ms. Odile Renaud-Basso.' },
-                { type: 'text', text: 'With gratitude to Deputy Prime Minister Khodjaev, to Mr. Andi Aranitasi (EBRD Head of Uzbekistan) for moderating, and to the FIC members whose preparation made the day count.' },
+                {
+                    type: 'text',
+                    text: '120 initiatives were developed. The thematic blocks covered priorities identified by Council members as key for the next stage of investment climate development — from regulatory and administrative reform to sectoral and cross-border issues.',
+                },
+                {
+                    type: 'text',
+                    text: 'Each block opened with proposals from working group leaders, followed by responses from the government side and open discussion with participants.',
+                },
+                {
+                    type: 'quote',
+                    text: "The outcome: the initiatives received the Government's support across the board, with implementation pathways to be reflected in the Plenary's deliverables.",
+                },
+                {
+                    type: 'text',
+                    text: 'This is the model the FIC was built for — a Council where investor priorities are heard at the highest level and converted into commitments that move.',
+                },
+                {
+                    type: 'text',
+                    text: 'The Council now turns to the Fourth Plenary Session on 18 June 2026 in Tashkent, to be chaired by H.E. President Shavkat Mirziyoyev and co-chaired by EBRD President Ms. Odile Renaud-Basso.',
+                },
+                {
+                    type: 'text',
+                    text: 'With gratitude to Deputy Prime Minister Khodjaev, to Mr. Andi Aranitasi (EBRD Head of Uzbekistan) for moderating, and to the FIC members whose preparation made the day count.',
+                },
             ],
         },
     },

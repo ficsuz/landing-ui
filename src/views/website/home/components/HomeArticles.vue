@@ -2,10 +2,7 @@
     <section ref="sectionEl" class="bg-[#f7f8fa] py-16 md:py-24">
         <!-- Header -->
         <div class="page-container text-center mb-10 md:mb-14">
-            <h2
-                class="section-title mb-5 transition-all duration-700"
-                :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
-            >
+            <h2 class="section-title mb-5 transition-all duration-700" :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'">
                 {{ $t('articles.title') }}
             </h2>
         </div>
@@ -22,41 +19,12 @@
                     :style="{ transitionDelay: visible ? `${i * 80}ms` : '0ms' }"
                 >
                     <!-- Image -->
-                    <div class="relative overflow-hidden aspect-[16/10] bg-[#eef0f4] shrink-0">
+                    <div class="relative overflow-hidden aspect-[16/10] bg-white rounded-2xl">
                         <img
                             :src="getMediaUrl(article.imageId)"
                             :alt="resolveTranslation(article.title, locale)"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            class="w-full h-full transition-transform duration-500 group-hover:scale-105"
                         />
-                        <!-- Subject badge -->
-                        <span
-                            v-if="article.subject"
-                            class="absolute top-3 left-3 text-[11px] font-bold tracking-widest uppercase bg-[#1a1e2e] text-white px-2.5 py-1 rounded-full"
-                        >
-                            {{ resolveTranslation(article.subject, locale) }}
-                        </span>
-                    </div>
-
-                    <!-- Body -->
-                    <div class="flex flex-col flex-1 p-5 md:p-6">
-                        <h3 class="font-bold text-[16px] md:text-[17px] text-[#1a1e2e] leading-snug line-clamp-3 flex-1">
-                            {{ resolveTranslation(article.title, locale) }}
-                        </h3>
-
-                        <!-- Footer: date + arrow -->
-                        <div class="mt-4 pt-4 border-t border-[#eef0f4] flex items-center justify-between">
-                            <span class="text-[12px] text-[#8a94a6] flex items-center gap-1.5">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
-                                </svg>
-                                {{ formatDate(article.date || article.createdAt) }}
-                            </span>
-                            <span class="w-8 h-8 rounded-full flex items-center justify-center bg-[#f7f8fa] group-hover:bg-[#1a1e2e] transition-colors duration-300">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#8a94a6] group-hover:text-white transition-colors duration-300">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </span>
-                        </div>
                     </div>
                 </router-link>
             </div>
@@ -84,13 +52,6 @@ const { locale } = useI18n()
 const blogStore = useBlogStore()
 
 const articles = computed(() => blogStore.items.filter((b) => b.status === 1).slice(0, 6))
-
-function formatDate(iso?: string | null) {
-    if (!iso) return ''
-    const d = new Date(iso)
-    if (Number.isNaN(d.getTime())) return ''
-    return d.toLocaleDateString('en-GB').replace(/\//g, '.')
-}
 
 const sectionEl = ref<HTMLElement | null>(null)
 const visible = ref(false)

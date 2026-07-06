@@ -80,7 +80,9 @@
     "emailPlaceholder": "example{'@'}gmail.com",
     "message": "Xabar",
     "messagePlaceholder": "Fikringizni bildiring. Savolingiz bormi? Bizing bilan bo'lishing",
-    "submit": "Yuborish"
+    "submit": "Yuborish",
+    "successMessage": "Xabaringiz muvaffaqiyatli yuborildi!",
+    "errorMessage": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
   },
   "hero": {
     "scroll": "Pastga",

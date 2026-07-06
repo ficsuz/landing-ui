@@ -44,26 +44,28 @@
 
                             <!-- Body -->
                             <div class="flex flex-col flex-1 p-4 gap-2">
-                                <span v-if="rep.date" class="text-[11px] text-[#8a94a6] font-medium">
-                                    {{ formatDate(rep.date) }}
-                                </span>
                                 <p class="text-[13px] md:text-[14px] font-bold text-[#1a1e2e] leading-snug flex-1">
                                     {{ resolveTranslation(rep.title) }}
                                 </p>
-                                <a
-                                    v-if="reportFile(rep)"
-                                    :href="reportFile(rep)"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="mt-2 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#4361ee] bg-[#eff4ff] px-4 py-2 rounded-full hover:bg-[#4361ee] hover:text-white transition-all duration-200 no-underline w-fit"
-                                >
-                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                        <polyline points="7 10 12 15 17 10" />
-                                        <line x1="12" y1="15" x2="12" y2="3" />
-                                    </svg>
-                                    {{ $t('resultsPage.documentsPage.downloadLabel') }}
-                                </a>
+                                <div class="flex items-center justify-between gap-2 mt-2">
+                                    <span v-if="rep.date" class="text-[13px] text-[#8a94a6] font-medium shrink-0">
+                                        {{ formatDate(rep.date) }}
+                                    </span>
+                                    <a
+                                        v-if="reportFile(rep)"
+                                        :href="reportFile(rep)"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#4361ee] bg-[#eff4ff] px-4 py-2 rounded-full hover:bg-[#4361ee] hover:text-white transition-all duration-200 no-underline shrink-0"
+                                    >
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                            <polyline points="7 10 12 15 17 10" />
+                                            <line x1="12" y1="15" x2="12" y2="3" />
+                                        </svg>
+                                        {{ $t('resultsPage.documentsPage.downloadLabel') }}
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

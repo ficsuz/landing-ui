@@ -15,19 +15,12 @@
                         class="group flex flex-col rounded-2xl overflow-hidden bg-white border border-[#eef0f4] shadow-[0_2px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.11)] hover:-translate-y-1 transition-all duration-300"
                     >
                         <!-- Image -->
-                        <div class="relative overflow-hidden aspect-[16/10] bg-[#eef0f4] shrink-0">
+                        <div class="relative overflow-hidden aspect-[16/10] bg-[#fff] shrink-0">
                             <img
                                 :src="getMediaUrl(article.imageId)"
                                 :alt="resolveTranslation(article.title, locale)"
-                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 absolute top-[-14px] left-0"
                             />
-                            <!-- Subject badge -->
-                            <span
-                                v-if="article.subject"
-                                class="absolute top-3 left-3 text-[11px] font-bold tracking-widest uppercase bg-[#1a1e2e] text-white px-2.5 py-1 rounded-full"
-                            >
-                                {{ resolveTranslation(article.subject, locale) }}
-                            </span>
                         </div>
 
                         <!-- Body -->
@@ -38,10 +31,10 @@
 
                             <!-- Footer: date + arrow -->
                             <div class="mt-4 pt-4 border-t border-[#eef0f4] flex items-center justify-between">
-                                <span class="text-[12px] text-[#8a94a6] flex items-center gap-1.5">
+                                <span class="text-[14px] text-[#8a94a6] flex items-center gap-1.5">
                                     <svg
-                                        width="13"
-                                        height="13"
+                                        width="16"
+                                        height="16"
                                         viewBox="0 0 24 24"
                                         fill="none"
                                         stroke="currentColor"

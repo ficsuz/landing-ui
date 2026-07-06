@@ -265,29 +265,23 @@ const measure = () => {
     }
 }
 
-const getScrollParent = (el: HTMLElement): Element => {
-    let parent = el.parentElement
-    while (parent && parent !== document.documentElement) {
-        const { overflowY } = window.getComputedStyle(parent)
-        if (overflowY === 'auto' || overflowY === 'scroll') return parent
-        parent = parent.parentElement
-    }
-    return document.documentElement
-}
 
 onMounted(async () => {
     measure()
     window.addEventListener('resize', measure)
 
-    await calendarStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
-    current.value = Math.min(2, Math.max(0, n.value - 1))
+    try {
+        await calendarStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
+        current.value = Math.min(2, Math.max(0, n.value - 1))
+    } finally {
+        visible.value = true
+    }
 
     timer = setInterval(() => {
         if (!paused) next()
     }, 4000)
 
     if (sectionEl.value) {
-        const root = getScrollParent(sectionEl.value)
         observer = new IntersectionObserver(
             (entries) => {
                 if (entries[0].isIntersecting) {
@@ -295,7 +289,7 @@ onMounted(async () => {
                     observer?.disconnect()
                 }
             },
-            { root, threshold: 0.1 }
+            { threshold: 0.1 }
         )
         observer.observe(sectionEl.value)
     }

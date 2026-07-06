@@ -80,7 +80,9 @@
     "emailPlaceholder": "example{'@'}gmail.com",
     "message": "Сообщение",
     "messagePlaceholder": "Расскажите нам, что вы думаете. Есть вопрос? Задайте его",
-    "submit": "Отправить"
+    "submit": "Отправить",
+    "successMessage": "Ваше сообщение успешно отправлено!",
+    "errorMessage": "Произошла ошибка. Пожалуйста, попробуйте снова."
   },
   "hero": {
     "scroll": "Вниз",

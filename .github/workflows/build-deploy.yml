@@ -48,7 +48,6 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          debug: true
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
             docker service update --force --with-registry-auth --detach=false --image ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest landing_ui_prod

@@ -50,5 +50,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
-            docker service update --force --with-registry-auth --detach=false --image ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest fics_landing_ui
+            docker service update --force --with-registry-auth --detach=false --image ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest landing_ui_prod
             docker container prune -f

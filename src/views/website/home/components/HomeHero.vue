@@ -23,7 +23,6 @@
                     </div>
                 </div>
             </div>
-
             <div
                 ref="scrollEl"
                 class="absolute bottom-9 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 text-white/55 pointer-events-none"

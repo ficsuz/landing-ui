@@ -1,9 +1,9 @@
 import { RouteRecordRaw } from 'vue-router'
 import aboutBlogImg from '../../assets/images/hero/about-blog.jpg'
-import eventsImg from '../../assets/images/hero/ATM_9764.JPG'
-import workingImg from '../../assets/images/hero/SUT_8193.JPG'
-import resultsImg from '../../assets/images/hero/SUT_7962.JPG'
-import sessionImg from '../../assets/images/hero/ATM_9764.JPG'
+import eventsImg from '../../assets/images/hero/ATM_9764.jpg'
+import workingImg from '../../assets/images/hero/SUT_8193.jpg'
+import resultsImg from '../../assets/images/hero/SUT_7962.jpg'
+import sessionImg from '../../assets/images/hero/ATM_9764.jpg'
 
 // Public website (FIC) routes — rendered inside WebsiteLayout.
 const websiteRoutes: RouteRecordRaw[] = [

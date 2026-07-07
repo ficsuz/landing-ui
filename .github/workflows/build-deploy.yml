@@ -1,3 +1,4 @@
+
 name: CI/CD Pipeline
 
 on:
@@ -14,7 +15,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -37,11 +37,11 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
 
   deploy:
-    name: Deploy to prod
+    name: deploy to prod
     needs: docker_build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to Production
+      - name: Deploy Node.js app to Prod
         if: github.ref_name == 'main'
         uses: appleboy/ssh-action@v1.0.3
         with:

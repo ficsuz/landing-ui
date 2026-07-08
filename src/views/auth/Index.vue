@@ -26,12 +26,7 @@
                         <div class="mb-4">
                             <div class="text-left text-sm font-medium mb-1">Email</div>
                             <el-form-item prop="email" class="mb-4">
-                                <el-input
-                                    v-model.trim="ruleForm.email"
-                                    type="email"
-                                    autocomplete="off"
-                                    placeholder="Enter your email"
-                                />
+                                <el-input v-model.trim="ruleForm.email" type="email" autocomplete="off" placeholder="Enter your email" />
                             </el-form-item>
                         </div>
 
@@ -49,13 +44,7 @@
                         </div>
 
                         <div class="flex flex-col py-1 mt-4">
-                            <el-button
-                                class="w-full login-btn"
-                                size="large"
-                                type="primary"
-                                @click="submitForm(ruleFormRef)"
-                                :loading="loading"
-                            >
+                            <el-button class="w-full login-btn" size="large" type="primary" @click="submitForm(ruleFormRef)" :loading="loading">
                                 Sign in
                             </el-button>
                         </div>

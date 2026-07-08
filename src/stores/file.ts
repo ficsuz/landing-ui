@@ -16,11 +16,17 @@ export const useFileStore = defineStore('file', {
         async uploadFile(file: File): Promise<ApiResponse<UploadedFile>> {
             const formData = new FormData();
             formData.append('file', file, file.name);
-            return request.post('/v1/files/upload', formData);
+            // Uploads are large POSTs and are never auto-retried, so override the
+            // short 15s global timeout with a generous cap — a slow/mobile
+            // connection must not be aborted mid-transfer.
+            return request.post('/v1/files/upload', formData, { timeout: 120000 });
         },
 
         async downloadById(fileId: string): Promise<Blob> {
-            return request.get(`/v1/files/${fileId}`, { responseType: 'blob' });
+            // A large blob download can legitimately exceed 15s; give it room.
+            // Binary responses are excluded from auto-retry (see retry.interceptor)
+            // so a timeout fails cleanly instead of restarting the download.
+            return request.get(`/v1/files/${fileId}`, { responseType: 'blob', timeout: 60000 });
         },
     },
 });

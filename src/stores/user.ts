@@ -35,6 +35,7 @@ export const useUserStore = defineStore('user', {
                 this.setTokens(response.data.accessToken, response.data.refreshToken)
                 this.user = response.data.user as UserProfile
                 setUserInfo(response.data.user)
+                await this.fetchUserInfo()
             }
             return response
         },

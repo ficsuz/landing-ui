@@ -6,7 +6,8 @@ export const setupAuthRequestInterceptor = (instance: AxiosInstance) => {
   instance.interceptors.request.use(
     (config: InternalAxiosRequestConfig) => {
       const store = useUserStore()
-      if (store.token) {
+      const isAuthEndpoint = config.url?.includes('/auth/login') || config.url?.includes('/auth/refresh')
+      if (store.token && !isAuthEndpoint) {
         config.headers['Authorization'] = `Bearer ${store.token}`
       }
       return config

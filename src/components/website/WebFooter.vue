@@ -9,9 +9,7 @@
                     <router-link to="/" class="flex items-center gap-3 mb-10">
                         <LogoIcon class="w-11 h-11 flex-shrink-0" />
                         <span class="text-white text-[10px] font-bold leading-snug tracking-normal uppercase">
-                            Foreign Investors Council<br />
-                            Under the President of the<br />
-                            Republic of Uzbekistan
+                            {{ $t('footer.brand') }}
                         </span>
                     </router-link>
 

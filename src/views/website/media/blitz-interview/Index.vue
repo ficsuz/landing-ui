@@ -56,13 +56,13 @@
                             </div>
 
                             <!-- BLITZ badge -->
-                            <div class="absolute top-4 right-3">
+                            <!-- <div class="absolute top-4 right-3">
                                 <span
                                     class="text-[8px] md:text-[9px] font-bold tracking-widest uppercase bg-[#1a1e2e]/70 backdrop-blur-sm text-white px-2 py-0.5 rounded-sm"
                                 >
                                     BLITZ
                                 </span>
-                            </div>
+                            </div> -->
 
                             <!-- Info box -->
                             <!-- <div class="absolute bottom-2.5 left-2.5 right-2.5 md:bottom-3 md:left-3 md:right-3 bg-white rounded-xl p-2.5 md:p-3 shadow-xl">

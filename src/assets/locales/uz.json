@@ -2,7 +2,7 @@
   "nav": {
     "aboutCouncil": "Kengash haqida",
     "home": "Bosh sahifa",
-    "ficHistory": "FIK tarixi",
+    "ficHistory": "XIK tarixi",
     "association": "Assotsiatsiya",
     "management": "Rahbariyat",
     "secretariat": "Kotibiyat",
@@ -279,7 +279,7 @@
   },
   "investorsVoices": {
     "title": "Investorlar Ovozi",
-    "subtitle": "Xalqaro tashkilotlar vakillari FIKda ishtirok etish natijalari va taassurotlarini bo'lishdi."
+    "subtitle": "Xalqaro tashkilotlar vakillari XIKda ishtirok etish natijalari va taassurotlarini bo'lishdi."
   },
   "management": {
     "title": "Kengash rahbariyati",
@@ -379,7 +379,7 @@
   "becomeAMemberPage": {
     "title": "A'zo bo'lish",
     "categoriesSubtitle": "Toifalar, ta'sir va qabul qilish tartibi",
-    "intro": "FIC — xorijiy investorlar va O'zbekiston hukumati o'rtasidagi tuzilmaviy muloqot uchun asosiy institutsional platforma.",
+    "intro": "XIK — xorijiy investorlar va O'zbekiston hukumati o'rtasidagi tuzilmaviy muloqot uchun asosiy institutsional platforma.",
     "requirementsTitle": "A'zolik shartlari",
     "requirements": [
       "O'zbekistonda ro'yxatdan o'tgan yoki faoliyat yurituvchi xorijiy kompaniya yoki xalqaro moliya instituti",
@@ -419,7 +419,7 @@
         "limit": "60 tagacha a'zo",
         "perks": [
           "Maslahat (hal qiluvchi ovozsiz) roli",
-          "FIK plenar sessiyalarida ishtirok etish",
+          "XIK plenar sessiyalarida ishtirok etish",
           "Ochiq sessiyalar, muhokamalar va ekspert formatlarida ishtirok etish"
         ]
       }
@@ -701,7 +701,7 @@
     "publishedLabel": "Chop etilgan",
     "authorLabel": "Muallif",
     "analyticsPage": {
-      "intro": "FIC Kotibiyati, ishchi guruh ekspertlari va a'zo kompaniyalar tomonidan O'zbekistondagi investitsiya muhiti va iqtisodiy islohotlar bo'yicha tayyorlangan tadqiqot va tahliliy materiallar.",
+      "intro": "XIK Kotibiyati, ishchi guruh ekspertlari va a'zo kompaniyalar tomonidan O'zbekistondagi investitsiya muhiti va iqtisodiy islohotlar bo'yicha tayyorlangan tadqiqot va tahliliy materiallar.",
       "topics": {
         "investment": "Investitsiya",
         "reform": "Islohotlar",
@@ -712,7 +712,7 @@
     "blitzPage": {
       "title": "Blits-intervyu",
       "description": "Kengash a'zosi kompaniyalar rahbarlari bilan qisqa video intervyular seriyasi. Ishtirokchilar to'rtta savolga javob beradilar: O'zbekistondagi bizneslari haqida; mamlakat asosiy raqobat afzalligi; muvaffaqiyat tarixi; rivojlanishdagi asosiy muammo.",
-      "intro": "FIC a'zo kompaniyalari vakillari, xalqaro tashkilotlar vakillari va ishchi guruh ekspertlari bilan qisqa intervyular — O'zbekistondagi investitsiya muhiti haqida ularning fikrlari.",
+      "intro": "XIK a'zo kompaniyalari vakillari, xalqaro tashkilotlar vakillari va ishchi guruh ekspertlari bilan qisqa intervyular — O'zbekistondagi investitsiya muhiti haqida ularning fikrlari.",
       "featured": "Tanlangan Intervyu",
       "readInterview": "To'liq o'qish"
     },
@@ -736,6 +736,7 @@
     "phoneLabel": "Telefon raqami",
     "emailLabel": "Elektron pochta",
     "addressLabel": "Manzil",
+    "brand": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi",
     "copyright": "©2019-{year} – O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi"
   },
   "wg": {
@@ -747,7 +748,7 @@
     "spartakText": "2020 yil dekabr oyida lavozimga kirishgan TBC Bank Uzbekistan Boshqaruv raisi. O'zbekistonda Tetrashvilining vazifasi noodatiy va ambitsiyali: to'liq raqamli bank — TBC Bank Uzbekistanning ishini yo'lga qo'yish. Spartak TBC brend falsafasi shaffof, qulay va dadil yechimlar yaratishdan iborat, deb hisoblaydi.",
     "sandro": "Sandro Rtveladze",
     "sandroPos": "Ipoteka Bank OTP Group bosh direktori",
-    "sandroText": "Sandro Rtveladze Ipoteka Bank OTP Group bosh direktoridir. U bank va moliya sektori boshqaruvida keng tajribaga ega bo'lib, O'zbekistonning yetakchi ipoteka bankida yirik transformatsiya tashabbuslarini boshqargan. Uning rahbarligida Ipoteka Bank chakana va korporativ bank xizmatlarini sezilarli darajada kengaytirdi, raqamli transformatsiyani jadallashtirib, xalqaro moliya institutlari bilan hamkorlikni mustahkamladi. Sandro FIC ishchi guruhi doirasida iqtidorli mutaxassislarni jalb qilish va mahalliy inson kapitalini rivojlantirish siyosatiga faol hissa qo'shmoqda.",
+    "sandroText": "Sandro Rtveladze Ipoteka Bank OTP Group bosh direktoridir. U bank va moliya sektori boshqaruvida keng tajribaga ega bo'lib, O'zbekistonning yetakchi ipoteka bankida yirik transformatsiya tashabbuslarini boshqargan. Uning rahbarligida Ipoteka Bank chakana va korporativ bank xizmatlarini sezilarli darajada kengaytirdi, raqamli transformatsiyani jadallashtirib, xalqaro moliya institutlari bilan hamkorlikni mustahkamladi. Sandro XIK ishchi guruhi doirasida iqtidorli mutaxassislarni jalb qilish va mahalliy inson kapitalini rivojlantirish siyosatiga faol hissa qo'shmoqda.",
     "sergey": "Sergey Salikov",
     "sergeyPos": "Uzum, bosh yurist maslahatchi",
     "sergeyText": "Sergey Salikov — Uzum, Bosh yurist maslahatchi. Turli yurisdiktsiyalarda investitsiya shartnomalarini qo'llab-quvvatlash, fondlar va xoldinglar yaratishda 12 yildan ortiq tajribaga ega. U Rossiya to'g'ridan-to'g'ri investitsiyalar fondida yuridik blokga rahbarlik qilgan.",

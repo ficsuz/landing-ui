@@ -6,9 +6,7 @@
             <router-link to="/" class="web-navbar__logo">
                 <LogoIcon class="web-navbar__logo-mark" />
                 <span class="web-navbar__logo-text">
-                    FOREIGN INVESTORS COUNCIL<br />
-                    UNDER THE PRESIDENT OF THE<br />
-                    REPUBLIC OF UZBEKISTAN
+                    {{ $t('footer.brand') }}
                 </span>
             </router-link>
 
@@ -269,6 +267,8 @@ const isParentActive = (item: NavMenuItem): boolean => {
         line-height: 1.3;
         color: #191c1f;
         letter-spacing: 0.02em;
+        text-transform: uppercase;
+        max-width: 220px;
     }
 
     /* ── Desktop menu ── */

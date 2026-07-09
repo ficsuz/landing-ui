@@ -5,7 +5,7 @@
             <h2 class="section-title text-center mb-4">
                 {{ $t('members.title') }}
             </h2>
-            <p class="text-center text-[clamp(12px,1.2vw,14px)] font-semibold tracking-[0.18em] text-[#888] uppercase">
+            <p class="text-center text-[clamp(15px,1.5vw,18px)] text-[#505a63]">
                 {{ $t('members.foreignSubtitle') }}
             </p>
         </div>
@@ -47,7 +47,7 @@
         <!-- Uzbek members -->
         <div class="mb-4">
             <div class="page-container mb-10 md:mb-12">
-                <p class="text-center text-[clamp(12px,1.2vw,14px)] font-semibold tracking-[0.18em] text-[#888] uppercase">
+                <p class="text-center text-[clamp(15px,1.5vw,18px)] text-[#505a63]">
                     {{ $t('members.uzbekSubtitle') }}
                 </p>
             </div>
@@ -190,12 +190,12 @@ const row2 = [
 
 .ticker-left {
     animation-name: tickerLeft;
-    animation-duration: 32s;
+    animation-duration: 60s;
 }
 
 .ticker-right {
     animation-name: tickerRight;
-    animation-duration: 36s;
+    animation-duration: 66s;
 }
 
 @keyframes tickerLeft {
@@ -218,11 +218,11 @@ const row2 = [
 
 .ticker-members-left {
     animation-name: tickerLeft;
-    animation-duration: 40s;
+    animation-duration: 72s;
 }
 
 .ticker-members-right {
     animation-name: tickerRight;
-    animation-duration: 44s;
+    animation-duration: 78s;
 }
 </style>

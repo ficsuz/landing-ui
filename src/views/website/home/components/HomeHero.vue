@@ -75,7 +75,7 @@
         </div>
 
         <!-- Progress dots -->
-        <div class="absolute bottom-9 right-12 z-10 hidden md:flex items-center gap-2 pointer-events-none">
+        <div class="absolute bottom-6 right-6 md:bottom-9 md:right-12 z-10 flex items-center gap-2 pointer-events-none">
             <span ref="dot1" class="block h-[2px] rounded-full bg-white" style="width: 24px" />
             <span ref="dot2" class="block h-[2px] rounded-full bg-white/35" style="width: 8px" />
             <span ref="dot3" class="block h-[2px] rounded-full bg-white/35" style="width: 8px" />
@@ -110,6 +110,12 @@ let snapLock = false
 let scrollDebounceTimer: ReturnType<typeof setTimeout> | null = null
 let scrollListenerEl: HTMLElement | null = null
 
+// Mobile: no scroll hijacking — plain autoplay slider + normal page scroll
+const mq = typeof window !== 'undefined' ? window.matchMedia('(max-width: 767px)') : null
+let isMobile = mq ? mq.matches : false
+let autoplayTimer: ReturnType<typeof setInterval> | null = null
+let autoplayDir = 1
+
 const q1 = () => gsap.utils.selector(content1.value)
 const q2 = () => gsap.utils.selector(content2.value)
 const q3 = () => gsap.utils.selector(content3.value)
@@ -125,6 +131,10 @@ const findScrollParent = (): HTMLElement | null => {
 }
 
 const scrollToNextSection = () => {
+    if (slide3Timer) {
+        clearTimeout(slide3Timer)
+        slide3Timer = null
+    }
     const parent = findScrollParent()
     if (parent && sceneEl.value) {
         const heroRect = sceneEl.value.getBoundingClientRect()
@@ -147,7 +157,8 @@ const scrollToNextSection = () => {
 }
 
 const handleParentScroll = () => {
-    if (!sceneEl.value || snapLock) return
+    // Once on the final slide, allow leaving the hero — never snap back to top.
+    if (!sceneEl.value || snapLock || currentSlide === 2) return
     const sp = findScrollParent()
     const scrollTop = sp ? sp.scrollTop : window.scrollY
     const heroHeight = sceneEl.value.offsetHeight
@@ -211,7 +222,8 @@ const goToSlide = (index: number) => {
         tl.to(dot1.value, { width: 8, backgroundColor: 'rgba(26,30,46,0.2)', duration: 0.3 }, 0.1)
         tl.to(dot2.value, { width: 8, backgroundColor: 'rgba(26,30,46,0.2)', duration: 0.3 }, 0.1)
         tl.to(dot3.value, { width: 24, backgroundColor: '#1a1e2e', duration: 0.3 }, 0.1)
-        slide3Timer = setTimeout(scrollToNextSection, 1100 + 1000)
+        // Desktop only: auto-advance off the hero. On mobile the page scrolls normally.
+        if (!isMobile) slide3Timer = setTimeout(scrollToNextSection, 1100 + 1000)
     } else if (index === 1 && prev === 2) {
         // slide 3 → slide 2
         tl.to(slide3.value, { xPercent: 100, duration: 1.1, ease: 'power3.inOut' }, 0)
@@ -264,6 +276,68 @@ const handleTouchEnd = (e: TouchEvent) => {
     else if (dy < 0 && currentSlide === 1) goToSlide(0)
 }
 
+// ── Mobile: plain autoplay slider (ping-pong through the 3 slides) ──
+const startAutoplay = () => {
+    stopAutoplay()
+    autoplayTimer = setInterval(() => {
+        if (isAnimating) return
+        let next = currentSlide + autoplayDir
+        if (next > 2) {
+            next = 1
+            autoplayDir = -1
+        } else if (next < 0) {
+            next = 1
+            autoplayDir = 1
+        }
+        goToSlide(next)
+    }, 5000)
+}
+const stopAutoplay = () => {
+    if (autoplayTimer) {
+        clearInterval(autoplayTimer)
+        autoplayTimer = null
+    }
+}
+
+// ── Desktop: scroll-hijack listeners ──
+const setupDesktop = () => {
+    sceneEl.value?.addEventListener('wheel', handleWheel, { passive: false })
+    sceneEl.value?.addEventListener('touchstart', handleTouchStart, { passive: true })
+    sceneEl.value?.addEventListener('touchend', handleTouchEnd, { passive: true })
+    scrollListenerEl = findScrollParent()
+    if (scrollListenerEl) {
+        scrollListenerEl.addEventListener('scroll', handleParentScroll, { passive: true })
+    } else {
+        window.addEventListener('scroll', handleParentScroll, { passive: true })
+    }
+}
+const teardownDesktop = () => {
+    sceneEl.value?.removeEventListener('wheel', handleWheel)
+    sceneEl.value?.removeEventListener('touchstart', handleTouchStart)
+    sceneEl.value?.removeEventListener('touchend', handleTouchEnd)
+    if (scrollListenerEl) {
+        scrollListenerEl.removeEventListener('scroll', handleParentScroll)
+    } else {
+        window.removeEventListener('scroll', handleParentScroll)
+    }
+    scrollListenerEl = null
+}
+
+const applyMode = () => {
+    isMobile = mq ? mq.matches : false
+    if (slide3Timer) {
+        clearTimeout(slide3Timer)
+        slide3Timer = null
+    }
+    if (isMobile) {
+        teardownDesktop()
+        startAutoplay()
+    } else {
+        stopAutoplay()
+        setupDesktop()
+    }
+}
+
 onMounted(() => {
     gsap.set(slide2.value, { xPercent: 100 })
     gsap.set(slide3.value, { xPercent: 100 })
@@ -275,29 +349,16 @@ onMounted(() => {
     )
     gsap.fromTo(scrollEl.value, { opacity: 0 }, { opacity: 1, duration: 0.8, delay: 0.9 })
 
-    sceneEl.value?.addEventListener('wheel', handleWheel, { passive: false })
-    sceneEl.value?.addEventListener('touchstart', handleTouchStart, { passive: true })
-    sceneEl.value?.addEventListener('touchend', handleTouchEnd, { passive: true })
-
-    scrollListenerEl = findScrollParent()
-    if (scrollListenerEl) {
-        scrollListenerEl.addEventListener('scroll', handleParentScroll, { passive: true })
-    } else {
-        window.addEventListener('scroll', handleParentScroll, { passive: true })
-    }
+    applyMode()
+    mq?.addEventListener('change', applyMode)
 })
 
 onUnmounted(() => {
     if (slide3Timer) clearTimeout(slide3Timer)
     if (scrollDebounceTimer) clearTimeout(scrollDebounceTimer)
-    sceneEl.value?.removeEventListener('wheel', handleWheel)
-    sceneEl.value?.removeEventListener('touchstart', handleTouchStart)
-    sceneEl.value?.removeEventListener('touchend', handleTouchEnd)
-    if (scrollListenerEl) {
-        scrollListenerEl.removeEventListener('scroll', handleParentScroll)
-    } else {
-        window.removeEventListener('scroll', handleParentScroll)
-    }
+    stopAutoplay()
+    teardownDesktop()
+    mq?.removeEventListener('change', applyMode)
 })
 </script>
 

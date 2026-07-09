@@ -143,6 +143,12 @@ const websiteRoutes: RouteRecordRaw[] = [
         meta: { title: 'Meetings', titleKey: 'nav.meetings', descriptionKey: 'eventsPage.meetingsPage.intro', heroImage: eventsImg },
     },
     {
+        path: 'events/meetings/:id',
+        name: 'events-meetings-detail',
+        component: () => import('../../views/website/events/meetings/Detail.vue'),
+        meta: { title: 'Meeting', noHero: true },
+    },
+    {
         path: 'events/weekly-results',
         name: 'events-weekly-results',
         component: () => import('../../views/website/events/weekly-results/Index.vue'),

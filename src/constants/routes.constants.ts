@@ -23,4 +23,5 @@ export const menuItems: MenuEntry[] = [
     // ─── Events ─────────────────────────────────────────────────
     { kind: 'group', title: 'Events' },
     { kind: 'link', id: 4, title: 'Weekly Results', icon: 'weekly', path: '/admin/events/weekly-results', role: ['super_admin', 'admin'] },
+    { kind: 'link', id: 18, title: 'Meetings', icon: 'meetings', path: '/admin/events/meetings', role: ['super_admin', 'admin'] },
 ]

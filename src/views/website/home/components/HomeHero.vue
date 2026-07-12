@@ -237,6 +237,10 @@ const goToSlide = (index: number) => {
 }
 
 const handleWheel = (e: WheelEvent) => {
+    // Listener is on window now (to catch gestures over the sticky navbar),
+    // so once the hero has scrolled fully out of view, stop hijacking.
+    if (!sceneEl.value || sceneEl.value.getBoundingClientRect().bottom <= 0) return
+
     if (isAnimating) {
         e.preventDefault()
         return
@@ -301,7 +305,9 @@ const stopAutoplay = () => {
 
 // ── Desktop: scroll-hijack listeners ──
 const setupDesktop = () => {
-    sceneEl.value?.addEventListener('wheel', handleWheel, { passive: false })
+    // Bound to window (not sceneEl) so wheel gestures starting over the sticky
+    // navbar — which sits outside sceneEl's box — still drive the slide hijack.
+    window.addEventListener('wheel', handleWheel, { passive: false })
     sceneEl.value?.addEventListener('touchstart', handleTouchStart, { passive: true })
     sceneEl.value?.addEventListener('touchend', handleTouchEnd, { passive: true })
     scrollListenerEl = findScrollParent()
@@ -312,7 +318,7 @@ const setupDesktop = () => {
     }
 }
 const teardownDesktop = () => {
-    sceneEl.value?.removeEventListener('wheel', handleWheel)
+    window.removeEventListener('wheel', handleWheel)
     sceneEl.value?.removeEventListener('touchstart', handleTouchStart)
     sceneEl.value?.removeEventListener('touchend', handleTouchEnd)
     if (scrollListenerEl) {

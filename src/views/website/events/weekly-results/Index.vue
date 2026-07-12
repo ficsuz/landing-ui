@@ -8,9 +8,10 @@
                 </h2>
 
                 <div v-loading="store.loading" class="weekly-grid">
-                    <div
+                    <router-link
                         v-for="(item, i) in events"
                         :key="item.id"
+                        :to="{ name: 'events-weekly-results-detail', params: { id: item.id } }"
                         class="weekly-card"
                         :style="{ '--i': i }"
                     >
@@ -33,7 +34,7 @@
                             <p class="weekly-card__title">{{ item.title }}</p>
                             <p class="weekly-card__date">{{ item.dateRange }}</p>
                         </div>
-                    </div>
+                    </router-link>
                 </div>
 
                 <el-empty
@@ -123,11 +124,13 @@ onMounted(async () => {
 }
 
 .weekly-card {
+    display: block;
     border-radius: 16px;
     overflow: hidden;
     background: #fff;
     border: 1.5px solid #eef0f4;
     cursor: pointer;
+    text-decoration: none;
     transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 
     &:hover {

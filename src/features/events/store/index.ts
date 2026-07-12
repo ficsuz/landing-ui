@@ -5,6 +5,7 @@ import type { EventItem, EventPayload, EventListParams } from '../types'
 
 export const useEventsStore = defineStore('events', () => {
     const items   = ref<EventItem[]>([])
+    const current = ref<EventItem | null>(null)
     const total   = ref(0)
     const loading = ref(false)
     const error   = ref<string | null>(null)
@@ -17,6 +18,21 @@ export const useEventsStore = defineStore('events', () => {
             items.value = res.data
             total.value = res.meta.pagination.total
             return res
+        } catch (e: any) {
+            error.value = e?.message ?? 'Error'
+            throw e
+        } finally {
+            loading.value = false
+        }
+    }
+
+    async function fetchOne(id: string) {
+        loading.value = true
+        error.value   = null
+        try {
+            const res = await eventsService.getOne(id)
+            current.value = res.data ?? null
+            return res.data
         } catch (e: any) {
             error.value = e?.message ?? 'Error'
             throw e
@@ -46,5 +62,5 @@ export const useEventsStore = defineStore('events', () => {
         return res
     }
 
-    return { items, total, loading, error, fetchAll, createItem, updateItem, deleteItem }
+    return { items, current, total, loading, error, fetchAll, fetchOne, createItem, updateItem, deleteItem }
 })

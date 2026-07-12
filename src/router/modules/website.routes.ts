@@ -154,6 +154,12 @@ const websiteRoutes: RouteRecordRaw[] = [
         component: () => import('../../views/website/events/weekly-results/Index.vue'),
         meta: { title: 'Weekly results', titleKey: 'nav.weeklyResults', descriptionKey: 'eventsPage.weeklyPage.intro', heroImage: eventsImg },
     },
+    {
+        path: 'events/weekly-results/:id',
+        name: 'events-weekly-results-detail',
+        component: () => import('../../views/website/events/weekly-results/Detail.vue'),
+        meta: { title: 'Weekly result', noHero: true },
+    },
 
     // ---- Media ----
     {

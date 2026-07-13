@@ -108,6 +108,6 @@ function formatDate(iso?: string | null) {
 
 
 onMounted(() => {
-    reportsStore.fetchAll({ limit: 50, sortBy: 'date', order: 'desc' })
+    reportsStore.fetchAll({ limit: 50, sortBy: 'date', order: 'asc' })
 })
 </script>

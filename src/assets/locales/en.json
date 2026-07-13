@@ -35,6 +35,7 @@
         "media": "Media",
         "news": "News",
         "analyticsAndArticles": "Analytics and Articles",
+        "specialProjects": "Special Projects",
         "blitzInterview": "Blitz Interview",
         "reports": "Reports",
 
@@ -283,6 +284,10 @@
     "investorsVoices": {
         "title": "Investors Voices",
         "subtitle": "Representatives of international organizations shared their impressions and results of participating in the FIC."
+    },
+    "specialProjects": {
+        "title": "Special Projects",
+        "subtitle": "Feature stories and video projects produced by the Council about the investment climate in Uzbekistan."
     },
     "management": {
         "title": "Council Management",
@@ -774,6 +779,12 @@
             "intro": "Short interviews with FIC member company representatives, international organisation partners, and working group experts — their perspective on Uzbekistan's investment climate.",
             "featured": "Featured Interview",
             "readInterview": "Read Full Interview"
+        },
+        "specialProjectsPage": {
+            "title": "Special Projects",
+            "description": "Feature stories and video projects produced by the Council about the investment climate in Uzbekistan.",
+            "intro": "Feature stories and video projects produced by the Council about the investment climate in Uzbekistan.",
+            "featured": "Featured Project"
         },
         "reportsPage": {
             "intro": "Official reports, protocols, and policy briefs published by the Foreign Investors Council — available for download.",

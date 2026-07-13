@@ -25,6 +25,8 @@ import img3_6 from '@/assets/images/planery-session/ps_6.png'
 import img3_7 from '@/assets/images/planery-session/ps_7.png'
 import img3_8 from '@/assets/images/planery-session/ps_8.png'
 
+import img4Cover from '@/assets/images/interim-session/DSC02251.JPG'
+
 export type SessionLink = { label: string; href: string; outlined?: boolean }
 export type StatCard = { label: string; value: string; dark?: boolean }
 export type StatsBlock = { title: string; cards: StatCard[] }
@@ -137,6 +139,57 @@ export const sessions: PlenarySession[] = [
         cover: img3Cover,
         eyebrow: 'PLENARY SESSION 2025',
         title: 'Third plenary session of the Foreign Investors Council',
+        summary: 'The third plenary session was chaired by President Mirziyoyev and co-chaired by the EBRD President. New investment initiatives were presented, results of working groups reported, and PP-226 was signed expanding the council structure.',
+        decisions: [
+            'PP-226 signed: restructuring and expansion of working groups to 16',
+            '47 initiatives reviewed, 31 marked as completed',
+            'New investment targets set for 2026–2028',
+            'Secretariat formally established as FIC Association',
+        ],
+        participants: 86,
+        initiatives: 47,
+        gallery: [img3Cover, img3_1, img3_2, img3_3, img3_5, img3_6, img3_7, img3_8],
+        featureImages: [img3_1, img3_2, img3_3],
+        paragraphs: [
+            'International Congress Centre, under the chairmanship of the President and with the participation of the EBRD President. Over 40 initiatives were selected; basic tax rates for businesses will remain unchanged until 2028. As a result — PP-226 of 18.07.2025 (entered into force on 21.07.2025).',
+            'On June 11, 2025, the third plenary session of the Foreign Investors Council was held at the International Congress Center under the chairmanship of the President of the Republic of Uzbekistan and with the participation of the EBRD President. The session was attended by heads of Masdar, ACWA Power, Indorama, Vision Invest, DataVolt, VEON, Boeing, SpaceX, Meta, Franklin Templeton, TotalEnergies and other companies, as well as representatives of the OECD, IFC, ADB and the Islamic Development Bank.',
+            'The effectiveness of the platform was highlighted: the EBRD invested a record amount of approximately $1 billion in Uzbekistan over the year, becoming the country\'s largest partner in the region; the volume of joint projects with the private sector exceeded $1 billion; leading energy companies invested over $8 billion in the green economy.',
+            'It was announced that basic tax rates for business will not change until 2028; over two years, 5,500 new enterprises with foreign capital were established, bringing the total to 16,000.',
+            'More than 40 initiatives were selected for the session. Following the session, Presidential Decree No. PP-226 of July 18, 2025 was adopted, approving the roadmap and formalizing the transformation of the Council Secretariat into an independent legal entity.',
+        ],
+        statsBlock: {
+            title: 'WHAT WAS ENSHRINED BY DECREE PP-226',
+            cards: [
+                { label: 'Initiatives', value: '22' },
+                { label: 'Working groups', value: '8', dark: true },
+                { label: '18-07-2025 year', value: 'PP-226' },
+                { label: 'Initiatives selected for the session', value: '40+' },
+                { label: 'Basic tax rates frozen until', value: '2028' },
+                { label: 'Enterprises with foreign capital', value: '16,000' },
+                { label: 'PPP projects launched', value: '$4.5 bn' },
+                { label: 'Investments in the «green» economy', value: '$8 bn' },
+                { label: 'Record EBRD investment for the year', value: '~$1 bn' },
+            ],
+        },
+        initiativesList: [
+            'An Action Plan for implementing the proposals and initiatives of the III plenary session was approved (Annex No. 1)',
+            'An updated composition of the Uzbek side of the Council was approved (Annex No. 2)',
+            'The Council was granted the right to create working groups by area, involving heads and staff of ministries and agencies',
+            'The Council Secretariat was established as a non-governmental non-profit organization with the participation of international financial institutions (new edition of paragraphs 29–31 of PP-4519); the head is appointed in coordination with the Executive Committee',
+            'Implementation of the «Unified Investment Platform» information system (responsible — Deputy Prime Minister J. Khodjaev)',
+            'Oversight of execution — Prime Minister A. N. Aripov',
+        ],
+        links: [
+            { label: 'president.uz', href: 'https://president.uz' },
+            { label: 'lex.uz', href: 'https://lex.uz' },
+            { label: 'doc', href: '#', outlined: true },
+        ],
+    },
+    {
+        id: 4,
+        cover: img4Cover,
+        eyebrow: 'PLENARY SESSION 2026',
+        title: 'Fourth plenary session of the Foreign Investors Council',
         summary: 'The third plenary session was chaired by President Mirziyoyev and co-chaired by the EBRD President. New investment initiatives were presented, results of working groups reported, and PP-226 was signed expanding the council structure.',
         decisions: [
             'PP-226 signed: restructuring and expansion of working groups to 16',

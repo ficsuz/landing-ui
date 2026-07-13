@@ -4,49 +4,43 @@
 
             <!-- Chronology section -->
             <div>
-                <h2 class="font-black text-[13px] uppercase tracking-widest text-[#1a1e2e] mb-4">
+                <h2 class="section-title text-center mb-12 md:mb-16">
                     {{ $t('eventsPage.interimPage.chronology') }}
                 </h2>
-                <div class="border-t border-[#1a1e2e] mb-1" />
 
-                <!-- Table header (desktop only) -->
-                <div class="hidden md:grid md:grid-cols-[80px_160px_1fr_140px] gap-4 px-5 py-3">
-                    <span class="text-[11px] font-semibold uppercase tracking-widest text-[#8a94a6]">No.</span>
-                    <span class="text-[11px] font-semibold uppercase tracking-widest text-[#8a94a6]">{{ $t('common.date') }}</span>
-                    <span class="text-[11px] font-semibold uppercase tracking-widest text-[#8a94a6]">{{ $t('eventsPage.interimPage.note') }}</span>
-                    <span />
-                </div>
-
-                <!-- Rows -->
-                <div class="rounded-2xl border border-[#eef0f4] overflow-hidden">
-                    <div
-                        v-for="(session, i) in sessions"
+                <!-- Cards grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <component
+                        :is="session.hasDetail ? 'router-link' : 'div'"
+                        v-for="session in sessions"
                         :key="session.id"
-                        class="px-5 py-5 md:py-6 flex flex-col md:grid md:grid-cols-[80px_160px_1fr_140px] gap-2 md:gap-4 md:items-center"
-                        :class="i < sessions.length - 1 ? 'border-b border-[#eef0f4]' : ''"
+                        :to="session.hasDetail ? { name: 'events-interim-session-detail', params: { id: session.id } } : undefined"
+                        class="group rounded-2xl border border-[#eef0f4] overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.06)] transition-all duration-300 bg-white flex flex-col no-underline"
+                        :class="session.hasDetail ? 'hover:shadow-[0_6px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1' : ''"
                     >
-                        <span class="font-black text-[15px] text-[#1a1e2e]">{{ session.code }}</span>
-                        <!-- Mobile label + value pairs -->
-                        <div class="md:contents">
-                            <div class="flex flex-col gap-0.5 md:contents">
-                                <span class="text-[10px] font-semibold uppercase tracking-widest text-[#8a94a6] md:hidden">{{ $t('common.date') }}</span>
-                                <span class="text-[14px] text-[#505a63]">{{ session.date }}</span>
-                            </div>
-                            <div class="flex flex-col gap-0.5 md:contents">
-                                <span class="text-[10px] font-semibold uppercase tracking-widest text-[#8a94a6] md:hidden">{{ $t('eventsPage.interimPage.note') }}</span>
-                                <span class="text-[14px] text-[#505a63] leading-snug">{{ session.note }}</span>
-                            </div>
+                        <!-- Image -->
+                        <div class="overflow-hidden">
+                            <img
+                                :src="session.detail?.heroImage || fallbackCover"
+                                :alt="session.code"
+                                class="w-full h-[220px] object-cover"
+                            />
                         </div>
-                        <div class="flex justify-start md:justify-end">
-                            <router-link
+
+                        <!-- Content -->
+                        <div class="p-6 flex flex-col flex-1">
+                            <span class="text-[11px] font-semibold uppercase tracking-widest text-[#8a94a6] mb-2">{{ session.code }} · {{ session.date }}</span>
+                            <p class="font-semibold text-[15px] text-[#1a1e2e] leading-snug mb-6 flex-1">
+                                {{ session.note }}
+                            </p>
+                            <span
                                 v-if="session.hasDetail"
-                                :to="{ name: 'events-interim-session-detail', params: { id: session.id } }"
-                                class="inline-flex items-center px-5 py-2 rounded-full text-[13px] font-semibold border border-[#d0d5dd] text-[#1a1e2e] hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e] transition-all duration-200"
+                                class="w-full py-2.5 rounded-xl bg-[#f2f3f6] text-[#1a1e2e] text-[14px] font-semibold text-center block transition-colors duration-200 group-hover:bg-[#1a1e2e] group-hover:text-white"
                             >
                                 {{ $t('eventsPage.readMore') }}
-                            </router-link>
+                            </span>
                         </div>
-                    </div>
+                    </component>
                 </div>
             </div>
 
@@ -56,4 +50,5 @@
 
 <script setup lang="ts">
 import { interimSessions as sessions } from './interimSessionsData'
+import fallbackCover from '@/assets/images/hero/ATM_9764.jpg'
 </script>

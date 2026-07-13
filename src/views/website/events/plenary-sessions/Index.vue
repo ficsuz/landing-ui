@@ -14,7 +14,7 @@
                         v-for="session in sessions"
                         :key="session.id"
                         :to="{ name: 'events-plenary-session-detail', params: { id: session.id } }"
-                        class="rounded-2xl border border-[#eef0f4] overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_6px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 bg-white flex flex-col no-underline"
+                        class="group rounded-2xl border border-[#eef0f4] overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_6px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 bg-white flex flex-col no-underline"
                     >
                         <!-- Image -->
                         <div class="overflow-hidden">
@@ -30,7 +30,7 @@
                             <p class="font-semibold text-[15px] text-[#1a1e2e] leading-snug mb-6 flex-1">
                                 {{ session.title }}, {{ session.eyebrow.split(' ').at(-1) }}
                             </p>
-                            <span class="w-full py-2.5 rounded-xl bg-[#f2f3f6] text-[#1a1e2e] text-[14px] font-semibold text-center block">
+                            <span class="w-full py-2.5 rounded-xl bg-[#f2f3f6] text-[#1a1e2e] text-[14px] font-semibold text-center block transition-colors duration-200 group-hover:bg-[#1a1e2e] group-hover:text-white">
                                 {{ $t('common.learnMore') }}
                             </span>
                         </div>

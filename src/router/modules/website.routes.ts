@@ -181,6 +181,12 @@ const websiteRoutes: RouteRecordRaw[] = [
         meta: { title: 'Article', noHero: true },
     },
     {
+        path: 'media/special-projects',
+        name: 'media-special-projects',
+        component: () => import('../../views/website/media/special-projects/Index.vue'),
+        meta: { title: 'Special Projects', descriptionKey: 'mediaPage.specialProjectsPage.intro', noHero: true },
+    },
+    {
         path: 'media/blitz-interview',
         name: 'media-blitz-interview',
         component: () => import('../../views/website/media/blitz-interview/Index.vue'),

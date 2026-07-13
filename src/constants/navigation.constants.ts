@@ -67,6 +67,7 @@ export const websiteMenu: NavMenuItem[] = [
         children: [
             { labelKey: 'nav.news', path: '/media' },
             { labelKey: 'nav.analyticsAndArticles', path: '/media/analytics' },
+            { labelKey: 'nav.specialProjects', path: '/media/special-projects' },
             { labelKey: 'nav.blitzInterview', path: '/media/blitz-interview' },
             { labelKey: 'nav.reports', path: '/media/reports' },
         ],

@@ -1,14 +1,14 @@
 import img5Hero from '@/assets/images/hero/ATM_9764.jpg'
 import img6Hero from '@/assets/images/hero/SUT_8193.jpg'
 
-import is6_1 from '@/assets/images/planery-session/ps_1.png'
-import is6_2 from '@/assets/images/planery-session/ps_2.png'
-import is6_3 from '@/assets/images/planery-session/ps_3.png'
-import is6_4 from '@/assets/images/planery-session/ps_4.png'
-import is6_5 from '@/assets/images/planery-session/ps_5.png'
-import is6_6 from '@/assets/images/planery-session/ps_6.png'
-import is6_7 from '@/assets/images/planery-session/ps_7.png'
-import is6_8 from '@/assets/images/planery-session/ps_8.png'
+import is6_1 from '@/assets/images/interim-session/DSC02251.JPG'
+import is6_2 from '@/assets/images/interim-session/DSC02281.JPG'
+import is6_3 from '@/assets/images/interim-session/DSC02353.JPG'
+import is6_4 from '@/assets/images/interim-session/DSC02388.JPG'
+import is6_5 from '@/assets/images/interim-session/DSC02454.JPG'
+import is6_6 from '@/assets/images/interim-session/DSC02629.JPG'
+import is6_7 from '@/assets/images/interim-session/DSC03099.JPG'
+import is6_8 from '@/assets/images/interim-session/DSC03437.JPG'
 
 export type StatCard = { value: string; label: string }
 

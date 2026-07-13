@@ -12,6 +12,7 @@
         <HomeInvestments />
         <HomeNews />
         <HomeInvestorsVoices />
+        <HomeSpecialProjects />
     </div>
 </template>
 
@@ -28,4 +29,5 @@ import HomeArticles from './components/HomeArticles.vue'
 import HomeNews from './components/HomeNews.vue'
 import HomeStrongPartners from './components/HomeStrongPartners.vue'
 import HomeInvestorsVoices from './components/HomeInvestorsVoices.vue'
+import HomeSpecialProjects from './components/HomeSpecialProjects.vue'
 </script>

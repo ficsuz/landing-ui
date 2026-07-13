@@ -895,5 +895,10 @@
         "posUzenergo": "«Uzenergosotish» kompaniyasi raisi",
         "posYashilEnergiya": "«Yashil Energiya» MChJ direktori",
         "posUztransgaz": "«Uztransgaz» AJ boshqaruvi raisi v.b."
+    },
+    "notFound": {
+        "title": "Sahifa topilmadi",
+        "description": "Siz qidirayotgan sahifa mavjud emas yoki o'chirilgan bo'lishi mumkin. Bosh sahifaga qayting yoki orqaga o'ting.",
+        "backHome": "Bosh sahifaga qaytish"
     }
 }

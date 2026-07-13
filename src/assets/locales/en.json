@@ -882,5 +882,10 @@
         "posUzenergo": "Chairman of Uzenergosotish",
         "posYashilEnergiya": "Director of Yashil Energiya LLC",
         "posUztransgaz": "Acting Chairman of the Board of Uztransgaz JSC"
+    },
+    "notFound": {
+        "title": "Page not found",
+        "description": "The page you are looking for doesn't exist or may have been removed. Head back to the homepage or go back.",
+        "backHome": "Back to homepage"
     }
 }

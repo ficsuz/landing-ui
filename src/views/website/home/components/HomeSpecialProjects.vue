@@ -23,7 +23,7 @@
                     @touchend.passive="onTouchEnd"
                 >
                     <div class="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)] bg-black">
-                        <div class="aspect-video relative">
+                        <div class="h-[500px] md:h-[400px] relative">
                             <Transition name="sp-fade" mode="out-in">
                                 <iframe
                                     :key="videos[currentIndex].id"
@@ -58,10 +58,7 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { getEmbedUrl } from '@/utils/media'
 
 const videos = computed(() =>
-    [
-        'https://youtu.be/2LqpFWdgtiA?si=4VK0fHmK1GOO3oSo',
-        'https://youtu.be/2LqpFWdgtiA?si=4VK0fHmK1GOO3oSo',
-    ].map((videoSource, i) => ({
+    ['https://youtu.be/2LqpFWdgtiA?si=4VK0fHmK1GOO3oSo', 'https://youtu.be/2LqpFWdgtiA?si=4VK0fHmK1GOO3oSo'].map((videoSource, i) => ({
         id: i,
         embedUrl: getEmbedUrl(videoSource),
     }))

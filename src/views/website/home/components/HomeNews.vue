@@ -37,12 +37,15 @@
                     @click="openItem(item)"
                 >
                     <!-- Image -->
-                    <div class="relative overflow-hidden rounded-xl aspect-[16/10] lg:h-[480px] bg-[#eef0f4] [transform:translateZ(0)]">
+                    <div
+                        class="relative overflow-hidden rounded-xl md:aspect-[16/10] lg:h-[480px] bg-[#eef0f4] [transform:translateZ(0)]"
+                        :class="getMediaUrl(item.imageId) ? '' : 'aspect-[16/10]'"
+                    >
                         <img
                             v-if="getMediaUrl(item.imageId)"
                             :src="getMediaUrl(item.imageId)"
                             :alt="resolveTranslation(item.title, locale)"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            class="w-full h-auto md:h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
 

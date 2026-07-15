@@ -19,11 +19,11 @@
                     :style="{ transitionDelay: visible ? `${i * 80}ms` : '0ms' }"
                 >
                     <!-- Image -->
-                    <div class="relative overflow-hidden aspect-[16/10] bg-white rounded-2xl">
+                    <div class="relative overflow-hidden md:aspect-[16/10] bg-white rounded-2xl">
                         <img
                             :src="getMediaUrl(article.imageId)"
                             :alt="resolveTranslation(article.title, locale)"
-                            class="w-full h-full transition-transform duration-500 group-hover:scale-105"
+                            class="w-full h-auto md:h-full transition-transform duration-500 group-hover:scale-105"
                         />
                     </div>
                 </router-link>

@@ -23,6 +23,21 @@
                                     <polyline points="14 2 14 8 20 8" />
                                 </svg>
                             </div>
+
+                            <!-- Download icon (rasm markazida, doim ko'rinadi, linkka ta'sir qilmaydi) -->
+                            <button
+                                v-if="getMediaUrl(m.imageId)"
+                                type="button"
+                                :title="$t('common.download')"
+                                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center bg-white/90 backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.18)] text-[#1a1e2e] hover:bg-white hover:scale-105 transition-all duration-300"
+                                @click.stop.prevent="downloadImage(m)"
+                            >
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                            </button>
                         </div>
 
                         <!-- Body -->
@@ -80,6 +95,7 @@ import { computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import WebEmptyState from '@/components/website/WebEmptyState.vue'
 import { useMeetingsStore } from '@/features/meetings/store'
+import type { Translation } from '@/types/server/api.types'
 import { resolveTranslation } from '@/utils/i18n'
 import { getMediaUrl } from '@/utils/media'
 
@@ -87,6 +103,25 @@ const { locale } = useI18n()
 const meetingsStore = useMeetingsStore()
 
 const publishedMeetings = computed(() => meetingsStore.items.filter((m) => m.status === 1))
+
+async function downloadImage(m: { imageId: string | null; title: Translation }) {
+    const url = getMediaUrl(m.imageId)
+    if (!url) return
+    try {
+        const res = await fetch(url)
+        const blob = await res.blob()
+        const objectUrl = URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = objectUrl
+        a.download = resolveTranslation(m.title, locale.value) || 'meeting'
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
+        URL.revokeObjectURL(objectUrl)
+    } catch {
+        window.open(url, '_blank')
+    }
+}
 
 function formatDate(iso?: string | null) {
     if (!iso) return ''

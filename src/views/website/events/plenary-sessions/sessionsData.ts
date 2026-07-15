@@ -25,7 +25,7 @@ import img3_6 from '@/assets/images/planery-session/ps_6.png'
 import img3_7 from '@/assets/images/planery-session/ps_7.png'
 import img3_8 from '@/assets/images/planery-session/ps_8.png'
 
-import img4Cover from '@/assets/images/interim-session/DSC02251.JPG'
+import img4Cover from '@/assets/images/planery-session/fourth-planery-session.JPG'
 
 export type SessionLink = { label: string; href: string; outlined?: boolean }
 export type StatCard = { label: string; value: string; dark?: boolean }

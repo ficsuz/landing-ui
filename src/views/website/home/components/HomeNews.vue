@@ -3,13 +3,13 @@
         <div class="page-container">
             <!-- Header -->
             <div
-                class="flex items-center justify-between mb-10 md:mb-14 transition-all duration-700"
+                class="flex flex-col items-start gap-5 md:flex-row md:items-center md:justify-between mb-10 md:mb-14 transition-all duration-700"
                 :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
             >
                 <h2 class="section-title text-white">{{ $t('news.title') }}</h2>
                 <router-link
                     to="/media"
-                    class="inline-flex items-center gap-2 border border-white/30 text-white text-[14px] font-semibold px-5 py-2.5 rounded-full transition-all duration-200 hover:bg-white hover:text-[#1a1e2e]"
+                    class="inline-flex items-center gap-2 shrink-0 whitespace-nowrap border border-white/30 text-white text-[14px] font-semibold px-5 py-2.5 rounded-full transition-all duration-200 hover:bg-white hover:text-[#1a1e2e]"
                 >
                     {{ $t('news.allNews') }}
                 </router-link>

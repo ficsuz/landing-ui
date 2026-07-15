@@ -1,7 +1,7 @@
 <template>
     <div v-if="session" class="bg-white">
         <!-- Hero -->
-        <WebHeroSection v-if="session.detail?.heroImage" :title="session.detail.heroTitle ?? ''" :image="session.detail.heroImage" />
+        <WebHeroSection v-if="session.detail?.heroImage" :title="L(session.detail.heroTitle)" :image="session.detail.heroImage" />
 
         <div class="py-16 md:py-24">
             <div class="page-container">
@@ -27,7 +27,7 @@
 
                 <!-- Date heading -->
                 <h2 class="font-black text-[clamp(22px,3vw,36px)] text-[#1a1e2e] uppercase mb-4">
-                    {{ session.date }}
+                    {{ L(session.date) }}
                 </h2>
                 <div class="border-t-2 border-[#1a1e2e] mb-8" />
 
@@ -46,7 +46,7 @@
                 <!-- Paragraph card -->
                 <div v-if="session.detail" class="rounded-2xl border border-[#eef0f4] bg-[#f7f8fa] p-6 md:p-8 mb-8">
                     <p class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-relaxed">
-                        {{ session.detail.paragraph }}
+                        {{ L(session.detail.paragraph) }}
                     </p>
                 </div>
 
@@ -57,7 +57,7 @@
                             {{ stat.value }}
                         </span>
                         <span class="text-[15px] md:text-[16px] font-medium text-[#505a63] leading-snug capitalize">
-                            {{ stat.label }}
+                            {{ L(stat.label) }}
                         </span>
                     </div>
                 </div>
@@ -70,11 +70,11 @@
                             class="border-l-4 border-[#1a1e2e] pl-6 py-4 bg-[#f7f8fa] rounded-r-2xl"
                         >
                             <p class="font-bold text-[clamp(15px,1.3vw,18px)] text-[#1a1e2e] leading-relaxed">
-                                {{ block.text }}
+                                {{ L(block.text) }}
                             </p>
                         </blockquote>
                         <p v-else class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-relaxed">
-                            {{ block.text }}
+                            {{ L(block.text) }}
                         </p>
                     </template>
                 </div>
@@ -92,9 +92,9 @@
                         >
                             <span class="flex-shrink-0 w-2 h-2 rounded-full bg-[#1a1e2e] mt-[6px]" />
                             <p class="text-[#1a1e2e]">
-                                <strong>{{ item.title }}</strong>
+                                <strong>{{ L(item.title) }}</strong>
                                 {{ ' ' }}—{{ ' ' }}
-                                <span class="text-[#505a63]">{{ item.description }}</span>
+                                <span class="text-[#505a63]">{{ L(item.description) }}</span>
                             </p>
                         </div>
                     </div>
@@ -115,9 +115,9 @@
                         >
                             <span class="flex-shrink-0 w-2 h-2 rounded-full bg-[#1a1e2e] mt-[6px]" />
                             <p class="text-[#1a1e2e]">
-                                <strong>{{ item.title }}</strong>
+                                <strong>{{ L(item.title) }}</strong>
                                 {{ ' ' }}—{{ ' ' }}
-                                <span class="text-[#505a63]">{{ item.description }}</span>
+                                <span class="text-[#505a63]">{{ L(item.description) }}</span>
                             </p>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                     >
                         <div>
                             <p class="font-black text-[12px] uppercase tracking-widest text-[#1a1e2e] mb-1">{{ $t('eventsPage.interimPage.legalBasis') }}</p>
-                            <p class="text-[14px] text-[#505a63] leading-snug">{{ session.detail.legalBasis.text }}</p>
+                            <p class="text-[14px] text-[#505a63] leading-snug">{{ L(session.detail.legalBasis.text) }}</p>
                         </div>
                         <AppLearnMore :to="session.detail.legalBasis.docHref" />
                     </div>
@@ -143,14 +143,20 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { interimSessions } from './interimSessionsData'
 import WebHeroSection from '@/components/website/WebHeroSection.vue'
 import AppLearnMore from '@/components/website/AppLearnMore.vue'
+import { resolveTranslation } from '@/utils/i18n'
+import type { Translation } from '@/types/server/api.types'
 
+const { locale } = useI18n()
 const router = useRouter()
 const route = useRoute()
 const session = computed(() => interimSessions.find((s) => s.id === Number(route.params.id)))
+
+const L = (t?: Translation | null) => resolveTranslation(t, locale.value)
 
 function gridClass(index: number): string {
     if (index < 3) return 'col-span-3 md:col-span-2 h-[200px] md:h-[280px]'

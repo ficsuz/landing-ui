@@ -5,7 +5,7 @@ export interface Meeting {
     title: Translation
     content: Translation | null
     subject: Translation | null
-    imageId: string | null
+    imageIds: string[]
     date: string | null
     status: number
     createdAt: string
@@ -17,7 +17,7 @@ export interface MeetingPayload {
     title: Translation
     content?: Translation
     subject?: Translation
-    imageId?: string | null
+    imageIds?: string[]
     date?: string | null
     status?: number
 }

@@ -37,13 +37,33 @@
                         </span>
                     </div>
 
-                    <!-- Cover image -->
-                    <div v-if="meeting.imageId" class="mt-8 rounded-2xl overflow-hidden aspect-[16/8] bg-[#eef0f4]">
-                        <img
-                            :src="getMediaUrl(meeting.imageId)"
-                            :alt="resolveTranslation(meeting.title, locale)"
-                            class="w-full h-full object-cover"
-                        />
+                    <!-- Image gallery -->
+                    <div v-if="meeting.imageIds?.length" class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div
+                            v-for="(id, i) in meeting.imageIds"
+                            :key="id"
+                            class="group relative rounded-2xl overflow-hidden aspect-[16/10] bg-[#eef0f4]"
+                            :class="{ 'sm:col-span-2 aspect-[16/8]': meeting.imageIds.length === 1 || (meeting.imageIds.length % 2 === 1 && i === 0) }"
+                        >
+                            <img
+                                :src="getMediaUrl(id)"
+                                :alt="resolveTranslation(meeting.title, locale)"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <!-- Download button -->
+                            <button
+                                type="button"
+                                :title="$t('common.download')"
+                                class="absolute top-3 right-3 w-10 h-10 rounded-full flex items-center justify-center bg-white/90 backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.2)] text-[#1a1e2e] opacity-0 group-hover:opacity-100 hover:bg-white hover:scale-105 transition-all duration-300"
+                                @click="downloadImage(id, i)"
+                            >
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
 
                     <!-- HTML Content -->
@@ -87,6 +107,26 @@ function formatDate(iso?: string | null) {
     const d = new Date(iso)
     if (Number.isNaN(d.getTime())) return ''
     return d.toLocaleDateString('en-GB').replace(/\//g, '.')
+}
+
+async function downloadImage(id: string, i: number) {
+    const url = getMediaUrl(id)
+    if (!url) return
+    const baseName = resolveTranslation(meeting.value?.title, locale.value) || 'meeting'
+    try {
+        const res = await fetch(url)
+        const blob = await res.blob()
+        const objectUrl = URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = objectUrl
+        a.download = `${baseName}-${i + 1}`
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
+        URL.revokeObjectURL(objectUrl)
+    } catch {
+        window.open(url, '_blank')
+    }
 }
 
 onMounted(() => {

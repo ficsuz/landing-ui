@@ -29,9 +29,9 @@
 
                         <!-- Content -->
                         <div class="p-6 flex flex-col flex-1">
-                            <span class="text-[11px] font-semibold uppercase tracking-widest text-[#8a94a6] mb-2">{{ session.code }} · {{ session.date }}</span>
+                            <span class="text-[11px] font-semibold uppercase tracking-widest text-[#8a94a6] mb-2">{{ session.code }} · {{ L(session.date) }}</span>
                             <p class="font-semibold text-[15px] text-[#1a1e2e] leading-snug mb-6 flex-1">
-                                {{ session.note }}
+                                {{ L(session.note) }}
                             </p>
                             <span
                                 v-if="session.hasDetail"
@@ -49,6 +49,12 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import { interimSessions as sessions } from './interimSessionsData'
 import fallbackCover from '@/assets/images/hero/ATM_9764.jpg'
+import { resolveTranslation } from '@/utils/i18n'
+import type { Translation } from '@/types/server/api.types'
+
+const { locale } = useI18n()
+const L = (t?: Translation | null) => resolveTranslation(t, locale.value)
 </script>

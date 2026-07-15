@@ -119,10 +119,12 @@ const loading = ref(true)
 async function loadExperts() {
     loading.value = true
     try {
-        const intl = await expertsStore.fetchAll({ type: 'INTERNATIONAL', limit: 100, sortBy: 'order', order: 'asc' })
+        const [intl, local] = await Promise.all([
+            expertsStore.fetchAll({ type: 'INTERNATIONAL', limit: 100, sortBy: 'order', order: 'asc' }),
+            expertsStore.fetchAll({ type: 'LOCAL', limit: 100, sortBy: 'order', order: 'asc' }),
+        ])
         internationalExperts.value = intl.data.filter((e) => e.status)
-        // Local experts hozircha backenddan uzib qo'yilgan — bo'sh (no data) ko'rsatiladi
-        localExperts.value = []
+        localExperts.value = local.data.filter((e) => e.status)
     } finally {
         loading.value = false
     }

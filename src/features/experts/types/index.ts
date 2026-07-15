@@ -1,6 +1,6 @@
 import type { Translation, ListParams } from '@/types/server/api.types'
 
-export type ExpertType = 'INTERNATIONAL' | 'UZBEK'
+export type ExpertType = 'INTERNATIONAL' | 'UZBEK' | 'LOCAL'
 
 export interface Expert {
     id: string

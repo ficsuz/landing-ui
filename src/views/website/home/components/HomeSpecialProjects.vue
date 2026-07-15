@@ -22,12 +22,12 @@
                     @touchstart.passive="onTouchStart"
                     @touchend.passive="onTouchEnd"
                 >
-                    <div class="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)] bg-black">
+                    <div v-if="videos.length" class="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)] bg-black">
                         <div class="h-[500px] md:h-[400px] relative">
                             <Transition name="sp-fade" mode="out-in">
                                 <iframe
-                                    :key="videos[currentIndex].id"
-                                    :src="videos[currentIndex].embedUrl"
+                                    :key="videos[safeIndex].id"
+                                    :src="videos[safeIndex].embedUrl"
                                     class="absolute inset-0 w-full h-full"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen
@@ -56,15 +56,23 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { getEmbedUrl } from '@/utils/media'
+import { useSpecialProjectsStore } from '@/features/specialProjects/store'
+
+const specialProjectsStore = useSpecialProjectsStore()
 
 const videos = computed(() =>
-    ['https://youtu.be/2LqpFWdgtiA?si=4VK0fHmK1GOO3oSo', 'https://youtu.be/2LqpFWdgtiA?si=4VK0fHmK1GOO3oSo'].map((videoSource, i) => ({
-        id: i,
-        embedUrl: getEmbedUrl(videoSource),
-    }))
+    specialProjectsStore.items
+        .filter((p) => p.status)
+        .map((p) => ({
+            id: p.id,
+            embedUrl: getEmbedUrl(p.link),
+        }))
 )
 
 const currentIndex = ref(0)
+const safeIndex = computed(() =>
+    videos.value.length ? Math.min(currentIndex.value, videos.value.length - 1) : 0
+)
 const goTo = (i: number) => {
     currentIndex.value = Math.max(0, Math.min(i, videos.value.length - 1))
 }
@@ -113,6 +121,8 @@ const getScrollParent = (el: HTMLElement): Element => {
 }
 
 onMounted(() => {
+    specialProjectsStore.fetchAll({ limit: 20, sortBy: 'order', order: 'asc' })
+
     if (!sectionEl.value) return
     const root = getScrollParent(sectionEl.value)
     observer = new IntersectionObserver(

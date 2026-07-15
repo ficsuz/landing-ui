@@ -107,11 +107,13 @@
         "management": "Rahbariyat",
         "card1": {
             "name": "Shavkat Miromonovich Mirziyoyev",
-            "role": "Kengash raisi"
+            "role": "Kengash raisi",
+            "subrole": "O'zbekiston Respublikasi Prezidenti"
         },
         "card2": {
             "name": "Odile Renaud-Basso",
-            "role": "Kengash rais o'rinbosari · YETTB Prezidenti"
+            "role": "Kengash rais o'rinbosari",
+            "subrole": "YETTB Prezidenti"
         }
     },
     "keyFigures": {

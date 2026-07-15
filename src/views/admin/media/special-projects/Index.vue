@@ -1,25 +1,33 @@
 <template>
     <div class="page-wrapper">
         <div class="page-header">
-            <h1 class="page-title">Meetings</h1>
+            <h1 class="page-title">Special Projects</h1>
             <el-button type="primary" @click="openCreate">+ Add</el-button>
         </div>
 
         <div class="blog-grid" v-loading="store.loading">
             <div v-for="row in store.items" :key="row.id" class="blog-card">
-                <div class="blog-card__image">
-                    <img :src="getMediaUrl(row.imageIds?.[0]) || defaultImage" alt="" />
-                    <el-tag :type="row.status === 1 ? 'success' : 'info'" size="small" class="blog-card__status">
-                        {{ row.status === 1 ? 'Published' : 'Hidden' }}
-                    </el-tag>
-                    <span v-if="row.imageIds?.length > 1" class="blog-card__count">
-                        {{ row.imageIds.length }} 🖼
-                    </span>
+                <div class="blog-card__video">
+                    <iframe
+                        v-if="row.link"
+                        :src="getEmbedUrl(row.link)"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen
+                        frameborder="0"
+                    />
+                    <div v-else class="blog-card__video--empty">No video</div>
                 </div>
                 <div class="blog-card__body">
-                    <span v-if="row.date" class="blog-card__date">{{ formatDate(row.date) }}</span>
-                    <p v-if="row.subject" class="blog-card__subject">{{ resolveTranslation(row.subject) }}</p>
+                    <div class="blog-card__top">
+                        <span class="blog-card__order">#{{ row.order }}</span>
+                        <el-tag :type="row.status ? 'success' : 'info'" size="small">
+                            {{ row.status ? 'Published' : 'Hidden' }}
+                        </el-tag>
+                    </div>
                     <h3 class="blog-card__title">{{ resolveTranslation(row.title) }}</h3>
+                    <a v-if="row.link" :href="row.link" target="_blank" rel="noopener" class="blog-card__link">
+                        {{ row.link }}
+                    </a>
                     <div class="blog-card__actions">
                         <el-tooltip content="Edit" placement="top">
                             <el-button type="primary" :icon="Edit" circle plain @click="openEdit(row)" />
@@ -32,7 +40,7 @@
             </div>
         </div>
 
-        <el-empty v-if="!store.loading && store.items.length === 0" description="No meetings yet" class="py-16" />
+        <el-empty v-if="!store.loading && store.items.length === 0" description="No special projects yet" class="py-16" />
 
         <div class="pagination-wrap" v-if="store.total > pageSize">
             <el-pagination
@@ -45,26 +53,20 @@
             />
         </div>
 
-        <el-dialog v-model="showDialog" :title="editing ? 'Edit meeting' : 'Add meeting'" width="min(760px, 92vw)" top="5vh">
+        <el-dialog v-model="showDialog" :title="editing ? 'Edit special project' : 'Add special project'" width="min(760px, 92vw)" top="5vh">
             <el-form label-position="top" class="flex flex-col gap-1">
                 <el-form-item label="Title">
                     <TranslationField v-model="form.title" class="w-full" placeholder="Enter title" />
                 </el-form-item>
-                <el-form-item label="Subject / Category">
-                    <TranslationField v-model="form.subject" class="w-full" placeholder="e.g. Plenary, Working group" />
-                </el-form-item>
-                <el-form-item label="Content">
-                    <TranslationField v-model="form.content" type="textarea" :rows="6" class="w-full" placeholder="Enter content" />
-                </el-form-item>
-                <el-form-item label="Images (2–4, slider)">
-                    <MultiImageUploader v-model="form.imageIds" :max="4" />
+                <el-form-item label="Video link (YouTube)">
+                    <el-input v-model="form.link" placeholder="https://www.youtube.com/watch?v=..." class="w-full" />
                 </el-form-item>
                 <div class="grid grid-cols-1 gap-x-5 md:grid-cols-2">
-                    <el-form-item label="Date">
-                        <el-date-picker v-model="form.date" type="date" placeholder="Select date" value-format="YYYY-MM-DD" class="!w-full" />
+                    <el-form-item label="Order">
+                        <el-input-number v-model="form.order" :min="0" class="!w-full" />
                     </el-form-item>
                     <el-form-item label="Status">
-                        <el-switch v-model="form.status" :active-value="1" :inactive-value="0" active-text="Published" inactive-text="Hidden" />
+                        <el-switch v-model="form.status" active-text="Published" inactive-text="Hidden" />
                     </el-form-item>
                 </div>
             </el-form>
@@ -84,38 +86,32 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { Edit, Delete } from '@element-plus/icons-vue'
 import { useI18n } from 'vue-i18n'
 import TranslationField from '@/components/admin/TranslationField.vue'
-import MultiImageUploader from '@/components/admin/MultiImageUploader.vue'
-import { useMeetingsStore } from '@/features/meetings/store'
-import { getMediaUrl } from '@/utils/media'
-import defaultImage from '@/assets/images/hero/about-blog.jpg'
-import type { Meeting, MeetingPayload } from '@/features/meetings/types'
+import { getEmbedUrl } from '@/utils/media'
+import { useSpecialProjectsStore } from '@/features/specialProjects/store'
+import type { SpecialProject, SpecialProjectPayload } from '@/features/specialProjects/types'
 import type { Translation } from '@/types/server/api.types'
 
-const store = useMeetingsStore()
+const store = useSpecialProjectsStore()
 const { locale } = useI18n()
 
 const page = ref(1)
 const pageSize = ref(12)
 const showDialog = ref(false)
 const saving = ref(false)
-const editing = ref<Meeting | null>(null)
+const editing = ref<SpecialProject | null>(null)
 
 interface FormState {
     title: Translation
-    subject: Translation
-    content: Translation
-    imageIds: string[]
-    date: string | null
-    status: number
+    link: string
+    order: number
+    status: boolean
 }
 
 const emptyForm = (): FormState => ({
     title: { uz: '', ru: '', en: '' },
-    subject: { uz: '', ru: '', en: '' },
-    content: { uz: '', ru: '', en: '' },
-    imageIds: [],
-    date: null,
-    status: 1,
+    link: '',
+    order: 0,
+    status: true,
 })
 
 const form = reactive(emptyForm())
@@ -125,14 +121,8 @@ function resolveTranslation(t: Translation | null | undefined) {
     return t[locale.value as keyof Translation] || t.uz || ''
 }
 
-function formatDate(iso?: string | null) {
-    if (!iso) return ''
-    const d = new Date(iso)
-    return Number.isNaN(d.getTime()) ? '' : d.toLocaleDateString('en-GB').replace(/\//g, '.')
-}
-
 async function loadList() {
-    await store.fetchAll({ page: page.value, limit: pageSize.value, sortBy: 'date', order: 'desc' })
+    await store.fetchAll({ page: page.value, limit: pageSize.value, sortBy: 'order', order: 'asc' })
 }
 
 function onPageChange(p: number) { page.value = p; loadList() }
@@ -143,28 +133,28 @@ function openCreate() {
     showDialog.value = true
 }
 
-function openEdit(row: Meeting) {
+function openEdit(row: SpecialProject) {
     editing.value = row
     Object.assign(form, {
         title: { ...row.title },
-        subject: row.subject ? { ...row.subject } : { uz: '', ru: '', en: '' },
-        content: row.content ? { ...row.content } : { uz: '', ru: '', en: '' },
-        imageIds: Array.isArray(row.imageIds) ? [...row.imageIds] : [],
-        date: row.date ? row.date.slice(0, 10) : null,
+        link: row.link || '',
+        order: row.order ?? 0,
         status: row.status,
     })
     showDialog.value = true
 }
 
 async function handleSubmit() {
+    if (!form.link.trim()) {
+        ElMessage.warning('Video link is required')
+        return
+    }
     saving.value = true
     try {
-        const payload: MeetingPayload = {
+        const payload: SpecialProjectPayload = {
             title: form.title,
-            subject: form.subject,
-            content: form.content,
-            imageIds: form.imageIds,
-            date: form.date || undefined,
+            link: form.link.trim(),
+            order: form.order,
             status: form.status,
         }
         const res = editing.value
@@ -180,7 +170,7 @@ async function handleSubmit() {
     }
 }
 
-async function handleDelete(row: Meeting) {
+async function handleDelete(row: SpecialProject) {
     try {
         await ElMessageBox.confirm(`Delete "${resolveTranslation(row.title)}"?`, 'Warning', {
             confirmButtonText: 'Yes', cancelButtonText: 'No', type: 'warning',
@@ -200,7 +190,7 @@ onMounted(loadList)
 
 .blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
     min-height: 120px;
 }
@@ -217,17 +207,20 @@ onMounted(loadList)
 }
 .blog-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.09); transform: translateY(-2px); }
 
-.blog-card__image { position: relative; width: 100%; aspect-ratio: 16/10; background: #f7f8fa; flex-shrink: 0; }
-.blog-card__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.blog-card__status { position: absolute; top: 10px; right: 10px; }
-.blog-card__count { position: absolute; bottom: 10px; right: 10px; font-size: 12px; font-weight: 600; color: #fff; background: rgba(26,30,46,0.72); padding: 2px 9px; border-radius: 999px; }
+.blog-card__video { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; flex-shrink: 0; }
+.blog-card__video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.blog-card__video--empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #8a94a6; font-size: 13px; background: #f7f8fa; }
 
-.blog-card__body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex: 1; }
-.blog-card__date { font-size: 12px; color: #8a94a6; font-weight: 600; margin-bottom: 4px; display: block; }
-.blog-card__subject { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4361ee; margin: 0 0 6px; }
+.blog-card__body { padding: 16px 18px; display: flex; flex-direction: column; flex: 1; }
+.blog-card__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.blog-card__order { font-size: 13px; font-weight: 700; color: #8a94a6; }
 .blog-card__title {
     font-size: 15px; font-weight: 600; color: #101828; margin: 0 0 8px; line-height: 1.45;
     display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.blog-card__link {
+    font-size: 12px; color: #4361ee; margin: 0 0 8px; word-break: break-all;
+    display: -webkit-box; -webkit-line-clamp: 1; line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
 }
 .blog-card__actions { margin-top: auto; padding-top: 12px; display: flex; justify-content: flex-end; gap: 8px; border-top: 1px solid #f4f5f7; }
 .pagination-wrap { display: flex; justify-content: flex-end; margin-top: 20px; }

@@ -16,6 +16,7 @@ export const menuItems: MenuEntry[] = [
     { kind: 'link', id: 7, title: 'Blitz Interview', icon: 'blitz', path: '/admin/media/blitz-interview', role: ['super_admin', 'admin'] },
     // { kind: 'link', id: 8, title: 'Reports', icon: 'reports', path: '/admin/media/reports', role: ['super_admin', 'admin'] },
     { kind: 'link', id: 10, title: 'Reports', icon: 'reports', path: '/admin/media/analytical-reports', role: ['super_admin', 'admin'] },
+    { kind: 'link', id: 19, title: 'Special Projects', icon: 'blitz', path: '/admin/media/special-projects', role: ['super_admin', 'admin'] },
     // ─── Documents ─────────────────────────────────────────────────
     { kind: 'group', title: 'Documents' },
     { kind: 'link', id: 11, title: 'Documents', icon: 'reports', path: '/admin/documents', role: ['super_admin', 'admin'] },

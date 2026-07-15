@@ -8,6 +8,7 @@
         <el-tabs v-model="activeType" @tab-change="onTabChange">
             <el-tab-pane label="International Advisory Group" name="INTERNATIONAL" />
             <el-tab-pane label="Uzbek Experts" name="UZBEK" />
+            <el-tab-pane label="Local Experts" name="LOCAL" />
         </el-tabs>
 
         <el-table :data="expertsStore.items" v-loading="expertsStore.loading" class="w-full">
@@ -59,6 +60,7 @@
                     <el-select v-model="form.type" class="w-full">
                         <el-option label="International Advisory Group" value="INTERNATIONAL" />
                         <el-option label="Uzbek Experts" value="UZBEK" />
+                        <el-option label="Local Experts" value="LOCAL" />
                     </el-select>
                 </el-form-item>
                 <el-form-item label="Name">

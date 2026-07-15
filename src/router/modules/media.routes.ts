@@ -19,6 +19,12 @@ const mediaRoutes: RouteRecordRaw[] = [
         component: () => import('@/views/admin/media/analytical-reports/Index.vue'),
         meta: { title: 'Yangi yondashuvlar', roles: ['super_admin', 'admin'] },
     },
+    {
+        path: 'media/special-projects',
+        name: 'admin-special-projects',
+        component: () => import('@/views/admin/media/special-projects/Index.vue'),
+        meta: { title: 'Maxsus loyihalar', roles: ['super_admin', 'admin'] },
+    },
 ]
 
 export default mediaRoutes

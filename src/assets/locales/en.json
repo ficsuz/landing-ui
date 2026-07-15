@@ -107,11 +107,13 @@
         "management": "Management",
         "card1": {
             "name": "Shavkat Miromonovich Mirziyoyev",
-            "role": "Chair of the Council"
+            "role": "Chair of the Council",
+            "subrole": "President of the Republic of Uzbekistan"
         },
         "card2": {
             "name": "Odile Renaud-Basso",
-            "role": "Co-Chair of the Council · President of the EBRD"
+            "role": "Co-Chair of the Council",
+            "subrole": "President of the EBRD"
         }
     },
     "keyFigures": {

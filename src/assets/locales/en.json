@@ -1,4 +1,9 @@
 {
+    "brand": {
+        "line1": "Foreign Investors' Council",
+        "line2": "under the President of the",
+        "line3": "Republic of Uzbekistan"
+    },
     "nav": {
         "aboutCouncil": "About the Council",
         "home": "Home",

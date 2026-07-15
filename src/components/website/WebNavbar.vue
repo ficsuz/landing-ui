@@ -596,14 +596,18 @@ const isParentActive = (item: NavMenuItem): boolean => {
 
     .web-navbar__inner { gap: 0; padding: 0 16px; }
 
-    .web-navbar__logo { gap: 8px; }
-    .web-navbar__logo-mark { width: 36px; height: 36px; }
+    .web-navbar__logo { gap: 8px; flex-shrink: 1; min-width: 0; }
+    .web-navbar__logo-mark { width: 36px; height: 36px; flex-shrink: 0; }
     .web-navbar__logo-text {
         display: block;
         font-size: 9px;
         letter-spacing: 0.01em;
         line-height: 1.4;
+        max-width: none;
+        min-width: 0;
     }
+
+    .web-navbar__mobile-controls { flex-shrink: 0; }
 
     .web-navbar__locale {
         width: 28px;

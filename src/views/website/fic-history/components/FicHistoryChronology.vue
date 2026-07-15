@@ -12,7 +12,7 @@
                 <button
                     v-for="(m, i) in milestones"
                     :key="m.id"
-                    class="px-5 py-2.5 rounded-full border text-[14px] font-medium transition-all duration-200 whitespace-nowrap"
+                    class="px-5 py-2.5 rounded-full border text-[14px] font-medium transition-all duration-200 max-w-full break-words"
                     :class="active === i
                         ? 'bg-[#1a1e2e] text-white border-[#1a1e2e]'
                         : 'bg-white text-[#1a1e2e] border-[#d0d5dd] hover:border-[#1a1e2e]'"

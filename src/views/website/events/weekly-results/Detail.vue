@@ -177,6 +177,19 @@ onMounted(() => {
     display: block;
 }
 
+.article-body :deep(iframe),
+.article-body :deep(video),
+.article-body :deep(embed),
+.article-body :deep(object) {
+    max-width: 100%;
+}
+
+.article-body :deep(iframe) {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+}
+
 .article-body :deep(table) {
     width: 100%;
     border-collapse: collapse;
@@ -185,6 +198,16 @@ onMounted(() => {
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid #eef0f4;
+}
+
+/* CMS tables can be wider than the phone screen — scroll them internally */
+@media (max-width: 767px) {
+    .article-body :deep(table) {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
 }
 
 .article-body :deep(th) {

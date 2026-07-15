@@ -157,7 +157,7 @@
                     </div>
 
                     <!-- Title -->
-                    <h1 class="text-[clamp(32px,5vw,64px)] font-black uppercase text-[#191C1F] leading-[1.05] mb-6">
+                    <h1 class="text-[clamp(32px,5vw,64px)] font-black uppercase text-[#191C1F] leading-[1.05] mb-6 break-words">
                         {{ $t(selected.nameKey) }}
                     </h1>
                     <p class="text-base md:text-lg text-[#505A63] font-medium mb-10 md:mb-12 leading-relaxed">

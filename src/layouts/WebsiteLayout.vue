@@ -40,6 +40,7 @@ watch(() => route.path, () => {
     min-height: 100vh;
     height: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
 }

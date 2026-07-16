@@ -1,13 +1,8 @@
 <template>
     <aside class="flex relative flex-col px-4 py-7 mx-auto w-full bg-bg-2 border-r border-gray-200 h-full min-h-0">
         <div class="flex flex-col flex-1 min-h-0">
-            <header class="flex items-center gap-3 pl-1 flex-shrink-0">
-                <LogoIcon class="w-10 h-10 flex-shrink-0" />
-                <span v-if="!props.isCallapse" class="text-[8px] font-bold leading-[1.35] text-[#191c1f] tracking-wide uppercase">
-                    FOREIGN INVESTORS COUNCIL<br />
-                    UNDER THE PRESIDENT OF THE<br />
-                    REPUBLIC OF UZBEKISTAN
-                </span>
+            <header class="pl-1 flex-shrink-0">
+                <AppBrand size="sm" :hide-text="props.isCallapse" />
             </header>
             <nav class="mt-8 flex-1 overflow-y-auto min-h-0">
                 <ul class="space-y-0.5">
@@ -63,7 +58,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import LogoIcon from '@/components/icons/LogoIcon.vue'
+import AppBrand from '@/components/AppBrand.vue'
 import { ElMessageBox } from 'element-plus'
 import { useUserStore } from '@/stores'
 import { menuItems } from '@/constants/routes.constants'

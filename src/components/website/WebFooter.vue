@@ -4,14 +4,9 @@
             <!-- Top -->
             <div class="flex flex-col lg:flex-row gap-10 pb-10 border-b border-white">
                 <!-- Left: brand + contact + social -->
-                <div class="flex-shrink-0 lg:w-64">
+                <div class="flex-shrink-0 lg:w-72">
                     <!-- Logo -->
-                    <router-link to="/" class="flex items-center gap-3 mb-10">
-                        <LogoIcon class="w-11 h-11 flex-shrink-0" />
-                        <span class="text-white text-[10px] font-bold leading-snug tracking-normal uppercase">
-                            {{ $t('footer.brand') }}
-                        </span>
-                    </router-link>
+                    <AppBrand to="/" light class="mb-10" />
 
                     <!-- Contact info -->
                     <div class="flex flex-col gap-5">
@@ -82,7 +77,7 @@
 
 <script setup lang="ts">
 import { h } from 'vue'
-import LogoIcon from '@/components/icons/LogoIcon.vue'
+import AppBrand from '@/components/AppBrand.vue'
 import { websiteMenu } from '@/constants/navigation.constants'
 
 const currentYear = new Date().getFullYear()

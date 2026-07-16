@@ -3,12 +3,7 @@
         <!-- Main bar -->
         <div class="web-navbar__inner">
             <!-- Logo -->
-            <router-link to="/" class="web-navbar__logo">
-                <LogoIcon class="web-navbar__logo-mark" />
-                <span class="web-navbar__logo-text">
-                    {{ $t('footer.brand') }}
-                </span>
-            </router-link>
+            <AppBrand to="/" class="web-navbar__logo" />
 
             <!-- Desktop menu -->
             <ul class="web-navbar__menu">
@@ -163,7 +158,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import LogoIcon from '@/components/icons/LogoIcon.vue'
+import AppBrand from '@/components/AppBrand.vue'
 import { websiteMenu, type NavMenuItem } from '@/constants/navigation.constants'
 import { useLocale } from '@/composables'
 
@@ -241,23 +236,7 @@ const isParentActive = (item: NavMenuItem): boolean => {
     }
 
     &__logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
         flex-shrink: 0;
-        text-decoration: none;
-    }
-
-    &__logo-mark { width: 44px; height: 44px; }
-
-    &__logo-text {
-        font-size: 11px;
-        font-weight: 700;
-        line-height: 1.3;
-        color: #191c1f;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        max-width: 220px;
     }
 
     /* ── Desktop menu ── */
@@ -558,7 +537,7 @@ const isParentActive = (item: NavMenuItem): boolean => {
 
 @media (min-width: 1280px) and (max-width: 1399px) {
     .web-navbar__mobile-controls { display: none !important; }
-    .web-navbar__logo-text { display: none; }
+    .web-navbar__logo :deep(.app-brand__text) { display: none; }
     .web-navbar__inner { gap: 20px; }
     .web-navbar__menu { gap: 16px; }
     .web-navbar__link { font-size: 14px; }
@@ -575,14 +554,11 @@ const isParentActive = (item: NavMenuItem): boolean => {
 
     .web-navbar__inner { gap: 0; padding: 0 16px; }
 
-    .web-navbar__logo { gap: 8px; }
-    .web-navbar__logo-mark { width: 36px; height: 36px; }
-    .web-navbar__logo-text {
-        display: block;
-        font-size: 9px;
-        letter-spacing: 0.01em;
-        line-height: 1.4;
-    }
+    .web-navbar__logo { flex-shrink: 1; min-width: 0; }
+    .web-navbar__logo :deep(.app-brand__mark) { width: 36px; height: 36px; }
+    .web-navbar__logo :deep(.app-brand__text) { display: block; font-size: 9px; }
+
+    .web-navbar__mobile-controls { flex-shrink: 0; }
 
     .web-navbar__locale {
         width: 28px;
@@ -592,8 +568,8 @@ const isParentActive = (item: NavMenuItem): boolean => {
 }
 
 @media (max-width: 374px) {
-    .web-navbar__logo-text { display: none; }
-    .web-navbar__logo-mark { width: 32px; height: 32px; }
+    .web-navbar__logo :deep(.app-brand__text) { display: none; }
+    .web-navbar__logo :deep(.app-brand__mark) { width: 32px; height: 32px; }
 }
 
 /* ── Transitions ── */

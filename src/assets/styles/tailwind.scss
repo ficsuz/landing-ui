@@ -8,6 +8,6 @@
     }
 
     .section-title {
-        @apply font-black text-[clamp(32px,5vw,64px)] leading-[1.05] text-[#1a1e2e] uppercase;
+        @apply font-black text-[clamp(32px,5vw,64px)] leading-[1.05] text-[#1a1e2e] uppercase break-words;
     }
 }

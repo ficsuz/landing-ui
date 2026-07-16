@@ -1,4 +1,9 @@
 {
+    "brand": {
+        "line1": "O'zbekiston Respublikasi",
+        "line2": "Prezidenti huzuridagi Xorijiy",
+        "line3": "investorlar kengashi"
+    },
     "nav": {
         "aboutCouncil": "Kengash haqida",
         "home": "Bosh sahifa",

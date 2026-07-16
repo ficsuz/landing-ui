@@ -13,7 +13,7 @@
         <!-- Foreign members ticker -->
         <div class="flex flex-col gap-4 mb-4">
             <!-- Row 1: left -->
-            <div class="relative flex overflow-hidden">
+            <div v-if="row1.length" class="relative flex overflow-hidden">
                 <div class="ticker-track ticker-left flex gap-4 shrink-0">
                     <div
                         v-for="(logo, i) in [...row1, ...row1]"
@@ -26,7 +26,7 @@
             </div>
 
             <!-- Row 2: right -->
-            <div class="relative flex overflow-hidden">
+            <div v-if="row2.length" class="relative flex overflow-hidden">
                 <div class="ticker-track ticker-right flex gap-4 shrink-0">
                     <div
                         v-for="(logo, i) in [...row2, ...row2]"
@@ -109,76 +109,38 @@
 import { computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useMembersStore } from '@/features/members/store'
+import { useCouncilMembersStore } from '@/features/councilMembers/store'
 import { resolveTranslation } from '@/utils/i18n'
 import { getMediaUrl } from '@/utils/media'
 
-import datavolt from '@/assets/images/brands/datavolt.png'
-import deloitte from '@/assets/images/brands/deloitte.png'
-import ebrd from '@/assets/images/brands/ebrd.png'
-import edf from '@/assets/images/brands/edf.png'
-import ey from '@/assets/images/brands/ey.png'
-import halykBank from '@/assets/images/brands/halyk-bank.png'
-import ifc from '@/assets/images/brands/ifc.png'
-import indorama from '@/assets/images/brands/indorama.png'
-import kpmg from '@/assets/images/brands/kpmg.png'
-import pwc from '@/assets/images/brands/pwc.png'
-import siemens from '@/assets/images/brands/siemens.png'
-import jpMorgan from '@/assets/images/brands/jp-morgan.png'
-
-import acwaPower from '@/assets/images/brands/acwa-power.png'
-import adb from '@/assets/images/brands/adb.png'
-import bat from '@/assets/images/brands/bat.png'
-import giz from '@/assets/images/brands/giz.png'
-import knauf from '@/assets/images/brands/knauf.png'
-import linde from '@/assets/images/brands/linde.png'
-import masdar from '@/assets/images/brands/masdar.png'
-import mastercard from '@/assets/images/brands/mastercard.png'
-import mitsubishi from '@/assets/images/brands/mitsubishi.png'
-import usaid from '@/assets/images/brands/usaid.png'
-import visa from '@/assets/images/brands/visa.png'
-import wbGroup from '@/assets/images/brands/wb-group.png'
-
 const { locale } = useI18n()
 const membersStore = useMembersStore()
+const councilMembersStore = useCouncilMembersStore()
+
 const members = computed(() => membersStore.items)
 
 const half = computed(() => Math.ceil(members.value.length / 2))
 const uzbekRow1 = computed(() => members.value.slice(0, half.value))
 const uzbekRow2 = computed(() => members.value.slice(half.value))
 
+// Foreign member logos — same source as the council-members page.
+const brands = computed(() =>
+    councilMembersStore.items
+        .filter((m) => m.status && m.logoId)
+        .map((m) => ({
+            name: resolveTranslation(m.name, locale.value),
+            src: getMediaUrl(m.logoId),
+        }))
+)
+
+const brandsHalf = computed(() => Math.ceil(brands.value.length / 2))
+const row1 = computed(() => brands.value.slice(0, brandsHalf.value))
+const row2 = computed(() => brands.value.slice(brandsHalf.value))
+
 onMounted(() => {
     membersStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
+    councilMembersStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
 })
-
-const row1 = [
-    { name: 'Datavolt', src: datavolt },
-    { name: 'Deloitte', src: deloitte },
-    { name: 'EBRD', src: ebrd },
-    { name: 'EDF', src: edf },
-    { name: 'EY', src: ey },
-    { name: 'Halyk Bank', src: halykBank },
-    { name: 'IFC', src: ifc },
-    { name: 'Indorama', src: indorama },
-    { name: 'KPMG', src: kpmg },
-    { name: 'PwC', src: pwc },
-    { name: 'Siemens', src: siemens },
-    { name: 'JP Morgan', src: jpMorgan },
-]
-
-const row2 = [
-    { name: 'ACWA Power', src: acwaPower },
-    { name: 'ADB', src: adb },
-    { name: 'BAT', src: bat },
-    { name: 'GIZ', src: giz },
-    { name: 'Knauf', src: knauf },
-    { name: 'Linde', src: linde },
-    { name: 'Masdar', src: masdar },
-    { name: 'Mastercard', src: mastercard },
-    { name: 'Mitsubishi', src: mitsubishi },
-    { name: 'USAID', src: usaid },
-    { name: 'Visa', src: visa },
-    { name: 'World Bank Group', src: wbGroup },
-]
 </script>
 
 <style scoped>

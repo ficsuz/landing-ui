@@ -7,7 +7,7 @@
                     class="w-full lg:w-[30%] shrink-0 lg:pt-4 transition-all duration-700"
                     :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
                 >
-                    <h2 class="section-title mb-4 md:mb-6">{{ $t('investorsVoices.title') }}</h2>
+                    <h2 class="section-title w-min mb-4 md:mb-6">{{ $t('investorsVoices.title') }}</h2>
                     <p class="text-[clamp(13px,1.2vw,16px)] text-[#8a94a6] leading-relaxed">
                         {{ $t('investorsVoices.subtitle') }}
                     </p>

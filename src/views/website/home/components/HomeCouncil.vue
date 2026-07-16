@@ -49,8 +49,8 @@
 </template>
 
 <script setup lang="ts">
-import photo1 from '@/assets/images/avatars/image12.png'
-import photo2 from '@/assets/images/avatars/image11.png'
+import photo1 from '@/assets/images/hero/PR.jpg'
+import photo2 from '@/assets/images/hero/odile.jpg'
 import icon1 from '@/assets/images/icons/pr.png'
 import icon2 from '@/assets/images/icons/e-bank.png'
 </script>

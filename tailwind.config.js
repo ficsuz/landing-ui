@@ -38,7 +38,7 @@ module.exports = {
                 'bg-2': '#FCFCFD',
             },
             fontFamily: {
-                inter: ['Inter', 'sans-serif'],
+                sans: ['Onest', 'sans-serif'],
                 onest: ['Onest', 'sans-serif'],
             },
             borderRadius: {

@@ -117,32 +117,21 @@
                         :key="item.labelKey"
                         class="web-navbar__panel-group"
                     >
-                        <!-- Group with children: accordion -->
-                        <div v-if="item.children" class="web-navbar__panel-header">
-                            <router-link
-                                v-if="item.path"
-                                :to="item.path"
-                                class="web-navbar__panel-title is-link"
-                                :class="{ active: isParentActive(item) }"
-                                active-class=""
-                                exact-active-class=""
-                                @click="closeAll"
-                            >
-                                {{ $t(item.labelKey) }}
-                            </router-link>
-                            <span v-else class="web-navbar__panel-title" :class="{ active: isParentActive(item) }">
+                        <!-- Group with children: whole row toggles the accordion -->
+                        <button
+                            v-if="item.children"
+                            class="web-navbar__panel-header"
+                            :class="{ expanded: expandedGroup === item.labelKey }"
+                            :aria-expanded="expandedGroup === item.labelKey"
+                            @click="expandedGroup = expandedGroup === item.labelKey ? null : item.labelKey"
+                        >
+                            <span class="web-navbar__panel-title" :class="{ active: isParentActive(item) }">
                                 {{ $t(item.labelKey) }}
                             </span>
-                            <button
-                                class="web-navbar__panel-chevron-btn"
-                                :class="{ expanded: expandedGroup === item.labelKey }"
-                                @click="expandedGroup = expandedGroup === item.labelKey ? null : item.labelKey"
-                            >
-                                <svg class="web-navbar__panel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
+                            <svg class="web-navbar__panel-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
 
                         <Transition name="accordion">
                             <ul v-if="item.children && expandedGroup === item.labelKey" class="web-navbar__panel-links">
@@ -481,46 +470,35 @@ const isParentActive = (item: NavMenuItem): boolean => {
         border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    /* Header row: label (link or text) + chevron button */
+    /* Header row: full-width accordion toggle */
     &__panel-header {
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 8px;
-    }
-
-    &__panel-title {
-        flex: 1;
         padding: 16px 0;
-        font-size: 16px;
-        font-weight: 500;
-        color: rgba(255,255,255,0.65);
-        text-decoration: none;
-        transition: color 0.15s;
         background: none;
         border: none;
-
-        &:hover, &.active { color: #fff; }
-        &.active { font-weight: 600; }
-
-        &.is-link { display: block; }
-    }
-
-    &__panel-chevron-btn {
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        background: none;
-        border: none;
-        padding: 4px;
+        text-align: left;
+        -webkit-tap-highlight-color: transparent;
 
         &.expanded .web-navbar__panel-chevron { transform: rotate(180deg); }
     }
 
+    &__panel-title {
+        flex: 1;
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(255,255,255,0.65);
+        transition: color 0.15s;
+
+        &:hover, &.active { color: #fff; }
+        &.active { font-weight: 600; }
+    }
+
     &__panel-chevron {
+        flex-shrink: 0;
         width: 18px;
         height: 18px;
         color: rgba(255,255,255,0.4);
@@ -529,7 +507,7 @@ const isParentActive = (item: NavMenuItem): boolean => {
 
     &__panel-links {
         list-style: none;
-        padding: 4px 0 12px 12px;
+        padding: 4px 0 12px;
         display: flex;
         flex-direction: column;
         gap: 2px;
@@ -537,8 +515,9 @@ const isParentActive = (item: NavMenuItem): boolean => {
 
     &__panel-link {
         display: block;
-        padding: 10px 16px;
+        padding: 13px 16px 13px 28px;
         border-radius: 10px;
+        -webkit-tap-highlight-color: transparent;
         font-size: 15px;
         font-weight: 400;
         color: rgba(255,255,255,0.55);

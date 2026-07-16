@@ -4,7 +4,7 @@
 
 // Button styling
 .el-button {
-    font-family: 'Inter', sans-serif;
+    font-family: "Onest", sans-serif;
     font-weight: 500;
     border-radius: 8px;
     height: 40px;
@@ -61,7 +61,7 @@
         margin-bottom: 24px !important;
 
         &__label {
-            font-family: Inter;
+            font-family: "Onest", sans-serif;
             font-weight: 500;
             font-size: 14px;
             line-height: 150%;
@@ -80,7 +80,7 @@
     }
 
     .el-input__inner::placeholder {
-        font-family: Inter;
+        font-family: "Onest", sans-serif;
         font-weight: 400;
         font-size: 14px;
         line-height: 125%;
@@ -107,7 +107,7 @@
     }
 
     .el-textarea__inner::placeholder {
-        font-family: Inter;
+        font-family: "Onest", sans-serif;
         font-weight: 400;
         font-size: 14px;
         line-height: 125%;
@@ -138,7 +138,7 @@
         width: 100%;
 
         &__inner::placeholder {
-            font-family: Inter;
+            font-family: "Onest", sans-serif;
             font-weight: 400;
             font-size: 14px;
             line-height: 125%;
@@ -225,7 +225,7 @@
 // Input
 
 .el-input {
-    font-family: Inter;
+    font-family: "Onest", sans-serif;
 
     &.transparent {
         .el-input__wrapper {
@@ -257,7 +257,7 @@
 // Button
 
 .el-button {
-    font-family: 'Inter';
+    font-family: "Onest", sans-serif;
 
     &--large {
         font-weight: 500;
@@ -292,7 +292,7 @@
             background-color: #F9FAFB !important;
             padding: 12px 24px !important;
             border-bottom: 1px solid #EAECF0 !important;
-            font-family: 'Inter' !important;
+            font-family: "Onest", sans-serif !important;
             font-size: 12px !important;
             font-weight: 500 !important;
             line-height: 14.06px !important;
@@ -305,7 +305,7 @@
         tr {
             td {
                 padding: 14px 24px !important;
-                font-family: 'Inter';
+                font-family: "Onest", sans-serif;
                 font-size: 14px;
                 font-weight: 400;
                 line-height: 15.73px;
@@ -364,7 +364,7 @@
 // tag
 
 .el-tag {
-    font-family: Inter;
+    font-family: "Onest", sans-serif;
     font-size: 12px !important;
     font-weight: 500;
     line-height: 18px;
@@ -400,7 +400,7 @@
         background: transparent !important;
         padding: 8px 12px 8px 12px !important;
         border-radius: 8px !important;
-        font-family: Inter;
+        font-family: "Onest", sans-serif;
         font-size: 14px !important;
         font-weight: 600;
         line-height: 20px;
@@ -428,7 +428,7 @@
     border-radius: 16px !important;
 
     &__title {
-        font-family: 'Inter';
+        font-family: "Onest", sans-serif;
         font-weight: 600;
         font-size: 20px;
         line-height: 150%;
@@ -450,7 +450,7 @@
 
 .el-drawer {
     &__title {
-        font-family: 'Inter';
+        font-family: "Onest", sans-serif;
         font-weight: 600;
         font-size: 20px;
         line-height: 150%;

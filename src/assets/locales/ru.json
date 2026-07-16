@@ -2,7 +2,7 @@
   "nav": {
     "aboutCouncil": "О Совете",
     "home": "Главная",
-    "ficHistory": "История ФИС",
+    "ficHistory": "История СИИ",
     "association": "Ассоциация",
     "management": "Руководство",
     "secretariat": "Секретариат",
@@ -16,7 +16,7 @@
     "overview": "Обзор",
     "councilWorkingGroups": "Рабочие группы Совета",
     "interagencyWorkingGroups": "Межведомственные рабочие группы",
-    "sessionOutcomes": "Итоги сессии",
+    "sessionOutcomes": "По итогам сессий",
 
     "results": "Результаты",
     "councilResults": "Результаты Совета",
@@ -24,10 +24,10 @@
     "investments": "Инвестиции",
     "documents": "Документы",
 
-    "events": "Мероприятия",
+    "events": "События",
     "calendarPlan": "Календарный план",
     "plenarySessions": "Пленарные сессии",
-    "interimSession": "Внеочередная сессия",
+    "interimSession": "Промежуточные сессии",
     "workingGroupSession": "Сессия рабочей группы",
     "meetings": "Встречи",
     "weeklyResults": "Еженедельные итоги",

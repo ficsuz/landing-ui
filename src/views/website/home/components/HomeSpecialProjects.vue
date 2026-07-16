@@ -4,7 +4,7 @@
             <div class="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-20 xl:gap-24 items-start">
                 <!-- Left: Text -->
                 <div
-                    class="w-full lg:w-[30%] shrink-0 lg:pt-4 transition-all duration-700"
+                    class="w-full lg:w-[36%] shrink-0 lg:pt-4 transition-all duration-700"
                     :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
                 >
                     <h2 class="section-title mb-4 md:mb-6">{{ $t('specialProjects.title') }}</h2>

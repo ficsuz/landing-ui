@@ -19,7 +19,7 @@
                         {{ $t('mediaPage.reportsPage.newApproaches.title') }}
                     </h2>
 
-                    <div v-loading="reportsStore.loading" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                    <div v-loading="reportsStore.loading" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                         <div
                             v-for="rep in publishedReports"
                             :key="rep.id"

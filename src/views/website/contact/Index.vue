@@ -30,7 +30,16 @@
                     </div>
 
                     <el-form-item :label="$t('contact.phone')" prop="phone">
-                        <el-input v-model="form.phone" :placeholder="$t('contact.phonePlaceholder')" size="large" class="contact-input--pill" />
+                        <el-input
+                            v-model="form.phone"
+                            :placeholder="$t('contact.phonePlaceholder')"
+                            size="large"
+                            inputmode="numeric"
+                            maxlength="19"
+                            class="contact-input--pill"
+                            @input="onPhoneInput"
+                            @keydown="onPhoneKeydown"
+                        />
                     </el-form-item>
 
                     <el-form-item :label="$t('contact.email')" prop="email">
@@ -91,7 +100,7 @@
 
                     <div class="w-full h-[380px] rounded-2xl overflow-hidden bg-[#f2f4f7]">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.0!2d69.2796!3d41.2992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b6a3b6b8b8b%3A0x1234567890abcdef!2sBoMI%20Finance%20Center!5e0!3m2!1sen!2s!4v1718000000000"
+                            src="https://maps.google.com/maps?q=41.312695,69.245376&z=17&hl=en&output=embed"
                             width="100%"
                             height="100%"
                             style="border: 0"
@@ -125,13 +134,54 @@ const form = reactive({
     message: '',
 })
 
+// Format Uzbek phone: +998 (XX) XXX XX XX
+const formatUzPhone = (raw: string): string => {
+    let digits = raw.replace(/\D/g, '')
+    // Always keep the 998 country code prefix
+    if (digits.startsWith('998')) digits = digits.slice(3)
+    digits = digits.slice(0, 9) // 9 national digits max
+
+    let out = '+998'
+    if (digits.length) out += ' (' + digits.slice(0, 2)
+    if (digits.length >= 2) out += ')'
+    if (digits.length > 2) out += ' ' + digits.slice(2, 5)
+    if (digits.length > 5) out += ' ' + digits.slice(5, 7)
+    if (digits.length > 7) out += ' ' + digits.slice(7, 9)
+    return out
+}
+
+const onPhoneInput = (val: string) => {
+    form.phone = formatUzPhone(val)
+}
+
+// Block non-numeric typing (allow control/navigation keys)
+const onPhoneKeydown = (evt: Event | KeyboardEvent) => {
+    const e = evt as KeyboardEvent
+    if (e.ctrlKey || e.metaKey || e.altKey) return
+    if (e.key.length === 1 && !/[0-9]/.test(e.key)) e.preventDefault()
+}
+
 const rules: FormRules = {
     firstName: [{ required: true, message: () => t('contact.firstNamePlaceholder'), trigger: 'blur' }],
     lastName: [{ required: true, message: () => t('contact.lastNamePlaceholder'), trigger: 'blur' }],
-    phone: [{ required: true, message: () => t('contact.phonePlaceholder'), trigger: 'blur' }],
+    phone: [
+        { required: true, message: () => t('contact.phonePlaceholder'), trigger: 'blur' },
+        {
+            validator: (_r, v: string, cb) => {
+                const digits = (v || '').replace(/\D/g, '')
+                digits.length === 12 ? cb() : cb(new Error(t('contact.phonePlaceholder')))
+            },
+            trigger: 'blur',
+        },
+    ],
     email: [{ required: true, type: 'email', message: () => t('contact.emailPlaceholder'), trigger: 'blur' }],
     message: [{ required: true, message: () => t('contact.messagePlaceholder'), trigger: 'blur' }],
 }
+
+const TELEGRAM_BOT_TOKEN = '8766845031:AAHCxEnBWzBtRxFeQC60Fy5gb5J_f9ZBx-Q'
+const TELEGRAM_CHAT_ID = '-1003939031818'
+
+const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
 const handleSubmit = async () => {
     const valid = await formRef.value?.validate().catch(() => false)
@@ -139,20 +189,25 @@ const handleSubmit = async () => {
 
     loading.value = true
     try {
-        const res = await fetch('https://6935988eacba7.xvest1.ru/fic_bot_test/send.php', {
+        const text =
+            `<b>Новая заявка с сайта FIC</b>\n\n` +
+            `<b>Имя:</b> ${escapeHtml(form.firstName)} ${escapeHtml(form.lastName)}\n` +
+            `<b>Телефон:</b> ${escapeHtml(form.phone)}\n` +
+            `<b>Email:</b> ${escapeHtml(form.email)}\n` +
+            `<b>Сообщение:</b>\n${escapeHtml(form.message)}`
+
+        const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                first_name: form.firstName,
-                last_name: form.lastName,
-                phone: form.phone,
-                email: form.email,
-                message: form.message,
+                chat_id: TELEGRAM_CHAT_ID,
+                text,
+                parse_mode: 'HTML',
             }),
         })
 
         const data = await res.json()
-        if (data.success) {
+        if (data.ok) {
             ElMessage.success(t('contact.successMessage'))
             formRef.value?.resetFields()
         } else {

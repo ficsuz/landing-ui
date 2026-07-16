@@ -37,30 +37,79 @@
                         </span>
                     </div>
 
-                    <!-- Image gallery -->
-                    <div v-if="meeting.imageIds?.length" class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div
-                            v-for="(id, i) in meeting.imageIds"
-                            :key="id"
-                            class="group relative rounded-2xl overflow-hidden aspect-[16/10] bg-[#eef0f4]"
-                            :class="{ 'sm:col-span-2 aspect-[16/8]': meeting.imageIds.length === 1 || (meeting.imageIds.length % 2 === 1 && i === 0) }"
-                        >
+                    <!-- Image gallery: hero + thumbnail strip -->
+                    <div v-if="meeting.imageIds?.length" class="mt-8">
+                        <!-- Main image -->
+                        <div class="group relative rounded-2xl overflow-hidden aspect-[16/9] bg-[#eef0f4]">
                             <img
-                                :src="getMediaUrl(id)"
+                                :key="activeImageId"
+                                :src="getMediaUrl(activeImageId)"
                                 :alt="resolveTranslation(meeting.title, locale)"
-                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                class="gallery-main-img w-full h-full object-cover cursor-zoom-in"
+                                @click="lightboxOpen = true"
                             />
+                            <!-- Counter -->
+                            <span
+                                v-if="meeting.imageIds.length > 1"
+                                class="absolute bottom-3 left-3 text-[12px] font-semibold text-white bg-black/55 backdrop-blur-sm px-2.5 py-1 rounded-full"
+                            >
+                                {{ activeIndex + 1 }} / {{ meeting.imageIds.length }}
+                            </span>
                             <!-- Download button -->
                             <button
                                 type="button"
                                 :title="$t('common.download')"
                                 class="absolute top-3 right-3 w-10 h-10 rounded-full flex items-center justify-center bg-white/90 backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.2)] text-[#1a1e2e] opacity-0 group-hover:opacity-100 hover:bg-white hover:scale-105 transition-all duration-300"
-                                @click="downloadImage(id, i)"
+                                @click.stop="downloadImage(activeImageId, activeIndex)"
                             >
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                                     <polyline points="7 10 12 15 17 10" />
                                     <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Thumbnail strip -->
+                        <div v-if="meeting.imageIds.length > 1" class="relative mt-2">
+                            <!-- Scroll left -->
+                            <button
+                                v-show="canScrollLeft"
+                                type="button"
+                                class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.18)] items-center justify-center text-[#1a1e2e] hover:bg-[#1a1e2e] hover:text-white transition-colors"
+                                @click="scrollThumbs(-1)"
+                            >
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M15 18l-6-6 6-6" />
+                                </svg>
+                            </button>
+
+                            <div
+                                ref="thumbStrip"
+                                class="flex gap-2.5 overflow-x-auto p-2 thumb-strip"
+                                @scroll="updateThumbScroll"
+                            >
+                                <button
+                                    v-for="(id, i) in meeting.imageIds"
+                                    :key="id"
+                                    type="button"
+                                    class="shrink-0 w-[92px] h-[64px] rounded-lg overflow-hidden bg-[#eef0f4] transition-all duration-200"
+                                    :class="i === activeIndex ? 'ring-2 ring-[#1a1e2e] ring-offset-2' : 'opacity-60 hover:opacity-100'"
+                                    @click="activeIndex = i"
+                                >
+                                    <img :src="getMediaUrl(id)" :alt="`${i + 1}`" class="w-full h-full object-cover" />
+                                </button>
+                            </div>
+
+                            <!-- Scroll right -->
+                            <button
+                                v-show="canScrollRight"
+                                type="button"
+                                class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.18)] items-center justify-center text-[#1a1e2e] hover:bg-[#1a1e2e] hover:text-white transition-colors"
+                                @click="scrollThumbs(1)"
+                            >
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18l6-6-6-6" />
                                 </svg>
                             </button>
                         </div>
@@ -79,11 +128,84 @@
         <div v-else-if="!meetingsStore.loading" class="py-24 text-center text-[#8a94a6]">
             {{ $t('common.noData') }}
         </div>
+
+        <!-- Lightbox -->
+        <Teleport to="body">
+            <Transition name="lb-fade">
+                <div
+                    v-if="lightboxOpen && meeting"
+                    class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-sm select-none"
+                    @click.self="lightboxOpen = false"
+                >
+                    <!-- Close -->
+                    <button
+                        type="button"
+                        class="absolute top-4 right-4 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center text-white transition-colors z-10"
+                        @click="lightboxOpen = false"
+                    >
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                            <path d="M18 6L6 18M6 6l12 12" />
+                        </svg>
+                    </button>
+
+                    <!-- Prev -->
+                    <button
+                        v-if="meeting.imageIds.length > 1"
+                        type="button"
+                        class="absolute left-3 md:left-6 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center text-white transition-colors"
+                        @click.stop="prevImage"
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+
+                    <img
+                        :key="activeImageId"
+                        :src="getMediaUrl(activeImageId)"
+                        :alt="resolveTranslation(meeting.title, locale)"
+                        class="max-w-[92vw] max-h-[86vh] object-contain rounded-lg"
+                        @click.stop
+                    />
+
+                    <!-- Next -->
+                    <button
+                        v-if="meeting.imageIds.length > 1"
+                        type="button"
+                        class="absolute right-3 md:right-6 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center text-white transition-colors"
+                        @click.stop="nextImage"
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+
+                    <!-- Counter + download -->
+                    <div class="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-4">
+                        <span class="text-[13px] font-semibold text-white/90 bg-white/10 px-3 py-1.5 rounded-full">
+                            {{ activeIndex + 1 }} / {{ meeting.imageIds.length }}
+                        </span>
+                        <button
+                            type="button"
+                            :title="$t('common.download')"
+                            class="w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center text-white transition-colors"
+                            @click.stop="downloadImage(activeImageId, activeIndex)"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="7 10 12 15 17 10" />
+                                <line x1="12" y1="15" x2="12" y2="3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </Transition>
+        </Teleport>
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { useMeetingsStore } from '@/features/meetings/store'
@@ -96,6 +218,53 @@ const route = useRoute()
 const meetingsStore = useMeetingsStore()
 
 const meeting = computed(() => meetingsStore.current)
+
+// --- Gallery ---
+const activeIndex = ref(0)
+const lightboxOpen = ref(false)
+const activeImageId = computed(() => meeting.value?.imageIds?.[activeIndex.value] ?? '')
+
+// --- Thumbnail strip scrolling ---
+const thumbStrip = ref<HTMLElement | null>(null)
+const canScrollLeft = ref(false)
+const canScrollRight = ref(false)
+
+function updateThumbScroll() {
+    const el = thumbStrip.value
+    if (!el) return
+    canScrollLeft.value = el.scrollLeft > 1
+    canScrollRight.value = el.scrollLeft + el.clientWidth < el.scrollWidth - 1
+}
+
+function scrollThumbs(dir: number) {
+    const el = thumbStrip.value
+    if (!el) return
+    el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: 'smooth' })
+}
+
+// Reset to first image whenever the meeting changes
+watch(meeting, async () => {
+    activeIndex.value = 0
+    await nextTick()
+    thumbStrip.value?.scrollTo({ left: 0 })
+    updateThumbScroll()
+})
+
+function nextImage() {
+    const len = meeting.value?.imageIds?.length ?? 0
+    if (len) activeIndex.value = (activeIndex.value + 1) % len
+}
+function prevImage() {
+    const len = meeting.value?.imageIds?.length ?? 0
+    if (len) activeIndex.value = (activeIndex.value - 1 + len) % len
+}
+
+function onKeydown(e: KeyboardEvent) {
+    if (!lightboxOpen.value) return
+    if (e.key === 'Escape') lightboxOpen.value = false
+    else if (e.key === 'ArrowRight') nextImage()
+    else if (e.key === 'ArrowLeft') prevImage()
+}
 
 const htmlContent = computed(() => {
     if (!meeting.value?.content) return ''
@@ -129,12 +298,55 @@ async function downloadImage(id: string, i: number) {
     }
 }
 
+watch(lightboxOpen, (open) => {
+    document.body.style.overflow = open ? 'hidden' : ''
+})
+
 onMounted(() => {
     meetingsStore.fetchOne(String(route.params.id))
+    window.addEventListener('keydown', onKeydown)
+    window.addEventListener('resize', updateThumbScroll)
+})
+
+onUnmounted(() => {
+    window.removeEventListener('keydown', onKeydown)
+    window.removeEventListener('resize', updateThumbScroll)
+    document.body.style.overflow = ''
 })
 </script>
 
 <style scoped>
+/* Smooth crossfade when the main image / lightbox image changes */
+.gallery-main-img {
+    animation: imgFade 0.35s ease;
+}
+@keyframes imgFade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* Slim thumbnail scrollbar */
+.thumb-strip {
+    scrollbar-width: thin;
+    scrollbar-color: #d0d5dd transparent;
+}
+.thumb-strip::-webkit-scrollbar {
+    height: 6px;
+}
+.thumb-strip::-webkit-scrollbar-thumb {
+    background: #d0d5dd;
+    border-radius: 999px;
+}
+
+.lb-fade-enter-active,
+.lb-fade-leave-active {
+    transition: opacity 0.25s ease;
+}
+.lb-fade-enter-from,
+.lb-fade-leave-to {
+    opacity: 0;
+}
+
 .article-body {
     font-size: clamp(15px, 1.3vw, 18px);
     color: #444;

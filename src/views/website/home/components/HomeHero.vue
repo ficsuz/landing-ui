@@ -11,9 +11,18 @@
             <div ref="content1" class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12">
                 <div class="max-w-[600px]">
                     <div class="s1-mark text-[48px] md:text-[96px] leading-none text-white/20 font-serif mb-[-10px] md:mb-[-16px] select-none">"</div>
-                    <blockquote class="s1-quote text-[clamp(22px,2.5vw,32px)] font-medium text-white italic leading-[1.55] mb-8 line-clamp-3">
-                        {{ $t('hero.slide1.quote') }}
-                    </blockquote>
+                    <a
+                        href="https://president.uz/en/lists/view/7194"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="s1-quote block mb-8 group/quote"
+                    >
+                        <blockquote
+                            class="text-[clamp(22px,2.5vw,32px)] font-medium text-white italic leading-[1.55] transition-opacity duration-200 group-hover/quote:opacity-80"
+                        >
+                            {{ $t('hero.slide1.quote') }}
+                        </blockquote>
+                    </a>
                     <div class="s1-author flex items-center gap-4">
                         <span class="block w-10 h-[2px] bg-white/40 flex-shrink-0" />
                         <div>
@@ -47,9 +56,13 @@
             <div ref="content2" class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12">
                 <div class="max-w-[600px] md:ml-auto text-left md:text-right">
                     <div class="s2-mark text-[48px] md:text-[96px] leading-none text-white/20 font-serif mb-[-10px] md:mb-[-16px] select-none">"</div>
-                    <blockquote class="s2-quote text-[clamp(24px,2.5vw,36px)] font-medium text-white italic leading-[1.55] mb-8">
-                        {{ $t('hero.slide2.quote') }}
-                    </blockquote>
+                    <router-link to="/" class="s2-quote block mb-8 group/quote">
+                        <blockquote
+                            class="text-[clamp(24px,2.5vw,36px)] font-medium text-white italic leading-[1.55] transition-opacity duration-200 group-hover/quote:opacity-80"
+                        >
+                            {{ $t('hero.slide2.quote') }}
+                        </blockquote>
+                    </router-link>
                     <div class="s2-author flex items-center gap-4 flex-row-reverse md:flex-row md:justify-end">
                         <div>
                             <p class="text-white font-bold text-[16px] leading-tight">{{ $t('hero.slide2.author') }}</p>

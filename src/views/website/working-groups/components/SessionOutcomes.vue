@@ -39,8 +39,8 @@
                             </p>
                         </div>
                         <div class="border-t border-[#eef0f4] px-6 md:px-8 py-4 flex justify-end">
-                            <a
-                                :href="outcome.file"
+                            <router-link
+                                :to="outcome.file"
                                 class="flex items-center gap-1.5 text-[14px] font-semibold text-[#1a1e2e] hover:opacity-60 transition-opacity"
                             >
                                 View
@@ -56,7 +56,7 @@
                                 >
                                     <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
-                            </a>
+                            </router-link>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@ const outcomes = [
         summary:
             'Residence «Kuksaroy». More than 150 participants, over 40 proposals. Priorities: business environment, tax stability, PPP, green economy, digitalization.',
         bullets: null,
-        file: '#',
+        file: '/events/plenary-sessions/1',
     },
     {
         numeral: 'II',
@@ -85,7 +85,7 @@ const outcomes = [
         summary:
             'Held within the III TIIF under the chairmanship of the President. As a result — PP-179 with a roadmap of 14 initiatives, including the creation of four working groups.',
         bullets: null,
-        file: '#',
+        file: '/events/plenary-sessions/2',
     },
     {
         numeral: 'III',
@@ -93,19 +93,8 @@ const outcomes = [
         type: 'Plenary Session',
         date: 'June 11 - 2025',
         summary: null,
-        bullets: [
-            'IWG for Drafting the Law on Alternative Investment Funds',
-            'IWG on the Improvement of Pledge Legislation',
-            'IWG on the Implementation of Responsible Business Conduct Principles',
-            'IWG on the Training of Professional Personnel for Foreign Companies',
-            'IWG on the Enhancement of Corporate Governance in Local Companies',
-            'IWG on the Improvement of Tax Administration',
-            'IWG on the Improvement of Land Allocation Procedures',
-            'IWG on Energy-Related Issues',
-            'IWG on Circular Economy',
-            'IWG on Artificial Intelligence Development',
-        ],
-        file: '#',
+        bullets: null,
+        file: '/events/plenary-sessions/3',
     },
     {
         numeral: 'IV',
@@ -114,7 +103,7 @@ const outcomes = [
         date: 'June 18 - 2026',
         summary: null,
         bullets: null,
-        file: '#',
+        file: '/events/plenary-sessions/4',
     },
 ]
 </script>

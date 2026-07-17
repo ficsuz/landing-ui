@@ -87,7 +87,7 @@
                                 <h3 class="font-black text-[14px] md:text-[16px] text-[#1a1e2e] uppercase leading-tight tracking-wide">
                                     {{ resolveTranslation(expert.fullName, locale) }}
                                 </h3>
-                                <p v-if="expert.bio" class="text-[13px] md:text-[14px] text-[#505a63] leading-relaxed mt-1 line-clamp-4">
+                                <p v-if="expert.bio" class="text-[13px] md:text-[14px] text-[#505a63] leading-relaxed mt-1">
                                     {{ resolveTranslation(expert.bio, locale) }}
                                 </p>
                             </div>

@@ -57,7 +57,7 @@
                     <TranslationField v-model="form.content" type="textarea" :rows="6" class="w-full" placeholder="Enter content" />
                 </el-form-item>
                 <el-form-item label="Images (2–4, slider)">
-                    <MultiImageUploader v-model="form.imageIds" :max="4" />
+                    <MultiImageUploader v-model="form.imageIds" :max="Infinity" />
                 </el-form-item>
                 <div class="grid grid-cols-1 gap-x-5 md:grid-cols-2">
                     <el-form-item label="Date">

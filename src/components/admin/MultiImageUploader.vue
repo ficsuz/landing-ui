@@ -24,7 +24,10 @@
                 </div>
             </el-upload>
         </div>
-        <p class="multi-uploader__hint">{{ modelValue.length }} / {{ max }} images</p>
+        <p class="multi-uploader__hint">
+            <template v-if="Number.isFinite(max)">{{ modelValue.length }} / {{ max }} images</template>
+            <template v-else>{{ modelValue.length }} images</template>
+        </p>
     </div>
 </template>
 

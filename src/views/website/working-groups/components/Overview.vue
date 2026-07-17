@@ -334,63 +334,73 @@
                                 v-for="(item, i) in iwgGroups"
                                 :key="i"
                                 @click="selected = item"
-                                class="group bg-[#F7F7F7] hover:bg-[#EFEFEF] transition-colors duration-200 rounded-2xl p-6 flex flex-col cursor-pointer"
+                                class="group bg-[#F7F7F7] hover:bg-[#EFEFEF] transition-colors duration-200 rounded-2xl p-6 lg:p-7 flex flex-col cursor-pointer"
                             >
-                                <!-- Two large photos at top -->
-                                <div class="flex gap-4 mb-6">
-                                    <div class="flex-1 flex flex-col items-center gap-2">
-                                        <img
-                                            :src="item.chairPhoto"
-                                            :alt="item.chairName"
-                                            class="w-24 h-24 rounded-full object-cover object-top border-2 border-white shadow-md"
-                                        />
-                                        <p class="text-[12px] text-[#8a94a6] uppercase tracking-wide text-center leading-tight">
-                                            {{ $t('workingGroupsPage.chairLabel') }}
-                                        </p>
-                                        <p class="text-[13px] font-bold uppercase text-[#191C1F] text-center leading-tight line-clamp-2 min-h-[32px]">
-                                            {{ item.chairName }}
-                                        </p>
-                                    </div>
-                                    <div class="w-px bg-[#0000000D] self-stretch"></div>
-                                    <div class="flex-1 flex flex-col items-center gap-2">
-                                        <img
-                                            :src="item.coChairPhoto"
-                                            :alt="item.coChairName"
-                                            class="w-24 h-24 rounded-full object-cover object-top border-2 border-white shadow-md"
-                                        />
-                                        <p class="text-[12px] text-[#8a94a6] uppercase tracking-wide text-center leading-tight">
-                                            {{ $t('workingGroupsPage.coChairLabel') }}
-                                        </p>
-                                        <p class="text-[13px] font-bold uppercase text-[#191C1F] text-center leading-tight line-clamp-2 min-h-[32px]">
-                                            {{ item.coChairName }}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="border-t border-[#0000000D] mb-4"></div>
-
-                                <!-- Icon + name + arrow -->
-                                <div class="flex items-center gap-3 mt-auto">
-                                    <div class="w-11 h-11 rounded-xl bg-[#191C1F] flex items-center justify-center shrink-0">
-                                        <svg
-                                            :viewBox="item.viewBox"
-                                            width="20"
-                                            height="20"
-                                            fill="none"
-                                            stroke="white"
-                                            stroke-width="1.8"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                        >
-                                            <path v-for="(d, j) in item.paths" :key="j" :d="d" />
-                                        </svg>
-                                    </div>
-                                    <h4 class="flex-1 text-[14px] font-bold text-[#191C1F] uppercase truncate">
+                                <div class="flex items-center gap-3.5 min-h-[64px]">
+                                    <svg
+                                        :viewBox="item.viewBox"
+                                        width="30"
+                                        height="30"
+                                        fill="none"
+                                        stroke="#505A63"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="shrink-0"
+                                    >
+                                        <path v-for="(d, j) in item.paths" :key="j" :d="d" />
+                                    </svg>
+                                    <h4 class="text-base lg:text-lg font-semibold text-[#191C1F] uppercase leading-snug">
                                         {{ $t(item.nameKey) }}
                                     </h4>
+                                </div>
+
+                                <div class="border-t border-[#0000000D] mt-6 mb-5"></div>
+
+                                <div class="flex items-center justify-between gap-3">
+                                    <div class="flex flex-col gap-6 min-w-0">
+                                        <div class="flex items-center gap-3">
+                                            <div class="diamond-wrapper">
+                                                <div class="diamond-inner-person" :style="{ backgroundImage: `url(${item.chairPhoto})` }"></div>
+                                            </div>
+                                            <div class="min-w-0">
+                                                <div class="text-[13px] text-[#000] font-normal leading-tight mb-0.5">
+                                                    {{ $t('workingGroupsPage.chairLabel') }}
+                                                </div>
+                                                <div class="text-sm font-bold uppercase leading-tight text-[#191C1F] truncate">
+                                                    {{ item.chairName }}
+                                                </div>
+                                                <div
+                                                    v-if="item.chairPositionKey"
+                                                    class="text-[13px] text-[#505A63] leading-snug mt-0.5 line-clamp-2"
+                                                >
+                                                    {{ $t(item.chairPositionKey) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="diamond-wrapper">
+                                                <div class="diamond-inner-person" :style="{ backgroundImage: `url(${item.coChairPhoto})` }"></div>
+                                            </div>
+                                            <div class="min-w-0">
+                                                <div class="text-[13px] text-[#000] font-normal leading-tight mb-0.5">
+                                                    {{ $t('workingGroupsPage.coChairLabel') }}
+                                                </div>
+                                                <div class="text-sm font-bold uppercase leading-tight text-[#191C1F] truncate">
+                                                    {{ item.coChairName }}
+                                                </div>
+                                                <div
+                                                    v-if="item.coChairPositionKey"
+                                                    class="text-[13px] text-[#505A63] leading-snug mt-0.5 line-clamp-2"
+                                                >
+                                                    {{ $t(item.coChairPositionKey) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <svg
-                                        width="20"
-                                        height="20"
+                                        width="24"
+                                        height="24"
                                         viewBox="0 0 24 24"
                                         fill="none"
                                         stroke="#505A63"

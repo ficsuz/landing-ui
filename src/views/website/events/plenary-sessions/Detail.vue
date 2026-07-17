@@ -110,6 +110,12 @@
                 </ul>
             </div>
 
+        </div>
+
+        <!-- Working Groups overview — only on the IV plenary session (id 3) -->
+        <WorkingGroupsOverview v-if="session.id === 3" />
+
+        <div class="page-container">
             <!-- Divider + links -->
             <div v-if="session.links.length" class="mt-10 pt-6 border-t border-[#eef0f4] flex flex-wrap gap-3">
                 <a
@@ -138,6 +144,7 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { sessions } from './sessionsData'
+import WorkingGroupsOverview from '@/views/website/working-groups/components/Overview.vue'
 
 const router = useRouter()
 const route = useRoute()

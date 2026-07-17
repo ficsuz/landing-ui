@@ -28,6 +28,7 @@
         "initiatives": "Initiatives",
         "investments": "Investments",
         "documents": "Documents",
+        "regionalAlliance": "Regional Alliance (RAIC-CAC)",
 
         "events": "Events",
         "calendarPlan": "Calendar Plan",
@@ -603,6 +604,41 @@
         "strategic": {
             "badge": "STRATEGIC INITIATIVE",
             "description": "Creation of the Regional Alliance of Investment Councils of Central Asia and the Caucasus (RAIC-CAC) to form a competitive investment environment and cross-border coordination."
+        },
+        "regionalAlliance": {
+            "title": "Regional Alliance of Investment Councils of Central Asia and the Caucasus",
+            "heroTitle": "Regional Alliance of Investment Councils of Central Asia and the Caucasus (RAIC-CAC)",
+            "abbr": "RAIC-CAC",
+            "tagline": "Unlocking Regional Investment Potential",
+            "missionLabel": "Mission",
+            "mission": "A joint regional platform for investors and relevant organizations — ensuring dialogue, coordination and knowledge exchange on investment opportunities and cross-border projects across Central Asia and the Caucasus.",
+            "membersTitle": "Founding Members",
+            "members": [
+                { "country": "Armenia", "council": "Investment Council of Armenia" },
+                { "country": "Georgia", "council": "Investment and Export Agency under the Ministry of Economy (Georgia)" },
+                { "country": "Kazakhstan", "council": "Foreign Investors' Council Chaired by the President of the Republic of Kazakhstan" },
+                { "country": "Kyrgyz Republic", "council": "Foreign Investors' Council under the National Investment Agency under the President of the Kyrgyz Republic" },
+                { "country": "Tajikistan", "council": "State Unitary Enterprise \"Tajinvest\"" },
+                { "country": "Turkmenistan", "council": "Market Access and Policy Centre, Turkmen Congress ES (Turkmenistan)" },
+                { "country": "Uzbekistan", "council": "Foreign Investors Council under the President of the Republic of Uzbekistan" }
+            ],
+            "partnerTitle": "Strategic Partner",
+            "partnerName": "Asian Development Bank",
+            "objectivesTitle": "Objectives",
+            "objectives": [
+                { "title": "Regional Dialogue", "desc": "Coordinate investment policy across the CAC region" },
+                { "title": "Global Integration", "desc": "Connect the region to global trade & investment flows" },
+                { "title": "Competitive Investment Climate", "desc": "Build a competitive regional investment environment" },
+                { "title": "Knowledge Exchange", "desc": "Share best practices & analytics across the region" },
+                { "title": "Joint Promotion", "desc": "Promote & position the region together" }
+            ],
+            "eventsSubtitle": "Tashkent International Investment Forum",
+            "eventsTitle": "Key Events",
+            "events": [
+                { "date": "June 16 — TIIF Strategic Session", "title": "RAIC-CAC Agenda 2026–2027", "desc": "Alliance roadmap and joint initiative preparation." },
+                { "date": "June 16 — TIIF Panel Session", "title": "Regional Alliance of Investment Councils of CAC", "desc": "Unlocking Regional Investment Potential." },
+                { "date": "June 18 — FIC Plenary Session", "title": "Memorandum signing ceremony", "desc": "On the establishment of RAIC-CAC." }
+            ]
         },
         "reports": {
             "title": "NEW APPROACHES — FIVE ANALYTICAL REPORTS",

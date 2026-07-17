@@ -28,6 +28,7 @@
         "initiatives": "Tashabbuslar",
         "investments": "Investitsiyalar",
         "documents": "Hujjatlar",
+        "regionalAlliance": "Mintaqaviy ittifoq (RAIC-CAC)",
 
         "events": "Tadbirlar",
         "calendarPlan": "Kalendar reja",
@@ -613,6 +614,41 @@
         "strategic": {
             "badge": "STRATEGIK TASHABBUS",
             "description": "Raqobatbardosh investitsiya muhiti va chegaralararo hamkorlikni shakllantirish maqsadida Markaziy Osiyo va Kavkazning Mintaqaviy investitsiya kengashlari ittifoqi (RAIC-CAC) tashkil etildi."
+        },
+        "regionalAlliance": {
+            "title": "Markaziy Osiyo va Kavkaz investitsiya kengashlarining mintaqaviy ittifoqi",
+            "heroTitle": "Markaziy Osiyo va Kavkaz investitsiya kengashlarining mintaqaviy ittifoqi (RAIC-CAC)",
+            "abbr": "RAIC-CAC",
+            "tagline": "Mintaqaviy investitsiya salohiyatini ochish",
+            "missionLabel": "Missiya",
+            "mission": "Investorlar va tegishli tashkilotlar uchun yagona mintaqaviy platforma — Markaziy Osiyo va Kavkazdagi investitsiya imkoniyatlari hamda chegaralararo loyihalar bo'yicha muloqot, muvofiqlashtirish va bilim almashinuvini ta'minlaydi.",
+            "membersTitle": "Muassislar",
+            "members": [
+                { "country": "Armaniston", "council": "Armaniston Investitsiya kengashi" },
+                { "country": "Gruziya", "council": "Iqtisodiyot vazirligi huzuridagi Investitsiya va eksport agentligi (Gruziya)" },
+                { "country": "Qozog'iston", "council": "Qozog'iston Respublikasi Prezidenti raisligidagi Xorijiy investorlar kengashi" },
+                { "country": "Qirg'iziston Respublikasi", "council": "Qirg'iziston Respublikasi Prezidenti huzuridagi Milliy investitsiya agentligi qoshidagi Xorijiy investorlar kengashi" },
+                { "country": "Tojikiston", "council": "«Tojinvest» davlat unitar korxonasi" },
+                { "country": "Turkmaniston", "council": "Bozorga kirish va siyosat markazi, Turkmen Kongress ES (Turkmaniston)" },
+                { "country": "O'zbekiston", "council": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi" }
+            ],
+            "partnerTitle": "Strategik hamkor",
+            "partnerName": "Osiyo taraqqiyot banki",
+            "objectivesTitle": "Maqsadlar",
+            "objectives": [
+                { "title": "Mintaqaviy muloqot", "desc": "MOK mintaqasida investitsiya siyosatini muvofiqlashtirish" },
+                { "title": "Global integratsiya", "desc": "Mintaqani global savdo va investitsiya oqimlariga ulash" },
+                { "title": "Raqobatbardosh investitsiya muhiti", "desc": "Raqobatbardosh mintaqaviy investitsiya muhitini shakllantirish" },
+                { "title": "Bilim almashinuvi", "desc": "Mintaqa bo'ylab ilg'or tajriba va tahlillar almashinuvi" },
+                { "title": "Birgalikda targ'ibot", "desc": "Mintaqani birgalikda targ'ib qilish va namoyon etish" }
+            ],
+            "eventsSubtitle": "Toshkent xalqaro investitsiya forumi",
+            "eventsTitle": "Asosiy tadbirlar",
+            "events": [
+                { "date": "16-iyun — TIIF strategik sessiyasi", "title": "RAIC-CAC 2026–2027 kun tartibi", "desc": "Ittifoq yo'l xaritasi va qo'shma tashabbuslarni tayyorlash." },
+                { "date": "16-iyun — TIIF panel sessiyasi", "title": "MOK investitsiya kengashlarining mintaqaviy ittifoqi", "desc": "Mintaqaviy investitsiya salohiyatini ochish." },
+                { "date": "18-iyun — XIK plenar sessiyasi", "title": "Memorandumni imzolash marosimi", "desc": "RAIC-CAC tashkil etilishi to'g'risida." }
+            ]
         },
         "reports": {
             "title": "YANGI YONDASHUVLAR — BESHTA ANALITIK HISOBOT",

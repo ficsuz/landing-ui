@@ -47,6 +47,7 @@ export const websiteMenu: NavMenuItem[] = [
             { labelKey: 'nav.initiatives', path: '/results/initiatives' },
             { labelKey: 'nav.investments', path: '/results/investments' },
             { labelKey: 'nav.documents', path: '/results/documents' },
+            { labelKey: 'nav.regionalAlliance', path: '/results/regional-alliance' },
         ],
     },
     {

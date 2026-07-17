@@ -156,13 +156,22 @@
                         <div class="shrink-0 flex items-center justify-center">
                             <img :src="imgRaicLogo" alt="RAIC-CAC" class="w-[100px] md:w-[120px] object-contain" />
                         </div>
-                        <div class="flex flex-col gap-3 text-center md:text-left">
+                        <div class="flex flex-col items-center md:items-start gap-3 text-center md:text-left">
                             <span class="text-[11px] font-black uppercase tracking-[0.14em] text-[#1a1e2e]">
                                 {{ $t('resultsPage.strategic.badge') }}
                             </span>
                             <p class="text-[clamp(14px,1.2vw,17px)] text-[#444] leading-relaxed">
                                 {{ $t('resultsPage.strategic.description') }}
                             </p>
+                            <router-link
+                                :to="{ name: 'results-regional-alliance' }"
+                                class="mt-1 inline-flex items-center gap-2 border border-[#d0d5dd] text-[#1a1e2e] font-semibold text-[15px] px-7 py-3 rounded-full transition-all duration-200 hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e]"
+                            >
+                                {{ $t('common.learnMore') }}
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </router-link>
                         </div>
                     </div>
                 </div>

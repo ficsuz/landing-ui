@@ -16,6 +16,7 @@
                     </div>
                     <p class="font-bold text-[17px] text-[#1a1e2e] text-center leading-tight">{{ $t('council.card1.name') }}</p>
                     <p class="text-[13px] text-[#8a94a6] text-center mt-1.5 leading-snug">{{ $t('council.card1.role') }}</p>
+                    <p class="text-[13px] text-[#8a94a6] text-center mt-0.5 leading-snug">{{ $t('council.card1.subrole') }}</p>
                 </div>
 
                 <!-- Card 2: Odile Renaud-Basso -->
@@ -28,6 +29,7 @@
                     </div>
                     <p class="font-bold text-[17px] text-[#1a1e2e] text-center leading-tight">{{ $t('council.card2.name') }}</p>
                     <p class="text-[13px] text-[#8a94a6] text-center mt-1.5 leading-snug">{{ $t('council.card2.role') }}</p>
+                    <p class="text-[13px] text-[#8a94a6] text-center mt-0.5 leading-snug">{{ $t('council.card2.subrole') }}</p>
                 </div>
             </div>
         </div>

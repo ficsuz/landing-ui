@@ -74,7 +74,6 @@ export const sessions: PlenarySession[] = [
         ],
         links: [
             { label: 'president.uz', href: 'https://president.uz' },
-            { label: 'doc', href: '#', outlined: true },
         ],
     },
     {
@@ -131,7 +130,6 @@ export const sessions: PlenarySession[] = [
         },
         links: [
             { label: 'lex.uz', href: 'https://lex.uz' },
-            { label: 'doc', href: '#', outlined: true },
         ],
     },
     {
@@ -182,7 +180,6 @@ export const sessions: PlenarySession[] = [
         links: [
             { label: 'president.uz', href: 'https://president.uz' },
             { label: 'lex.uz', href: 'https://lex.uz' },
-            { label: 'doc', href: '#', outlined: true },
         ],
     },
     {
@@ -233,7 +230,6 @@ export const sessions: PlenarySession[] = [
         links: [
             { label: 'president.uz', href: 'https://president.uz' },
             { label: 'lex.uz', href: 'https://lex.uz' },
-            { label: 'doc', href: '#', outlined: true },
         ],
     },
 ]

@@ -116,7 +116,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, h } from 'vue'
+import { reactive, ref, h, nextTick } from 'vue'
 import { ElForm, ElFormItem, ElInput, ElButton, ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
 import { useI18n } from 'vue-i18n'
@@ -154,10 +154,72 @@ const onPhoneInput = (val: string) => {
     form.phone = formatUzPhone(val)
 }
 
-// Block non-numeric typing (allow control/navigation keys)
+// --- Caret helpers (count only digits, ignore mask characters) ---
+const digitsBeforePos = (str: string, pos: number): number => {
+    let c = 0
+    for (let i = 0; i < pos; i++) if (/\d/.test(str[i])) c++
+    return c
+}
+// National digits = all digits minus the fixed "998" prefix (first 3)
+const nationalBefore = (str: string, pos: number): number => Math.max(0, digitsBeforePos(str, pos) - 3)
+// Caret position right after the nth national digit in a formatted value
+const caretAfterNational = (str: string, n: number): number => {
+    const target = 3 + n
+    let count = 0
+    for (let i = 0; i < str.length; i++) {
+        if (/\d/.test(str[i])) {
+            count++
+            if (count === target) return i + 1
+        }
+    }
+    return str.length
+}
+
+// Handle deletion & typing on the digit level so mask characters (spaces, parens)
+// never trap the caret. Backspace/Delete always removes the nearest *national* digit.
 const onPhoneKeydown = (evt: Event | KeyboardEvent) => {
     const e = evt as KeyboardEvent
     if (e.ctrlKey || e.metaKey || e.altKey) return
+
+    const input = e.target as HTMLInputElement | null
+    if (input && (e.key === 'Backspace' || e.key === 'Delete')) {
+        const val = form.phone
+        const start = input.selectionStart ?? val.length
+        const end = input.selectionEnd ?? val.length
+        e.preventDefault()
+
+        let newRaw: string
+        let keepNational: number
+
+        if (start !== end) {
+            // Remove the selected range
+            newRaw = val.slice(0, start) + val.slice(end)
+            keepNational = nationalBefore(val, start)
+        } else if (e.key === 'Backspace') {
+            // Nearest national digit before the caret (skip the "998" prefix)
+            let i = start - 1
+            while (i >= 0 && (!/\d/.test(val[i]) || digitsBeforePos(val, i) < 3)) i--
+            if (i < 0) return // nothing deletable — keep +998 intact
+            newRaw = val.slice(0, i) + val.slice(start)
+            keepNational = nationalBefore(val, i)
+        } else {
+            // Delete: nearest national digit at/after the caret
+            let i = start
+            while (i < val.length && (!/\d/.test(val[i]) || digitsBeforePos(val, i) < 3)) i++
+            if (i >= val.length) return
+            newRaw = val.slice(0, i) + val.slice(i + 1)
+            keepNational = nationalBefore(val, i)
+        }
+
+        form.phone = formatUzPhone(newRaw)
+        nextTick(() => {
+            const pos = caretAfterNational(form.phone, keepNational)
+            input.setSelectionRange(pos, pos)
+        })
+        return
+    }
+
+    // Block any non-numeric printable key
     if (e.key.length === 1 && !/[0-9]/.test(e.key)) e.preventDefault()
 }
 

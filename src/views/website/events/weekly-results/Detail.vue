@@ -30,11 +30,11 @@
                     </div>
 
                     <!-- Cover image -->
-                    <div v-if="item.imageId || item.previewImageId" class="mt-8 rounded-2xl overflow-hidden aspect-[16/8] bg-[#eef0f4]">
+                    <div v-if="item.imageId || item.previewImageId" class="mt-8 rounded-2xl overflow-hidden bg-[#eef0f4]">
                         <img
                             :src="getMediaUrl(item.imageId || item.previewImageId)"
                             :alt="resolveTranslation(item.title)"
-                            class="w-full h-full object-cover"
+                            class="w-full h-auto object-contain"
                         />
                     </div>
 

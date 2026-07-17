@@ -28,7 +28,7 @@
         "initiatives": "Tashabbuslar",
         "investments": "Investitsiyalar",
         "documents": "Hujjatlar",
-        "regionalAlliance": "Mintaqaviy ittifoq (RAIC-CAC)",
+        "regionalAlliance": "Mintaqaviy ittifoq",
 
         "events": "Tadbirlar",
         "calendarPlan": "Kalendar reja",
@@ -618,6 +618,7 @@
         "regionalAlliance": {
             "title": "Markaziy Osiyo va Kavkaz investitsiya kengashlarining mintaqaviy ittifoqi",
             "heroTitle": "Markaziy Osiyo va Kavkaz investitsiya kengashlarining mintaqaviy ittifoqi (RAIC-CAC)",
+            "heroShort": "Mintaqaviy ittifoq",
             "abbr": "RAIC-CAC",
             "tagline": "Mintaqaviy investitsiya salohiyatini ochish",
             "missionLabel": "Missiya",
@@ -627,7 +628,10 @@
                 { "country": "Armaniston", "council": "Armaniston Investitsiya kengashi" },
                 { "country": "Gruziya", "council": "Iqtisodiyot vazirligi huzuridagi Investitsiya va eksport agentligi (Gruziya)" },
                 { "country": "Qozog'iston", "council": "Qozog'iston Respublikasi Prezidenti raisligidagi Xorijiy investorlar kengashi" },
-                { "country": "Qirg'iziston Respublikasi", "council": "Qirg'iziston Respublikasi Prezidenti huzuridagi Milliy investitsiya agentligi qoshidagi Xorijiy investorlar kengashi" },
+                {
+                    "country": "Qirg'iziston Respublikasi",
+                    "council": "Qirg'iziston Respublikasi Prezidenti huzuridagi Milliy investitsiya agentligi qoshidagi Xorijiy investorlar kengashi"
+                },
                 { "country": "Tojikiston", "council": "«Tojinvest» davlat unitar korxonasi" },
                 { "country": "Turkmaniston", "council": "Bozorga kirish va siyosat markazi, Turkmen Kongress ES (Turkmaniston)" },
                 { "country": "O'zbekiston", "council": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi" }
@@ -645,9 +649,21 @@
             "eventsSubtitle": "Toshkent xalqaro investitsiya forumi",
             "eventsTitle": "Asosiy tadbirlar",
             "events": [
-                { "date": "16-iyun — TIIF strategik sessiyasi", "title": "RAIC-CAC 2026–2027 kun tartibi", "desc": "Ittifoq yo'l xaritasi va qo'shma tashabbuslarni tayyorlash." },
-                { "date": "16-iyun — TIIF panel sessiyasi", "title": "MOK investitsiya kengashlarining mintaqaviy ittifoqi", "desc": "Mintaqaviy investitsiya salohiyatini ochish." },
-                { "date": "18-iyun — XIK plenar sessiyasi", "title": "Memorandumni imzolash marosimi", "desc": "RAIC-CAC tashkil etilishi to'g'risida." }
+                {
+                    "date": "16-iyun — TIIF strategik sessiyasi",
+                    "title": "RAIC-CAC 2026–2027 kun tartibi",
+                    "desc": "Ittifoq yo'l xaritasi va qo'shma tashabbuslarni tayyorlash."
+                },
+                {
+                    "date": "16-iyun — TIIF panel sessiyasi",
+                    "title": "MOK investitsiya kengashlarining mintaqaviy ittifoqi",
+                    "desc": "Mintaqaviy investitsiya salohiyatini ochish."
+                },
+                {
+                    "date": "18-iyun — XIK plenar sessiyasi",
+                    "title": "Memorandumni imzolash marosimi",
+                    "desc": "RAIC-CAC tashkil etilishi to'g'risida."
+                }
             ]
         },
         "reports": {

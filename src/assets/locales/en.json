@@ -28,7 +28,7 @@
         "initiatives": "Initiatives",
         "investments": "Investments",
         "documents": "Documents",
-        "regionalAlliance": "Regional Alliance (RAIC-CAC)",
+        "regionalAlliance": "Regional Alliance",
 
         "events": "Events",
         "calendarPlan": "Calendar Plan",
@@ -608,6 +608,7 @@
         "regionalAlliance": {
             "title": "Regional Alliance of Investment Councils of Central Asia and the Caucasus",
             "heroTitle": "Regional Alliance of Investment Councils of Central Asia and the Caucasus (RAIC-CAC)",
+            "heroShort": "Regional Alliance",
             "abbr": "RAIC-CAC",
             "tagline": "Unlocking Regional Investment Potential",
             "missionLabel": "Mission",
@@ -617,7 +618,10 @@
                 { "country": "Armenia", "council": "Investment Council of Armenia" },
                 { "country": "Georgia", "council": "Investment and Export Agency under the Ministry of Economy (Georgia)" },
                 { "country": "Kazakhstan", "council": "Foreign Investors' Council Chaired by the President of the Republic of Kazakhstan" },
-                { "country": "Kyrgyz Republic", "council": "Foreign Investors' Council under the National Investment Agency under the President of the Kyrgyz Republic" },
+                {
+                    "country": "Kyrgyz Republic",
+                    "council": "Foreign Investors' Council under the National Investment Agency under the President of the Kyrgyz Republic"
+                },
                 { "country": "Tajikistan", "council": "State Unitary Enterprise \"Tajinvest\"" },
                 { "country": "Turkmenistan", "council": "Market Access and Policy Centre, Turkmen Congress ES (Turkmenistan)" },
                 { "country": "Uzbekistan", "council": "Foreign Investors Council under the President of the Republic of Uzbekistan" }
@@ -635,8 +639,16 @@
             "eventsSubtitle": "Tashkent International Investment Forum",
             "eventsTitle": "Key Events",
             "events": [
-                { "date": "June 16 — TIIF Strategic Session", "title": "RAIC-CAC Agenda 2026–2027", "desc": "Alliance roadmap and joint initiative preparation." },
-                { "date": "June 16 — TIIF Panel Session", "title": "Regional Alliance of Investment Councils of CAC", "desc": "Unlocking Regional Investment Potential." },
+                {
+                    "date": "June 16 — TIIF Strategic Session",
+                    "title": "RAIC-CAC Agenda 2026–2027",
+                    "desc": "Alliance roadmap and joint initiative preparation."
+                },
+                {
+                    "date": "June 16 — TIIF Panel Session",
+                    "title": "Regional Alliance of Investment Councils of CAC",
+                    "desc": "Unlocking Regional Investment Potential."
+                },
                 { "date": "June 18 — FIC Plenary Session", "title": "Memorandum signing ceremony", "desc": "On the establishment of RAIC-CAC." }
             ]
         },

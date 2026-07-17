@@ -102,7 +102,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'results/regional-alliance',
         name: 'results-regional-alliance',
         component: () => import('../../views/website/results/regional-alliance/Index.vue'),
-        meta: { title: 'Regional Alliance (RAIC-CAC)', noHero: true },
+        meta: { title: 'Regional Alliance (RAIC-CAC)', titleKey: 'resultsPage.regionalAlliance.heroShort', heroImage: aboutBlogImg },
     },
 
     // ---- Events ----

@@ -102,17 +102,17 @@
                         <div class="shrink-0">
                             <img
                                 :src="selected.image"
-                                :alt="selected.fullname"
+                                :alt="$t(selected.fullnameKey)"
                                 class="w-48 sm:w-56 lg:w-[300px] rounded-2xl object-cover object-top aspect-[4/5] lg:aspect-auto lg:h-[380px]"
                             />
                         </div>
                         <div class="flex flex-col gap-3">
                             <p class="text-sm text-[#000] font-normal">{{ $t('workingGroupsPage.chairLabel') }}</p>
                             <h3 class="text-[clamp(22px,2.5vw,32px)] font-extrabold text-[#191C1F] uppercase leading-tight">
-                                {{ selected.fullname }}
+                                {{ $t(selected.fullnameKey) }}
                             </h3>
-                            <p class="text-xs text-[#505A63] mb-2">{{ selected.position }}</p>
-                            <p class="text-sm text-[#505A63] leading-relaxed">{{ selected.text }}</p>
+                            <p class="text-xs text-[#505A63] mb-2">{{ $t(selected.positionKey) }}</p>
+                            <p class="text-sm text-[#505A63] leading-relaxed">{{ $t(selected.textKey) }}</p>
                         </div>
                     </div>
 
@@ -169,14 +169,14 @@
                         <div class="shrink-0">
                             <img
                                 :src="selected.chairPhoto"
-                                :alt="selected.chairName"
+                                :alt="$t(selected.chairNameKey)"
                                 class="w-40 sm:w-48 lg:w-[260px] aspect-[3/4] object-cover object-top rounded-2xl"
                             />
                         </div>
                         <div class="shrink-0 lg:w-[320px]">
                             <p class="text-sm text-[#000] mb-1 font-normal">{{ $t('workingGroupsPage.chairLabel') }}</p>
                             <h2 class="text-[clamp(20px,2.5vw,32px)] font-extrabold uppercase text-[#191C1F] leading-tight mb-2">
-                                {{ selected.chairName }}
+                                {{ $t(selected.chairNameKey) }}
                             </h2>
                             <p v-if="selected.chairPositionKey" class="text-xs text-[#505A63] leading-snug">
                                 {{ $t(selected.chairPositionKey) }}
@@ -192,14 +192,14 @@
                         <div class="shrink-0">
                             <img
                                 :src="selected.coChairPhoto"
-                                :alt="selected.coChairName"
+                                :alt="$t(selected.coChairNameKey)"
                                 class="w-40 sm:w-48 lg:w-[260px] aspect-[3/4] object-cover object-top rounded-2xl"
                             />
                         </div>
                         <div class="shrink-0 lg:w-[320px]">
                             <p class="text-sm text-[#000] mb-1 font-normal">{{ $t('workingGroupsPage.coChairLabel') }}</p>
                             <h2 class="text-[clamp(20px,2.5vw,32px)] font-extrabold uppercase text-[#191C1F] leading-tight mb-2">
-                                {{ selected.coChairName }}
+                                {{ $t(selected.coChairNameKey) }}
                             </h2>
                             <p v-if="selected.coChairPositionKey" class="text-xs text-[#505A63] leading-snug">
                                 {{ $t(selected.coChairPositionKey) }}
@@ -221,9 +221,9 @@
                                 :key="i"
                                 class="border border-[#00000026] rounded-xl p-4 text-center flex flex-col items-center"
                             >
-                                <img :src="member.image" :alt="member.name" class="w-[93px] h-[93px] rounded-3xl object-cover object-top" />
+                                <img :src="member.image" :alt="$t(member.nameKey)" class="w-[93px] h-[93px] rounded-3xl object-cover object-top" />
                                 <p class="mt-2 text-[17px] font-bold text-[#191C1F] leading-tight">
-                                    {{ member.name }}
+                                    {{ $t(member.nameKey) }}
                                 </p>
                                 <span class="mt-1 text-xs text-[#505A63] leading-snug font-normal">
                                     {{ $t(member.positionKey) }}
@@ -299,10 +299,10 @@
                                                 {{ $t('workingGroupsPage.chairLabel') }}
                                             </div>
                                             <div class="text-sm font-bold uppercase leading-tight text-[#191C1F] truncate">
-                                                {{ item.fullname }}
+                                                {{ $t(item.fullnameKey) }}
                                             </div>
                                             <div class="text-[13px] text-[#505A63] leading-snug mt-0.5 line-clamp-2">
-                                                {{ item.position }}
+                                                {{ $t(item.positionKey) }}
                                             </div>
                                         </div>
                                     </div>
@@ -368,7 +368,7 @@
                                                     {{ $t('workingGroupsPage.chairLabel') }}
                                                 </div>
                                                 <div class="text-sm font-bold uppercase leading-tight text-[#191C1F] truncate">
-                                                    {{ item.chairName }}
+                                                    {{ $t(item.chairNameKey) }}
                                                 </div>
                                                 <div
                                                     v-if="item.chairPositionKey"
@@ -387,7 +387,7 @@
                                                     {{ $t('workingGroupsPage.coChairLabel') }}
                                                 </div>
                                                 <div class="text-sm font-bold uppercase leading-tight text-[#191C1F] truncate">
-                                                    {{ item.coChairName }}
+                                                    {{ $t(item.coChairNameKey) }}
                                                 </div>
                                                 <div
                                                     v-if="item.coChairPositionKey"
@@ -423,7 +423,6 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { useI18n } from 'vue-i18n'
 
 import imgLeader1 from '@/assets/images/leaders/leader1.png'
 import imgLeader3 from '@/assets/images/leaders/leader3.png'
@@ -546,8 +545,6 @@ import imgVoltalia from '@/assets/images/brands/voltalia.png'
 import imgWildberries from '@/assets/images/brands/wildberries.png'
 import imgHalykBank from '@/assets/images/brands/halyk-bank.png'
 
-const { t } = useI18n()
-
 interface CWGroup {
     type: 'cwg'
     id: number
@@ -556,16 +553,16 @@ interface CWGroup {
     directionKey: string
     directionDescKey: string
     image: string
-    fullname: string
-    position: string
+    fullnameKey: string
+    positionKey: string
     companyImage: string
-    text: string
+    textKey: string
     brands: string[]
 }
 
 interface WGMember {
     image: string
-    name: string
+    nameKey: string
     positionKey: string
 }
 
@@ -576,11 +573,11 @@ interface IWGroup {
     paths: string[]
     nameKey: string
     descriptionKey: string
-    chairName: string
+    chairNameKey: string
     chairPhoto: string
     chairPositionKey?: string
     chairBioKey?: string
-    coChairName: string
+    coChairNameKey: string
     coChairPhoto: string
     coChairPositionKey?: string
     coChairBioKey?: string
@@ -611,10 +608,10 @@ const cwgGroups: CWGroup[] = [
         directionKey: 'workingGroupsPage.councilGroups.c1.name',
         directionDescKey: 'workingGroupsPage.councilGroups.c1.description',
         image: imgLeader6,
-        fullname: t('wg.johnZaidi'),
-        position: t('wg.johnZaidiPos'),
+        fullnameKey: 'wg.johnZaidi',
+        positionKey: 'wg.johnZaidiPos',
         companyImage: imgAcwaPower,
-        text: t('wg.johnZaidiText'),
+        textKey: 'wg.johnZaidiText',
         brands: [imgAdBank, imgAcwaPower, imgMasdar, imgEdf, imgTe, imgEyBrand, imgBdo, imgKostaLegal, imgDentos, imgAzizov, imgAirProd, imgSiemens],
     },
     {
@@ -625,10 +622,10 @@ const cwgGroups: CWGroup[] = [
         directionKey: 'workingGroupsPage.councilGroups.c2.name',
         directionDescKey: 'workingGroupsPage.councilGroups.c2.description',
         image: imgLeader1,
-        fullname: t('wg.spartak'),
-        position: t('wg.spartakPos'),
+        fullnameKey: 'wg.spartak',
+        positionKey: 'wg.spartakPos',
         companyImage: imgTbc,
-        text: t('wg.spartakText'),
+        textKey: 'wg.spartakText',
         brands: [imgAdBank, imgIdBank, imgWbGroup, imgMiCor, imgCola, imgHalyk, imgMitCo, imgTbcBank, imgJpMorgan, imgEBank, imgAwPart],
     },
     {
@@ -644,10 +641,10 @@ const cwgGroups: CWGroup[] = [
         directionKey: 'workingGroupsPage.councilGroups.c3.name',
         directionDescKey: 'workingGroupsPage.councilGroups.c3.description',
         image: imgSandro2,
-        fullname: t('wg.sandro'),
-        position: t('wg.sandroPos'),
+        fullnameKey: 'wg.sandro',
+        positionKey: 'wg.sandroPos',
         companyImage: imgIpoteka,
-        text: t('wg.sandroText'),
+        textKey: 'wg.sandroText',
         brands: [
             imgOtpBank,
             imgHenleyPart,
@@ -705,10 +702,10 @@ const cwgGroups: CWGroup[] = [
         directionKey: 'workingGroupsPage.councilGroups.c4.name',
         directionDescKey: 'workingGroupsPage.councilGroups.c4.description',
         image: imgLeader3,
-        fullname: t('wg.sergey'),
-        position: t('wg.sergeyPos'),
+        fullnameKey: 'wg.sergey',
+        positionKey: 'wg.sergeyPos',
         companyImage: imgUzum,
-        text: t('wg.sergeyText'),
+        textKey: 'wg.sergeyText',
         brands: [
             imgSiemens,
             imgAdBank,
@@ -735,10 +732,10 @@ const cwgGroups: CWGroup[] = [
         directionKey: 'workingGroupsPage.councilGroups.c5.name',
         directionDescKey: 'workingGroupsPage.councilGroups.c5.description',
         image: imgLeader4,
-        fullname: t('wg.gayana'),
-        position: t('wg.gayanaPos'),
+        fullnameKey: 'wg.gayana',
+        positionKey: 'wg.gayanaPos',
         companyImage: imgAcdfUz,
-        text: t('wg.gayanaText'),
+        textKey: 'wg.gayanaText',
         brands: [imgWbGroup, imgAcwaPower, imgTbcBank, imgUzumMarket, imgAcdfUz, imgEyBrand, imgHalyk, imgLekhim],
     },
     {
@@ -749,10 +746,10 @@ const cwgGroups: CWGroup[] = [
         directionKey: 'workingGroupsPage.councilGroups.c6.name',
         directionDescKey: 'workingGroupsPage.councilGroups.c6.description',
         image: imgLeader5,
-        fullname: t('wg.erlan'),
-        position: t('wg.erlanPos'),
+        fullnameKey: 'wg.erlan',
+        positionKey: 'wg.erlanPos',
         companyImage: imgEy,
-        text: t('wg.erlanText'),
+        textKey: 'wg.erlanText',
         brands: [
             imgAiiBank,
             imgIndoorama,
@@ -783,21 +780,21 @@ const iwgGroups: IWGroup[] = [
         paths: ['M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'],
         nameKey: 'workingGroupsPage.interagencyGroups.i1.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i1.description',
-        chairName: 'Laziz Kudratov',
+        chairNameKey: 'wg.laziz',
         chairPhoto: imgLaziz,
         chairPositionKey: 'wg.lazizPos',
         chairBioKey: 'wg.lazizBio',
-        coChairName: 'Kazbek Bassiev',
+        coChairNameKey: 'wg.kazbek',
         coChairPhoto: imgKazbek,
         coChairPositionKey: 'wg.kazbekPos',
         coChairBioKey: 'wg.kazbekBio',
         stateMembers: [
-            { image: imgTimur, name: 'Timur Ishmetov', positionKey: 'wg.posCentralBankChair' },
-            { image: usrAkbar, name: 'Akbar Tashkulov', positionKey: 'wg.posJusticeMinister' },
-            { image: usrSherzod, name: 'Sherzod Shermatov', positionKey: 'wg.posDigitalMinister' },
-            { image: usrIlxom, name: 'Ilkhom Norkulov', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrShuxrat, name: 'Shukhrat Vafaev', positionKey: 'wg.posRdfDirector' },
-            { image: usrFarrux, name: 'Farrukh Pulatov', positionKey: 'wg.posTaxChairman' },
+            { image: imgTimur, nameKey: 'wg.timur', positionKey: 'wg.posCentralBankChair' },
+            { image: usrAkbar, nameKey: 'wg.akbarTashkulov', positionKey: 'wg.posJusticeMinister' },
+            { image: usrSherzod, nameKey: 'wg.sherzodShermatov', positionKey: 'wg.posDigitalMinister' },
+            { image: usrIlxom, nameKey: 'wg.ilkhom', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrShuxrat, nameKey: 'wg.shukhratVafaev', positionKey: 'wg.posRdfDirector' },
+            { image: usrFarrux, nameKey: 'wg.farrukh', positionKey: 'wg.posTaxChairman' },
         ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgEyBrand, imgMastercard, imgTbcBank, imgCentLaw],
     },
@@ -813,19 +810,19 @@ const iwgGroups: IWGroup[] = [
         ],
         nameKey: 'workingGroupsPage.interagencyGroups.i2.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i2.description',
-        chairName: 'Timur Ishmetov',
+        chairNameKey: 'wg.timur',
         chairPhoto: imgTimur,
         chairPositionKey: 'wg.timurPos',
         chairBioKey: 'wg.timurBio',
-        coChairName: 'Davron Yakubov',
+        coChairNameKey: 'wg.davron',
         coChairPhoto: imgDavron,
         coChairPositionKey: 'wg.davronPos',
         coChairBioKey: 'wg.davronBio',
         stateMembers: [
-            { image: usrMaxmud, name: 'Maxmud Istamov', positionKey: 'wg.posDeputyJustice' },
-            { image: usrAxadbek, name: 'Ahadbek Haydarov', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrJaxongirAbdiyev, name: 'Jahongir Abdiev', positionKey: 'wg.posDeputyTax' },
-            { image: usrGeorgiy, name: 'Georgiy Paresishvili', positionKey: 'wg.posStockExchange' },
+            { image: usrMaxmud, nameKey: 'wg.maxmudIstamov', positionKey: 'wg.posDeputyJustice' },
+            { image: usrAxadbek, nameKey: 'wg.ahadbek', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrJaxongirAbdiyev, nameKey: 'wg.jahongirAbdiev', positionKey: 'wg.posDeputyTax' },
+            { image: usrGeorgiy, nameKey: 'wg.georgiyParesishvili', positionKey: 'wg.posStockExchange' },
         ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgEyBrand, imgZiraatBank, imgCrowe, imgAzizov, imgIndoorama, imgVeon],
     },
@@ -836,23 +833,23 @@ const iwgGroups: IWGroup[] = [
         paths: ['M18 20V10', 'M12 20V4', 'M6 20v-6'],
         nameKey: 'workingGroupsPage.interagencyGroups.i3.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i3.description',
-        chairName: 'Laziz Kudratov',
+        chairNameKey: 'wg.laziz',
         chairPhoto: imgLaziz,
         chairPositionKey: 'wg.lazizPos',
         chairBioKey: 'wg.lazizBio',
-        coChairName: 'Vera Bell',
+        coChairNameKey: 'wg.vera',
         coChairPhoto: imgVera,
         coChairPositionKey: 'wg.veraPos',
         coChairBioKey: 'wg.veraBio',
         stateMembers: [
-            { image: imgTimur, name: 'Timur Ishmetov', positionKey: 'wg.posCentralBankChair' },
-            { image: usrIlxom, name: 'Ilkhom Norkulov', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrFeruza, name: 'Feruza Eshmatova', positionKey: 'wg.posOmbudsperson' },
-            { image: usrMarat, name: 'Marat Juraev', positionKey: 'wg.posDeputyPoverty' },
-            { image: usrFarrux, name: 'Farrukh Karabaev', positionKey: 'wg.posCompetition' },
-            { image: usrAgzam, name: 'Rustem Mahmammadiev', positionKey: 'wg.posStatistics' },
-            { image: usrMubin, name: 'Mubin Mirzaev', positionKey: 'wg.posDeputyTax' },
-            { image: usrObidjon, name: 'Obidjon Kudratov', positionKey: 'wg.posEcologyDeputy' },
+            { image: imgTimur, nameKey: 'wg.timur', positionKey: 'wg.posCentralBankChair' },
+            { image: usrIlxom, nameKey: 'wg.ilkhom', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrFeruza, nameKey: 'wg.feruzaEshmatova', positionKey: 'wg.posOmbudsperson' },
+            { image: usrMarat, nameKey: 'wg.maratJuraev', positionKey: 'wg.posDeputyPoverty' },
+            { image: usrFarrux, nameKey: 'wg.farrukhKarabaev', positionKey: 'wg.posCompetition' },
+            { image: usrAgzam, nameKey: 'wg.rustemMahmammadiev', positionKey: 'wg.posStatistics' },
+            { image: usrMubin, nameKey: 'wg.mubinMirzaev', positionKey: 'wg.posDeputyTax' },
+            { image: usrObidjon, nameKey: 'wg.obidjonKudratov', positionKey: 'wg.posEcologyDeputy' },
         ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgAzizov, imgCrowe, imgVoltalia, imgBatBetter, imgMiCor, imgCola, imgIndoorama, imgVeon],
     },
@@ -863,18 +860,18 @@ const iwgGroups: IWGroup[] = [
         paths: ['M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z', 'M12 7v.01M12 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2z'],
         nameKey: 'workingGroupsPage.interagencyGroups.i4.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i4.description',
-        chairName: 'Kongratbay Sharipov',
+        chairNameKey: 'wg.kongratbay',
         chairPhoto: imgKongratbay,
         chairPositionKey: 'wg.kongratbayPos',
         chairBioKey: 'wg.kongratbayBio',
-        coChairName: 'Sandro Rtveladze',
+        coChairNameKey: 'wg.sandro',
         coChairPhoto: imgSandro,
         coChairPositionKey: 'wg.sandroPos',
         coChairBioKey: 'wg.sandroText',
         stateMembers: [
-            { image: usrBotir, name: 'Botir Zahidov', positionKey: 'wg.posEmployment' },
-            { image: usrBexzod, name: 'Bexzod Musaev', positionKey: 'wg.posLaborMigration' },
-            { image: usrDavron, name: 'Davron Vahobov', positionKey: 'wg.posChamber' },
+            { image: usrBotir, nameKey: 'wg.botirZahidov', positionKey: 'wg.posEmployment' },
+            { image: usrBexzod, nameKey: 'wg.bexzodMusaev', positionKey: 'wg.posLaborMigration' },
+            { image: usrDavron, nameKey: 'wg.davronVahobov', positionKey: 'wg.posChamber' },
         ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgUzCarls, imgVeon, imgBdo, imgEyBrand, imgIndoorama, imgCrowe],
     },
@@ -885,18 +882,18 @@ const iwgGroups: IWGroup[] = [
         paths: ['M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z', 'M9 22V12h6v10'],
         nameKey: 'workingGroupsPage.interagencyGroups.i5.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i5.description',
-        chairName: 'Ilkhom Norkulov',
+        chairNameKey: 'wg.ilkhom',
         chairPhoto: imgIlhom,
         chairPositionKey: 'wg.ilkhomPos',
         chairBioKey: 'wg.ilkhomBio',
-        coChairName: 'Marius Dan',
+        coChairNameKey: 'wg.marius',
         coChairPhoto: imgMarius,
         coChairPositionKey: 'wg.mariusPos',
         coChairBioKey: 'wg.mariusBio',
         stateMembers: [
-            { image: usrPak, name: 'Vyacheslav Pak', positionKey: 'wg.posNapp' },
-            { image: usrNodirbek, name: 'Nodirbek Husanov', positionKey: 'wg.posStateAssetsDeputy' },
-            { image: usrGeorgiy, name: 'Georgiy Paresishvili', positionKey: 'wg.posStockExchange' },
+            { image: usrPak, nameKey: 'wg.vyacheslavPak', positionKey: 'wg.posNapp' },
+            { image: usrNodirbek, nameKey: 'wg.nodirbekHusanov', positionKey: 'wg.posStateAssetsDeputy' },
+            { image: usrGeorgiy, nameKey: 'wg.georgiyParesishvili', positionKey: 'wg.posStockExchange' },
         ],
         councilBrands: [
             imgEBank,
@@ -921,15 +918,15 @@ const iwgGroups: IWGroup[] = [
         paths: ['M22 12h-4l-3 9L9 3l-3 9H2'],
         nameKey: 'workingGroupsPage.interagencyGroups.i6.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i6.description',
-        chairName: 'Ahadbek Haydarov',
+        chairNameKey: 'wg.ahadbek',
         chairPhoto: imgAxadbek2,
         chairPositionKey: 'wg.ahadbekPos',
         chairBioKey: 'wg.ahadbekBio',
-        coChairName: 'Erlan Dosimbekov',
+        coChairNameKey: 'wg.erlan',
         coChairPhoto: imgErlan2,
         coChairPositionKey: 'wg.erlanPos',
         coChairBioKey: 'wg.erlanText',
-        stateMembers: [{ image: usrFarrux, name: 'Farrukh Pulatov', positionKey: 'wg.posTaxChairman' }],
+        stateMembers: [{ image: usrFarrux, nameKey: 'wg.farrukh', positionKey: 'wg.posTaxChairman' }],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgDeloitte, imgPwc, imgDentos, imgBatBetter, imgCrowe, imgIndoorama, imgSuez],
     },
     {
@@ -939,17 +936,17 @@ const iwgGroups: IWGroup[] = [
         paths: ['M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'],
         nameKey: 'workingGroupsPage.interagencyGroups.i7.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i7.description',
-        chairName: 'Farrukh Pulatov',
+        chairNameKey: 'wg.farrukh',
         chairPhoto: imgFarrux,
         chairPositionKey: 'wg.farrukhPos',
         chairBioKey: 'wg.farrukhBio',
-        coChairName: 'Azizbek Akhmadjonov',
+        coChairNameKey: 'wg.azizbekAkhmadjonov',
         coChairPhoto: imgAziz2,
         coChairPositionKey: 'wg.azizbekAkhmadjonovPos',
         coChairBioKey: 'wg.azizbekAkhmadjonovBio',
         stateMembers: [
-            { image: usrAxadbek, name: 'Ahadbek Haydarov', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrMaxmud, name: 'Maxmud Istamov', positionKey: 'wg.posFirstDeputyJustice' },
+            { image: usrAxadbek, nameKey: 'wg.ahadbek', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrMaxmud, nameKey: 'wg.maxmudIstamov', positionKey: 'wg.posFirstDeputyJustice' },
         ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgAzizov, imgTe, imgCrowe, imgVoltalia, imgIndoorama, imgEyBrand, imgMastercard],
     },
@@ -964,20 +961,20 @@ const iwgGroups: IWGroup[] = [
         ],
         nameKey: 'workingGroupsPage.interagencyGroups.i8.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i8.description',
-        chairName: 'Jurabek Mirzamahmudov',
+        chairNameKey: 'wg.jurabek',
         chairPhoto: imgJurabek2,
         chairPositionKey: 'wg.jurabekPos',
         chairBioKey: 'wg.jurabekBio',
-        coChairName: 'John Zaidi',
+        coChairNameKey: 'wg.johnZaidi',
         coChairPhoto: imgLeader6,
         coChairPositionKey: 'wg.johnZaidiPos',
         coChairBioKey: 'wg.johnZaidiText',
         stateMembers: [
-            { image: usrXurshid, name: 'Khurshed Mustafaev', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrAsrar, name: 'Asrarjon Askarov', positionKey: 'wg.posHududiy' },
-            { image: usrJaxongir, name: 'Jahongir Obidjonov', positionKey: 'wg.posUzenergo' },
-            { image: usrNodirbek, name: 'Nodirbek Nasretdinov', positionKey: 'wg.posYashilEnergiya' },
-            { image: usrAskar, name: 'Askar Isakov', positionKey: 'wg.posUztransgaz' },
+            { image: usrXurshid, nameKey: 'wg.khurshedMustafaev', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrAsrar, nameKey: 'wg.asrarjonAskarov', positionKey: 'wg.posHududiy' },
+            { image: usrJaxongir, nameKey: 'wg.jahongirObidjonov', positionKey: 'wg.posUzenergo' },
+            { image: usrNodirbek, nameKey: 'wg.nodirbekNasretdinov', positionKey: 'wg.posYashilEnergiya' },
+            { image: usrAskar, nameKey: 'wg.askarIsakov', positionKey: 'wg.posUztransgaz' },
         ],
         councilBrands: [
             imgEBank,
@@ -1005,19 +1002,19 @@ const iwgGroups: IWGroup[] = [
         paths: ['M13 2L3 14h9l-1 8 10-12h-9l1-8z'],
         nameKey: 'workingGroupsPage.interagencyGroups.i9.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i9.description',
-        chairName: 'Aziz Abdukhakimov',
+        chairNameKey: 'wg.azizAbdukhakimov',
         chairPhoto: imgAzizA,
         chairPositionKey: 'wg.azizAbdukhakimovPos',
         chairBioKey: 'wg.azizAbdukhakimovBio',
-        coChairName: 'Kazumasa Mukae',
+        coChairNameKey: 'wg.kazumasa',
         coChairPhoto: imgMukae,
         coChairPositionKey: 'wg.kazumasaPos',
         coChairBioKey: 'wg.kazumasaBio',
         stateMembers: [
-            { image: usrMaxmud, name: 'Maxmud Istamov', positionKey: 'wg.posDeputyJustice' },
-            { image: usrAxadbek, name: 'Ahadbek Haydarov', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrJaxongirAbdiyev, name: 'Jahongir Abdiev', positionKey: 'wg.posDeputyTax' },
-            { image: usrGeorgiy, name: 'Georgiy Paresishvili', positionKey: 'wg.posStockExchange' },
+            { image: usrMaxmud, nameKey: 'wg.maxmudIstamov', positionKey: 'wg.posDeputyJustice' },
+            { image: usrAxadbek, nameKey: 'wg.ahadbek', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrJaxongirAbdiyev, nameKey: 'wg.jahongirAbdiev', positionKey: 'wg.posDeputyTax' },
+            { image: usrGeorgiy, nameKey: 'wg.georgiyParesishvili', positionKey: 'wg.posStockExchange' },
         ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgEyBrand, imgZiraatBank, imgCrowe, imgAzizov, imgIndoorama, imgVeon],
     },
@@ -1028,21 +1025,21 @@ const iwgGroups: IWGroup[] = [
         paths: ['M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z', 'M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'],
         nameKey: 'workingGroupsPage.interagencyGroups.i10.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i10.description',
-        chairName: 'Olimjon Umarov',
+        chairNameKey: 'wg.olimjon',
         chairPhoto: imgOlimjon2,
         chairPositionKey: 'wg.olimjonPos',
         chairBioKey: 'wg.olimjonBio',
-        coChairName: 'Erlan Dosimbekov',
+        coChairNameKey: 'wg.erlan',
         coChairPhoto: imgErlan2,
         coChairPositionKey: 'wg.erlanPos',
         coChairBioKey: 'wg.erlanText',
         stateMembers: [
-            { image: usrMaxmud, name: 'Maxmud Istamov', positionKey: 'wg.posDeputyJustice' },
-            { image: usrAxadbek, name: 'Ahadbek Haydarov', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrSherzod, name: 'Sherzod Shermatov', positionKey: 'wg.posDigitalMinister' },
-            { image: usrIlxom, name: 'Ilkhom Norkulov', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrShuxrat, name: 'Shukhrat Vafaev', positionKey: 'wg.posRdfDirector' },
-            { image: usrFarrux, name: 'Farrukh Pulatov', positionKey: 'wg.posTaxChairman' },
+            { image: usrMaxmud, nameKey: 'wg.maxmudIstamov', positionKey: 'wg.posDeputyJustice' },
+            { image: usrAxadbek, nameKey: 'wg.ahadbek', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrSherzod, nameKey: 'wg.sherzodShermatov', positionKey: 'wg.posDigitalMinister' },
+            { image: usrIlxom, nameKey: 'wg.ilkhom', positionKey: 'wg.posDeputyEcoFin' },
+            { image: usrShuxrat, nameKey: 'wg.shukhratVafaev', positionKey: 'wg.posRdfDirector' },
+            { image: usrFarrux, nameKey: 'wg.farrukh', positionKey: 'wg.posTaxChairman' },
         ],
         councilBrands: [
             imgEBank,

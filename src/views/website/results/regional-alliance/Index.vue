@@ -3,8 +3,8 @@
         <section class="bg-white py-16 md:py-24">
             <div class="page-container">
                 <!-- Page header: logo + full title + tagline -->
-                <div class="flex items-start gap-6 md:gap-9 mb-10 md:mb-12">
-                    <img :src="imgRaicLogo" alt="RAIC-CAC" class="w-[80px] md:w-[104px] object-contain shrink-0 mx-auto md:mx-0" />
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-5 md:gap-9 mb-10 md:mb-12">
+                    <img :src="imgRaicLogo" alt="RAIC-CAC" class="w-[72px] md:w-[104px] object-contain shrink-0" />
                     <div class="flex flex-col gap-3 text-center md:text-left">
                         <h1 class="font-black uppercase leading-[1.1] text-[clamp(32px,3.4vw,54px)] text-[#1a1e2e]">
                             {{ $t('resultsPage.regionalAlliance.title') }}
@@ -29,7 +29,7 @@
                 <!-- Founding Members -->
                 <div class="mb-16 md:mb-20">
                     <h2 class="ra-section-title mb-8 md:mb-10">{{ $t('resultsPage.regionalAlliance.membersTitle') }}</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
                         <div
                             v-for="(m, i) in members"
                             :key="i"
@@ -68,7 +68,7 @@
                 <!-- Objectives -->
                 <div class="mb-16 md:mb-20">
                     <h2 class="ra-section-title mb-8 md:mb-10">{{ $t('resultsPage.regionalAlliance.objectivesTitle') }}</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-5">
                         <div v-for="(o, i) in objectives" :key="i" class="flex flex-col gap-4 rounded-2xl border border-[#eef0f4] bg-[#f7f8fa] p-6">
                             <span
                                 class="flex items-center justify-center w-12 h-12 rounded-full bg-[#1a1e2e] text-white"

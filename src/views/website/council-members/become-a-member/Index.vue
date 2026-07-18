@@ -16,7 +16,7 @@
                         {{ $t('becomeAMemberPage.admissionTitle') }}
                     </h3>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
                         <div
                             v-for="(step, i) in steps"
                             :key="step.num"

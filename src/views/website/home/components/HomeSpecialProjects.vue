@@ -4,7 +4,7 @@
             <div class="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-20 xl:gap-24 items-start">
                 <!-- Left: Text -->
                 <div
-                    class="w-full lg:w-[36%] shrink-0 lg:pt-4 transition-all duration-700"
+                    class="w-full lg:w-[40%] shrink-0 lg:pt-4 transition-all duration-700"
                     :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
                 >
                     <h2 class="section-title mb-4 md:mb-6">{{ $t('specialProjects.title') }}</h2>
@@ -22,7 +22,10 @@
                     @touchstart.passive="onTouchStart"
                     @touchend.passive="onTouchEnd"
                 >
-                    <div v-if="videos.length" class="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)] bg-black">
+                    <div
+                        v-if="videos.length"
+                        class="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)] bg-black"
+                    >
                         <div class="h-[500px] md:h-[400px] relative">
                             <Transition name="sp-fade" mode="out-in">
                                 <iframe
@@ -70,9 +73,7 @@ const videos = computed(() =>
 )
 
 const currentIndex = ref(0)
-const safeIndex = computed(() =>
-    videos.value.length ? Math.min(currentIndex.value, videos.value.length - 1) : 0
-)
+const safeIndex = computed(() => (videos.value.length ? Math.min(currentIndex.value, videos.value.length - 1) : 0))
 const goTo = (i: number) => {
     currentIndex.value = Math.max(0, Math.min(i, videos.value.length - 1))
 }

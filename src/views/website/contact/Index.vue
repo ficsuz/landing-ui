@@ -10,7 +10,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-20 items-start">
                 <!-- Left: Form -->
                 <el-form ref="formRef" :model="form" :rules="rules" label-position="top" class="contact-form" @submit.prevent="handleSubmit">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 mb-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 mb-6">
                         <el-form-item :label="$t('contact.firstName')" prop="firstName">
                             <el-input
                                 v-model="form.firstName"

@@ -113,7 +113,7 @@
         </div>
 
         <!-- Working Groups overview — only on the IV plenary session (id 3) -->
-        <WorkingGroupsOverview v-if="session.id === 3" />
+        <WorkingGroupsOverview v-if="session.id === 3" council-only />
 
         <div class="page-container">
             <!-- Divider + links -->

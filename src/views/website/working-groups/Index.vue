@@ -1,5 +1,8 @@
 <template>
     <div class="working-groups-page">
+        <section id="interagency-groups" class="wg-anchor">
+            <Overview interagency-only />
+        </section>
         <section id="session-outcomes" class="wg-anchor">
             <SessionOutcomes />
         </section>
@@ -9,6 +12,7 @@
 <script setup lang="ts">
 import { onMounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
+import Overview from './components/Overview.vue'
 import SessionOutcomes from './components/SessionOutcomes.vue'
 
 const route = useRoute()

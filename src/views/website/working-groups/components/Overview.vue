@@ -2,7 +2,7 @@
     <section class="bg-white py-16 md:py-24">
         <div class="page-container">
             <!-- Stats (act as tabs) -->
-            <div ref="statsRef" class="wg-stat-tabs mb-5">
+            <div v-if="!interagencyOnly && !councilOnly" ref="statsRef" class="wg-stat-tabs mb-5">
                 <div
                     class="wg-stat-tab"
                     :class="{ 'wg-stat-tab--active': activeTab === 'council' }"
@@ -22,7 +22,7 @@
             </div>
 
             <!-- Legal basis -->
-            <div class="flex items-start md:items-center gap-3 px-4 py-3 rounded-xl bg-[#F7F7F7] border border-[#0000000D] mb-10 flex-wrap gap-y-3">
+            <div v-if="!interagencyOnly && !councilOnly" class="flex items-start md:items-center gap-3 px-4 py-3 rounded-xl bg-[#F7F7F7] border border-[#0000000D] mb-10 flex-wrap gap-y-3">
                 <svg
                     width="18"
                     height="18"
@@ -168,7 +168,7 @@
                     <div class="flex flex-col lg:flex-row gap-6 mb-10 items-start">
                         <div class="shrink-0">
                             <img
-                                :src="selected.chairPhoto"
+                                :src="selected.chairDetailPhoto || selected.chairPhoto"
                                 :alt="$t(selected.chairNameKey)"
                                 class="w-40 sm:w-48 lg:w-[260px] aspect-[3/4] object-cover object-top rounded-2xl"
                             />
@@ -298,10 +298,10 @@
                                             <div class="text-[13px] text-[#000] font-normal leading-tight mb-0.5">
                                                 {{ $t('workingGroupsPage.chairLabel') }}
                                             </div>
-                                            <div class="text-sm font-bold uppercase leading-tight text-[#191C1F] truncate">
+                                            <div class="text-sm font-bold uppercase leading-tight text-[#191C1F]">
                                                 {{ $t(item.fullnameKey) }}
                                             </div>
-                                            <div class="text-[13px] text-[#505A63] leading-snug mt-0.5 line-clamp-2">
+                                            <div class="text-[13px] text-[#505A63] leading-snug mt-0.5">
                                                 {{ $t(item.positionKey) }}
                                             </div>
                                         </div>
@@ -367,12 +367,12 @@
                                                 <div class="text-[13px] text-[#000] font-normal leading-tight mb-0.5">
                                                     {{ $t('workingGroupsPage.chairLabel') }}
                                                 </div>
-                                                <div class="text-sm font-bold uppercase leading-tight text-[#191C1F] truncate">
+                                                <div class="text-sm font-bold uppercase leading-tight text-[#191C1F]">
                                                     {{ $t(item.chairNameKey) }}
                                                 </div>
                                                 <div
                                                     v-if="item.chairPositionKey"
-                                                    class="text-[13px] text-[#505A63] leading-snug mt-0.5 line-clamp-2"
+                                                    class="text-[13px] text-[#505A63] leading-snug mt-0.5"
                                                 >
                                                     {{ $t(item.chairPositionKey) }}
                                                 </div>
@@ -386,12 +386,12 @@
                                                 <div class="text-[13px] text-[#000] font-normal leading-tight mb-0.5">
                                                     {{ $t('workingGroupsPage.coChairLabel') }}
                                                 </div>
-                                                <div class="text-sm font-bold uppercase leading-tight text-[#191C1F] truncate">
+                                                <div class="text-sm font-bold uppercase leading-tight text-[#191C1F]">
                                                     {{ $t(item.coChairNameKey) }}
                                                 </div>
                                                 <div
                                                     v-if="item.coChairPositionKey"
-                                                    class="text-[13px] text-[#505A63] leading-snug mt-0.5 line-clamp-2"
+                                                    class="text-[13px] text-[#505A63] leading-snug mt-0.5"
                                                 >
                                                     {{ $t(item.coChairPositionKey) }}
                                                 </div>
@@ -424,6 +424,10 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
+// interagencyOnly: render only the Interagency (IWG) cards; councilOnly: render only the Council (CWG) cards.
+// Either one hides the stat tabs and legal-basis bar, leaving just that single section.
+const props = defineProps<{ interagencyOnly?: boolean; councilOnly?: boolean }>()
+
 import imgLeader1 from '@/assets/images/leaders/leader1.png'
 import imgLeader3 from '@/assets/images/leaders/leader3.png'
 import imgLeader4 from '@/assets/images/leaders/leader4.png'
@@ -436,16 +440,11 @@ import imgTimur from '@/assets/images/leaders/timur2.png'
 import imgDavron from '@/assets/images/leaders/davron2.png'
 import imgVera from '@/assets/images/leaders/vera2.png'
 import imgKongratbay from '@/assets/images/leaders/kongratbay2.png'
-import imgIlhom from '@/assets/images/leaders/ilhom2.png'
-import imgMarius from '@/assets/images/leaders/marius2.png'
 import imgAxadbek2 from '@/assets/images/leaders/axadbek2.png'
 import imgErlan2 from '@/assets/images/leaders/erlan2.png'
-import imgSandro from '@/assets/images/leaders/sandro2.png'
-import imgFarrux from '@/assets/images/leaders/farrux2.png'
 import imgAziz2 from '@/assets/images/leaders/aziz2.png'
 import imgJurabek2 from '@/assets/images/leaders/jurabek2.png'
 import imgMukae from '@/assets/images/leaders/mukae.png'
-import imgOlimjon2 from '@/assets/images/leaders/olimjon2.png'
 import imgAzizA from '@/assets/images/leaders/aziz-a.png'
 
 import usrXurshid from '@/assets/images/users/xurshid.png'
@@ -457,6 +456,7 @@ import usrAxadbek from '@/assets/images/users/axadbek.png'
 import usrMaxmud from '@/assets/images/users/maxmud.png'
 import usrFarrux from '@/assets/images/users/farrux.png'
 import usrPak from '@/assets/images/users/pak.png'
+import defaultAvatar from '@/assets/images/avatars/default-avatar.svg'
 import usrGeorgiy from '@/assets/images/users/georgiy.png'
 import usrBotir from '@/assets/images/users/botir.png'
 import usrBexzod from '@/assets/images/users/bexzod.png'
@@ -465,7 +465,6 @@ import usrIlxom from '@/assets/images/users/ilxom.png'
 import usrFeruza from '@/assets/images/users/feruza.png'
 import usrMarat from '@/assets/images/users/marat.png'
 import usrAgzam from '@/assets/images/users/agzam.png'
-import usrMubin from '@/assets/images/users/mubin.png'
 import usrObidjon from '@/assets/images/users/obidjon.png'
 import usrJaxongirAbdiyev from '@/assets/images/users/jaxongirabdiyev.png'
 import usrAkbar from '@/assets/images/users/akbar.png'
@@ -575,6 +574,8 @@ interface IWGroup {
     descriptionKey: string
     chairNameKey: string
     chairPhoto: string
+    // Optional override shown only in the detail view; falls back to chairPhoto (e.g. keep the card photo but use a placeholder in detail).
+    chairDetailPhoto?: string
     chairPositionKey?: string
     chairBioKey?: string
     coChairNameKey: string
@@ -591,7 +592,7 @@ function isCWG(g: AnyGroup): g is CWGroup {
     return g.type === 'cwg'
 }
 
-const activeTab = ref<'council' | 'interagency'>('council')
+const activeTab = ref<'council' | 'interagency'>(props.interagencyOnly ? 'interagency' : 'council')
 const selected = ref<AnyGroup | null>(null)
 
 function selectTab(tab: 'council' | 'interagency') {
@@ -791,10 +792,19 @@ const iwgGroups: IWGroup[] = [
         stateMembers: [
             { image: imgTimur, nameKey: 'wg.timur', positionKey: 'wg.posCentralBankChair' },
             { image: usrAkbar, nameKey: 'wg.akbarTashkulov', positionKey: 'wg.posJusticeMinister' },
+            { image: usrPak, nameKey: 'wg.vyacheslavPak', positionKey: 'wg.posNappDeputy' },
             { image: usrSherzod, nameKey: 'wg.sherzodShermatov', positionKey: 'wg.posDigitalMinister' },
-            { image: usrIlxom, nameKey: 'wg.ilkhom', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrShuxrat, nameKey: 'wg.shukhratVafaev', positionKey: 'wg.posRdfDirector' },
+            { image: defaultAvatar, nameKey: 'wg.tashov', positionKey: 'wg.posActingStockExchange' },
+            { image: defaultAvatar, nameKey: 'wg.karamatov', positionKey: 'wg.posItPark' },
+            { image: usrIlxom, nameKey: 'wg.ilkhom', positionKey: 'wg.posFirstDeputyEcoFin' },
             { image: usrFarrux, nameKey: 'wg.farrukh', positionKey: 'wg.posTaxChairman' },
+            { image: usrShuxrat, nameKey: 'wg.shukhratVafaev', positionKey: 'wg.posRdfDirector' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepKostaLegal' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepIfc' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepAdb' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepEbrd' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
+            { image: defaultAvatar, nameKey: 'wg.temirov', positionKey: 'wg.posSecretary' },
         ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgEyBrand, imgMastercard, imgTbcBank, imgCentLaw],
     },
@@ -842,14 +852,21 @@ const iwgGroups: IWGroup[] = [
         coChairPositionKey: 'wg.veraPos',
         coChairBioKey: 'wg.veraBio',
         stateMembers: [
-            { image: imgTimur, nameKey: 'wg.timur', positionKey: 'wg.posCentralBankChair' },
-            { image: usrIlxom, nameKey: 'wg.ilkhom', positionKey: 'wg.posDeputyEcoFin' },
+            { image: defaultAvatar, nameKey: 'wg.istamov', positionKey: 'wg.posDeputyJustice' },
+            { image: usrIlxom, nameKey: 'wg.ilkhom', positionKey: 'wg.posFirstDeputyEcoFin' },
             { image: usrFeruza, nameKey: 'wg.feruzaEshmatova', positionKey: 'wg.posOmbudsperson' },
+            { image: defaultAvatar, nameKey: 'wg.buriev', positionKey: 'wg.posBusinessOmbudsman' },
+            { image: usrObidjon, nameKey: 'wg.obidjonKudratov', positionKey: 'wg.posEcologyDeputy' },
             { image: usrMarat, nameKey: 'wg.maratJuraev', positionKey: 'wg.posDeputyPoverty' },
+            { image: defaultAvatar, nameKey: 'wg.byPositionShort', positionKey: 'wg.posFirstDeputyAntiCorruption' },
             { image: usrFarrux, nameKey: 'wg.farrukhKarabaev', positionKey: 'wg.posCompetition' },
             { image: usrAgzam, nameKey: 'wg.rustemMahmammadiev', positionKey: 'wg.posStatistics' },
-            { image: usrMubin, nameKey: 'wg.mubinMirzaev', positionKey: 'wg.posDeputyTax' },
-            { image: usrObidjon, nameKey: 'wg.obidjonKudratov', positionKey: 'wg.posEcologyDeputy' },
+            { image: defaultAvatar, nameKey: 'wg.fayzibaev', positionKey: 'wg.posFirstDeputyTax' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepIfc' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepAdb' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepEbrd' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
+            { image: defaultAvatar, nameKey: 'wg.kushmatov', positionKey: 'wg.posDeputySecretary' },
         ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgAzizov, imgCrowe, imgVoltalia, imgBatBetter, imgMiCor, imgCola, imgIndoorama, imgVeon],
     },
@@ -864,14 +881,22 @@ const iwgGroups: IWGroup[] = [
         chairPhoto: imgKongratbay,
         chairPositionKey: 'wg.kongratbayPos',
         chairBioKey: 'wg.kongratbayBio',
-        coChairNameKey: 'wg.sandro',
-        coChairPhoto: imgSandro,
-        coChairPositionKey: 'wg.sandroPos',
-        coChairBioKey: 'wg.sandroText',
+        coChairNameKey: 'wg.kadyrov',
+        coChairPhoto: defaultAvatar,
+        coChairPositionKey: 'wg.kadyrovPos',
+        coChairBioKey: 'wg.kadyrovBio',
         stateMembers: [
+            { image: defaultAvatar, nameKey: 'wg.husainov', positionKey: 'wg.posMgmtEfficiency' },
+            { image: defaultAvatar, nameKey: 'wg.salikhov', positionKey: 'wg.posPublicPolicyRector' },
             { image: usrBotir, nameKey: 'wg.botirZahidov', positionKey: 'wg.posEmployment' },
+            { image: defaultAvatar, nameKey: 'wg.aliev', positionKey: 'wg.posDeputyInvestMinister' },
             { image: usrBexzod, nameKey: 'wg.bexzodMusaev', positionKey: 'wg.posLaborMigration' },
             { image: usrDavron, nameKey: 'wg.davronVahobov', positionKey: 'wg.posChamber' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepIfc' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepAdb' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepEbrd' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posMinHigherEduSecretary' },
         ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgUzCarls, imgVeon, imgBdo, imgEyBrand, imgIndoorama, imgCrowe],
     },
@@ -882,18 +907,27 @@ const iwgGroups: IWGroup[] = [
         paths: ['M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z', 'M9 22V12h6v10'],
         nameKey: 'workingGroupsPage.interagencyGroups.i5.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i5.description',
-        chairNameKey: 'wg.ilkhom',
-        chairPhoto: imgIlhom,
-        chairPositionKey: 'wg.ilkhomPos',
-        chairBioKey: 'wg.ilkhomBio',
-        coChairNameKey: 'wg.marius',
-        coChairPhoto: imgMarius,
-        coChairPositionKey: 'wg.mariusPos',
-        coChairBioKey: 'wg.mariusBio',
+        chairNameKey: 'wg.vyacheslavPak',
+        chairPhoto: usrPak,
+        chairDetailPhoto: defaultAvatar,
+        chairPositionKey: 'wg.pakChairPos',
+        chairBioKey: 'wg.pakBio',
+        coChairNameKey: 'wg.hammerson',
+        coChairPhoto: defaultAvatar,
+        coChairPositionKey: 'wg.hammersonPos',
+        coChairBioKey: 'wg.hammersonBio',
         stateMembers: [
-            { image: usrPak, nameKey: 'wg.vyacheslavPak', positionKey: 'wg.posNapp' },
-            { image: usrNodirbek, nameKey: 'wg.nodirbekHusanov', positionKey: 'wg.posStateAssetsDeputy' },
-            { image: usrGeorgiy, nameKey: 'wg.georgiyParesishvili', positionKey: 'wg.posStockExchange' },
+            { image: defaultAvatar, nameKey: 'wg.istamov', positionKey: 'wg.posDeputyJustice' },
+            { image: usrIlxom, nameKey: 'wg.ilkhom', positionKey: 'wg.posFirstDeputyEcoFin' },
+            { image: defaultAvatar, nameKey: 'wg.tashov', positionKey: 'wg.posActingStockExchange' },
+            { image: defaultAvatar, nameKey: 'wg.aliev', positionKey: 'wg.posDeputyInvestMinister' },
+            { image: defaultAvatar, nameKey: 'wg.murodov', positionKey: 'wg.posStateAssetsDirector' },
+            { image: usrDavron, nameKey: 'wg.davronVahobov', positionKey: 'wg.posChamber' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepIfc' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepAdb' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepEbrd' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posNappSecretary' },
         ],
         councilBrands: [
             imgEBank,
@@ -924,9 +958,19 @@ const iwgGroups: IWGroup[] = [
         chairBioKey: 'wg.ahadbekBio',
         coChairNameKey: 'wg.erlan',
         coChairPhoto: imgErlan2,
-        coChairPositionKey: 'wg.erlanPos',
+        coChairPositionKey: 'wg.dosimbekovPos',
         coChairBioKey: 'wg.erlanText',
-        stateMembers: [{ image: usrFarrux, nameKey: 'wg.farrukh', positionKey: 'wg.posTaxChairman' }],
+        stateMembers: [
+            { image: defaultAvatar, nameKey: 'wg.istamov', positionKey: 'wg.posDeputyJustice' },
+            { image: usrFarrux, nameKey: 'wg.farrukh', positionKey: 'wg.posTaxChairman' },
+            { image: defaultAvatar, nameKey: 'wg.aliev', positionKey: 'wg.posDeputyInvestMinister' },
+            { image: usrDavron, nameKey: 'wg.davronVahobov', positionKey: 'wg.posChamber' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepIfc' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepAdb' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepEbrd' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posMinEcoFinSecretary' },
+        ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgDeloitte, imgPwc, imgDentos, imgBatBetter, imgCrowe, imgIndoorama, imgSuez],
     },
     {
@@ -936,17 +980,26 @@ const iwgGroups: IWGroup[] = [
         paths: ['M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'],
         nameKey: 'workingGroupsPage.interagencyGroups.i7.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i7.description',
-        chairNameKey: 'wg.farrukh',
-        chairPhoto: imgFarrux,
-        chairPositionKey: 'wg.farrukhPos',
-        chairBioKey: 'wg.farrukhBio',
+        chairNameKey: 'wg.turdiev',
+        chairPhoto: defaultAvatar,
+        chairPositionKey: 'wg.turdievPos',
+        chairBioKey: 'wg.turdievBio',
         coChairNameKey: 'wg.azizbekAkhmadjonov',
         coChairPhoto: imgAziz2,
         coChairPositionKey: 'wg.azizbekAkhmadjonovPos',
         coChairBioKey: 'wg.azizbekAkhmadjonovBio',
         stateMembers: [
+            { image: defaultAvatar, nameKey: 'wg.kutbiev', positionKey: 'wg.posUrbanization' },
+            { image: usrMaxmud, nameKey: 'wg.istamov', positionKey: 'wg.posDeputyJustice' },
+            { image: defaultAvatar, nameKey: 'wg.abdurakhmonov', positionKey: 'wg.posAgriMinister' },
             { image: usrAxadbek, nameKey: 'wg.ahadbek', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrMaxmud, nameKey: 'wg.maxmudIstamov', positionKey: 'wg.posFirstDeputyJustice' },
+            { image: defaultAvatar, nameKey: 'wg.aliev', positionKey: 'wg.posDeputyInvestMinister' },
+            { image: defaultAvatar, nameKey: 'wg.murodov', positionKey: 'wg.posAuctionCenter' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepIfc' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepAdb' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepEbrd' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posCadastreSecretary' },
         ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgAzizov, imgTe, imgCrowe, imgVoltalia, imgIndoorama, imgEyBrand, imgMastercard],
     },
@@ -967,14 +1020,22 @@ const iwgGroups: IWGroup[] = [
         chairBioKey: 'wg.jurabekBio',
         coChairNameKey: 'wg.johnZaidi',
         coChairPhoto: imgLeader6,
-        coChairPositionKey: 'wg.johnZaidiPos',
+        coChairPositionKey: 'wg.zaidiPos',
         coChairBioKey: 'wg.johnZaidiText',
         stateMembers: [
             { image: usrXurshid, nameKey: 'wg.khurshedMustafaev', positionKey: 'wg.posDeputyEcoFin' },
+            { image: defaultAvatar, nameKey: 'wg.pekos', positionKey: 'wg.posFirstDeputyDigital' },
+            { image: defaultAvatar, nameKey: 'wg.aliev', positionKey: 'wg.posDeputyInvestMinister' },
+            { image: defaultAvatar, nameKey: 'wg.khodjaev', positionKey: 'wg.posElectricityMarket' },
+            { image: usrAskar, nameKey: 'wg.askarIsakov', positionKey: 'wg.posUztransgaz' },
             { image: usrAsrar, nameKey: 'wg.asrarjonAskarov', positionKey: 'wg.posHududiy' },
             { image: usrJaxongir, nameKey: 'wg.jahongirObidjonov', positionKey: 'wg.posUzenergo' },
             { image: usrNodirbek, nameKey: 'wg.nodirbekNasretdinov', positionKey: 'wg.posYashilEnergiya' },
-            { image: usrAskar, nameKey: 'wg.askarIsakov', positionKey: 'wg.posUztransgaz' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepIfc' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepAdb' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepEbrd' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posMinEnergySecretary' },
         ],
         councilBrands: [
             imgEBank,
@@ -1011,10 +1072,18 @@ const iwgGroups: IWGroup[] = [
         coChairPositionKey: 'wg.kazumasaPos',
         coChairBioKey: 'wg.kazumasaBio',
         stateMembers: [
-            { image: usrMaxmud, nameKey: 'wg.maxmudIstamov', positionKey: 'wg.posDeputyJustice' },
-            { image: usrAxadbek, nameKey: 'wg.ahadbek', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrJaxongirAbdiyev, nameKey: 'wg.jahongirAbdiev', positionKey: 'wg.posDeputyTax' },
-            { image: usrGeorgiy, nameKey: 'wg.georgiyParesishvili', positionKey: 'wg.posStockExchange' },
+            { image: usrIlxom, nameKey: 'wg.ilkhom', positionKey: 'wg.posDeputyEcoFin' },
+            { image: defaultAvatar, nameKey: 'wg.mamadaminov', positionKey: 'wg.posDeputyEnergyMinister' },
+            { image: defaultAvatar, nameKey: 'wg.ishpulatov', positionKey: 'wg.posDeputyWaterMinister' },
+            { image: defaultAvatar, nameKey: 'wg.aliev', positionKey: 'wg.posDeputyInvestMinister' },
+            { image: defaultAvatar, nameKey: 'wg.hasanov', positionKey: 'wg.posWasteAgency' },
+            { image: usrFarrux, nameKey: 'wg.farrukh', positionKey: 'wg.posTaxChairman' },
+            { image: defaultAvatar, nameKey: 'wg.suvankulov', positionKey: 'wg.posUzsuv' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepIfc' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepAdb' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepEbrd' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posEcoCommitteeSecretary' },
         ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgEyBrand, imgZiraatBank, imgCrowe, imgAzizov, imgIndoorama, imgVeon],
     },
@@ -1025,21 +1094,27 @@ const iwgGroups: IWGroup[] = [
         paths: ['M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z', 'M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'],
         nameKey: 'workingGroupsPage.interagencyGroups.i10.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i10.description',
-        chairNameKey: 'wg.olimjon',
-        chairPhoto: imgOlimjon2,
-        chairPositionKey: 'wg.olimjonPos',
-        chairBioKey: 'wg.olimjonBio',
-        coChairNameKey: 'wg.erlan',
-        coChairPhoto: imgErlan2,
-        coChairPositionKey: 'wg.erlanPos',
-        coChairBioKey: 'wg.erlanText',
+        chairNameKey: 'wg.sherzodShermatov',
+        chairPhoto: usrSherzod,
+        chairDetailPhoto: defaultAvatar,
+        chairPositionKey: 'wg.sherzodChairPos',
+        chairBioKey: 'wg.sherzodShermatovBio',
+        coChairNameKey: 'wg.nastradin',
+        coChairPhoto: defaultAvatar,
+        coChairPositionKey: 'wg.nastradinPos',
+        coChairBioKey: 'wg.nastradinBio',
         stateMembers: [
-            { image: usrMaxmud, nameKey: 'wg.maxmudIstamov', positionKey: 'wg.posDeputyJustice' },
-            { image: usrAxadbek, nameKey: 'wg.ahadbek', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrSherzod, nameKey: 'wg.sherzodShermatov', positionKey: 'wg.posDigitalMinister' },
-            { image: usrIlxom, nameKey: 'wg.ilkhom', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrShuxrat, nameKey: 'wg.shukhratVafaev', positionKey: 'wg.posRdfDirector' },
+            { image: defaultAvatar, nameKey: 'wg.bakhodjaev', positionKey: 'wg.posPresidentDeptFintech' },
+            { image: defaultAvatar, nameKey: 'wg.istamov', positionKey: 'wg.posDeputyJustice' },
+            { image: defaultAvatar, nameKey: 'wg.aliev', positionKey: 'wg.posDeputyInvestMinister' },
+            { image: defaultAvatar, nameKey: 'wg.karamatov', positionKey: 'wg.posItPark' },
             { image: usrFarrux, nameKey: 'wg.farrukh', positionKey: 'wg.posTaxChairman' },
+            { image: defaultAvatar, nameKey: 'wg.mardiev', positionKey: 'wg.posEnterpriseUz' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepIfc' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepAdb' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepEbrd' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posDigitalMinSecretary' },
         ],
         councilBrands: [
             imgEBank,

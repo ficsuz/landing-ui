@@ -15,26 +15,28 @@
             <!-- Row 1: left -->
             <div v-if="row1.length" class="relative flex overflow-hidden">
                 <div class="ticker-track ticker-left flex gap-4 shrink-0">
-                    <div
+                    <router-link
                         v-for="(logo, i) in [...row1, ...row1]"
                         :key="`r1-${i}`"
-                        class="shrink-0 h-[108px] w-[280px] bg-white rounded-xl border border-[#eef0f4] flex items-center justify-center px-6 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200"
+                        :to="{ name: 'council-members', query: { member: logo.id } }"
+                        class="shrink-0 h-[108px] w-[280px] bg-white rounded-xl border border-[#eef0f4] flex items-center justify-center px-6 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200 cursor-pointer"
                     >
                         <img :src="logo.src" :alt="logo.name" class="max-h-[76px] max-w-[220px] w-auto h-auto object-contain" />
-                    </div>
+                    </router-link>
                 </div>
             </div>
 
             <!-- Row 2: right -->
             <div v-if="row2.length" class="relative flex overflow-hidden">
                 <div class="ticker-track ticker-right flex gap-4 shrink-0">
-                    <div
+                    <router-link
                         v-for="(logo, i) in [...row2, ...row2]"
                         :key="`r2-${i}`"
-                        class="shrink-0 h-[108px] w-[280px] bg-white rounded-xl border border-[#eef0f4] flex items-center justify-center px-6 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200"
+                        :to="{ name: 'council-members', query: { member: logo.id } }"
+                        class="shrink-0 h-[108px] w-[280px] bg-white rounded-xl border border-[#eef0f4] flex items-center justify-center px-6 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200 cursor-pointer"
                     >
                         <img :src="logo.src" :alt="logo.name" class="max-h-[76px] max-w-[220px] w-auto h-auto object-contain" />
-                    </div>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -128,6 +130,7 @@ const brands = computed(() =>
     councilMembersStore.items
         .filter((m) => m.status && m.logoId)
         .map((m) => ({
+            id: m.id,
             name: resolveTranslation(m.name, locale.value),
             src: getMediaUrl(m.logoId),
         }))

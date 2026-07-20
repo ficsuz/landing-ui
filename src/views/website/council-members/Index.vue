@@ -25,8 +25,10 @@
                 <div v-loading="membersStore.loading" class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-5">
                     <div
                         v-for="item in memberSections[activeTab].items"
+                        :id="`member-${item.id}`"
                         :key="item.id"
-                        class="group flex overflow-hidden bg-white border border-[#eef0f4] rounded-2xl shadow-[0_2px_12px_rgba(25,28,31,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d0d5dd] hover:shadow-[0_12px_36px_rgba(25,28,31,0.10)]"
+                        class="group flex overflow-hidden bg-white border rounded-2xl shadow-[0_2px_12px_rgba(25,28,31,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d0d5dd] hover:shadow-[0_12px_36px_rgba(25,28,31,0.10)]"
+                        :class="highlightedId === item.id ? 'border-[#191c1f] ring-2 ring-[#191c1f] shadow-[0_12px_36px_rgba(25,28,31,0.12)]' : 'border-[#eef0f4]'"
                     >
                         <!-- Logo box -->
                         <div
@@ -63,7 +65,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useCouncilMembersStore } from '@/features/councilMembers/store'
 import { resolveTranslation } from '@/utils/i18n'
@@ -71,7 +74,36 @@ import { getMediaUrl } from '@/utils/media'
 import type { MemberType } from '@/features/councilMembers/types'
 
 const { locale, t } = useI18n()
+const route = useRoute()
+const router = useRouter()
 const membersStore = useCouncilMembersStore()
+
+// Member highlighted when arriving from a home-page logo click (?member=<id>).
+const highlightedId = ref<string | null>(null)
+let highlightTimer: ReturnType<typeof setTimeout> | null = null
+
+function focusMemberFromQuery() {
+    const id = route.query.member
+    if (!id || typeof id !== 'string') return
+
+    const sectionIdx = memberSections.value.findIndex((s) => s.items.some((it) => it.id === id))
+    if (sectionIdx === -1) return
+
+    activeTab.value = sectionIdx
+    highlightedId.value = id
+
+    nextTick(() => {
+        const el = document.getElementById(`member-${id}`)
+        el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    })
+
+    // Clear the highlight and the query param after a few seconds.
+    if (highlightTimer) clearTimeout(highlightTimer)
+    highlightTimer = setTimeout(() => {
+        highlightedId.value = null
+        router.replace({ query: {} })
+    }, 3500)
+}
 
 interface DisplayCompany {
     id: string
@@ -150,11 +182,29 @@ watch(tabsRef, (el) => {
     statsObserver.observe(el)
 })
 
+// Focus the requested member once the list has loaded.
+let hasFocused = false
+watch(
+    memberSections,
+    () => {
+        if (hasFocused) return
+        const hasItems = memberSections.value.some((s) => s.items.length > 0)
+        if (hasItems && route.query.member) {
+            hasFocused = true
+            focusMemberFromQuery()
+        }
+    },
+    { deep: true, immediate: true }
+)
+
 onMounted(() => {
     membersStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
 })
 
-onBeforeUnmount(() => statsObserver?.disconnect())
+onBeforeUnmount(() => {
+    statsObserver?.disconnect()
+    if (highlightTimer) clearTimeout(highlightTimer)
+})
 </script>
 
 <style scoped>

@@ -57,10 +57,11 @@
             <!-- Row 1: left -->
             <div class="relative flex overflow-hidden mb-4">
                 <div class="ticker-track ticker-members-left flex gap-4 shrink-0">
-                    <div
+                    <router-link
                         v-for="(member, i) in [...uzbekRow1, ...uzbekRow1]"
                         :key="`m1-${i}`"
-                        class="shrink-0 w-[340px] h-[104px] bg-white rounded-xl border border-[#eef0f4] flex items-center gap-4 px-5 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200 cursor-default"
+                        :to="{ name: 'council-members-uzbek-side' }"
+                        class="shrink-0 w-[340px] h-[104px] bg-white rounded-xl border border-[#eef0f4] flex items-center gap-4 px-5 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200 cursor-pointer"
                     >
                         <div class="w-[68px] h-[68px] rounded-full overflow-hidden ring-2 ring-[#eef0f4] shrink-0">
                             <img
@@ -75,17 +76,18 @@
                             </p>
                             <p class="text-[13px] text-[#8a94a6] leading-snug mt-1 line-clamp-2">{{ resolveTranslation(member.position, locale) }}</p>
                         </div>
-                    </div>
+                    </router-link>
                 </div>
             </div>
 
             <!-- Row 2: right -->
             <div class="relative flex overflow-hidden">
                 <div class="ticker-track ticker-members-right flex gap-4 shrink-0">
-                    <div
+                    <router-link
                         v-for="(member, i) in [...uzbekRow2, ...uzbekRow2]"
                         :key="`m2-${i}`"
-                        class="shrink-0 w-[340px] h-[104px] bg-white rounded-xl border border-[#eef0f4] flex items-center gap-4 px-5 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200 cursor-default"
+                        :to="{ name: 'council-members-uzbek-side' }"
+                        class="shrink-0 w-[340px] h-[104px] bg-white rounded-xl border border-[#eef0f4] flex items-center gap-4 px-5 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200 cursor-pointer"
                     >
                         <div class="w-[68px] h-[68px] rounded-full overflow-hidden ring-2 ring-[#eef0f4] shrink-0">
                             <img
@@ -100,7 +102,7 @@
                             </p>
                             <p class="text-[13px] text-[#8a94a6] leading-snug mt-1 line-clamp-2">{{ resolveTranslation(member.position, locale) }}</p>
                         </div>
-                    </div>
+                    </router-link>
                 </div>
             </div>
         </div>

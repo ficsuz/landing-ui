@@ -37,10 +37,10 @@
                             {{ $t(`exec.${member.key}.name`) }}
                         </p>
                         <span class="mt-2 text-[11px] font-semibold text-[#2563eb] text-center leading-tight">
-                            {{ $t(member.isChair ? 'management.execChair' : 'management.execMember') }}
+                            {{ member.key === 'm5' ? $t('exec.m5.mgmtRole') : $t(member.isChair ? 'management.execChair' : 'management.execMember') }}
                         </span>
                         <p class="mt-2 mb-4 text-[12px] text-[#8a94a6] text-center leading-relaxed">
-                            {{ $t(`exec.${member.key}.role`) }}
+                            {{ member.key === 'm5' ? $t('exec.m5.mgmtSubRole') : $t(`exec.${member.key}.role`) }}
                         </p>
                         <div class="group/bio relative mt-auto">
                             <button
@@ -92,7 +92,7 @@ import avatar1 from '@/assets/images/exports/foreign1.png'
 import avatar2 from '@/assets/images/exports/foreign2.png'
 import avatar3 from '@/assets/images/exports/foreign3.png'
 import avatar4 from '@/assets/images/exports/foreign4.png'
-import avatar5 from '@/assets/images/exports/aziz2.png'
+import avatar5 from '@/assets/images/avatars/A.Gafurov.jpg'
 
 import logoEbrd from '@/assets/images/brands/e-bank.png'
 import logoAdb from '@/assets/images/brands/ad-bank.png'

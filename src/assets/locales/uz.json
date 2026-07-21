@@ -94,12 +94,12 @@
     "hero": {
         "scroll": "Pastga",
         "slide1": {
-            "quote": "Bosh maqsadimiz — O'zbekistonni xorijiy investorlar uchun ishonchli va uzoq muddatli hamkorga aylantirish.",
+            "quote": "Bizning asosiy maqsadimiz – O‘zbekistonni xorijiy investorlar uchun ishonchli va uzoq muddatli hamkorga aylantirishdir",
             "author": "Shavkat Miromonovich Mirziyoyev",
             "role": "O'zbekiston Respublikasi Prezidenti"
         },
         "slide2": {
-            "quote": "Biz tajribamiz va investitsiyalarimiz qo'shimcha qiymat yarata oladigan har qanday sohada hissa qo'shishga tayyormiz.",
+            "quote": "Biz tajribamiz va investitsiyalarimiz qo‘shimcha qiymat yaratishi mumkin bo‘lgan barcha yo‘nalishlarda o‘z hissamizni qo‘shishga tayyormiz.",
             "author": "Odile Renaud-Basso",
             "role": "Yevropa Tiklanish va Taraqqiyot Bankining Prezidenti"
         },
@@ -109,7 +109,7 @@
     },
     "council": {
         "title": "Xorijiy Investorlar Kengashi",
-        "subtitle": "O'zbekiston Respublikasining barqaror rivojlanishi va iqtisodiy islohotlarini qo'llab-quvvatlashga qaratilgan tashkilotlarni birlashtiradi.",
+        "subtitle": "barqaror rivojlanish va iqtisodiy islohotlarni qo‘llab-quvvatlash maqsadidagi tashkilotlarni birlashtiradi",
         "management": "Rahbariyat",
         "card1": {
             "name": "Shavkat Miromonovich Mirziyoyev",
@@ -119,7 +119,7 @@
         "card2": {
             "name": "Odile Renaud-Basso",
             "role": "Kengash rais o'rinbosari",
-            "subrole": "YETTB Prezidenti"
+            "subrole": "YTTB Prezidenti"
         }
     },
     "keyFigures": {
@@ -135,37 +135,39 @@
         "m1": {
             "name": "Laziz Kudratov",
             "role": "O‘zbekiston Respublikasi Investitsiyalar, Savdo va Sanoat Vaziri",
-            "quote": "O'zbekiston investitsiya faolligida barqaror o'sishni namoyish etmoqda — bu davom etayotgan islohotlar va xorijiy investorlar uchun qulay sharoitlar yaratilishi natijasidir.",
+            "quote": "“O‘zbekistonda amalga oshirilayotgan islohotlar va xorijiy investorlar uchun qulay shart-sharoitlar yaratilgani tufayli investitsiyaviy faollik izchil o‘sib bormoqda.”",
             "bio": "O'zbekiston Respublikasi Investitsiyalar, sanoat va savdo vaziri, Ijroiya qo'mitasi raisi. Mamlakatning investitsiya siyosati, sanoat rivojlanishi va tashqi savdosiga rahbarlik qiladi."
         },
         "m2": {
             "name": "Andy Aranitasi",
-            "role": "O'zbekistondagi YETTB rahbari",
-            "quote": "Biz mamlakatning tadbirkorlik muhitini yaxshilashga katta ahamiyat beramiz — bu prezident Mirziyoyev tomonidan strategik milliy ustuvorlik sifatida belgilangan.",
+            "role": "YTTBning O'zbekistondagi rahbari",
+            "quote": "“Biz mamlakatda ishbilarmonlik muhitini yaxshilashga katta ahamiyat qaratamiz, bu esa Prezident Mirziyoyev tomonidan strategik milliy ustuvor yo‘nalish sifatida belgilangan.”",
             "bio": "Direktor, YETTBning O'zbekistondagi vakolatxonasi rahbari. Bank sohasida 25 yildan ortiq tajribaga ega; YETTBning energetika, infratuzilma va O'zbekiston xususiy sektoriga investitsiyalarini kengaytirgan."
         },
         "m3": {
             "name": "Kanokpan Lao-Araya",
-            "role": "Osiyo Taraqqiyot Bankining mamlakatdagi direktori",
-            "quote": "Hukumat islohotlarga qat'iy sodiqligini ko'rsatmoqda va rivojlanish jarayoniga xususiy sektor ham jumladan barcha manfaatdor tomonlarni jalb etishga intilmoqda.",
+            "role": "Osiyo Taraqqiyot Banki mamlakat direktori",
+            "quote": "“Hukumat islohotlarga qat‘iy sodiq bo‘lib, mamlakatdagi barcha manfaatdor tomonlarni, jumladan xususiy sektorni ham, rivojlanish jarayoniga jalb etishga intilmoqda.”",
             "bio": "OTBning O'zbekistondagi mamlakat direktori. Rivojlanish va iqtisodiy siyosat sohasida 25 yildan ortiq tajribaga ega."
         },
         "m4": {
             "name": "Neil McCain",
-            "role": "O'zbekiston va Turkmaniston bo'yicha XMK ofisi direktori",
-            "quote": "O'zbekistonning asosiy raqobatdosh afzalliklari — Markaziy Osiyodagi eng ko'p aholi va eng xilma-xil iqtisodiyotdir.",
-            "bio": "XMKning O'zbekiston va Turkmaniston bo'yicha ofisi direktori. XMKning xususiy sektorni rivojlantirish operatsiyalariga rahbarlik qiladi."
+            "role": "XMKning O‘zbekiston va Turkmaniston bo‘yicha ofisi direktori",
+            "quote": "“O‘zbekistonning asosiy raqobat ustunliklari — Markaziy Osiyodagi eng ko‘p aholiga ega mamlakat va eng diversifikatsiyalashgan iqtisodiyot.”",
+            "bio": "XMKning O‘zbekiston va Turkmaniston bo‘yicha ofisi direktori. XMKning xususiy sektorni rivojlantirish operatsiyalariga rahbarlik qiladi."
         },
         "m5": {
             "name": "Aziz Gafurov",
             "role": "XIK Kotibiyati rahbari",
+            "mgmtRole": "XIK Kotibiyati rahbari",
+            "mgmtSubRole": "Kengash assotsiatsiyasi rahbari",
             "quote": "Biz mamlakatning tadbirkorlik muhitini yaxshilashga katta ahamiyat beramiz — bu prezident Mirziyoyev tomonidan strategik milliy ustuvorlik sifatida belgilangan.",
             "bio": "Kengash Assotsiatsiyasi rahbari va Kotibiyat boshlig'i. Korporativ boshqaruv, risklarni boshqarish va investitsiya siyosati sohasida 20 yildan ortiq tajribaga ega top-menejer."
         }
     },
     "plenary": {
-        "title": "Plenar Sessiya Yoqlab Yodlari",
-        "subtitle": "Davlat va investorlar o'rtasidagi muloqot — islohotlar muhokama qilinadi, muhim qarorlar qabul qilinadi va O'zbekistonning investitsiya kelajagi shakllanadi."
+        "title": "Yalpi majlislardan lavhalar",
+        "subtitle": "Islohotlar muhokama qilinadigan, asosiy qarorlar qabul qilinadigan va O‘zbekistonning investitsiyaviy kelajagi yaratiladigan davlat va investorlar muloqoti"
     },
     "members": {
         "title": "Kengash a'zolari",
@@ -173,8 +175,8 @@
         "uzbekSubtitle": "Xorijiy Investorlar Kengashining o'zbek a'zolari"
     },
     "strongPartners": {
-        "title": "Biz bilan oldinga siljayotgan kuchli hamkorlar",
-        "subtitle": "Birgalikda maqtanishga arzigulik natijalar yarataymiz.",
+        "title": "Biz bilan yonma-yon yurgan kuchli hamkorlar",
+        "subtitle": "Biz birgalikda faxrlanadigan natija yaratamiz",
         "btn": "Ishchi guruhlar"
     },
     "councilCalendar": {
@@ -193,10 +195,10 @@
         "foreignInflow": "xorijiy investitsiyalar oqimi",
         "rating": "Fitch va S&P reytingi; Moody's Ba3 (musbat istiqbol)",
         "reserves": "oltin-valyuta zahiralari (+35%)",
-        "inflation": "inflyatsiya (bir yil oldin 9.8% dan)",
+        "inflation": "inflyatsiya (bir yil avval 9,8% edi)",
         "exportGrowth": "eksport o'sishi (~32 mlrd dollar)",
-        "totalInvestment": "jami investitsiyalarning YaIMga nisbati",
-        "unemployment": "ishsizlik (rekord past)",
+        "totalInvestment": "YaIMga nisbatan jami investitsiyalar",
+        "unemployment": "ishsizlik (minimal daraja)",
         "sector": {
             "energy": "Yashil energetika",
             "energyP1": "ACWA Power, Masdar, TotalEnergies, EDF, Voltalia",
@@ -209,12 +211,12 @@
             "infra": "Infratuzilma va GXSh",
             "infraP1": "2025 yilda GXSh loyihalari uchun 4,5 mlrd dollar",
             "infraP2": "yo'llar, transport, suv ta'minoti, irrigatsiya",
-            "infraP3": "XMI bilan aralash moliyalashtirish",
+            "infraP3": "xalqaro moliya institutlari (XMI) bilan aralash moliyalashtirish",
             "finance": "Moliyaviy xizmatlar",
             "financeP1": "Toshkent xalqaro moliya markazi",
             "financeP2": "Islom moliyasi (Green Sukuk, Takaful)",
             "financeP3": "so'mda dastlabki suveren obligatsiyalar",
-            "mfg": "Ishlab chiqarish sanoati",
+            "mfg": "Qayta ishlash sanoati",
             "mfgP1": "kimyo va o'g'itlar (Indorama)",
             "mfgP2": "to'qimachilik, qurilish materiallari (Knauf)",
             "mfgP3": "eksportga yo'naltirilgan ishlab chiqarish",
@@ -224,11 +226,11 @@
             "miningP3": "xalqaro ESG standartlari"
         },
         "g1term": "Huquqiy kafolatlar.",
-        "g1text": "\"Investitsiyalar va investitsiya faoliyati to'g'risida\"gi Qonun mablag'larni chet elga erkin o'tkazishni va investitsiyalarni milliylashtirish xavfidan himoyalashni kafolatlaydi.",
+        "g1text": "«Investitsiyalar va investitsiya faoliyati to’g’risida»gi qonun mablag’larni mamlakatdan tashqariga erkin o’tkazishni va investitsiyalarni milliylashtirishdan himoya qilishni kafolatlaydi.",
         "g2term": "Soliq barqarorligi.",
         "g2text": "Biznes uchun asosiy soliq stavkalari 2028 yilgacha o'zgarmaydi.",
         "g3term": "To'g'ridan-to'g'ri muloqot.",
-        "g3text": "Prezident huzuridagi Xorijiy Investorlar Kengashi — investorlar muammolarini eng yuqori darajada hal etish uchun institutsional kanal.",
+        "g3text": "Prezident huzuridagi Xorijiy investorlar kengashi — investorlar masalalarini eng yuqori darajada hal etishning institutsional kanali.",
         "g4term": "Nizolarni hal etish.",
         "g4text": "Toshkent xalqaro arbitraj markazi; Toshkent xalqaro tijorat sudi.",
         "g5term": "Kengash a'zolari uchun imtiyozlar.",
@@ -237,12 +239,12 @@
         "sourcesText": "XVF (IV modda, 2026), Jahon banki, YAIB; Fitch, S&P, Moody's; 2025 yil natijalari bo'yicha Prezident nutqi; invest.gov.uz / MIFT; PwC Investor Guide.",
         "introEyebrow": "Umumiy ko'rinish",
         "introHeading": "O'zbekiston — Yevrosiyoning eng jadal rivojlanayotgan iqtisodiyotlaridan biri",
-        "intro1": "2017 yildan beri O'zbekiston Yevrosiyoda eng muhim iqtisodiy o'zgarishlardan birini boshdan kechirmoqda. Valyuta bozorining liberallashtirilishi, soliq va sud islohoti, kapital bozorini rivojlantirish va xususiylashtirish avval yopiq bo'lgan iqtisodiyotni mintaqaning eng jadal rivojlanayotgan investitsiya manzillaridan biriga aylantirdi. Bugungi kunda u aholi soni bo'yicha Markaziy Osiyoning eng yirik bozori bo'lib, taxminan 37,7 million nafar aholiga ega va ichki talab barqaror o'sib bormoqda.",
-        "intro2": "2025 yil bu yo'nalishni tasdiqladi. YaIM o'sishi 7,7% ga yetdi va ko'pgina prognozlardan oshib ketdi; inflyatsiya 7,3% gacha pasaydi, ishsizlik esa 4,8% gacha kamaydi. Fitch so'nggi yetti yil ichida birinchi marta suveren reytingni BB darajasigacha oshirdi, S&P o'zining BB reytingini tasdiqladi, Moody's esa Ba3 reytingini saqlab qolgan holda istiqbolni ijobiy deb belgiladi. O'zbekistonning Jahon savdo tashkilotiga kirish jarayoni yakuniga yaqinlashmoqda, bu esa 2017 yilgi valyuta liberallashuvi islohotlaridan beri eng muhim strukturaviy ochilish hisoblanadi.",
+        "intro1": "2017 yildan buyon O‘zbekiston Yevrosiyodagi eng yirik iqtisodiy transformatsiyalardan birini amalga oshirdi. Valyuta bozorining liberallashtirilishi, soliq va sud-huquq islohotlari, kapital bozorlarining ochilishi hamda xususiylashtirish ilgari yopiq bo‘lgan iqtisodiyotni mintaqaning eng jadal rivojlanayotgan investitsiya yo‘nalishlaridan biriga aylantirdi. Bugungi kunda mamlakat Markaziy Osiyodagi eng yirik aholi bozoriga ega bo‘lib, aholisi taxminan 37,7 million kishini tashkil etadi va ichki talab barqaror o‘sib bormoqda.",
+        "intro2": "2025 yil ushbu yo‘nalishning to‘g‘riligini yana bir bor tasdiqladi. YAIM o‘sishi 7,7% ga yetib, aksariyat prognozlardan yuqori bo‘ldi; inflyatsiya 7,3% gacha pasaydi, ishsizlik darajasi esa 4,8% ni tashkil etdi. Fitch yetti yil ichida ilk bor suveren reytingni BB darajasiga oshirdi, S&P BB reytingini tasdiqladi, Moody's esa Ba3 reytingini saqlab qolib, prognozni «ijobiy»ga yaxshiladi. Jahon Savdo Tashkilotiga a'zo bo‘lish jarayoni yakunlanish arafasida bo‘lib, bu 2017 yilgi valyuta liberallashuvidan buyon iqtisodiyotning eng muhim tarkibiy ochilishidir.",
         "timeline": {
             "eyebrow": "To'qqiz yil islohotlar",
-            "title": "Islohotlar yo'nalishi",
-            "sub": "Iqtisodiyotni ochishdan kapital bozoriga qadar",
+            "title": "Islohotlar traektoriyasi",
+            "sub": "Iqtisodiyotni ochishdan kapital bozoriga",
             "y2017": "Valyuta bozori liberallashtirildi, tizimli islohotlar boshlandi; YaIM taxminan 56 mlrd dollar.",
             "y2019": "Prezident huzuridagi Xorijiy Investorlar Kengashi tashkil etildi — investorlar bilan muloqot uchun institutsional platforma.",
             "y2024": "Energetika islohotlari; xalqaro kompaniyalarning yashil iqtisodiyotga rekord miqdordagi investitsiyalari.",
@@ -271,7 +273,7 @@
     },
     "chronology": {
         "title": "Xronologiya",
-        "subtitle": "Kengashning asosiy bosqichlari",
+        "subtitle": "Kengash rivojlanishining asosiy bosqichlari",
         "milestones": [
             { "date": "Noyabr 2019", "description": "Kengashning tashkil etilishi (PP-4519). Birinchi navbatdan tashqari sessiya — 20 noyabr" },
             { "date": "Noyabr 2022", "description": "I Plenar sessiya — 9 noyabr. Ustav va asosiy strategik qarorlarning qabul qilinishi" },
@@ -291,9 +293,9 @@
         ]
     },
     "ficHistory": {
-        "viewDecree": "Farmonni ko'rish",
-        "p1": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy Investorlar Kengashi — O'zbekiston Hukumati va mamlakatda faoliyat yurituvchi investorlar o'rtasidagi bevosita muloqot uchun institutsional platforma. U 2019 yil 13 noyabrdagi PP-4519-sonli Prezident qarori bilan tashkil etilgan.",
-        "p2": "Kengash faoliyati investitsiyalarni jalb etishdagi asosiy to'siqlarni aniqlash, ularni bartaraf etish bo'yicha hukumat idoralari bilan birgalikda yechimlar ishlab chiqish va qulay investitsiya muhitini ta'minlashga qaratilgan. Kengash raisi — O'zbekiston Respublikasi Prezidenti; rais o'rinbosari — YETTB Prezidenti."
+        "viewDecree": "Batafsil",
+        "p1": "O‘zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi — O‘zbekiston hukumati va mamlakatda faoliyat yuritayotgan investorlar o‘rtasida to‘g‘ridan-to‘g‘ri muloqot qilish uchun institutsional maydondir. Prezidentning 2019-yil 13-noyabrdagi PQ-4519-son qarori bilan tashkil etilgan.",
+        "p2": "Kengash faoliyati investitsiyalarni jalb qilishdagi asosiy to‘siqlarni aniqlash, ularni bartaraf etish bo‘yicha davlat organlari bilan hamkorlikda yechimlar ishlab chiqish va qulay investitsiya muhitini ta’minlashga qaratilgan. Kengash raisi — O‘zbekiston Respublikasi Prezidenti; hamraisi — YTTB Prezidenti."
     },
     "investorsVoices": {
         "title": "Investorlar Ovozi",
@@ -312,26 +314,26 @@
     "association": {
         "legalBasis": {
             "title": "Huquqiy asos va institutsional maqom",
-            "p1": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy Investorlar Kengashi 2019 yil 13 noyabrdagi PP-4519-sonli Prezident qarori bilan xorijiy investorlar, xalqaro moliya institutlari va O'zbekiston Respublikasi Hukumati o'rtasidagi bevosita muloqot uchun maslahat-tavsiya organi sifatida tashkil etilgan.",
-            "p2": "Kengash faoliyatining kengayishi munosabati bilan doimiy faoliyat yurituvchi operativ organga ehtiyoj tug'ildi. 2025 yil 18 iyuldagi PP-226-sonli Prezident qarori bilan Kengash a'zolari va xalqaro moliya institutlarining Kengash Kotibiyatini notijorat nodavlat tashkilot shaklida tashkil etish bo'yicha taklifi qo'llab-quvvatlandi.",
-            "p3": "Ushbu qarorni ijro etish doirasida 2025 yil 4 noyabrda «Xorijiy Investorlar Kengashi» yuridik shaxslar assotsiatsiyasi (Assotsiatsiya, Ittifoq), INN 312 551 219, ro'yxatdan o'tkazildi — Kengash Kotibiyati vazifalarini bajaruvchi yuridik shaxs.",
+            "p1": "O‘zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi xorijiy investorlar, xalqaro moliya institutlari va O‘zbekiston Respublikasi Hukumati o‘rtasida to‘g‘ridan-to‘g‘ri muloqot qilish uchun maslahat-kengash organi sifatida Prezidentning 2019-yil 13-noyabrdagi PQ-4519-son qarori bilan tashkil etilgan.",
+            "p2": "Kengash faoliyati kengayishi bilan doimiy faoliyat yurituvchi operatsion organga ehtiyoj tug‘ildi. Prezidentning 2025-yil 18-iyuldagi PQ-226-son qarori bilan Kengash a’zolari va xalqaro moliya institutlarining Kengash Kotibiyatini nodavlat notijorat tashkilot shaklida tashkil etish to‘g‘risidagi taklifi qo‘llab-quvvatlandi.",
+            "p3": "Ushbu qaror ijrosida 2025-yil 4-noyabrda “Foreign Investors Council” yuridik shaxslar uyushmasi (Assotsiatsiya, Ittifoq), STIR 312 551 219, ro‘yxatdan o‘tkazildi — Kengash Kotibiyati funksiyalarini bajaruvchi yuridik shaxs.",
             "documents": "Hujjatlar"
         },
         "functions": {
-            "title": "Kotibiyat vazifalari",
+            "title": "Kotibiyat funksiyalari",
             "items": [
-                "Plenar va navbatdan tashqari sessiyalarni tashkil etish",
+                "yalpi va oraliq sessiyalarni tashkil etish",
                 "16 ta ishchi guruh faoliyatini muvofiqlashtirish",
-                "Investorlar bilan kundalik o'zaro hamkorlik",
-                "Tashabbuslarni yig'ish va ilgari surish",
-                "Kengash faoliyatini tahliliy qo'llab-quvvatlash"
+                "investorlar bilan kundalik hamkorlik",
+                "tashabbuslarni yig‘ish va ilgari surish",
+                "Kengashni tahliliy qo‘llab-quvvatlash"
             ]
         },
         "governance": {
             "title": "Boshqaruv tuzilmasi",
             "items": [
-                "Ta'sischilarning umumiy yig'ilishi — oliy organ",
-                "Ijroiya qo'mita — kollegial organ",
+                "Ta’sischilarning umumiy yig‘ilishi — oliy organ",
+                "Ijroiya qo‘mitasi — kollegial organ",
                 "Assotsiatsiya rahbari / Kotibiyat rahbari"
             ]
         }
@@ -340,8 +342,8 @@
         "title": "Kotibiyat",
         "subtitle": "Xorijiy Investorlar Kengashining doimiy faoliyat yurituvchi operativ organi",
         "missionTitle": "Bizning vazifamiz",
-        "missionText": "Xorijiy Investorlar Kengashining Kotibiyati sessiyalar orasida Kengash ishining uzluksizligi va izchilligini ta'minlovchi doimiy faoliyat yurituvchi operativ organdir. Kotibiyat plenar va navbatdan tashqari majlislarni tashkil etadi, o'n olti ishchi guruh faoliyatini muvofiqlashtiradi, Kengash a'zolari va xorijiy investorlar bilan kundalik muloqot olib boradi, investitsiya muhitini yaxshilash bo'yicha tashabbuslarni to'playdi va tahlil qiladi hamda ularning tegishli davlat siyosatiga kiritilishini ta'minlaydi.",
-        "legalText": "Yuridik shaxs maqomini olishi bilan Kotibiyat o'z vakolatlarini samarali bajarish va xalqaro moliya institutlari bilan hamkorlik qilish uchun zarur bo'lgan institutsional mustaqillikka ega bo'ldi.",
+        "missionText": "Xorijiy investorlar kengashi Kotibiyati — sessiyalar orasida Kengash ishining uzluksizligi va tizimliligini ta’minlovchi doimiy faoliyat yurituvchi operatsion organ. Kotibiyat yalpi va oraliq majlislarni tashkil etadi, o‘n oltita ishchi guruh faoliyatini muvofiqlashtiradi, Kengash a’zolari va xorijiy investorlar bilan kundalik muloqot olib boradi, investitsiya muhitini yaxshilash bo‘yicha tashabbuslarni yig‘adi va tahlil qiladi hamda ularning tegishli davlat siyosatiga ilgari surilishini ta’minlaydi.",
+        "legalText": "Yuridik shaxs maqomiga ega bo‘lishi bilan Kotibiyat o‘z vakolatini samarali bajarish va xalqaro moliya institutlari bilan hamkorlik qilish uchun zarur institutsional mustaqillikka ega bo‘ldi.",
         "teamTitle": "Jamoa",
         "contactTitle": "Aloqa ma'lumotlari",
         "address": "100084, O'zbekiston Respublikasi, Toshkent sh., Mustakillik ko'chasi, 5",
@@ -365,9 +367,9 @@
     },
     "councilMembersPage": {
         "intro": "Xorijiy Investorlar Kengashi 43 a'zodan iborat bo'lib, ular xorijiy investorlar, xalqaro moliya institutlari va O'zbekiston hukumati vakillari — O'zbekistonda faoliyat yurituvchi yetakchi kompaniyalar va tashkilotlarni birlashtiradi.",
-        "membersIntro": "Xorijiy Investorlar Kengashi a'zolari O'zbekiston iqtisodiyotiga strategik investitsiyalar kiritayotgan yetakchi xalqaro kompaniyalar, banklar va moliya institutlaridir. A'zolik mamlakatni rivojlantirishga uzoq muddatli sodiqlikni aks ettiradi va investitsiya siyosati masalalarida Hukumat bilan to'g'ridan-to'g'ri muloqot kanalini ta'minlaydi. Kengash 19 mamlakatdan 43 a'zoni birlashtiradi va iqtisodiyotning 23 sektorini qamrab oladi.",
-        "execBoardTitle": "Ijroiya qo'mita a'zolari",
-        "fullMembersTitle": "To'liq a'zolar",
+        "membersIntro": "Xorijiy investorlar kengashi a’zolari — O‘zbekiston iqtisodiyotiga strategik investitsiya kiritayotgan yetakchi xalqaro kompaniyalar, banklar va moliya institutlaridir. A’zolik mamlakat taraqqiyotiga uzoq muddatli sodiqlikni aks ettiradi va investitsiya siyosati masalalari bo‘yicha Hukumat bilan to‘g‘ridan-to‘g‘ri muloqot kanalini taqdim etadi. Kengash 23 ta iqtisodiyot tarmog‘ini ifodalovchi 19 ta davlatdan 43 a’zoni birlashtiradi",
+        "execBoardTitle": "Ijroiya qo'mitasi a'zolari",
+        "fullMembersTitle": "To'laqonli a'zolar",
         "observersTitle": "Kuzatuvchi a'zolar",
         "tabs": {
             "all": "Barchasi",
@@ -379,16 +381,18 @@
     "uzbekSidePage": {
         "title": "O'zbek tomoni",
         "intro": "O'zbekiston Respublikasi Hukumatining Xorijiy Investorlar Kengashidagi vakillik tarkibi — tegishli soha vazirlari, agentlik va idora rahbarlari.",
-        "membersCount": "a'zo"
+        "membersCount": "a'zo",
+        "officialNote": "Kengashning hukumat tomonidan rasmiy tarkibi.\nPrezidentning PP-226-son qarori, 2-ilova.",
+        "officialLink": "Ko‘proq bilish"
     },
     "expertsPage": {
         "title": "Ekspertlar",
         "subtitle": "Kengashning maslahat organi a'zolari",
-        "intro": "Kengash ekspertlari — Xorijiy Investorlar Kengashining ishchi guruhlari va tashabbuslariga ekspert ko'magini ko'rsatuvchi tan olingan xalqaro va mahalliy mutaxassislar. Kengash ularning O'zbekiston investitsiya siyosatini rivojlantirishdagi hissasini yuqori baholaydi va professional kompetentsiyalarini e'tirof etadi.",
+        "intro": "Kengash ekspertlari — Xorijiy investorlar kengashining ishchi guruhlari va tashabbuslariga ekspert yordamini ko‘rsatuvchi e’tirof etilgan xalqaro va mahalliy mutaxassislardir. Kengash ularning O‘zbekiston investitsiya siyosatini rivojlantirishga qo‘shgan hissasini yuqori baholaydi va professional malakasini e’tirof etadi.",
         "internationalTitle": "Xalqaro ekspertlar",
-        "internationalDesc": "Qonunchilik tashabbuslarini ishlab chiqish va xalqaro standartlarni moslashtirishda ishtirok etuvchi yetakchi konsalting, huquqiy va moliyaviy tashkilotlar vakillari.",
+        "internationalDesc": "Yetakchi konsalting, yuridik va moliyaviy tashkilotlar (EY, Crowe, Franklin Templeton, BDO, Kosta Legal va boshqalar) vakillari bo‘lib, qonunchilik tashabbuslarini ishlab chiqish va xalqaro standartlarni moslashtirish jarayonida ishtirok etadilar.",
         "localTitle": "Mahalliy ekspertlar",
-        "localDesc": "Investitsiya siyosati, korporativ boshqaruv va tarmoq tartibga solish sohasidagi milliy mutaxassislar, xalqaro tajribani O'zbekiston sharoitlari bilan bog'lovchilar.",
+        "localDesc": "Investitsiya siyosati, korporativ boshqaruv va tarmoq tartibga solish sohasidagi milliy mutaxassislar bo‘lib, xalqaro amaliyotni O‘zbekiston sharoitlari bilan bog‘laydilar.",
         "specialties": {
             "legal": "Huquq",
             "finance": "Moliya",
@@ -401,7 +405,7 @@
     "becomeAMemberPage": {
         "title": "A'zo bo'lish",
         "categoriesSubtitle": "Toifalar, ta'sir va qabul qilish tartibi",
-        "intro": "XIK — xorijiy investorlar va O'zbekiston hukumati o'rtasidagi tuzilmaviy muloqot uchun asosiy institutsional platforma.",
+        "intro": "XIK — xorijiy investorlar va O'zbekiston Hukumati o'rtasidagi tuzilgan muloqot uchun asosiy institutsional platforma.",
         "requirementsTitle": "A'zolik shartlari",
         "requirements": [
             "O'zbekistonda ro'yxatdan o'tgan yoki faoliyat yurituvchi xorijiy kompaniya yoki xalqaro moliya instituti",
@@ -410,34 +414,34 @@
             "Kengash Ustaviga rioya qilish"
         ],
         "admissionTitle": "Qabul qilish tartibi",
-        "admissionNote": "Qabul qilish va ishtirok etish formatlari Ustav, A'zolik to'g'risidagi nizom va amaldagi protokol qoidalariga muvofiq belgilanadi.",
+        "admissionNote": "Qabul qilish va ishtirok etish formatlari Ustav, A'zolik nizomi va tegishli protokol qoidalariga muvofiq belgilanadi.",
         "steps": [
             {
                 "num": "01",
                 "title": "Ariza va hujjatlar",
-                "desc": "So'ralgan a'zolik toifasini ko'rsatgan holda yozma ariza hamda talab qilinadigan qo'shimcha hujjatlarning to'liq to'plami bilan taqdim etish"
+                "desc": "So'ralgan a'zolik kategoriyasini ko'rsatib, zarur tasdiqlovchi hujjatlarning to'liq to'plami bilan birga yozma ariza topshirish"
             },
             {
                 "num": "02",
                 "title": "Ko'rib chiqish",
-                "desc": "Hujjatlarni tekshirish va talablarga muvofiqligini baholashni o'z ichiga olgan ekspertiza"
+                "desc": "Hujjatlarni va talablarga muvofiqligini tekshirishni o'z ichiga olgan baholash"
             },
             { "num": "03", "title": "Qaror", "desc": "Ijroiya qo'mitasi tomonidan ko'rib chiqish va qaror qabul qilish" },
-            { "num": "04", "title": "Rasmiylashtirish", "desc": "A'zolik shartnomasini imzolash va a'zolik to'lovini amalga oshirish" }
+            { "num": "04", "title": "Rasmiylashtirish", "desc": "A'zolik shartnomasini imzolash va a'zolik badallarini to'lash" }
         ],
-        "categoriesTitle": "A'zolik toifalari va ta'sir darajasi",
+        "categoriesTitle": "A'zolik kategoriyalari va ta'sir darajasi",
         "categories": [
             {
                 "title": "Ijroiya qo'mitasi",
                 "perks": ["Boshqaruvda strategik rol", "Ustav o'zgartirishlari, qayta tashkil etish va tugatish bo'yicha hal qiluvchi ovoz"]
             },
             {
-                "title": "To'liq a'zolar",
+                "title": "To'laqonli a'zolar",
                 "limit": "40 tagacha a'zo",
                 "perks": [
                     "Asosiy va faol investorlar",
                     "Hal qiluvchi ovoz huquqi",
-                    "O'zbekiston Prezidenti ishtirokidagi plenar sessiyalarda qatnashish",
+                    "O'zbekiston Prezidenti bilan yalpi majlislarda ishtirok etish",
                     "Rasmiy protokol va yopiq ishchi formatlarda qatnashish"
                 ]
             },
@@ -445,8 +449,8 @@
                 "title": "Kuzatuvchilar",
                 "limit": "60 tagacha a'zo",
                 "perks": [
-                    "Maslahat (hal qiluvchi ovozsiz) roli",
-                    "XIK plenar sessiyalarida ishtirok etish",
+                    "Maslahat (hal qiluvchi ovoz huquqisiz) roli",
+                    "XIK yalpi majlislarida ishtirok etish",
                     "Ochiq sessiyalar, muhokamalar va ekspert formatlarida ishtirok etish"
                 ]
             }
@@ -539,7 +543,7 @@
         "legalBasisText": "18.07.2025 yildagi Prezident qaroriga asosan (21.07.2025 dan kuchga kirgan) — PP-226",
         "learnMore": "Batafsil",
         "tabCouncil": "Ishchi guruhlar (IG)",
-        "tabInteragency": "Idoralararo ishchi guruhlar (IIG)",
+        "tabInteragency": "Ishchi guruhlar",
         "chairLabel": "Ishchi guruh raisi.",
         "coChairLabel": "Hamrais",
         "membershipBadge": "Idoralararo ishchi guruh a'zoligi",
@@ -576,44 +580,44 @@
     },
     "resultsPage": {
         "overviewTitle": "Kengash natijalari",
-        "overviewIntro": "Hisobot davri mobaynida Xorijiy investorlar kengashi davlat va xorijiy investorlar o'rtasida muloqot va O'zbekiston investitsiya siyosatini rivojlantirish platformasi sifatidagi rolini sezilarli darajada mustahkamladi.",
+        "overviewIntro": "Hisobot davrida Xorijiy investorlar kengashi davlat va xorijiy investorlar o‘rtasidagi o‘zaro hamkorlikning asosiy platformasi hamda O‘zbekiston investitsiya siyosatini rivojlantirish vositasi sifatidagi rolini sezilarli darajada kuchaytirdi.",
         "stat1Label": "bajarilgan tashabbus",
         "stat2Label": "tahrirlangan qonun hujjatlari",
         "stat3Label": "jalb qilingan investitsiyalar",
         "stat4Label": "ishchi guruh sessiyalari",
         "platformTitle": "INVESTORLAR UCHUN PLATFORMA",
         "platform": {
-            "s1": "kompaniyalar faolligi o'sishi",
+            "s1": "kompaniyalar jalb etilishining o‘sishi",
             "s2": "faol ishtirokchi kompaniyalar",
-            "s3": "Kengash a'zosi kompaniyalar",
+            "s3": "kompaniya — Kengash a’zolari",
             "s4": "ishtirokchi davlatlar",
             "s5": "xalqaro institutlar (3 tasi Ijroiya qo'mitasida)",
-            "s6": "iqtisodiyot sohalari"
+            "s6": "iqtisodiyot tarmoqlari"
         },
-        "investEnvTitle": "INVESTITSIYA MUHITINI RIVOJLANTIRISH",
+        "investEnvTitle": "Investitsiya muhitining rivojlanishi",
         "investEnv": {
-            "s1": "ishchi guruhlar sonining o'sishi",
-            "s2": "ishchi guruh yig'ilishlari",
+            "s1": "ishchi guruhlar sonining o‘sishi",
+            "s2": "ishchi guruhlar majlislari",
             "s3": "tashabbuslar (uch barobar o'sish)",
-            "s4": "Kengash ishtirokida ishlab chiqilgan normativ hujjatlar",
+            "s4": "normativ-huquqiy hujjat Kengash ishtirokida ishlab chiqilgan",
             "s5": "strategik tashabbuslar",
             "s6": "ijtimoiy tashabbuslar"
         },
         "legalActs": {
-            "title": "KENGASH ISHTIROKIDA ISHLAB CHIQILGAN SAKKIZ NORMATIV HUJJAT",
-            "subtitle": "Xorijiy investorlar kengashi ishtirokida ishlab chiqilgan normativ-huquqiy hujjatlar",
-            "a1": "Muqobil investitsiya fondlari to'g'risidagi qonun loyihasi",
-            "a2": "Mas'uliyatli tadbirkorlik tamoyillari to'g'risidagi Prezident qarori loyihasi",
-            "a3": "Soliq kodeksiga o'zgartirish kiritish to'g'risidagi qonun loyihasi",
-            "a4": "Elektr energetikasi to'g'risidagi qonunga o'zgartirish kiritish to'g'risidagi qonun loyihasi",
-            "a5": "Elektr energiyasi va tabiiy gazdan foydalanish qoidalari to'g'risidagi Vazirlar Mahkamasi qarori loyihasi",
-            "a6": "\"Davlat-xususiy sheriklik to'g'risida\"gi qonunga o'zgartirish kiritish to'g'risidagi qonun loyihasi",
-            "a7": "Yer uchastkalarini zaxiralash to'g'risidagi Prezident qarori loyihasi",
-            "a8": "Xalqaro standartlarga asoslangan moliyaviy hisobot tizimi to'g'risidagi qaror loyihasi"
+            "title": "Kengash ishtirokida ishlab chiqilgan sakkizta normativ-huquqiy hujjat",
+            "subtitle": "Xorijiy investorlar kengashi ishtirokida ishlab chiqilgan me'yoriy-huquqiy hujjatlar",
+            "a1": "Muqobil investitsiya fondlari to‘g‘risidagi Qonun loyihasi",
+            "a2": "Mas’uliyatli biznes yuritish tamoyillari to‘g‘risidagi Prezident qarori loyihasi",
+            "a3": "Soliq kodeksiga o‘zgartirishlar kiritish to‘g‘risidagi qonun loyihasi",
+            "a4": "Elektr energetikasi to‘g‘risidagi qonunga o‘zgartirishlar kiritish to‘g‘risidagi qonun loyihasi",
+            "a5": "Elektr energiyasi va tabiiy gazdan foydalanish qoidalari to‘g‘risidagi Vazirlar Mahkamasi qarori loyihasi",
+            "a6": "“Davlat-xususiy sheriklik to‘g‘risida”gi qonunga o‘zgartirishlar kiritish to‘g‘risidagi qonun loyihasi",
+            "a7": "Yer uchastkalarini zaxiraga olish to‘g‘risidagi Prezident qarori loyihasi",
+            "a8": "Xalqaro standartlar bo‘yicha moliyaviy hisob tizimi to‘g‘risidagi qaror loyihasi"
         },
         "strategic": {
             "badge": "STRATEGIK TASHABBUS",
-            "description": "Raqobatbardosh investitsiya muhiti va chegaralararo hamkorlikni shakllantirish maqsadida Markaziy Osiyo va Kavkazning Mintaqaviy investitsiya kengashlari ittifoqi (RAIC-CAC) tashkil etildi."
+            "description": "Raqobatbardosh investitsiya muhitini shakllantirish va chegaralararo muvofiqlashtirish uchun Markaziy Osiyo va Kavkaz Mintaqaviy Investitsiya Kengashlari Alyansini (RAIC-CAC) tashkil etish."
         },
         "regionalAlliance": {
             "title": "Markaziy Osiyo va Kavkaz investitsiya kengashlarining mintaqaviy ittifoqi",
@@ -667,7 +671,7 @@
             ]
         },
         "reports": {
-            "title": "YANGI YONDASHUVLAR — BESHTA ANALITIK HISOBOT",
+            "title": "Yangi yondashuvlar — beshta tahliliy doklad",
             "r1": { "cover": "O'zbekiston Respublikasida boshqaruv kompetentsiyalari", "title": "Boshqaruv kompetentsiyalarini rivojlantirish" },
             "r2": { "cover": "Kreativ investitsiyalarni jalb qilish: global tajriba va O'zbekistonga moslash", "title": "Kreativ investitsiyalar" },
             "r3": {
@@ -683,7 +687,7 @@
         "initiativesPage": {
             "title": "Tashabbuslar",
             "pageTitle": "INVESTITSIYA MUHITINI YAXSHILASH BO'YICHA TASHABBUSLAR",
-            "intro": "Har bir tashtabbus soliq va energetika, investitsiyalar, bandlik va korporativ boshqaruv sohasidagi islohotlarga qaratilgan.",
+            "intro": "Har bir tashabbus soliq va energetika sohalaridagi islohotlarga hamda investitsiya, bandlik va korporativ boshqaruvga yo‘naltirilgan",
             "colSession": "Sessiya",
             "colDocument": "Hujjat",
             "colGroups": "Ishchi guruhlar",
@@ -695,12 +699,12 @@
             },
             "r2": {
                 "session": "II Plenariy (2024)",
-                "document": "ПП-179",
-                "groups": "To'rt guruh: kapital bozori va XMK · mas'uliyatli biznes yuritish · muqobil investitsiyalar · investor munosabatlarini raqamlashtirish"
+                "document": "PQ-179",
+                "groups": "To'rtta guruh: kapital bozori va XMM · mas'uliyatli biznes yuritish · muqobil investitsiyalar · investorlar bilan ishlashni raqamlashtirish"
             },
             "r3": {
                 "session": "III Plenariy (2025)",
-                "document": "ПП-226",
+                "document": "PQ-226",
                 "groups": "Idoralararo ishchi guruhlar; umumiy soni 16 taga yetkazildi"
             },
             "collected": {
@@ -723,14 +727,14 @@
         "investmentsPage": {
             "title": "Investitsiyalar",
             "intro": "O'zbekistonga xorijiy to'g'ridan-to'g'ri investitsiyalar dinamikasi va asosiy ko'rsatkichlar.",
-            "sectorsTitle": "Investitsiya uchun sohalar",
+            "sectorsTitle": "Investitsiya uchun sektorlar",
             "regionsTitle": "Hududlar bo'yicha",
             "trendsTitle": "O'sish dinamikasi",
             "macroEyebrow": "Makroiqtisodiyot",
             "macroTitle": "Asosiy ko'rsatkichlar",
             "macroSub": "2025 yil yakunlari",
-            "sectorsEyebrow": "Imkoniyat sohalari",
-            "sectorsIntro": "Davlat qo'llab-quvvatlashi bilan ustuvor yo'nalishlar",
+            "sectorsEyebrow": "Imkoniyatlar sektorlari",
+            "sectorsIntro": "Davlat tomonidan qo’llab-quvvatlanadigan ustuvor yo’nalishlar",
             "guaranteesTitle": "Investorlar uchun kafolatlar",
             "guaranteesSub": "Kapitalning huquqiy va institutsional himoyasi"
         },
@@ -860,7 +864,7 @@
         },
         "reportsPage": {
             "intro": "Xorijiy Investorlar Kengashining rasmiy hisobotlari, bayonnomalar va siyosat hujjatlari — yuklab olish uchun mavjud.",
-            "quote": "Asosiy maqsadimiz — O'zbekistonni xorijiy investorlar uchun ishonchli va uzoq muddatli hamkorga aylantirishdir.",
+            "quote": "Bizning asosiy maqsadimiz – O‘zbekistonni xorijiy investorlar uchun ishonchli va uzoq muddatli hamkorga aylantirishdir",
             "newApproaches": {
                 "label": "Tanlangan seriya",
                 "title": "Yangi yondashuvlar — beshta tahliliy hisobot"

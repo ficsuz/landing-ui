@@ -35,6 +35,7 @@ export const websiteMenu: NavMenuItem[] = [
         labelKey: 'nav.workingGroups',
         path: '/working-groups',
         children: [
+            { labelKey: 'nav.workingGroups', path: '/working-groups#interagency-groups' },
             { labelKey: 'nav.sessionOutcomes', path: '/working-groups#session-outcomes' },
         ],
     },

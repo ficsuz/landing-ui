@@ -70,7 +70,7 @@ import avatar1 from '@/assets/images/exports/foreign1.png'
 import avatar2 from '@/assets/images/exports/foreign2.png'
 import avatar3 from '@/assets/images/exports/foreign3.png'
 import avatar4 from '@/assets/images/exports/foreign4.png'
-import avatar5 from '@/assets/images/exports/aziz2.png'
+import avatar5 from '@/assets/images/avatars/A.Gafurov.jpg'
 
 import logoEbrd from '@/assets/images/brands/e-bank.png'
 import logoAdb from '@/assets/images/brands/ad-bank.png'

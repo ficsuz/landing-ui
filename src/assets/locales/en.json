@@ -159,6 +159,8 @@
         "m5": {
             "name": "Aziz Gafurov",
             "role": "Head of the FIC Secretariat",
+            "mgmtRole": "Head of the Foreign Investors Council Secretariat",
+            "mgmtSubRole": "Head of the Council Association",
             "quote": "We attach high importance to improving the country's business environment, which President Mirziyoyev made a strategic national priority.",
             "bio": "Head of the Council Association and Head of the Council Secretariat. A top manager with over 20 years of experience in corporate governance, risk management, and investment policy."
         }
@@ -373,7 +375,9 @@
     "uzbekSidePage": {
         "title": "Uzbek Side",
         "intro": "The Government of Uzbekistan is represented in the Foreign Investors Council by relevant sector ministers, agency heads and senior officials.",
-        "membersCount": "members"
+        "membersCount": "members",
+        "officialNote": "Official composition of the government side of the Council.\nPresidential Decree No. PP-226, Appendix No. 2.",
+        "officialLink": "Learn more"
     },
     "expertsPage": {
         "title": "Experts",
@@ -529,7 +533,7 @@
         "legalBasisText": "Based on the Presidential Resolution of 18.07.2025 (entered into force on 21.07.2025) — PP-226",
         "learnMore": "Learn more",
         "tabCouncil": "Working Groups (WG)",
-        "tabInteragency": "Interagency Working Groups (IWG)",
+        "tabInteragency": "Working Groups",
         "chairLabel": "Working Group Chair",
         "coChairLabel": "Co-chair",
         "membershipBadge": "Membership of the Interagency Working Group",
@@ -678,12 +682,12 @@
             },
             "r2": {
                 "session": "II Plenary (2024)",
-                "document": "ПП-179",
+                "document": "PP-179",
                 "groups": "Four groups: capital market and IFC · responsible business conduct · alternative investments · digitalization of investor relations"
             },
             "r3": {
                 "session": "III Plenary (2025)",
-                "document": "ПП-226",
+                "document": "PP-226",
                 "groups": "Interagency working groups; total number brought to 16"
             },
             "collected": {

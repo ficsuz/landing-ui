@@ -52,6 +52,33 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Official composition note -->
+                <div class="mt-12 md:mt-16 rounded-2xl border border-[#eef0f4] bg-[#f7f8fa] p-6 md:p-8 flex flex-col gap-4">
+                    <p class="text-[14px] md:text-[15px] text-[#505a63] leading-relaxed whitespace-pre-line">
+                        {{ $t('uzbekSidePage.officialNote') }}
+                    </p>
+                    <a
+                        href="https://lex.uz/ru/docs/7637571"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 self-start border border-[#d0d5dd] text-[#1a1e2e] font-semibold text-[14px] px-6 py-2.5 rounded-full transition-all duration-200 hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e]"
+                    >
+                        {{ $t('uzbekSidePage.officialLink') }}
+                        <svg
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
             </div>
         </section>
     </div>

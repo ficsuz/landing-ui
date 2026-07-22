@@ -49,23 +49,27 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import AppLearnMore from '@/components/website/AppLearnMore.vue'
+
+const { t } = useI18n()
 
 interface Stat {
     prefix?: string
     num: number | null  // null = non-numeric, no count-up (e.g. "BB")
     suffix?: string
+    bn?: boolean        // append localized "bn" abbreviation (en: bn, ru: млрд, uz: mlrd)
     decimals?: number
     labelKey: string
 }
 
 // API tayyor bo'lganda: onMounted ichida stats.value = await fetchInvestmentStats()
 const stats: Stat[] = [
-    { prefix: '>$', num: 135,  suffix: ' bn',  labelKey: 'investments.gdp' },
+    { prefix: '>$', num: 135,  bn: true,  labelKey: 'investments.gdp' },
     { num: 7.7,                suffix: '%',   decimals: 1, labelKey: 'investments.gdpGrowth' },
-    { prefix: '~$', num: 42,   suffix: ' bn',  labelKey: 'investments.foreignInflow' },
+    { prefix: '~$', num: 42,   bn: true,  labelKey: 'investments.foreignInflow' },
     { num: null,                              labelKey: 'investments.rating' },
-    { prefix: '$',  num: 55,   suffix: ' bn',  labelKey: 'investments.reserves' },
+    { prefix: '$',  num: 55,   bn: true,  labelKey: 'investments.reserves' },
     { num: 7.3,                suffix: '%',   decimals: 1, labelKey: 'investments.inflation' },
     { prefix: '+',  num: 23,   suffix: '%',   labelKey: 'investments.exportGrowth' },
     { num: 31.9,               suffix: '%',   decimals: 1, labelKey: 'investments.totalInvestment' },
@@ -79,7 +83,8 @@ const formatDisplay = (stat: Stat, animated: number): string => {
     const n = stat.decimals !== undefined
         ? animated.toFixed(stat.decimals)
         : Math.round(animated)
-    return `${stat.prefix ?? ''}${n}${stat.suffix ?? ''}`
+    const suffix = stat.bn ? ` ${t('common.bn')}` : (stat.suffix ?? '')
+    return `${stat.prefix ?? ''}${n}${suffix}`
 }
 
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3)

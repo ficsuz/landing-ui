@@ -143,12 +143,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { sessions } from './sessionsData'
+import { useSessions } from './sessionsData'
 import WorkingGroupsOverview from '@/views/website/working-groups/components/Overview.vue'
 
 const router = useRouter()
 const route = useRoute()
-const session = computed(() => sessions.find((s) => s.id === Number(route.params.id)))
+const sessions = useSessions()
+const session = computed(() => sessions.value.find((s) => s.id === Number(route.params.id)))
 
 function gridClass(index: number): string {
     if (index < 3) return 'col-span-3 md:col-span-2 h-[200px] md:h-[280px]'

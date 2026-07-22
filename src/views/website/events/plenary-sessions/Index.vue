@@ -28,7 +28,7 @@
                         <!-- Content -->
                         <div class="p-6 flex flex-col flex-1">
                             <p class="font-semibold text-[15px] text-[#1a1e2e] leading-snug mb-6 flex-1">
-                                {{ session.title }}, {{ session.eyebrow.split(' ').at(-1) }}
+                                {{ session.cardTitle }}
                             </p>
                             <span class="w-full py-2.5 rounded-xl bg-[#f2f3f6] text-[#1a1e2e] text-[14px] font-semibold text-center block transition-colors duration-200 group-hover:bg-[#1a1e2e] group-hover:text-white">
                                 {{ $t('common.learnMore') }}
@@ -43,5 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import { sessions } from './sessionsData'
+import { useSessions } from './sessionsData'
+
+const sessions = useSessions()
 </script>

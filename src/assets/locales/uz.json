@@ -73,7 +73,8 @@
         "learnMore": "Batafsil",
         "viewDocuments": "Hujjatlarni ko'rish",
         "comingSoon": "Tez kunda",
-        "loadMore": "Yana yuklash"
+        "loadMore": "Yana yuklash",
+        "bn": "mlrd"
     },
     "contact": {
         "title": "Kontaktlar",
@@ -587,21 +588,21 @@
         "stat4Label": "ishchi guruh sessiyalari",
         "platformTitle": "INVESTORLAR UCHUN PLATFORMA",
         "platform": {
-            "s1": "kompaniyalar jalb etilishining o‘sishi",
-            "s2": "faol ishtirokchi kompaniyalar",
-            "s3": "kompaniya — Kengash a’zolari",
-            "s4": "ishtirokchi davlatlar",
-            "s5": "xalqaro institutlar (3 tasi Ijroiya qo'mitasida)",
-            "s6": "iqtisodiyot tarmoqlari"
+            "s1": "Kompaniyalar jalb etilishining o‘sishi",
+            "s2": "Faol ishtirokchi kompaniyalar",
+            "s3": "Kompaniya — Kengash a’zolari",
+            "s4": "Ishtirokchi davlatlar",
+            "s5": "Xalqaro institutlar (3 tasi Ijroiya qo'mitasida)",
+            "s6": "Iqtisodiyot tarmoqlari"
         },
         "investEnvTitle": "Investitsiya muhitining rivojlanishi",
         "investEnv": {
-            "s1": "ishchi guruhlar sonining o‘sishi",
-            "s2": "ishchi guruhlar majlislari",
-            "s3": "tashabbuslar (uch barobar o'sish)",
-            "s4": "normativ-huquqiy hujjat Kengash ishtirokida ishlab chiqilgan",
-            "s5": "strategik tashabbuslar",
-            "s6": "ijtimoiy tashabbuslar"
+            "s1": "Ishchi guruhlar sonining o‘sishi",
+            "s2": "Ishchi guruhlar majlislari",
+            "s3": "Tashabbuslar (uch barobar o'sish)",
+            "s4": "Normativ-huquqiy hujjat Kengash ishtirokida ishlab chiqilgan",
+            "s5": "Strategik tashabbuslar",
+            "s6": "Ijtimoiy tashabbuslar"
         },
         "legalActs": {
             "title": "Kengash ishtirokida ishlab chiqilgan sakkizta normativ-huquqiy hujjat",
@@ -772,7 +773,126 @@
             "intro": "Prezident rahbarligidagi Kengashning asosiy tadbirlari. Har bir sessiyada islohotlar muhokama qilinadi, muhim qarorlar qabul qilinadi va yangi tashabbuslar taqdim etiladi.",
             "keyDecisions": "Asosiy qarorlar",
             "participants": "ishtirokchi",
-            "initiatives": "tashabbus"
+            "initiatives": "tashabbus",
+            "sessions": {
+                "s1": {
+                    "eyebrow": "Plenar sessiya 2022",
+                    "title": "Xorijiy investorlar kengashining birinchi plenar sessiyasi",
+                    "cardTitle": "Xorijiy investorlar kengashining birinchi yalpi majlisi, 2022-yil 16-noyabr",
+                    "paragraphs": [
+                        "2022-yil 16-noyabrda Toshkentdagi «Ko‘ksaroy» qarorgohida O‘zbekiston Respublikasi Prezidenti raisligida Xorijiy investorlar kengashining birinchi plenar sessiyasi bo‘lib o‘tdi. Sessiya Hukumat va xalqaro investorlar o‘rtasidagi to‘g‘ridan-to‘g‘ri muloqot uchun institutsional formatni ochib berdi.",
+                        "Sessiyada 150 dan ortiq yuqori darajadagi vakillar — xalqaro moliya institutlari, yetakchi sanoat va investitsiya kompaniyalari, vazirlik va idoralar ishtirok etdi.",
+                        "Muhokamalar ishbilarmonlik muhitini yaxshilash, soliq va huquqiy tizim barqarorligi, davlat-xususiy sheriklikni rivojlantirish, «yashil» iqtisodiyot va raqamli transformatsiyani qamrab oldi.",
+                        "Sessiya natijasida 40 dan ortiq aniq taklif va tashabbus ishlab chiqilib, Kengashning tizimli faoliyatiga asos solindi."
+                    ]
+                },
+                "s2": {
+                    "eyebrow": "Plenar sessiya 2024",
+                    "title": "Xorijiy investorlar kengashining ikkinchi plenar sessiyasi",
+                    "cardTitle": "Xorijiy investorlar kengashining ikkinchi yalpi majlisi, 2024-yil 3-may",
+                    "paragraphs": [
+                        "2024-yil 3-mayda III Toshkent xalqaro investitsiya forumi doirasida O‘zbekiston Respublikasi Prezidenti raisligida Xorijiy investorlar kengashining ikkinchi plenar sessiyasi bo‘lib o‘tdi. Sessiya takliflarni ishlab chiqishdan ularni tizimli amalga oshirishga o‘tishni mustahkamladi.",
+                        "Sessiya yakunlari bo‘yicha 2024-yil 15-maydagi PQ-179-son Prezident qarori qabul qilinib, 14 ta tashabbusdan iborat «yo‘l xaritasi» tasdiqlandi.",
+                        "Ular orasida investitsiyalar va maxsus iqtisodiy zonalar to‘g‘risidagi qonunlarning yangi tahrirlari, muqobil (venchur) investitsiyalar to‘g‘risidagi qonun, OECD «Investitsiya siyosati sharhi» loyihasini amalga oshirish hamda Kengashning to‘rtta ishchi guruhini tashkil etish bor."
+                    ],
+                    "statsTitle": "II PLENAR SESSIYA YO‘L XARITASI — 14 TASHABBUS (PQ-179, 3-ILOVA)",
+                    "statsLabels": [
+                        "Yo‘l xaritasidagi tashabbuslar",
+                        "Ishchi guruhlar (8-tashabbus)",
+                        "2024-yil 16-may"
+                    ],
+                    "statsValues": ["14", "4", "PQ-179"],
+                    "initiativesList": [
+                        "«Investitsiyalar va investitsiya faoliyati to‘g‘risida»gi Qonunni (yangi tahrir) JST qoidalariga muvofiq ishlab chiqish",
+                        "«Maxsus iqtisodiy zonalar to‘g‘risida»gi Qonunni (yangi tahrir) ishlab chiqish",
+                        "Startaplar va innovatsion loyihalar uchun «Muqobil (venchur) investitsiyalar to‘g‘risida»gi Qonunni ishlab chiqish",
+                        "Xalqaro raqamli texnologiyalar markazida Toshkent xalqaro tijorat sudini tashkil etish",
+                        "OECD «Investitsiya siyosati sharhi» loyihasini amalga oshirish",
+                        "Ustav kapitalini shakllantirishda kurs farqlarini soliqqa tortishni bekor qilishni o‘rganish",
+                        "100 million dollardan oshadigan loyihalar uchun soliq stavkalarini o‘zgarmas saqlash mexanizmini o‘rganish",
+                        "Kengash tarkibida to‘rtta ishchi guruh tashkil etish (quyidagi blokka qarang)",
+                        "«Yagona investitsiya platformasi» axborot tizimini joriy etish",
+                        "Sun’iy intellektni rivojlantirish strategiyasi va raqamli xaritalarni yangilash (Yandex bilan)",
+                        "Hududiy bosh rejalar va yerlarni vaqtincha zaxiraga olish mexanizmini tezlashtirish",
+                        "Investor dividendlarini soliqqa tortish tartibini takomillashtirish",
+                        "Shartnomaviy munosabatlarni tartibga solishning zamonaviy mexanizmlari (korporativ shartnoma, kafolat, indemnitet)",
+                        "Yuridik shaxs maqomiga ega bo‘lmagan xorijiy kompaniyalar filiallari uchun huquqiy asos"
+                    ],
+                    "infoTitle": "TO‘RTTA ISHCHI GURUH (PQ-179)",
+                    "infoItems": [
+                        "kapital bozorini rivojlantirish va uni xalqaro moliya markaziga aylantirish",
+                        "mas’uliyatli biznes yuritish (OECD tamoyillari)",
+                        "muqobil (venchur) investitsiyalar — qonun loyihasini ishlab chiqish",
+                        "investorlar bilan ishlash tizimini raqamlashtirish — elektron platforma"
+                    ]
+                },
+                "s3": {
+                    "eyebrow": "Plenar sessiya 2025",
+                    "title": "Xorijiy investorlar kengashining uchinchi plenar sessiyasi",
+                    "cardTitle": "Xorijiy investorlar kengashining uchinchi yalpi majlisi, 2025-yil 11-iyun",
+                    "paragraphs": [
+                        "Xalqaro kongress markazi, Prezident raisligida va YTTB Prezidenti ishtirokida. 40 dan ortiq tashabbus tanlab olindi; biznes uchun asosiy soliq stavkalari 2028-yilgacha o‘zgarmas qoladi. Natijada — 2025-yil 18-iyuldagi PQ-226 (2025-yil 21-iyulda kuchga kirdi).",
+                        "2025-yil 11-iyunda Xalqaro kongress markazida O‘zbekiston Respublikasi Prezidenti raisligida va YTTB Prezidenti ishtirokida Xorijiy investorlar kengashining uchinchi plenar sessiyasi bo‘lib o‘tdi. Sessiyada Masdar, ACWA Power, Indorama, Vision Invest, DataVolt, VEON, Boeing, SpaceX, Meta, Franklin Templeton, TotalEnergies va boshqa kompaniyalar rahbarlari, shuningdek OECD, IFC, OTB va Islom taraqqiyot banki vakillari qatnashdi.",
+                        "Platformaning samaradorligi ta’kidlandi: YTTB bir yilda O‘zbekistonga rekord — taxminan 1 mlrd dollar sarmoya kiritib, mamlakatning mintaqadagi eng yirik hamkoriga aylandi; xususiy sektor bilan qo‘shma loyihalar hajmi 1 mlrd dollardan oshdi; yetakchi energetika kompaniyalari «yashil» iqtisodiyotga 8 mlrd dollardan ortiq investitsiya kiritdi.",
+                        "Biznes uchun asosiy soliq stavkalari 2028-yilgacha o‘zgarmasligi e’lon qilindi; ikki yil ichida xorijiy kapitalli 5 500 ta yangi korxona tashkil etilib, umumiy soni 16 000 taga yetdi.",
+                        "Sessiya uchun 40 dan ortiq tashabbus tanlab olindi. Sessiya yakunlari bo‘yicha 2025-yil 18-iyuldagi PQ-226-son Prezident qarori qabul qilinib, «yo‘l xaritasi» tasdiqlandi va Kengash Kotibiyatini mustaqil yuridik shaxsga aylantirish rasmiylashtirildi."
+                    ],
+                    "statsTitle": "PQ-226 QARORI BILAN NIMALAR MUSTAHKAMLANDI",
+                    "statsLabels": [
+                        "Tashabbuslar",
+                        "Ishchi guruhlar",
+                        "18-07-2025 yil",
+                        "Sessiya uchun tanlangan tashabbuslar",
+                        "Asosiy soliq stavkalari muzlatildi",
+                        "Xorijiy kapitalli korxonalar",
+                        "Ishga tushirilgan DXSh loyihalari",
+                        "«Yashil» iqtisodiyotga investitsiyalar",
+                        "YTTBning bir yillik rekord investitsiyasi"
+                    ],
+                    "statsValues": ["22", "8", "PQ-226", "40+", "2028", "16 000", "$4,5 mlrd", "$8 mlrd", "~$1 mlrd"],
+                    "initiativesList": [
+                        "III plenar sessiya takliflari va tashabbuslarini amalga oshirish bo‘yicha Harakatlar rejasi tasdiqlandi (1-ilova)",
+                        "Kengashning o‘zbek tomoni yangilangan tarkibi tasdiqlandi (2-ilova)",
+                        "Kengashga vazirlik va idoralar rahbarlari hamda xodimlarini jalb qilgan holda yo‘nalishlar bo‘yicha ishchi guruhlar tashkil etish huquqi berildi",
+                        "Kengash Kotibiyati xalqaro moliya institutlari ishtirokida nodavlat notijorat tashkilot sifatida tashkil etildi (PQ-4519 ning 29–31-bandlari yangi tahriri); rahbar Ijroiya qo‘mitasi bilan kelishilgan holda tayinlanadi",
+                        "«Yagona investitsiya platformasi» axborot tizimini joriy etish (mas’ul — Bosh vazir o‘rinbosari J. Xo‘jayev)",
+                        "Ijro ustidan nazorat — Bosh vazir A. N. Aripov"
+                    ]
+                },
+                "s4": {
+                    "eyebrow": "Plenar sessiya 2026",
+                    "title": "Xorijiy investorlar kengashining to‘rtinchi plenar sessiyasi",
+                    "cardTitle": "Xorijiy investorlar kengashining to‘rtinchi yalpi majlisi, 2026-yil",
+                    "paragraphs": [
+                        "Xalqaro kongress markazi, Prezident raisligida va YTTB Prezidenti ishtirokida. 40 dan ortiq tashabbus tanlab olindi; biznes uchun asosiy soliq stavkalari 2028-yilgacha o‘zgarmas qoladi. Natijada — 2025-yil 18-iyuldagi PQ-226 (2025-yil 21-iyulda kuchga kirdi).",
+                        "2025-yil 11-iyunda Xalqaro kongress markazida O‘zbekiston Respublikasi Prezidenti raisligida va YTTB Prezidenti ishtirokida Xorijiy investorlar kengashining uchinchi plenar sessiyasi bo‘lib o‘tdi. Sessiyada Masdar, ACWA Power, Indorama, Vision Invest, DataVolt, VEON, Boeing, SpaceX, Meta, Franklin Templeton, TotalEnergies va boshqa kompaniyalar rahbarlari, shuningdek OECD, IFC, OTB va Islom taraqqiyot banki vakillari qatnashdi.",
+                        "Platformaning samaradorligi ta’kidlandi: YTTB bir yilda O‘zbekistonga rekord — taxminan 1 mlrd dollar sarmoya kiritib, mamlakatning mintaqadagi eng yirik hamkoriga aylandi; xususiy sektor bilan qo‘shma loyihalar hajmi 1 mlrd dollardan oshdi; yetakchi energetika kompaniyalari «yashil» iqtisodiyotga 8 mlrd dollardan ortiq investitsiya kiritdi.",
+                        "Biznes uchun asosiy soliq stavkalari 2028-yilgacha o‘zgarmasligi e’lon qilindi; ikki yil ichida xorijiy kapitalli 5 500 ta yangi korxona tashkil etilib, umumiy soni 16 000 taga yetdi.",
+                        "Sessiya uchun 40 dan ortiq tashabbus tanlab olindi. Sessiya yakunlari bo‘yicha 2025-yil 18-iyuldagi PQ-226-son Prezident qarori qabul qilinib, «yo‘l xaritasi» tasdiqlandi va Kengash Kotibiyatini mustaqil yuridik shaxsga aylantirish rasmiylashtirildi."
+                    ],
+                    "statsTitle": "PQ-226 QARORI BILAN NIMALAR MUSTAHKAMLANDI",
+                    "statsLabels": [
+                        "Tashabbuslar",
+                        "Ishchi guruhlar",
+                        "18-07-2025 yil",
+                        "Sessiya uchun tanlangan tashabbuslar",
+                        "Asosiy soliq stavkalari muzlatildi",
+                        "Xorijiy kapitalli korxonalar",
+                        "Ishga tushirilgan DXSh loyihalari",
+                        "«Yashil» iqtisodiyotga investitsiyalar",
+                        "YTTBning bir yillik rekord investitsiyasi"
+                    ],
+                    "statsValues": ["22", "8", "PQ-226", "40+", "2028", "16 000", "$4,5 mlrd", "$8 mlrd", "~$1 mlrd"],
+                    "initiativesList": [
+                        "III plenar sessiya takliflari va tashabbuslarini amalga oshirish bo‘yicha Harakatlar rejasi tasdiqlandi (1-ilova)",
+                        "Kengashning o‘zbek tomoni yangilangan tarkibi tasdiqlandi (2-ilova)",
+                        "Kengashga vazirlik va idoralar rahbarlari hamda xodimlarini jalb qilgan holda yo‘nalishlar bo‘yicha ishchi guruhlar tashkil etish huquqi berildi",
+                        "Kengash Kotibiyati xalqaro moliya institutlari ishtirokida nodavlat notijorat tashkilot sifatida tashkil etildi (PQ-4519 ning 29–31-bandlari yangi tahriri); rahbar Ijroiya qo‘mitasi bilan kelishilgan holda tayinlanadi",
+                        "«Yagona investitsiya platformasi» axborot tizimini joriy etish (mas’ul — Bosh vazir o‘rinbosari J. Xo‘jayev)",
+                        "Ijro ustidan nazorat — Bosh vazir A. N. Aripov"
+                    ]
+                }
+            }
         },
         "interimPage": {
             "title": "Navbatdan tashqari sessiyalar",

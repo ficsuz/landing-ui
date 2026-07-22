@@ -22,7 +22,7 @@
                 </div>
 
                 <!-- Company list -->
-                <div v-loading="membersStore.loading" class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-5">
+                <div v-loading="membersStore.loading" class="grid grid-cols-1 gap-4 md:gap-5">
                     <div
                         v-for="item in memberSections[activeTab].items"
                         :id="`member-${item.id}`"

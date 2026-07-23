@@ -263,9 +263,9 @@ export const interimSessions: InterimSession[] = [
                 },
                 {
                     title: {
-                        en: 'Energy (ACWA Power, EDF, China Energy)',
-                        ru: 'Энергетика (ACWA Power, EDF, China Energy)',
-                        uz: 'Energetika (ACWA Power, EDF, China Energy)',
+                        en: 'Energy (ACWA, EDF, China Energy)',
+                        ru: 'Энергетика (ACWA, EDF, China Energy)',
+                        uz: 'Energetika (ACWA, EDF, China Energy)',
                     },
                     description: {
                         en: 'private investment in electricity distribution; grid development plan; stability of the legal and tax regime.',

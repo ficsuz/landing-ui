@@ -23,7 +23,7 @@ const eventsRoutes: RouteRecordRaw[] = [
         path: 'events/plenary',
         name: 'admin-plenary',
         component: () => import('@/views/admin/events/plenary/Index.vue'),
-        meta: { title: 'Plenara sessiyalari', roles: ['super_admin', 'admin'] },
+        meta: { title: 'Yalpi majlislari', roles: ['super_admin', 'admin'] },
     },
 ]
 

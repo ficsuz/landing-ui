@@ -157,7 +157,8 @@ const events = computed<CalendarEvent[]>(() =>
                 year: d ? String(d.getFullYear()) : '',
                 month: d ? d.toLocaleString(locale.value, { month: 'long' }) : '',
                 description: resolveTranslation(c.title, locale.value),
-                link: '/events',
+                // Each entry links to its plenary session detail (order 1 → session 2, etc.)
+                link: `/events/plenary-sessions/${c.order + 1}`,
             }
         })
 )

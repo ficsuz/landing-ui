@@ -476,6 +476,29 @@
         "iwgIntro": "Idoralararo ishchi guruhlar O'zbekiston hukumatining tegishli vazirliklari va agentliklari bilan birgalikda iqtisodiy islohotlarning kompleks masalalarini hal etadi.",
         "outcomeTitle": "Majlis natijalari",
         "outcomeIntro": "Har bir majlisda qabul qilingan qarorlar, tashabbuslar va keyingi qadamlar bo'yicha batafsil hisobotlar.",
+        "outcomeView": "Batafsil",
+        "outcomes": [
+            {
+                "type": "Yalpi majlis",
+                "date": "2022-yil 16-noyabr",
+                "summary": "«Ko‘ksaroy» qarorgohi. 150 dan ortiq ishtirokchi, 40 dan ortiq taklif. Ustuvorliklar: ishbilarmonlik muhiti, soliq barqarorligi, DXSh, yashil iqtisodiyot, raqamlashtirish."
+            },
+            {
+                "type": "Yalpi majlis",
+                "date": "2024-yil 3-may",
+                "summary": "III TIIF doirasida Prezident raisligida o‘tkazildi. Natijada — 14 tashabbusdan iborat yo‘l xaritasiga ega PQ-179, jumladan to‘rtta ishchi guruh tashkil etilishi."
+            },
+            {
+                "type": "Yalpi majlis",
+                "date": "2025-yil 11-iyun",
+                "summary": "III TIIF doirasida Prezident raisligida o‘tkazildi. Natijada — 120 tashabbusdan iborat yo‘l xaritasiga ega PQ-226, jumladan to‘rtta ishchi guruh tashkil etilishi"
+            },
+            {
+                "type": "Yalpi majlis",
+                "date": "2026-yil 18-iyun",
+                "summary": ""
+            }
+        ],
         "groups": {
             "g1": { "name": "Energetika va yashil o'tish", "members": 8, "initiatives": 14 },
             "g2": { "name": "Moliya sektori va kapital bozori", "members": 7, "initiatives": 11 },

@@ -43,7 +43,7 @@
                                 :to="outcome.file"
                                 class="flex items-center gap-1.5 text-[14px] font-semibold text-[#1a1e2e] hover:opacity-60 transition-opacity"
                             >
-                                View
+                                {{ $t('workingGroupsPage.outcomeView') }}
                                 <svg
                                     width="16"
                                     height="16"
@@ -66,44 +66,30 @@
 </template>
 
 <script setup lang="ts">
-const outcomes = [
-    {
-        numeral: 'I',
-        dark: false,
-        type: 'Plenary Session',
-        date: 'November 16, 2022',
-        summary:
-            'Residence «Kuksaroy». More than 150 participants, over 40 proposals. Priorities: business environment, tax stability, PPP, green economy, digitalization.',
-        bullets: null,
-        file: '/events/plenary-sessions/1',
-    },
-    {
-        numeral: 'II',
-        dark: false,
-        type: 'Plenary Session',
-        date: 'May 3 - 2024',
-        summary:
-            'Held within the III TIIF under the chairmanship of the President. As a result — PP-179 with a roadmap of 14 initiatives, including the creation of four working groups.',
-        bullets: null,
-        file: '/events/plenary-sessions/2',
-    },
-    {
-        numeral: 'III',
-        dark: false,
-        type: 'Plenary Session',
-        date: 'June 11 - 2025',
-        summary: null,
-        bullets: null,
-        file: '/events/plenary-sessions/3',
-    },
-    {
-        numeral: 'IV',
-        dark: true,
-        type: 'Plenary Session',
-        date: 'June 18 - 2026',
-        summary: null,
-        bullets: null,
-        file: '/events/plenary-sessions/4',
-    },
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { tm, rt } = useI18n()
+
+// Structural data (numeral, dark, file); text comes from i18n.
+const base = [
+    { numeral: 'I', dark: false, file: '/events/plenary-sessions/1' },
+    { numeral: 'II', dark: false, file: '/events/plenary-sessions/2' },
+    { numeral: 'III', dark: false, file: '/events/plenary-sessions/3' },
+    { numeral: 'IV', dark: true, file: '/events/plenary-sessions/4' },
 ]
+
+const outcomes = computed(() => {
+    const items = tm('workingGroupsPage.outcomes') as Record<string, unknown>[]
+    return base.map((b, i) => {
+        const o = items?.[i] ?? {}
+        return {
+            ...b,
+            type: rt((o as any).type ?? ''),
+            date: rt((o as any).date ?? ''),
+            summary: rt((o as any).summary ?? '') || null,
+            bullets: null as string[] | null,
+        }
+    })
+})
 </script>

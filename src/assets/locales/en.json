@@ -466,6 +466,29 @@
         "iwgIntro": "Interagency working groups address complex cross-cutting economic reform issues jointly with the relevant ministries and agencies of Uzbekistan.",
         "outcomeTitle": "Session Outcomes",
         "outcomeIntro": "Detailed reports on decisions made, initiatives submitted and next steps agreed at each session.",
+        "outcomeView": "View",
+        "outcomes": [
+            {
+                "type": "Plenary Session",
+                "date": "November 16, 2022",
+                "summary": "Residence «Kuksaroy». More than 150 participants, over 40 proposals. Priorities: business environment, tax stability, PPP, green economy, digitalization."
+            },
+            {
+                "type": "Plenary Session",
+                "date": "May 3 - 2024",
+                "summary": "Held within the III TIIF under the chairmanship of the President. As a result — PP-179 with a roadmap of 14 initiatives, including the creation of four working groups."
+            },
+            {
+                "type": "Plenary Session",
+                "date": "June 11 - 2025",
+                "summary": "Held within the III TIIF under the chairmanship of the President. As a result — PP-226 with a roadmap of 120 initiatives, including the creation of four working groups"
+            },
+            {
+                "type": "Plenary Session",
+                "date": "June 18 - 2026",
+                "summary": ""
+            }
+        ],
         "groups": {
             "g1": { "name": "Energy & Green Transition", "members": 8, "initiatives": 14 },
             "g2": { "name": "Financial Sector & Capital Markets", "members": 7, "initiatives": 11 },

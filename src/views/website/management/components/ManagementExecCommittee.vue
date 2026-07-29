@@ -37,7 +37,7 @@
                             {{ $t(`exec.${member.key}.name`) }}
                         </p>
                         <span class="mt-2 text-[11px] font-semibold text-[#2563eb] text-center leading-tight">
-                            {{ member.key === 'm5' ? $t('exec.m5.mgmtRole') : $t(member.isChair ? 'management.execChair' : 'management.execMember') }}
+                            {{ $t(member.isChair ? 'management.execChair' : 'management.execMember') }}
                         </span>
                         <p class="mt-2 mb-4 text-[12px] text-[#8a94a6] text-center leading-relaxed">
                             {{ member.key === 'm5' ? $t('exec.m5.mgmtSubRole') : $t(`exec.${member.key}.role`) }}

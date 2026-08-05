@@ -225,7 +225,7 @@
                                 <p class="mt-2 text-[17px] font-bold text-[#191C1F] leading-tight">
                                     {{ $t(member.nameKey) }}
                                 </p>
-                                <span class="mt-1 text-xs text-[#505A63] leading-snug font-normal">
+                                <span v-if="member.positionKey" class="mt-1 text-xs text-[#505A63] leading-snug font-normal">
                                     {{ $t(member.positionKey) }}
                                 </span>
                             </div>
@@ -1134,11 +1134,40 @@ const iwgGroups: IWGroup[] = [
             imgEnergyChina,
         ],
     },
+    {
+        type: 'iwg',
+        id: 11,
+        viewBox: '0 0 24 24',
+        paths: ['M3 21h18', 'M5 21V8l7-5 7 5v13', 'M9 21v-6h6v6'],
+        nameKey: 'workingGroupsPage.interagencyGroups.i11.name',
+        descriptionKey: 'workingGroupsPage.interagencyGroups.i11.description',
+        chairNameKey: 'wg.laziz',
+        chairPhoto: imgLaziz,
+        chairPositionKey: 'wg.lazizPos',
+        chairBioKey: 'wg.lazizBio',
+        coChairNameKey: 'wg.bobohonAbdullaev',
+        coChairPhoto: defaultAvatar,
+        coChairPositionKey: 'wg.tiffcCoChairPos',
+        stateMembers: [
+            { image: defaultAvatar, nameKey: 'wg.robahonMahmudova', positionKey: '' },
+            { image: defaultAvatar, nameKey: 'wg.nodirJuraev', positionKey: '' },
+            { image: imgTimur, nameKey: 'wg.timur', positionKey: 'wg.posCentralBankChair' },
+            { image: usrSherzod, nameKey: 'wg.sherzodShermatov', positionKey: 'wg.posDigitalMinister' },
+            { image: imgKongratbay, nameKey: 'wg.kongratbay', positionKey: 'wg.kongratbayPos' },
+            { image: usrFarrux, nameKey: 'wg.farrukh', positionKey: 'wg.posTaxChairman' },
+            { image: usrShuxrat, nameKey: 'wg.shukhratVafaev', positionKey: 'wg.posRdfDirector' },
+            { image: defaultAvatar, nameKey: 'wg.tashov', positionKey: 'wg.posActingStockExchange' },
+            { image: defaultAvatar, nameKey: 'wg.shavkatUmurzakov', positionKey: '' },
+            { image: defaultAvatar, nameKey: 'wg.dianaBayzakova', positionKey: '' },
+            { image: defaultAvatar, nameKey: 'wg.saidolimKodirkhodjaev', positionKey: '' },
+        ],
+        councilBrands: [],
+    },
 ]
 
 // Animated stats
 const ANIM_DURATION = 1500
-const statsTargets = [6, 10]
+const statsTargets = [6, 11]
 const statsDisplay = ref([0, 0])
 const statsRef = ref<HTMLElement | null>(null)
 const observer = ref<IntersectionObserver | null>(null)

@@ -1,13 +1,18 @@
 import { RouteRecordRaw } from 'vue-router'
 import aboutBlogImg from '../../assets/images/hero/about-blog.jpg'
 import eventsImg from '../../assets/images/hero/ATM_9764.jpg'
-import workingImg from '../../assets/images/hero/SUT_8193.jpg'
 import resultsImg from '../../assets/images/hero/SUT_7962.jpg'
 import sessionImg from '../../assets/images/hero/ATM_9764.jpg'
 import uzbekSideImg from '../../assets/images/hero/uzbek-side.jpg'
 import initiativesImg from '../../assets/images/hero/initiatives.jpg'
 import regionalAllianceImg from '../../assets/images/hero/regional-alliance.jpg'
 import membersImg from '../../assets/images/hero/members.jpg'
+import expertsImg from '../../assets/images/hero/experts.jpg'
+import workingGroupsImg from '../../assets/images/hero/working-groups.jpg'
+import interimSessionImg from '../../assets/images/hero/interim-session.jpg'
+import weeklyResultsImg from '../../assets/images/hero/weekly-results.jpg'
+import meetingsImg from '../../assets/images/hero/meetings.jpg'
+import documentsImg from '../../assets/images/hero/documents.jpg'
 
 // Public website (FIC) routes — rendered inside WebsiteLayout.
 const websiteRoutes: RouteRecordRaw[] = [
@@ -60,7 +65,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'council-members/experts',
         name: 'council-members-experts',
         component: () => import('../../views/website/council-members/experts/Index.vue'),
-        meta: { title: 'Experts', titleKey: 'nav.experts', descriptionKey: 'expertsPage.intro', heroImage: eventsImg },
+        meta: { title: 'Experts', titleKey: 'nav.experts', descriptionKey: 'expertsPage.intro', heroImage: expertsImg, heroImagePosition: 'center 60%' },
     },
     {
         path: 'council-members/become-a-member',
@@ -74,7 +79,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'working-groups',
         name: 'working-groups',
         component: () => import('../../views/website/working-groups/Index.vue'),
-        meta: { title: 'Working Groups', titleKey: 'nav.workingGroups', heroImage: workingImg },
+        meta: { title: 'Working Groups', titleKey: 'nav.workingGroups', heroImage: workingGroupsImg, heroImagePosition: 'center 80%' },
     },
 
     // ---- Results ----
@@ -100,13 +105,13 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'results/documents',
         name: 'results-documents',
         component: () => import('../../views/website/results/documents/Index.vue'),
-        meta: { title: 'Documents', titleKey: 'nav.documents', descriptionKey: 'resultsPage.documentsPage.intro', heroImage: aboutBlogImg },
+        meta: { title: 'Documents', titleKey: 'nav.documents', descriptionKey: 'resultsPage.documentsPage.intro', heroImage: documentsImg, heroImagePosition: 'center 60%' },
     },
     {
         path: 'results/regional-alliance',
         name: 'results-regional-alliance',
         component: () => import('../../views/website/results/regional-alliance/Index.vue'),
-        meta: { title: 'Regional Alliance (RAIC-CAC)', titleKey: 'resultsPage.regionalAlliance.heroShort', heroImage: regionalAllianceImg, heroImagePosition: 'center 78%' },
+        meta: { title: 'Regional Alliance (RAIC-CAC)', titleKey: 'resultsPage.regionalAlliance.heroShort', heroImage: regionalAllianceImg, heroImagePosition: 'center 67%' },
     },
 
     // ---- Events ----
@@ -120,7 +125,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'events/plenary-sessions',
         name: 'events-plenary-sessions',
         component: () => import('../../views/website/events/plenary-sessions/Index.vue'),
-        meta: { title: 'Plenary sessions', titleKey: 'nav.plenarySessions', descriptionKey: 'eventsPage.plenaryPage.intro', heroImage: eventsImg },
+        meta: { title: 'Plenary sessions', titleKey: 'nav.plenarySessions', descriptionKey: 'eventsPage.plenaryPage.intro', heroImage: membersImg, heroImagePosition: 'center 55%' },
     },
     {
         path: 'events/plenary-sessions/:id',
@@ -132,7 +137,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'events/interim-session',
         name: 'events-interim-session',
         component: () => import('../../views/website/events/interim-session/Index.vue'),
-        meta: { title: 'Interim session', titleKey: 'nav.interimSession', descriptionKey: 'eventsPage.interimPage.intro', heroImage: eventsImg },
+        meta: { title: 'Interim session', titleKey: 'nav.interimSession', descriptionKey: 'eventsPage.interimPage.intro', heroImage: interimSessionImg, heroImagePosition: 'center 65%' },
     },
     {
         path: 'events/interim-session/:id',
@@ -144,13 +149,13 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'events/working-group-session',
         name: 'events-working-group-session',
         component: () => import('../../views/website/events/working-group-session/Index.vue'),
-        meta: { title: 'Working group session', titleKey: 'nav.workingGroupSession', descriptionKey: 'eventsPage.wgSessionPage.intro', heroImage: eventsImg },
+        meta: { title: 'Working group session', titleKey: 'nav.workingGroupSession', descriptionKey: 'eventsPage.wgSessionPage.intro', heroImage: workingGroupsImg, heroImagePosition: 'center 80%' },
     },
     {
         path: 'events/meetings',
         name: 'events-meetings',
         component: () => import('../../views/website/events/meetings/Index.vue'),
-        meta: { title: 'Meetings', titleKey: 'nav.meetings', descriptionKey: 'eventsPage.meetingsPage.intro', heroImage: eventsImg },
+        meta: { title: 'Meetings', titleKey: 'nav.meetings', descriptionKey: 'eventsPage.meetingsPage.intro', heroImage: meetingsImg, heroImagePosition: 'center 70%' },
     },
     {
         path: 'events/meetings/:id',
@@ -162,7 +167,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'events/weekly-results',
         name: 'events-weekly-results',
         component: () => import('../../views/website/events/weekly-results/Index.vue'),
-        meta: { title: 'Weekly results', titleKey: 'nav.weeklyResults', descriptionKey: 'eventsPage.weeklyPage.intro', heroImage: eventsImg },
+        meta: { title: 'Weekly results', titleKey: 'nav.weeklyResults', descriptionKey: 'eventsPage.weeklyPage.intro', heroImage: weeklyResultsImg, heroImagePosition: 'center 62%' },
     },
     {
         path: 'events/weekly-results/:id',

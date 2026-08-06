@@ -5,6 +5,7 @@
             v-if="!route.meta.noHero"
             :title="route.meta.titleKey ? t(route.meta.titleKey) : (route.meta.title || '')"
             :image="route.meta.heroImage"
+            :image-position="route.meta.heroImagePosition"
         />
         <main class="website-main">
             <router-view v-slot="{ Component }">

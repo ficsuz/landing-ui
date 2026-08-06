@@ -3,6 +3,7 @@
         class="web-hero"
         :style="[
             image ? { backgroundImage: `url(${image})` } : {},
+            imagePosition ? { backgroundPosition: imagePosition } : {},
             height ? { height } : {},
         ]"
     >
@@ -18,6 +19,8 @@
 defineProps<{
     title: string
     image?: string
+    /** background-position override — kadrda odamlar kesilmasligi uchun (default: center) */
+    imagePosition?: string
     text?: string
     height?: string
 }>()

@@ -7,6 +7,7 @@ declare module 'vue-router' {
         descriptionKey?: string
         noHero?: boolean
         heroImage?: string
+        heroImagePosition?: string
         roles?: string[]
     }
 }

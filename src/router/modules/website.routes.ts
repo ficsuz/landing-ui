@@ -4,6 +4,10 @@ import eventsImg from '../../assets/images/hero/ATM_9764.jpg'
 import workingImg from '../../assets/images/hero/SUT_8193.jpg'
 import resultsImg from '../../assets/images/hero/SUT_7962.jpg'
 import sessionImg from '../../assets/images/hero/ATM_9764.jpg'
+import uzbekSideImg from '../../assets/images/hero/uzbek-side.jpg'
+import initiativesImg from '../../assets/images/hero/initiatives.jpg'
+import regionalAllianceImg from '../../assets/images/hero/regional-alliance.jpg'
+import membersImg from '../../assets/images/hero/members.jpg'
 
 // Public website (FIC) routes — rendered inside WebsiteLayout.
 const websiteRoutes: RouteRecordRaw[] = [
@@ -44,13 +48,13 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'council-members',
         name: 'council-members',
         component: () => import('../../views/website/council-members/Index.vue'),
-        meta: { title: 'Council Members', titleKey: 'nav.councilMembers', descriptionKey: 'councilMembersPage.intro', heroImage: aboutBlogImg },
+        meta: { title: 'Council Members', titleKey: 'nav.councilMembers', descriptionKey: 'councilMembersPage.intro', heroImage: membersImg },
     },
     {
         path: 'council-members/uzbek-side',
         name: 'council-members-uzbek-side',
         component: () => import('../../views/website/council-members/uzbek-side/Index.vue'),
-        meta: { title: 'Uzbek side', titleKey: 'nav.uzbekSide', descriptionKey: 'uzbekSidePage.intro', heroImage: aboutBlogImg },
+        meta: { title: 'Uzbek side', titleKey: 'nav.uzbekSide', descriptionKey: 'uzbekSidePage.intro', heroImage: uzbekSideImg },
     },
     {
         path: 'council-members/experts',
@@ -62,7 +66,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'council-members/become-a-member',
         name: 'council-members-become',
         component: () => import('../../views/website/council-members/become-a-member/Index.vue'),
-        meta: { title: 'Become a Member', titleKey: 'nav.becomeAMember', descriptionKey: 'becomeAMemberPage.intro', heroImage: aboutBlogImg },
+        meta: { title: 'Become a Member', titleKey: 'nav.becomeAMember', descriptionKey: 'becomeAMemberPage.intro', heroImage: membersImg },
     },
 
     // ---- Working Groups (single page, anchor sections) ----
@@ -84,13 +88,13 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'results/initiatives',
         name: 'results-initiatives',
         component: () => import('../../views/website/results/initiatives/Index.vue'),
-        meta: { title: 'Initiatives', titleKey: 'nav.initiatives', descriptionKey: 'resultsPage.initiativesPage.intro', heroImage: workingImg },
+        meta: { title: 'Initiatives', titleKey: 'nav.initiatives', descriptionKey: 'resultsPage.initiativesPage.intro', heroImage: initiativesImg, heroImagePosition: 'center 72%' },
     },
     {
         path: 'results/investments',
         name: 'results-investments',
         component: () => import('../../views/website/results/investments/Index.vue'),
-        meta: { title: 'Investments', titleKey: 'nav.investments', descriptionKey: 'resultsPage.investmentsPage.intro', heroImage: aboutBlogImg },
+        meta: { title: 'Investments', titleKey: 'nav.investments', descriptionKey: 'resultsPage.investmentsPage.intro', heroImage: membersImg },
     },
     {
         path: 'results/documents',
@@ -102,7 +106,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'results/regional-alliance',
         name: 'results-regional-alliance',
         component: () => import('../../views/website/results/regional-alliance/Index.vue'),
-        meta: { title: 'Regional Alliance (RAIC-CAC)', titleKey: 'resultsPage.regionalAlliance.heroShort', heroImage: aboutBlogImg },
+        meta: { title: 'Regional Alliance (RAIC-CAC)', titleKey: 'resultsPage.regionalAlliance.heroShort', heroImage: regionalAllianceImg, heroImagePosition: 'center 78%' },
     },
 
     // ---- Events ----

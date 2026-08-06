@@ -48,7 +48,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'council-members',
         name: 'council-members',
         component: () => import('../../views/website/council-members/Index.vue'),
-        meta: { title: 'Council Members', titleKey: 'nav.councilMembers', descriptionKey: 'councilMembersPage.intro', heroImage: membersImg },
+        meta: { title: 'Council Members', titleKey: 'nav.councilMembers', descriptionKey: 'councilMembersPage.intro', heroImage: membersImg, heroImagePosition: 'center 55%' },
     },
     {
         path: 'council-members/uzbek-side',
@@ -66,7 +66,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'council-members/become-a-member',
         name: 'council-members-become',
         component: () => import('../../views/website/council-members/become-a-member/Index.vue'),
-        meta: { title: 'Become a Member', titleKey: 'nav.becomeAMember', descriptionKey: 'becomeAMemberPage.intro', heroImage: membersImg },
+        meta: { title: 'Become a Member', titleKey: 'nav.becomeAMember', descriptionKey: 'becomeAMemberPage.intro', heroImage: membersImg, heroImagePosition: 'center 55%' },
     },
 
     // ---- Working Groups (single page, anchor sections) ----
@@ -94,7 +94,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'results/investments',
         name: 'results-investments',
         component: () => import('../../views/website/results/investments/Index.vue'),
-        meta: { title: 'Investments', titleKey: 'nav.investments', descriptionKey: 'resultsPage.investmentsPage.intro', heroImage: membersImg },
+        meta: { title: 'Investments', titleKey: 'nav.investments', descriptionKey: 'resultsPage.investmentsPage.intro', heroImage: membersImg, heroImagePosition: 'center 55%' },
     },
     {
         path: 'results/documents',

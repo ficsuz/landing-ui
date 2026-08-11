@@ -443,7 +443,7 @@ import imgKongratbay from '@/assets/images/leaders/kongratbay2.png'
 import imgAxadbek2 from '@/assets/images/leaders/axadbek2.png'
 import imgErlan2 from '@/assets/images/leaders/erlan2.png'
 import imgAziz2 from '@/assets/images/leaders/aziz2.png'
-import imgJurabek2 from '@/assets/images/leaders/jurabek2.png'
+import imgSherzodXodjayev from '@/assets/images/leaders/sherzod-xodjayev.png'
 import imgMukae from '@/assets/images/leaders/mukae.png'
 import imgAzizA from '@/assets/images/leaders/aziz-a.png'
 
@@ -1040,10 +1040,10 @@ const iwgGroups: IWGroup[] = [
         ],
         nameKey: 'workingGroupsPage.interagencyGroups.i8.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i8.description',
-        chairNameKey: 'wg.jurabek',
-        chairPhoto: imgJurabek2,
-        chairPositionKey: 'wg.jurabekPos',
-        chairBioKey: 'wg.jurabekBio',
+        chairNameKey: 'wg.sherzodXodjayev',
+        chairPhoto: imgSherzodXodjayev,
+        chairPositionKey: 'wg.sherzodXodjayevPos',
+        chairBioKey: 'wg.sherzodXodjayevBio',
         coChairNameKey: 'wg.johnZaidi',
         coChairPhoto: imgLeader6,
         coChairPositionKey: 'wg.zaidiPos',

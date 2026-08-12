@@ -6,6 +6,8 @@ export interface NavLink {
 export interface NavMenuItem {
     labelKey: string
     path?: string
+    /** Footer-only: standalone sections (no children) show this line instead of a link list. */
+    noteKey?: string
     children?: NavLink[]
 }
 
@@ -47,8 +49,13 @@ export const websiteMenu: NavMenuItem[] = [
             { labelKey: 'nav.initiatives', path: '/results/initiatives' },
             { labelKey: 'nav.investments', path: '/results/investments' },
             { labelKey: 'nav.documents', path: '/results/documents' },
-            { labelKey: 'nav.regionalAlliance', path: '/results/regional-alliance' },
         ],
+    },
+    // Standalone section — single page, no dropdown.
+    {
+        labelKey: 'nav.regionalAlliance',
+        path: '/regional-alliance',
+        noteKey: 'regionalAlliancePage.tagline',
     },
     {
         labelKey: 'nav.events',

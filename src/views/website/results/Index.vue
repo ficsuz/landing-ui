@@ -164,7 +164,7 @@
                                 {{ $t('resultsPage.strategic.description') }}
                             </p>
                             <router-link
-                                :to="{ name: 'results-regional-alliance' }"
+                                :to="{ name: 'regional-alliance' }"
                                 class="mt-1 inline-flex items-center gap-2 border border-[#d0d5dd] text-[#1a1e2e] font-semibold text-[15px] px-7 py-3 rounded-full transition-all duration-200 hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e]"
                             >
                                 {{ $t('common.learnMore') }}

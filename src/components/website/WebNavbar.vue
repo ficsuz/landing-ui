@@ -128,6 +128,20 @@
                             </svg>
                         </button>
 
+                        <!-- Standalone section: the row itself is the link -->
+                        <router-link
+                            v-else
+                            :to="item.path!"
+                            class="web-navbar__panel-header web-navbar__panel-header--single"
+                            active-class=""
+                            exact-active-class=""
+                            @click="closeAll"
+                        >
+                            <span class="web-navbar__panel-title" :class="{ active: isActive(item.path!) }">
+                                {{ $t(item.labelKey) }}
+                            </span>
+                        </router-link>
+
                         <Transition name="accordion">
                             <ul v-if="item.children && expandedGroup === item.labelKey" class="web-navbar__panel-links">
                                 <li v-for="child in item.children" :key="child.path">
@@ -232,7 +246,8 @@ const isParentActive = (item: NavMenuItem): boolean => {
         height: 80px;
         display: flex;
         align-items: center;
-        gap: 40px;
+        /* 7 top-level sections + the long ru labels leave little room here — keep gaps tight */
+        gap: 28px;
     }
 
     &__logo {
@@ -243,7 +258,7 @@ const isParentActive = (item: NavMenuItem): boolean => {
     &__menu {
         display: flex;
         align-items: center;
-        gap: 28px;
+        gap: 20px;
         list-style: none;
         flex: 1;
         justify-content: center;
@@ -263,7 +278,7 @@ const isParentActive = (item: NavMenuItem): boolean => {
         background: none;
         border: none;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 500;
         color: #667085;
         text-decoration: none;
@@ -463,6 +478,11 @@ const isParentActive = (item: NavMenuItem): boolean => {
         -webkit-tap-highlight-color: transparent;
 
         &.expanded .web-navbar__panel-chevron { transform: rotate(180deg); }
+    }
+
+    /* Standalone section: link row, same metrics as the accordion header */
+    &__panel-header--single {
+        text-decoration: none;
     }
 
     &__panel-title {

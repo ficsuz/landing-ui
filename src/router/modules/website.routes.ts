@@ -107,11 +107,18 @@ const websiteRoutes: RouteRecordRaw[] = [
         component: () => import('../../views/website/results/documents/Index.vue'),
         meta: { title: 'Documents', titleKey: 'nav.documents', descriptionKey: 'resultsPage.documentsPage.intro', heroImage: documentsImg, heroImagePosition: 'center 60%' },
     },
+    // Legacy path — the Regional Alliance used to live under Results.
     {
         path: 'results/regional-alliance',
-        name: 'results-regional-alliance',
-        component: () => import('../../views/website/results/regional-alliance/Index.vue'),
-        meta: { title: 'Regional Alliance (RAIC-CAC)', titleKey: 'resultsPage.regionalAlliance.heroShort', heroImage: regionalAllianceImg, heroImagePosition: 'center 67%' },
+        redirect: { name: 'regional-alliance' },
+    },
+
+    // ---- Regional Alliance (RAIC-CAC) ----
+    {
+        path: 'regional-alliance',
+        name: 'regional-alliance',
+        component: () => import('../../views/website/regional-alliance/Index.vue'),
+        meta: { title: 'Regional Alliance (RAIC-CAC)', titleKey: 'regionalAlliancePage.heroShort', heroImage: regionalAllianceImg, heroImagePosition: 'center 67%' },
     },
 
     // ---- Events ----

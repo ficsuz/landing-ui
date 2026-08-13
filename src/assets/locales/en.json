@@ -754,17 +754,24 @@
         "eventsTitle": "Key Events",
         "events": [
             {
-                "date": "June 16 — TIIF Strategic Session",
+                "date": "June 16",
+                "subject": "TIIF Strategic Session",
                 "title": "RAIC-CAC Agenda 2026–2027",
                 "desc": "Alliance roadmap and joint initiative preparation."
             },
             {
-                "date": "June 16 — TIIF Panel Session",
+                "date": "June 16",
+                "subject": "TIIF Panel Session",
                 "title": "Regional Alliance of Investment Councils of CAC",
                 "desc": "Unlocking Regional Investment Potential."
-            },
-            { "date": "June 18 — FIC Plenary Session", "title": "Memorandum signing ceremony", "desc": "On the establishment of RAIC-CAC." }
-        ]
+            }
+        ],
+        "memorandum": {
+            "date": "June 18",
+            "subject": "FIC Plenary Session",
+            "title": "Memorandum signing ceremony",
+            "desc": "On the establishment of RAIC-CAC."
+        }
     },
 
     "eventsPage": {

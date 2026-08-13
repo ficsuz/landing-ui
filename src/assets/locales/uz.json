@@ -767,21 +767,24 @@
         "eventsTitle": "Asosiy tadbirlar",
         "events": [
             {
-                "date": "16-iyun — TIIF strategik majlisi",
+                "date": "16-iyun",
+                "subject": "TIIF strategik majlisi",
                 "title": "RAIC-CAC 2026–2027 kun tartibi",
                 "desc": "Ittifoq yo'l xaritasi va qo'shma tashabbuslarni tayyorlash."
             },
             {
-                "date": "16-iyun — TIIF panel majlisi",
+                "date": "16-iyun",
+                "subject": "TIIF panel majlisi",
                 "title": "MOK investitsiya kengashlarining mintaqaviy ittifoqi",
                 "desc": "Mintaqaviy investitsiya salohiyatini ochish."
-            },
-            {
-                "date": "18-iyun — XIK yalpi majlisi",
-                "title": "Memorandumni imzolash marosimi",
-                "desc": "RAIC-CAC tashkil etilishi to'g'risida."
             }
-        ]
+        ],
+        "memorandum": {
+            "date": "18-iyun",
+            "subject": "XIK yalpi majlisi",
+            "title": "Memorandumni imzolash marosimi",
+            "desc": "RAIC-CAC tashkil etilishi to'g'risida."
+        }
     },
 
     "eventsPage": {

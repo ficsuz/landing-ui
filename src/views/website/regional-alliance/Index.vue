@@ -84,24 +84,112 @@
 
                 <!-- TIIF Events -->
                 <div>
-                    <h2 class="ra-section-title mb-8 md:mb-10">{{ $t('regionalAlliancePage.eventsTitle') }}</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5">
-                        <!-- TIIF logo -->
-                        <div class="flex items-center justify-start p-2">
-                            <img :src="imgTiifLogo" alt="Tashkent International Investment Forum" class="max-h-[180px] w-auto object-contain" />
-                        </div>
-                        <div
+                    <h2 class="ra-section-title mb-3">{{ $t('regionalAlliancePage.eventsTitle') }}</h2>
+                    <p class="text-[clamp(14px,1.1vw,16px)] text-[#8a94a6] mb-8 md:mb-10">
+                        {{ $t('regionalAlliancePage.eventsSubtitle') }}
+                    </p>
+
+                    <!-- Forum sessions — same card pattern as the Meetings page -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <router-link
                             v-for="(ev, i) in events"
                             :key="i"
-                            class="flex flex-col gap-3 rounded-2xl border border-[#eef0f4] bg-[#f7f8fa] p-6 md:p-7"
+                            :to="{ name: 'events-meetings' }"
+                            class="group flex flex-col rounded-2xl overflow-hidden bg-white border border-[#eef0f4] shadow-[0_2px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.11)] hover:-translate-y-1 transition-all duration-300"
                         >
-                            <span
-                                class="inline-flex self-start items-center text-[10px] font-bold uppercase tracking-wide text-white bg-[#1a1e2e] px-3 py-1 rounded-full"
-                            >
-                                {{ ev.date }}
+                            <!-- Cover -->
+                            <div class="relative overflow-hidden aspect-[16/10] shrink-0">
+                                <img
+                                    :src="ev.image"
+                                    :alt="ev.title"
+                                    class="w-full h-full object-cover transition-transform duration-1500 group-hover:scale-105"
+                                />
+                            </div>
+
+                            <!-- Body -->
+                            <div class="flex flex-col flex-1 p-5 md:p-6">
+                                <p class="text-[11px] font-bold tracking-widest uppercase text-[#4361ee] mb-2">
+                                    {{ ev.subject }}
+                                </p>
+
+                                <h3 class="font-bold text-[16px] md:text-[17px] text-[#1a1e2e] leading-snug">
+                                    {{ ev.title }}
+                                </h3>
+                                <p class="mt-2 text-[14px] leading-relaxed text-[#505a63] flex-1">{{ ev.desc }}</p>
+
+                                <!-- Footer: date + arrow -->
+                                <div class="mt-4 pt-4 border-t border-[#eef0f4] flex items-center justify-between">
+                                    <span class="text-[14px] text-[#8a94a6] flex items-center gap-1.5">
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                            <line x1="16" y1="2" x2="16" y2="6" />
+                                            <line x1="8" y1="2" x2="8" y2="6" />
+                                            <line x1="3" y1="10" x2="21" y2="10" />
+                                        </svg>
+                                        {{ ev.date }}
+                                    </span>
+                                    <span
+                                        class="w-8 h-8 rounded-full flex items-center justify-center bg-[#f7f8fa] group-hover:bg-[#1a1e2e] transition-colors duration-300"
+                                    >
+                                        <svg
+                                            width="14"
+                                            height="14"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="text-[#8a94a6] group-hover:text-white transition-colors duration-300"
+                                        >
+                                            <path d="M5 12h14M12 5l7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </router-link>
+                    </div>
+
+                    <!-- Memorandum signing — informational block, documents live on the Results section -->
+                    <div
+                        class="mt-6 flex flex-col md:flex-row items-center md:items-start gap-6 rounded-2xl border border-[#eef0f4] bg-[#f7f8fa] p-6 md:p-8 border-l-[3px] border-l-[#1a1e2e]"
+                    >
+                        <span class="shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-[#1a1e2e] text-white">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <path d="M8 16c1.5-3 2.5-3 3.5 0s2 3 3.5-1" />
+                            </svg>
+                        </span>
+                        <div class="flex flex-col items-center md:items-start gap-3 text-center md:text-left">
+                            <span class="text-[11px] font-black uppercase tracking-[0.14em] text-[#1a1e2e]">
+                                {{ $t('regionalAlliancePage.memorandum.subject') }}
+                                <span class="text-[#8a94a6]">· {{ $t('regionalAlliancePage.memorandum.date') }}</span>
                             </span>
-                            <h3 class="font-bold text-[16px] text-[#1a1e2e] leading-snug">{{ ev.title }}</h3>
-                            <p class="text-[14px] leading-relaxed text-[#505a63]">{{ ev.desc }}</p>
+                            <h3 class="font-bold text-[clamp(17px,1.6vw,22px)] text-[#1a1e2e] leading-snug">
+                                {{ $t('regionalAlliancePage.memorandum.title') }}
+                            </h3>
+                            <p class="text-[clamp(14px,1.2vw,17px)] text-[#444] leading-relaxed">
+                                {{ $t('regionalAlliancePage.memorandum.desc') }}
+                            </p>
+                            <router-link
+                                :to="{ name: 'results-documents' }"
+                                class="mt-1 inline-flex items-center gap-2 border border-[#d0d5dd] text-[#1a1e2e] font-semibold text-[15px] px-7 py-3 rounded-full transition-all duration-200 hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e]"
+                            >
+                                {{ $t('common.viewDocuments') }}
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </router-link>
                         </div>
                     </div>
                 </div>
@@ -114,8 +202,9 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import imgRaicLogo from '@/assets/images/regional-image/21.png'
-import imgTiifLogo from '@/assets/images/regional-image/tiif-logo.png'
 import imgStrategicPartner from '@/assets/images/regional-image/strategic-partner.png'
+import imgStrategicSession from '@/assets/images/hero/SUT_8193.jpg'
+import imgPanelSession from '@/assets/images/interim-session/DSC02281.JPG'
 import logoArmenia from '@/assets/images/regional-image/member-armenia.png'
 import logoGeorgia from '@/assets/images/regional-image/member-georgia.png'
 import logoKazakhstan from '@/assets/images/regional-image/member-kazakhstan.png'
@@ -150,13 +239,19 @@ const objectives = computed(() =>
     }))
 )
 
+// Order matches the events list in locale files
+const eventImages = [imgStrategicSession, imgPanelSession]
+
 const events = computed(() =>
-    (tm('regionalAlliancePage.events') as any[]).map((e) => ({
+    (tm('regionalAlliancePage.events') as any[]).map((e, i) => ({
+        image: eventImages[i] ?? '',
         date: rt(e.date),
+        subject: rt(e.subject),
         title: rt(e.title),
         desc: rt(e.desc),
     }))
 )
+
 
 // Objective icons (order matches image: dialogue, integration, climate, exchange, promotion)
 const objectiveIcons = [

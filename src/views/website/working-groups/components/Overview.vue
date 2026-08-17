@@ -1184,7 +1184,7 @@ const iwgGroups: IWGroup[] = [
             { image: usrToshov, nameKey: 'wg.tashov', positionKey: 'wg.posActingStockExchange' },
             { image: usrUmurzakov, nameKey: 'wg.shavkatUmurzakov', positionKey: '' },
             { image: usrBayzakova, nameKey: 'wg.dianaBayzakova', positionKey: '' },
-            { image: defaultAvatar, nameKey: 'wg.saidolimKodirkhodjaev', positionKey: '' },
+            { image: defaultAvatar, nameKey: 'wg.saidolimKodirkhodjaev', positionKey: 'wg.posConsolidatedAnalytical' },
         ],
         councilBrands: [],
     },

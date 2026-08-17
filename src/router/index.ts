@@ -42,7 +42,12 @@ const routes: RouteRecordRaw[] = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(to, _from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
+    // Query-only updates on the same page (deep-link params a view writes back to the
+    // URL) must not move the viewport — the user is already reading where they are.
+    if (to.path === from.path && to.hash === from.hash) {
+      return false;
+    }
     if (to.hash) {
       return { el: to.hash, top: 100, behavior: 'smooth' };
     }

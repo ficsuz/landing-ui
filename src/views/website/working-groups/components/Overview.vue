@@ -73,7 +73,7 @@
                 <!-- CWG Detail view -->
                 <div v-if="selected && isCWG(selected)" :key="`cwg-detail-${selected.id}`">
                     <button
-                        @click="selected = null"
+                        @click="closeGroup"
                         class="flex items-center gap-2 text-[#505A63] hover:text-[#191C1F] transition-colors mb-8 cursor-pointer"
                     >
                         <svg
@@ -133,7 +133,7 @@
                 <!-- IWG Detail view -->
                 <div v-else-if="selected && !isCWG(selected)" :key="`iwg-detail-${selected.id}`">
                     <button
-                        @click="selected = null"
+                        @click="closeGroup"
                         class="flex items-center gap-2 text-[#505A63] hover:text-[#191C1F] transition-colors mb-8 cursor-pointer"
                     >
                         <svg
@@ -221,7 +221,11 @@
                                 :key="i"
                                 class="border border-[#00000026] rounded-xl p-4 text-center flex flex-col items-center"
                             >
-                                <img :src="member.image" :alt="$t(member.nameKey)" class="w-[93px] h-[93px] rounded-3xl object-cover object-top" />
+                                <img
+                                    :src="member.image"
+                                    :alt="$t(member.nameKey)"
+                                    class="w-[93px] h-[93px] shrink-0 rounded-full object-cover object-top bg-[#f7f8fa]"
+                                />
                                 <p class="mt-2 text-[17px] font-bold text-[#191C1F] leading-tight">
                                     {{ $t(member.nameKey) }}
                                 </p>
@@ -260,7 +264,7 @@
                             <div
                                 v-for="(item, i) in cwgGroups"
                                 :key="i"
-                                @click="selected = item"
+                                @click="openGroup(item)"
                                 class="group bg-[#F7F7F7] hover:bg-[#EFEFEF] transition-colors duration-200 rounded-2xl p-6 lg:p-7 flex flex-col cursor-pointer"
                             >
                                 <div class="flex items-center gap-3.5 min-h-[64px]">
@@ -333,7 +337,7 @@
                             <div
                                 v-for="(item, i) in iwgGroups"
                                 :key="i"
-                                @click="selected = item"
+                                @click="openGroup(item)"
                                 class="group bg-[#F7F7F7] hover:bg-[#EFEFEF] transition-colors duration-200 rounded-2xl p-6 lg:p-7 flex flex-col cursor-pointer"
                             >
                                 <div class="flex items-center gap-3.5 min-h-[64px]">
@@ -422,7 +426,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 // interagencyOnly: render only the Interagency (IWG) cards; councilOnly: render only the Council (CWG) cards.
 // Either one hides the stat tabs and legal-basis bar, leaving just that single section.
@@ -455,7 +460,7 @@ import usrAskar from '@/assets/images/users/askar2.png'
 import usrAxadbek from '@/assets/images/users/axadbek.png'
 import usrMaxmud from '@/assets/images/users/maxmud.png'
 import usrFarrux from '@/assets/images/users/farrux.png'
-import usrPak from '@/assets/images/users/pak.png'
+import usrPak from '@/assets/images/users/vyacheslav-pak.jpg'
 import defaultAvatar from '@/assets/images/avatars/default-avatar.svg'
 import usrGeorgiy from '@/assets/images/users/georgiy.png'
 import usrBotir from '@/assets/images/users/botir.png'
@@ -497,6 +502,7 @@ import usrMahmudova from '@/assets/images/users/robahon-mahmudova.webp'
 import usrNodirJorayev from '@/assets/images/users/nodir-jorayev.jpg'
 import usrUmurzakov from '@/assets/images/users/shavkat-umurzakov.jpg'
 import usrBayzakova from '@/assets/images/users/diana-bayzakova.jpeg'
+import usrKodirkhodjaev from '@/assets/images/users/saidolim-kodirkhodjaev.jpg'
 
 import imgAcwaPower from '@/assets/images/brands/acwa-power.png'
 import imgTbc from '@/assets/images/brands/tbc.png'
@@ -619,12 +625,26 @@ function isCWG(g: AnyGroup): g is CWGroup {
     return g.type === 'cwg'
 }
 
+const route = useRoute()
+const router = useRouter()
+
 const activeTab = ref<'council' | 'interagency'>(props.interagencyOnly ? 'interagency' : 'council')
 const selected = ref<AnyGroup | null>(null)
 
 function selectTab(tab: 'council' | 'interagency') {
     activeTab.value = tab
     selected.value = null
+    syncQuery(null)
+}
+
+function openGroup(group: AnyGroup) {
+    selected.value = group
+    syncQuery(group)
+}
+
+function closeGroup() {
+    selected.value = null
+    syncQuery(null)
 }
 
 const cwgGroups: CWGroup[] = [
@@ -1184,11 +1204,52 @@ const iwgGroups: IWGroup[] = [
             { image: usrToshov, nameKey: 'wg.tashov', positionKey: 'wg.posActingStockExchange' },
             { image: usrUmurzakov, nameKey: 'wg.shavkatUmurzakov', positionKey: '' },
             { image: usrBayzakova, nameKey: 'wg.dianaBayzakova', positionKey: '' },
-            { image: defaultAvatar, nameKey: 'wg.saidolimKodirkhodjaev', positionKey: 'wg.posConsolidatedAnalytical' },
+            { image: usrKodirkhodjaev, nameKey: 'wg.saidolimKodirkhodjaev', positionKey: 'wg.posConsolidatedAnalytical' },
         ],
         councilBrands: [],
     },
 ]
+
+// The open group lives in component state, so a refresh used to drop the visitor back on
+// the card grid. Mirroring it into `?wg=` (c<id> = council, i<id> = interagency) makes a
+// detail view survive a reload and turns it into a shareable link.
+const WG_QUERY_KEY = 'wg'
+
+function groupToken(group: AnyGroup) {
+    return `${isCWG(group) ? 'c' : 'i'}${group.id}`
+}
+
+function groupFromToken(token: unknown): AnyGroup | null {
+    if (typeof token !== 'string') return null
+    const match = /^([ci])(\d+)$/.exec(token)
+    if (!match) return null
+    const council = match[1] === 'c'
+    // A section rendered in single-list mode can only open groups from its own list.
+    if (council ? props.interagencyOnly : props.councilOnly) return null
+    const list: AnyGroup[] = council ? cwgGroups : iwgGroups
+    return list.find((g) => g.id === Number(match[2])) ?? null
+}
+
+function applyQuery() {
+    const group = groupFromToken(route.query[WG_QUERY_KEY])
+    selected.value = group
+    if (group) activeTab.value = isCWG(group) ? 'council' : 'interagency'
+}
+
+function syncQuery(group: AnyGroup | null) {
+    const token = group ? groupToken(group) : undefined
+    if (route.query[WG_QUERY_KEY] === token) return
+    const query = { ...route.query }
+    if (token) query[WG_QUERY_KEY] = token
+    else delete query[WG_QUERY_KEY]
+    // replace, not push: the in-page back button already handles returning to the grid,
+    // and the hash is kept so the page still lands on the right section after a reload.
+    router.replace({ path: route.path, query, hash: route.hash })
+}
+
+// Run during setup so a reload renders the detail view straight away, with no grid flash.
+applyQuery()
+watch(() => route.query[WG_QUERY_KEY], applyQuery)
 
 // Animated stats
 const ANIM_DURATION = 1500

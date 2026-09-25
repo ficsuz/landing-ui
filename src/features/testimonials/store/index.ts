@@ -25,6 +25,34 @@ export const useTestimonialsStore = defineStore('testimonials', () => {
         }
     }
 
+    // Many rows share the same `order`, and the API sorts by that single column, so
+    // LIMIT/OFFSET pages overlap: some rows land on two pages and others on none.
+    // Page through by the unique `id` instead and apply the display order here.
+    async function fetchAllOrdered() {
+        loading.value = true
+        error.value   = null
+        try {
+            const all: Testimonial[] = []
+            let page = 1
+            let lastPage = 1
+            do {
+                // 100 is the API's maximum page size
+                const res = await testimonialsService.getAll({ page, limit: 100, sortBy: 'id', order: 'desc' })
+                all.push(...res.data)
+                lastPage = res.meta.pagination.lastPage
+                page++
+            } while (page <= lastPage)
+
+            items.value = all.sort((a, b) => a.order - b.order || b.createdAt.localeCompare(a.createdAt))
+            total.value = all.length
+        } catch (e: any) {
+            error.value = e?.message ?? 'Error'
+            throw e
+        } finally {
+            loading.value = false
+        }
+    }
+
     async function createItem(payload: TestimonialPayload) {
         const res = await testimonialsService.create(payload)
         if (res.success && res.data) {
@@ -50,5 +78,5 @@ export const useTestimonialsStore = defineStore('testimonials', () => {
         return res
     }
 
-    return { items, total, loading, error, fetchAll, createItem, updateItem, deleteItem }
+    return { items, total, loading, error, fetchAll, fetchAllOrdered, createItem, updateItem, deleteItem }
 })

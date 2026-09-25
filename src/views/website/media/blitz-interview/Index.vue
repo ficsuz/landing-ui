@@ -134,7 +134,7 @@ const openVideo = (item: Testimonial) => {
 }
 
 onMounted(() => {
-    testimonialsStore.fetchAll({ page: 1, limit: 50, sortBy: 'order', order: 'asc' })
+    testimonialsStore.fetchAllOrdered()
 })
 </script>
 

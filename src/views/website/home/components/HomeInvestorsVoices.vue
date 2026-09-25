@@ -238,7 +238,7 @@ const getScrollParent = (el: HTMLElement): Element => {
 }
 
 onMounted(() => {
-    testimonialsStore.fetchAll({ page: 1, limit: 50, sortBy: 'order', order: 'asc' })
+    testimonialsStore.fetchAllOrdered()
 
     if (!sectionEl.value) return
     const root = getScrollParent(sectionEl.value)

@@ -6,18 +6,21 @@
         </div>
 
         <div class="card-grid" v-loading="testimonialsStore.loading">
-            <div v-for="row in testimonialsStore.items" :key="row.id" class="b-card">
-                <div v-if="getMediaUrl(row.captionId)" class="b-card__image">
-                    <img :src="getMediaUrl(row.captionId)!" alt="" />
-                    <span class="b-card__play"><el-icon :size="18"><VideoPlay /></el-icon></span>
+            <div v-for="row in pagedItems" :key="row.id" class="b-card">
+                <div class="b-card__image">
+                    <template v-if="getMediaUrl(row.captionId)">
+                        <img :src="getMediaUrl(row.captionId)!" alt="" />
+                        <span class="b-card__play"><el-icon :size="18"><VideoPlay /></el-icon></span>
+                    </template>
+                    <div v-else class="b-card__placeholder">
+                        <el-icon :size="28"><Picture /></el-icon>
+                        <span>No cover image</span>
+                    </div>
                     <el-tag :type="row.status ? 'success' : 'info'" size="small" class="b-card__status">
                         {{ row.status ? 'Published' : 'Hidden' }}
                     </el-tag>
                 </div>
                 <div class="b-card__body">
-                    <el-tag v-if="!getMediaUrl(row.captionId)" :type="row.status ? 'success' : 'info'" size="small" class="mb-2">
-                        {{ row.status ? 'Published' : 'Hidden' }}
-                    </el-tag>
                     <div class="b-card__actions">
                         <el-tooltip content="Edit" placement="top">
                             <el-button type="primary" :icon="Edit" circle plain @click="openEdit(row)" />
@@ -45,8 +48,8 @@
 
         <el-dialog v-model="showDialog" :title="editing ? 'Edit blitz interview' : 'Add blitz interview'" width="560px">
             <el-form label-position="top">
-                <el-form-item label="Video link"><el-input v-model="form.videoSource" placeholder="https://youtu.be/..." /></el-form-item>
-                <el-form-item label="Cover image (thumbnail)">
+                <el-form-item label="Video link" required><el-input v-model="form.videoSource" placeholder="https://youtu.be/..." /></el-form-item>
+                <el-form-item label="Cover image (thumbnail)" required>
                     <FileUploader v-model="form.captionId" />
                 </el-form-item>
                 <el-form-item label="Logo (optional)">
@@ -68,9 +71,9 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, onMounted } from 'vue'
+import { computed, reactive, ref, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { VideoPlay, Edit, Delete } from '@element-plus/icons-vue'
+import { VideoPlay, Picture, Edit, Delete } from '@element-plus/icons-vue'
 import FileUploader from '@/components/admin/FileUploader.vue'
 import { useTestimonialsStore } from '@/features/testimonials/store'
 import { getMediaUrl } from '@/utils/media'
@@ -103,13 +106,20 @@ const emptyForm = (): TestimonialFormState => ({
 
 const form = reactive(emptyForm())
 
+// Paginated on the client: server-side pages sorted by `order` skip rows that share the same order
+const pagedItems = computed(() => {
+    const start = (page.value - 1) * pageSize.value
+    return testimonialsStore.items.slice(start, start + pageSize.value)
+})
+
 async function loadList() {
-    await testimonialsStore.fetchAll({ page: page.value, limit: pageSize.value, sortBy: 'order', order: 'asc' })
+    await testimonialsStore.fetchAllOrdered()
+    const lastPage = Math.max(1, Math.ceil(testimonialsStore.items.length / pageSize.value))
+    if (page.value > lastPage) page.value = lastPage
 }
 
 function onPageChange(p: number) {
     page.value = p
-    loadList()
 }
 
 function openCreate() {
@@ -131,10 +141,19 @@ function openEdit(row: Testimonial) {
 }
 
 async function handleSubmit() {
+    if (!form.videoSource.trim()) {
+        ElMessage.warning('Video link is required')
+        return
+    }
+    // Also catches Save being clicked while the cover is still uploading
+    if (!form.captionId) {
+        ElMessage.warning('Cover image is required')
+        return
+    }
     saving.value = true
     try {
         const payload: TestimonialPayload = {
-            videoSource: form.videoSource,
+            videoSource: form.videoSource.trim(),
             captionId: form.captionId || undefined,
             logoId: form.logoId || undefined,
             order: form.order,
@@ -232,6 +251,18 @@ onMounted(loadList)
     background: rgba(25, 28, 31, 0.55);
     color: #fff;
     backdrop-filter: blur(2px);
+}
+
+.b-card__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #8a94a6;
+    font-size: 13px;
 }
 
 .b-card__status {

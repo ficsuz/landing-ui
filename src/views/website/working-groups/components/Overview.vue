@@ -489,7 +489,6 @@ import usrMirmaksudov from '@/assets/images/users/mirsaid-mirmaksudov.jpg'
 import usrQutbiyev from '@/assets/images/users/sherzod-qutbiyev.jpg'
 import usrAbdurahmonov from '@/assets/images/users/ibrohim-abdurahmonov.webp'
 import usrPekos from '@/assets/images/users/oleg-pekos.jpeg'
-import usrXojayev from '@/assets/images/users/sherzod-xojayev.webp'
 import usrMamadaminov from '@/assets/images/users/umid-mamadaminov.webp'
 import usrIshpulatov from '@/assets/images/users/zokir-ishpulatov.webp'
 import usrSharifbek from '@/assets/images/users/sharifbek-hasanov.jpeg'
@@ -1072,7 +1071,7 @@ const iwgGroups: IWGroup[] = [
             { image: usrXurshid, nameKey: 'wg.khurshedMustafaev', positionKey: 'wg.posDeputyEcoFin' },
             { image: usrPekos, nameKey: 'wg.pekos', positionKey: 'wg.posFirstDeputyDigital' },
             { image: usrAliyev, nameKey: 'wg.aliev', positionKey: 'wg.posDeputyInvestMinister' },
-            { image: usrXojayev, nameKey: 'wg.khodjaev', positionKey: 'wg.posElectricityMarket' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posElectricityMarket' },
             { image: usrAskar, nameKey: 'wg.askarIsakov', positionKey: 'wg.posUztransgaz' },
             { image: usrAsrar, nameKey: 'wg.asrarjonAskarov', positionKey: 'wg.posHududiy' },
             { image: usrJaxongir, nameKey: 'wg.jahongirObidjonov', positionKey: 'wg.posUzenergo' },

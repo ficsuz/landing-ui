@@ -25,10 +25,11 @@ import {
  * previews, Telegram) and Google's first indexing pass would then see identical pages.
  *
  * - dev + build: index.html gets the Uzbek home head injected (`<!-- seo:head -->`).
- * - build: writes `<locale>/<path>.html` copies with a localized head + <noscript>
+ * - build: writes `<locale>/<path>.html` copies (uz/media.html, ru/media.html, …) with a localized head + <noscript>
  *   summary for each page, plus a multilingual sitemap.xml with hreflang alternates.
- *   nginx serves them via `try_files $uri $uri.html /spa.html`; spa.html is a neutral
- *   shell (no canonical/hreflang) for detail pages and unknown URLs.
+ *   nginx serves them via `try_files $uri $uri.html @page`; @page 301s unprefixed URLs to
+ *   /uz/... and otherwise serves spa.html, a neutral shell (no canonical/hreflang) for
+ *   detail pages and unknown URLs.
  */
 
 const HEAD_START = '<!-- seo:head:start -->'
@@ -191,10 +192,9 @@ function renderShell(template: string, messages: Messages): string {
     return html
 }
 
-/** `/` → index.html, `/ru` → ru.html, `/ru/media` → ru/media.html */
+/** `/uz` → uz.html, `/ru/media` → ru/media.html */
 function outputFile(page: SeoPage, locale: AppLocale): string {
-    const p = localizedPath(page.path, locale)
-    return p === '/' ? 'index.html' : `${p.slice(1)}.html`
+    return `${localizedPath(page.path, locale).slice(1)}.html`
 }
 
 export function seoPlugin(): Plugin {

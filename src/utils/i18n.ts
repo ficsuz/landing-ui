@@ -23,7 +23,7 @@ export function getSavedLocale(): AppLocale | null {
 }
 
 /**
- * The URL is the source of truth for the language (`/` = uz, `/ru/...`, `/en/...`),
+ * The URL is the source of truth for the language (`/uz/...`, `/ru/...`, `/en/...`),
  * so the initial locale is read from the path — that way every language has its own
  * indexable URL and a shared link always opens in the language it was shared in.
  */
@@ -55,26 +55,32 @@ export function setLocale(locale: AppLocale, remember = true) {
     }
 }
 
-/** `/ru/media` → `ru`, `/media` → `uz` */
+/** The language segment of a path: `/ru/media` → `ru`, `/media` → null */
+function pathLocale(path: string): AppLocale | null {
+    const first = path.split(/[/?#]/)[1]
+    return isAppLocale(first) ? first : null
+}
+
+/** Whether the path already starts with a language segment (`/uz`, `/ru/...`, `/en#x`). */
+export function hasLocalePrefix(path: string): boolean {
+    return pathLocale(path) !== null
+}
+
+/** `/ru/media` → `ru`; paths without a language segment → `uz` */
 export function localeFromPath(path: string): AppLocale {
-    const first = path.split('/')[1]
-    return isAppLocale(first) && first !== DEFAULT_LOCALE ? first : DEFAULT_LOCALE
+    return pathLocale(path) ?? DEFAULT_LOCALE
 }
 
 /** `/ru/media` → `/media`, `/en` → `/` */
 export function stripLocale(path: string): string {
-    const first = path.split('/')[1]
-    if (isAppLocale(first) && first !== DEFAULT_LOCALE) {
-        return path.slice(first.length + 1) || '/'
-    }
-    return path
+    const locale = pathLocale(path)
+    return locale ? path.slice(locale.length + 1) || '/' : path
 }
 
-/** `/media` + `ru` → `/ru/media`; the default locale has no prefix. Hash/query are kept. */
+/** `/media` + `ru` → `/ru/media`, `/` + `uz` → `/uz`. Every language has a prefix. Hash/query are kept. */
 export function localizePath(path: string, locale: AppLocale): string {
     if (!path.startsWith('/')) return path
     const clean = stripLocale(path)
-    if (locale === DEFAULT_LOCALE) return clean
     // `/`, `/#hash`, `/?q` → `/ru`, `/ru#hash`, `/ru?q` (no trailing slash on the locale root)
     return /^\/(?=[#?]|$)/.test(clean) ? `/${locale}${clean.slice(1)}` : `/${locale}${clean}`
 }

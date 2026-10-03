@@ -1,5 +1,5 @@
 import type { Router, RouteLocationRaw } from 'vue-router'
-import { i18n, localizePath, localeFromPath, DEFAULT_LOCALE, type AppLocale } from '@/utils/i18n'
+import { i18n, localizePath, hasLocalePrefix, type AppLocale } from '@/utils/i18n'
 
 /** Paths that never carry a language prefix. */
 const UNLOCALIZED = /^\/(admin|api|assets)(\/|$|\?|#)/
@@ -11,8 +11,8 @@ function currentLocale(): AppLocale {
 /** Adds the current language prefix to an absolute path that has none: `/events` → `/ru/events`. */
 function localizeRawPath(path: string): string {
     if (!path.startsWith('/') || UNLOCALIZED.test(path)) return path
-    // Already language-specific (`/ru/...`, `/en/...`) — respect it.
-    if (localeFromPath(path) !== DEFAULT_LOCALE) return path
+    // Already language-specific (`/uz/...`, `/ru/...`, `/en/...`) — respect it.
+    if (hasLocalePrefix(path)) return path
     return localizePath(path, currentLocale())
 }
 
@@ -28,7 +28,7 @@ function localizeLocation(to: RouteLocationRaw): RouteLocationRaw {
 /**
  * Makes every in-app link keep the active language: plain paths passed to
  * <router-link to="/events">, router.push('/media') or router.replace({ path }) are
- * prefixed with the current locale (/ru/events, /en/media). The rendered href is
+ * prefixed with the current locale (/uz/events, /ru/events, /en/media). The rendered href is
  * localized too, so crawlers follow links within the same language.
  *
  * The language switcher sets the new locale before navigating, so its target path is

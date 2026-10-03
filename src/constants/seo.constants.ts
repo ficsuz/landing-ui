@@ -8,7 +8,7 @@ export const SITE_URL = 'https://fics.uz'
 export const SUPPORTED_LOCALES = ['uz', 'ru', 'en'] as const
 export type AppLocale = (typeof SUPPORTED_LOCALES)[number]
 
-/** Served without a URL prefix (`/`), and used as hreflang `x-default`. */
+/** Fallback language: `/` and old unprefixed URLs redirect to it; used as hreflang `x-default`. */
 export const DEFAULT_LOCALE: AppLocale = 'uz'
 
 /** Open Graph locale codes. */
@@ -82,16 +82,14 @@ export const SEO_PAGES: SeoPage[] = [
     { name: 'contact', path: '/contact', titleKey: 'nav.contact', priority: 0.6, changefreq: 'yearly' },
 ]
 
-/** `/media` + `ru` → `/ru/media`; the default locale has no prefix. */
+/** `/media` + `ru` → `/ru/media`, `/` + `uz` → `/uz`. Every language has a prefix. */
 export function localizedPath(path: string, locale: AppLocale): string {
-    if (locale === DEFAULT_LOCALE) return path
     return path === '/' ? `/${locale}` : `/${locale}${path}`
 }
 
 /** Absolute URL of a page in a given locale. */
 export function localizedUrl(path: string, locale: AppLocale): string {
-    const p = localizedPath(path, locale)
-    return p === '/' ? `${SITE_URL}/` : `${SITE_URL}${p}`
+    return `${SITE_URL}${localizedPath(path, locale)}`
 }
 
 const NAMED_ENTITIES: Record<string, string> = { nbsp: ' ', amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', laquo: '«', raquo: '»', mdash: '—', ndash: '–', hellip: '…' }

@@ -79,8 +79,8 @@ styles/       # (optional) scoped SCSS
 - Translation files: `src/assets/locales/uz.json`, `ru.json`, `en.json`
 - All three files must be updated together when adding new keys
 - Default/fallback locale is `uz`; if a key is missing in `ru`/`en`, `uz` is shown
-- **The language lives in the URL**: `/…` = uz, `/ru/…`, `/en/…` (website parent route is `/:locale(ru|en)?`). `locale.guard.ts` syncs i18n from the URL — the URL is the only source of truth on the website (no preference redirects); `localStorage` is only used by the admin panel
-- Internal links keep the language automatically: `src/router/localizeLinks.ts` prefixes any plain path given to `<router-link to="/events">`, `router.push('/media')` or `router.replace({ path })` with the current locale. Just write the uz path. Named routes (`{ name: 'media' }`) inherit `:locale` too. To compare the current page against a path, use `basePath` from `useLocale()` (path without prefix), never raw `route.path`
+- **The language lives in the URL**: `/uz/…`, `/ru/…`, `/en/…` (website parent route is `/:locale(uz|ru|en)`). `/` and old unprefixed URLs 301 to `/uz/…` (nginx + `locale.guard.ts`). `locale.guard.ts` syncs i18n from the URL — the URL is the only source of truth on the website (no preference redirects); `localStorage` is only used by the admin panel
+- Internal links keep the language automatically: `src/router/localizeLinks.ts` prefixes any plain path given to `<router-link to="/events">`, `router.push('/media')` or `router.replace({ path })` with the current locale. Just write the path without a language (`/events`). Named routes (`{ name: 'media' }`) inherit `:locale` too. To compare the current page against a path, use `basePath` from `useLocale()` (path without prefix), never raw `route.path`
 - Switch language via `switchLocale(code)` from `useLocale()` (navigates to the same page in that language)
 - For arrays/nested objects in translations, use `const items = computed(() => (tm('key') as any[]).map(i => rt(i)))`
 
@@ -89,7 +89,7 @@ styles/       # (optional) scoped SCSS
 ## SEO
 
 - `src/constants/seo.constants.ts` — `SEO_PAGES` (every indexable static page), site URL, locales, JSON-LD builders. Shared by browser and build, so no `@/` imports there
-- `build/vite-plugin-seo.ts` — at build time writes a localized `<head>` (title, description, canonical, hreflang, OG, JSON-LD) + `<noscript>` summary for every page × language (`dist/ru/media.html`…), the `spa.html` fallback and `sitemap.xml`. nginx: `try_files $uri $uri.html /spa.html`
+- `build/vite-plugin-seo.ts` — at build time writes a localized `<head>` (title, description, canonical, hreflang, OG, JSON-LD) + `<noscript>` summary for every page × language (`dist/uz/media.html`, `dist/ru/media.html`…), the `spa.html` fallback and `sitemap.xml`. nginx: `try_files $uri $uri.html @page` (@page: 301 unprefixed → `/uz…`, else `spa.html`)
 - `src/router/guards/seo.guard.ts` — updates the same tags on client navigation
 - Detail pages call `useSeo(() => ({ title, description, image }))` once their content loads
 - Texts: `seo.*` keys in the locale files (`seo.pages.<routeName>` = description for pages without an intro text)

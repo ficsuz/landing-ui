@@ -5,11 +5,11 @@ import { setupRouterGuards } from './guards';
 import { setupLocalizedLinks } from './localizeLinks';
 
 const routes: RouteRecordRaw[] = [
-  // Public website (FIC). Uzbek (default) lives at `/`, other languages under
-  // `/ru/...` and `/en/...` so every language has its own indexable URL.
-  // Named routes inherit the current :locale automatically.
+  // Public website (FIC). Every language has its own prefix — `/uz/...`, `/ru/...`,
+  // `/en/...` — so each one has its own indexable URL. `/` and old unprefixed URLs
+  // redirect to `/uz/...` (locale.guard.ts). Named routes inherit :locale automatically.
   {
-    path: '/:locale(ru|en)?',
+    path: '/:locale(uz|ru|en)',
     component: () => import('../layouts/WebsiteLayout.vue'),
     children: [
       ...websiteRoutes

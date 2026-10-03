@@ -22,6 +22,7 @@
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { stripLocale } from '@/utils/i18n'
 import WebHeader from '@/components/website/WebHeader.vue'
 import WebFooter from '@/components/website/WebFooter.vue'
 import WebHeroSection from '@/components/website/WebHeroSection.vue'
@@ -31,7 +32,8 @@ const { t } = useI18n()
 
 const layoutRef = ref<HTMLElement | null>(null)
 
-watch(() => route.path, () => {
+// Scroll to top on page change, but not when only the language prefix changes.
+watch(() => stripLocale(route.path), () => {
     layoutRef.value?.scrollTo({ top: 0, behavior: 'instant' })
 })
 </script>

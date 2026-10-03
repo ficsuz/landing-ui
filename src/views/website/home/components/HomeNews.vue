@@ -8,7 +8,7 @@
             >
                 <h2 class="section-title text-white">{{ $t('news.title') }}</h2>
                 <router-link
-                    to="/media"
+                    :to="{ name: 'media' }"
                     class="inline-flex items-center gap-2 shrink-0 whitespace-nowrap border border-white/30 text-white text-[14px] font-semibold px-5 py-2.5 rounded-full transition-all duration-200 hover:bg-white hover:text-[#1a1e2e]"
                 >
                     {{ $t('news.allNews') }}
@@ -116,7 +116,7 @@ function openItem(item: NewsItem) {
     if (item.otherLink) {
         window.open(item.otherLink, '_blank', 'noopener')
     } else {
-        router.push('/media')
+        router.push({ name: 'media' })
     }
 }
 

@@ -17,7 +17,7 @@
                     {{ $t('common.back') }}
                 </button>
                 <router-link
-                    to="/"
+                    :to="homePath"
                     class="inline-flex items-center gap-2 bg-[#1a1e2e] text-white font-semibold text-[15px] px-7 py-3 rounded-full border border-[#1a1e2e] transition-all duration-200 hover:opacity-90"
                 >
                     {{ $t('notFound.backHome') }}
@@ -26,3 +26,13 @@
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { localeFromPath, localizePath } from '@/utils/i18n'
+
+// Unknown /ru/... and /en/... URLs keep their language and link back to that home page.
+const route = useRoute()
+const homePath = computed(() => localizePath('/', localeFromPath(route.path)))
+</script>

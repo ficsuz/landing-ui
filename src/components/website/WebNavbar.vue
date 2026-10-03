@@ -3,7 +3,7 @@
         <!-- Main bar -->
         <div class="web-navbar__inner">
             <!-- Logo -->
-            <AppBrand to="/" class="web-navbar__logo" />
+            <AppBrand :to="localePath('/')" class="web-navbar__logo" />
 
             <!-- Desktop menu -->
             <ul class="web-navbar__menu">
@@ -19,7 +19,7 @@
                         <!-- Parent is a link if it has a path, otherwise just a toggle button -->
                         <router-link
                             v-if="item.path"
-                            :to="item.path"
+                            :to="localePath(item.path)"
                             class="web-navbar__link"
                             :class="{ active: isParentActive(item) }"
                             active-class=""
@@ -39,7 +39,7 @@
                             <router-link
                                 v-for="child in item.children"
                                 :key="child.path"
-                                :to="child.path"
+                                :to="localePath(child.path)"
                                 class="web-navbar__dropdown-link"
                                 :class="{ 'is-active': isActive(child.path, item.children?.map(c => c.path)) }"
                                 active-class=""
@@ -53,7 +53,7 @@
 
                     <router-link
                         v-else
-                        :to="item.path!"
+                        :to="localePath(item.path!)"
                         class="web-navbar__link"
                         :class="{ active: isActive(item.path!) }"
                     >
@@ -76,7 +76,7 @@
                     </button>
                 </div>
 
-                <router-link to="/contact" class="web-navbar__contact">
+                <router-link :to="localePath('/contact')" class="web-navbar__contact">
                     {{ $t('nav.contact') }}
                 </router-link>
             </div>
@@ -131,7 +131,7 @@
                         <!-- Standalone section: the row itself is the link -->
                         <router-link
                             v-else
-                            :to="item.path!"
+                            :to="localePath(item.path!)"
                             class="web-navbar__panel-header web-navbar__panel-header--single"
                             active-class=""
                             exact-active-class=""
@@ -146,7 +146,7 @@
                             <ul v-if="item.children && expandedGroup === item.labelKey" class="web-navbar__panel-links">
                                 <li v-for="child in item.children" :key="child.path">
                                     <router-link
-                                        :to="child.path"
+                                        :to="localePath(child.path)"
                                         class="web-navbar__panel-link"
                                         :class="{ 'is-active': isActive(child.path, item.children?.map(c => c.path)) }"
                                         active-class=""
@@ -160,7 +160,7 @@
                         </Transition>
                     </div>
 
-                    <router-link to="/contact" class="web-navbar__panel-contact" @click="closeAll">
+                    <router-link :to="localePath('/contact')" class="web-navbar__panel-contact" @click="closeAll">
                         {{ $t('nav.contact') }}
                     </router-link>
                 </div>
@@ -177,7 +177,7 @@ import { websiteMenu, type NavMenuItem } from '@/constants/navigation.constants'
 import { useLocale } from '@/composables'
 
 const route = useRoute()
-const { currentLocale, localeOptions, switchLocale } = useLocale()
+const { currentLocale, localeOptions, switchLocale, localePath, basePath } = useLocale()
 
 const openMenu = ref<string | null>(null)
 const mobileOpen = ref(false)
@@ -201,18 +201,18 @@ const isActive = (path: string, siblings?: string[]): boolean => {
     if (hashIndex !== -1) {
         const cleanPath = path.substring(0, hashIndex)
         const hash = '#' + path.substring(hashIndex + 1)
-        const pathMatches = cleanPath === '/' ? route.path === '/' : route.path === cleanPath
+        const pathMatches = cleanPath === '/' ? basePath.value === '/' : basePath.value === cleanPath
         if (!pathMatches) return false
         if (route.hash) return route.hash === hash
         return hash === '#overview'
     }
-    if (path === '/') return route.path === '/'
-    if (route.path === path) return true
+    if (path === '/') return basePath.value === '/'
+    if (basePath.value === path) return true
     // Match detail sub-pages (/path/123) but NOT named sibling routes (/path/sub)
-    const suffix = route.path.slice(path.length)
+    const suffix = basePath.value.slice(path.length)
     if (suffix.startsWith('/') && !suffix.slice(1).includes('/')) {
         // If the current route exactly matches a known sibling, it's not a detail page
-        if (siblings?.includes(route.path)) return false
+        if (siblings?.includes(basePath.value)) return false
         return true
     }
     return false
@@ -223,9 +223,9 @@ const isActive = (path: string, siblings?: string[]): boolean => {
 const isParentActive = (item: NavMenuItem): boolean => {
     if (!item.children) return false
     return item.children.some((c) => {
-        const basePath = c.path.split('#')[0]
-        if (!basePath || basePath === '/') return false
-        return route.path === basePath || route.path.startsWith(basePath + '/')
+        const childPath = c.path.split('#')[0]
+        if (!childPath || childPath === '/') return false
+        return basePath.value === childPath || basePath.value.startsWith(childPath + '/')
     })
 }
 </script>

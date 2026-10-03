@@ -211,6 +211,8 @@ import { useRoute, useRouter } from 'vue-router'
 import { useMeetingsStore } from '@/features/meetings/store'
 import { resolveTranslation } from '@/utils/i18n'
 import { getMediaUrl } from '@/utils/media'
+import { useSeo } from '@/composables/useSeo'
+import { truncateDescription } from '@/constants/seo.constants'
 
 const { locale } = useI18n()
 const router = useRouter()
@@ -218,6 +220,18 @@ const route = useRoute()
 const meetingsStore = useMeetingsStore()
 
 const meeting = computed(() => meetingsStore.current)
+
+useSeo(() => {
+    const m = meeting.value
+    if (!m || String(m.id) !== String(route.params.id)) return null
+    return {
+        title: resolveTranslation(m.title, locale.value),
+        description: truncateDescription(resolveTranslation(m.content, locale.value)),
+        image: m.imageIds?.[0] ? getMediaUrl(m.imageIds[0]) : undefined,
+        type: 'article',
+        publishedTime: m.date || m.createdAt || undefined,
+    }
+})
 
 // --- Gallery ---
 const activeIndex = ref(0)

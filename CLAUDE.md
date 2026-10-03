@@ -79,8 +79,20 @@ styles/       # (optional) scoped SCSS
 - Translation files: `src/assets/locales/uz.json`, `ru.json`, `en.json`
 - All three files must be updated together when adding new keys
 - Default/fallback locale is `uz`; if a key is missing in `ru`/`en`, `uz` is shown
-- Switch language via `setLocale(locale)` from `src/utils/i18n.ts`; saved to `localStorage`
+- **The language lives in the URL**: `/…` = uz, `/ru/…`, `/en/…` (website parent route is `/:locale(ru|en)?`). `locale.guard.ts` syncs i18n from the URL; `localStorage` only remembers the visitor's choice (redirects on first load)
+- Internal links must keep the language: prefer named routes (`{ name: 'media' }` — they inherit `:locale`), or wrap string paths with `localePath('/media')` from `useLocale()`. `<AppLearnMore to="/x">` localizes automatically. Compare against `basePath` (path without prefix), never raw `route.path`
+- Switch language via `switchLocale(code)` from `useLocale()` (navigates to the same page in that language)
 - For arrays/nested objects in translations, use `const items = computed(() => (tm('key') as any[]).map(i => rt(i)))`
+
+---
+
+## SEO
+
+- `src/constants/seo.constants.ts` — `SEO_PAGES` (every indexable static page), site URL, locales, JSON-LD builders. Shared by browser and build, so no `@/` imports there
+- `build/vite-plugin-seo.ts` — at build time writes a localized `<head>` (title, description, canonical, hreflang, OG, JSON-LD) + `<noscript>` summary for every page × language (`dist/ru/media.html`…), the `spa.html` fallback and `sitemap.xml`. nginx: `try_files $uri $uri.html /spa.html`
+- `src/router/guards/seo.guard.ts` — updates the same tags on client navigation
+- Detail pages call `useSeo(() => ({ title, description, image }))` once their content loads
+- Texts: `seo.*` keys in the locale files (`seo.pages.<routeName>` = description for pages without an intro text)
 
 ---
 
@@ -147,7 +159,8 @@ Each website page follows this pattern:
 1. Create view at `src/views/website/<page>/Index.vue`
 2. Add route to `src/router/modules/website.routes.ts` with `meta.titleKey` (i18n key) and `meta.heroImage`
 3. Add translation keys to all three locale files
-4. If `noHero: true`, the shared hero banner is suppressed
+4. Add it to `SEO_PAGES` in `src/constants/seo.constants.ts` (prerendered head + sitemap)
+5. If `noHero: true`, the shared hero banner is suppressed
 
 ---
 

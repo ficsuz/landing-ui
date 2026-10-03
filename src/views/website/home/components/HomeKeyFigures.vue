@@ -39,7 +39,7 @@
                 :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
             >
                 <router-link
-                    to="/results"
+                    :to="{ name: 'results' }"
                     class="inline-flex items-center gap-2.5 border border-[#d0d5dd] text-[#1a1e2e] font-semibold text-[15px] px-8 py-3.5 rounded-full transition-all duration-200 hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e] hover:shadow-md"
                 >
                     {{ $t('common.learnMore') }}

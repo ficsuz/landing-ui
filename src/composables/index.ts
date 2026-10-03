@@ -6,3 +6,4 @@ export * from './useCrudTable';
 export * from './usePermissions';
 export * from './useUsernameValidation';
 export * from './useMarquee';
+export * from './useSeo';

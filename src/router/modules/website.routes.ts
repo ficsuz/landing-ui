@@ -168,7 +168,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'events/meetings/:id',
         name: 'events-meetings-detail',
         component: () => import('../../views/website/events/meetings/Detail.vue'),
-        meta: { title: 'Meeting', noHero: true },
+        meta: { title: 'Meeting', titleKey: 'nav.meetings', noHero: true },
     },
     {
         path: 'events/weekly-results',
@@ -180,7 +180,7 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'events/weekly-results/:id',
         name: 'events-weekly-results-detail',
         component: () => import('../../views/website/events/weekly-results/Detail.vue'),
-        meta: { title: 'Weekly result', noHero: true },
+        meta: { title: 'Weekly result', titleKey: 'nav.weeklyResults', noHero: true },
     },
 
     // ---- Media ----
@@ -188,37 +188,37 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'media',
         name: 'media',
         component: () => import('../../views/website/media/Index.vue'),
-        meta: { title: 'News', descriptionKey: 'mediaPage.newsIntro', noHero: true },
+        meta: { title: 'News', titleKey: 'nav.news', descriptionKey: 'mediaPage.newsIntro', noHero: true },
     },
     {
         path: 'media/analytics',
         name: 'media-analytics',
         component: () => import('../../views/website/media/analytics/Index.vue'),
-        meta: { title: 'Analytics and Articles', descriptionKey: 'mediaPage.analyticsPage.intro', noHero: true },
+        meta: { title: 'Analytics and Articles', titleKey: 'nav.analyticsAndArticles', descriptionKey: 'mediaPage.analyticsPage.intro', noHero: true },
     },
     {
         path: 'media/analytics/:id',
         name: 'media-analytics-detail',
         component: () => import('../../views/website/media/analytics/Detail.vue'),
-        meta: { title: 'Article', noHero: true },
+        meta: { title: 'Article', titleKey: 'nav.analyticsAndArticles', noHero: true },
     },
     {
         path: 'media/special-projects',
         name: 'media-special-projects',
         component: () => import('../../views/website/media/special-projects/Index.vue'),
-        meta: { title: 'Special Projects', descriptionKey: 'mediaPage.specialProjectsPage.intro', noHero: true },
+        meta: { title: 'Special Projects', titleKey: 'nav.specialProjects', descriptionKey: 'mediaPage.specialProjectsPage.intro', noHero: true },
     },
     {
         path: 'media/blitz-interview',
         name: 'media-blitz-interview',
         component: () => import('../../views/website/media/blitz-interview/Index.vue'),
-        meta: { title: 'Blitz interview', descriptionKey: 'mediaPage.blitzPage.intro', noHero: true },
+        meta: { title: 'Blitz interview', titleKey: 'nav.blitzInterview', descriptionKey: 'mediaPage.blitzPage.intro', noHero: true },
     },
     {
         path: 'media/reports',
         name: 'media-reports',
         component: () => import('../../views/website/media/reports/Index.vue'),
-        meta: { title: 'Reports', descriptionKey: 'mediaPage.reportsPage.intro', noHero: true },
+        meta: { title: 'Reports', titleKey: 'nav.reports', descriptionKey: 'mediaPage.reportsPage.intro', noHero: true },
     },
 
     // ---- Contact ----

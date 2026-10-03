@@ -5,6 +5,7 @@ import { defineConfig, loadEnv, type UserConfig } from 'vite'
 import { svgBuilder } from './src/components/icon/svg/index'
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import tailwindcss from 'tailwindcss'
+import { seoPlugin } from './build/vite-plugin-seo'
 
 const pathResolve = (dir: string): string => {
     return resolve(__dirname, '.', dir)
@@ -30,6 +31,8 @@ export default defineConfig(({ mode }): UserConfig => {
             VueI18nPlugin({
                 include: resolve(dirname(fileURLToPath(import.meta.url)), './src/assets/locales/**'),
             }),
+            // Localized <head> per page + sitemap.xml (see build/vite-plugin-seo.ts)
+            seoPlugin(),
         ],
         resolve: { alias },
         server: {

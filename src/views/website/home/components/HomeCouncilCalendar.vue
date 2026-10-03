@@ -42,7 +42,7 @@
                     </p>
                     <router-link
                         v-if="i === current"
-                        :to="event.link"
+                        :to="localePath(event.link)"
                         class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#1a1e2e] hover:gap-3 transition-all duration-200"
                     >
                         {{ $t('common.learnMore') }}
@@ -135,10 +135,12 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useCouncilCalendarStore } from '@/features/councilCalendar/store'
 import { resolveTranslation } from '@/utils/i18n'
+import { useLocale } from '@/composables'
 
 withDefaults(defineProps<{ showLearnMore?: boolean }>(), { showLearnMore: true })
 
 const { locale } = useI18n()
+const { localePath } = useLocale()
 const calendarStore = useCouncilCalendarStore()
 
 interface CalendarEvent {

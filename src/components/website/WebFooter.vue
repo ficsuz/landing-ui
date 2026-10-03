@@ -6,7 +6,7 @@
                 <!-- Left: brand + contact + social -->
                 <div class="flex-shrink-0 lg:w-72">
                     <!-- Logo -->
-                    <AppBrand to="/" light class="mb-10" />
+                    <AppBrand :to="localePath('/')" light class="mb-10" />
 
                     <!-- Contact info -->
                     <div class="flex flex-col gap-5">
@@ -55,14 +55,14 @@
                     <div v-for="col in websiteMenu" :key="col.labelKey" class="lg:w-44">
                         <h4 class="text-white text-[11px] font-bold uppercase tracking-widest mb-4">
                             <!-- Standalone section (no children): the heading itself links to the page -->
-                            <router-link v-if="!col.children && col.path" :to="col.path" class="hover:text-gray-300 transition-colors">
+                            <router-link v-if="!col.children && col.path" :to="localePath(col.path)" class="hover:text-gray-300 transition-colors">
                                 {{ $t(col.labelKey) }}
                             </router-link>
                             <template v-else>{{ $t(col.labelKey) }}</template>
                         </h4>
                         <ul v-if="col.children" class="flex flex-col gap-3">
                             <li v-for="link in col.children" :key="link.path">
-                                <router-link :to="link.path" class="text-gray-400 text-sm leading-snug hover:text-white transition-colors">
+                                <router-link :to="localePath(link.path)" class="text-gray-400 text-sm leading-snug hover:text-white transition-colors">
                                     {{ $t(link.labelKey) }}
                                 </router-link>
                             </li>
@@ -85,8 +85,10 @@
 <script setup lang="ts">
 import { h } from 'vue'
 import AppBrand from '@/components/AppBrand.vue'
+import { useLocale } from '@/composables'
 import { websiteMenu } from '@/constants/navigation.constants'
 
+const { localePath } = useLocale()
 const currentYear = new Date().getFullYear()
 
 // Inline SVG icon components to avoid extra icon dependencies

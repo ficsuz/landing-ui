@@ -4,9 +4,11 @@ import websiteRoutes from './modules/website.routes';
 import { setupRouterGuards } from './guards';
 
 const routes: RouteRecordRaw[] = [
-  // Public website (FIC)
+  // Public website (FIC). Uzbek (default) lives at `/`, other languages under
+  // `/ru/...` and `/en/...` so every language has its own indexable URL.
+  // Named routes inherit the current :locale automatically.
   {
-    path: '/',
+    path: '/:locale(ru|en)?',
     component: () => import('../layouts/WebsiteLayout.vue'),
     children: [
       ...websiteRoutes

@@ -145,11 +145,14 @@ import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSessions } from './sessionsData'
 import WorkingGroupsOverview from '@/views/website/working-groups/components/Overview.vue'
+import { useSeo } from '@/composables/useSeo'
 
 const router = useRouter()
 const route = useRoute()
 const sessions = useSessions()
 const session = computed(() => sessions.value.find((s) => s.id === Number(route.params.id)))
+
+useSeo(() => session.value && { title: session.value.title, description: session.value.summary, image: session.value.cover })
 
 function gridClass(index: number): string {
     if (index < 3) return 'col-span-3 md:col-span-2 h-[200px] md:h-[280px]'

@@ -1,5 +1,9 @@
+# Foreign Investors Council — https://fics.uz
+# Pages exist in three languages: / (uz), /ru/ (ru), /en/ (en).
+
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /spa.html
 
 Sitemap: https://fics.uz/sitemap.xml

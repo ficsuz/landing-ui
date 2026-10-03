@@ -1239,5 +1239,22 @@
         "title": "Sahifa topilmadi",
         "description": "Siz qidirayotgan sahifa mavjud emas yoki o'chirilgan bo'lishi mumkin. Bosh sahifaga qayting yoki orqaga o'ting.",
         "backHome": "Bosh sahifaga qaytish"
+    },
+    "seo": {
+        "siteName": "Xorijiy investorlar kengashi",
+        "homeTitle": "Xorijiy investorlar kengashi — O'zbekiston Respublikasi Prezidenti huzuridagi",
+        "orgName": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi",
+        "description": "O'zbekiston Prezidenti huzuridagi Xorijiy investorlar kengashi (XIK) — investorlar va davlat muloqoti hamda investitsiya muhitini yaxshilash platformasi.",
+        "keywords": "Xorijiy investorlar kengashi, XIK, FIC, O'zbekiston investitsiyalar, investitsiya muhiti, xorijiy investorlar, iqtisodiy islohotlar, ishchi guruhlar, YETTB, Toshkent",
+        "pages": {
+            "fic-history": "Xorijiy investorlar kengashining tashkil topishi, asosiy bosqichlari va O'zbekiston investitsiya muhitini isloh qilishdagi yutuqlari tarixi.",
+            "association": "\"Xorijiy investorlar kengashi\" assotsiatsiyasi — Kengash Kotibiyati vazifalarini bajaruvchi yuridik shaxs: huquqiy asos, funksiyalar va boshqaruv tuzilmasi.",
+            "management": "Xorijiy investorlar kengashi rahbariyati va Ijroiya qo'mitasi: kengash ishini boshqaruvchi davlat va xalqaro investorlar vakillari.",
+            "secretariat": "XIK Kotibiyati — kengash faoliyatini muvofiqlashtiradi, ishchi guruhlar ishini tashkil etadi va investorlar bilan muloqotni ta'minlaydi.",
+            "working-groups": "Kengash va idoralararo ishchi guruhlari: soliq, energetika, bank-moliya, savdo va boshqa sohalarda investitsiya muhitini yaxshilash takliflari.",
+            "results": "Xorijiy investorlar kengashi natijalari: amalga oshirilgan tashabbuslar, jalb qilingan investitsiyalar va qabul qilingan normativ hujjatlar.",
+            "events": "Xorijiy investorlar kengashi tadbirlarining kalendar rejasi: plenar sessiyalar, oraliq majlislar, ishchi guruh sessiyalari va uchrashuvlar.",
+            "contact": "Xorijiy investorlar kengashi Kotibiyati bilan bog'laning: Toshkent, BoMI Finance Center. Telefon: +998 88 099 88 88."
+        }
     }
 }

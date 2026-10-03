@@ -60,6 +60,8 @@ import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { useEventsStore } from '@/features/events/store'
 import { getMediaUrl } from '@/utils/media'
+import { useSeo } from '@/composables/useSeo'
+import { truncateDescription } from '@/constants/seo.constants'
 import type { Translation } from '@/types/server/api.types'
 
 const { locale } = useI18n()
@@ -85,6 +87,19 @@ function fmtDate(iso?: string | null) {
 const dateRange = computed(() =>
     [fmtDate(item.value?.startDate), fmtDate(item.value?.endDate)].filter(Boolean).join(' – ')
 )
+
+useSeo(() => {
+    const it = item.value
+    if (!it || String(it.id) !== String(route.params.id)) return null
+    const imageId = it.imageId || it.previewImageId
+    return {
+        title: resolveTranslation(it.title),
+        description: truncateDescription(htmlContent.value),
+        image: imageId ? getMediaUrl(imageId) : undefined,
+        type: 'article',
+        publishedTime: it.startDate || it.createdAt || undefined,
+    }
+})
 
 onMounted(() => {
     store.fetchOne(String(route.params.id))

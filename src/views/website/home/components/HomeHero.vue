@@ -56,7 +56,7 @@
             <div ref="content2" class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12">
                 <div class="max-w-[600px] md:ml-auto text-left md:text-right">
                     <div class="s2-mark text-[48px] md:text-[96px] leading-none text-white/20 font-serif mb-[-10px] md:mb-[-16px] select-none">"</div>
-                    <router-link to="/" class="s2-quote block mb-8 group/quote">
+                    <router-link :to="{ name: 'home' }" class="s2-quote block mb-8 group/quote">
                         <blockquote
                             class="text-[clamp(24px,2.5vw,36px)] font-medium text-white italic leading-[1.55] transition-opacity duration-200 group-hover/quote:opacity-80"
                         >

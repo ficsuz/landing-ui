@@ -69,6 +69,8 @@ import { useRoute, useRouter } from 'vue-router'
 import { useBlogStore } from '@/features/blog/store'
 import { resolveTranslation } from '@/utils/i18n'
 import { getMediaUrl } from '@/utils/media'
+import { useSeo } from '@/composables/useSeo'
+import { truncateDescription, SITE_URL } from '@/constants/seo.constants'
 
 const { locale } = useI18n()
 const router = useRouter()
@@ -88,6 +90,32 @@ function formatDate(iso?: string | null) {
     if (Number.isNaN(d.getTime())) return ''
     return d.toLocaleDateString('en-GB').replace(/\//g, '.')
 }
+
+useSeo(() => {
+    const a = article.value
+    if (!a || String(a.id) !== String(route.params.id)) return null
+    const title = resolveTranslation(a.title, locale.value)
+    const description = truncateDescription(htmlContent.value)
+    const image = a.imageId ? getMediaUrl(a.imageId) : undefined
+    const published = a.date || a.createdAt
+    return {
+        title,
+        description,
+        image,
+        type: 'article',
+        publishedTime: published || undefined,
+        structuredData: {
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: title,
+            description,
+            image: image ? [image.startsWith('http') ? image : `${SITE_URL}${image}`] : undefined,
+            datePublished: published || undefined,
+            inLanguage: locale.value,
+            publisher: { '@id': `${SITE_URL}/#organization` },
+        },
+    }
+})
 
 onMounted(() => {
     blogStore.fetchOne(String(route.params.id))

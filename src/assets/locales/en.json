@@ -1230,5 +1230,22 @@
         "title": "Page not found",
         "description": "The page you are looking for doesn't exist or may have been removed. Head back to the homepage or go back.",
         "backHome": "Back to homepage"
+    },
+    "seo": {
+        "siteName": "Foreign Investors Council",
+        "homeTitle": "Foreign Investors Council under the President of Uzbekistan",
+        "orgName": "Foreign Investors Council under the President of the Republic of Uzbekistan",
+        "description": "The Foreign Investors Council (FIC) under the President of Uzbekistan — a dialogue platform for investors and government to improve the investment climate.",
+        "keywords": "Foreign Investors Council, FIC, invest in Uzbekistan, Uzbekistan investment climate, foreign investors, economic reforms, working groups, EBRD, Tashkent",
+        "pages": {
+            "fic-history": "History of the Foreign Investors Council: its founding, key milestones and achievements in reforming Uzbekistan's investment climate.",
+            "association": "The \"Foreign Investors Council\" Association — the legal entity performing the functions of the Council's Secretariat: legal basis, functions and governance.",
+            "management": "Leadership and Executive Committee of the Foreign Investors Council — representatives of the government and international investors.",
+            "secretariat": "The FIC Secretariat coordinates the Council's work, organises its working groups and maintains an ongoing dialogue with investors.",
+            "working-groups": "Council and interagency working groups: proposals on tax, energy, finance, trade and Uzbekistan's investment climate.",
+            "results": "Results of the Foreign Investors Council: implemented initiatives, attracted investments and adopted regulatory documents.",
+            "events": "Calendar of Foreign Investors Council events: plenary sessions, interim sessions, working group sessions and meetings.",
+            "contact": "Contact the Foreign Investors Council Secretariat: BoMI Finance Center, Tashkent. Phone: +998 88 099 88 88."
+        }
     }
 }

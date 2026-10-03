@@ -15,7 +15,7 @@
                 </p>
 
                 <RouterLink
-                    to="/results/documents"
+                    :to="{ name: 'results-documents' }"
                     class="inline-flex items-center gap-2 border border-[#d0d5dd] text-[#1a1e2e] font-semibold text-[15px] px-7 py-3 rounded-full transition-all duration-200 hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e]"
                 >
                     {{ $t('association.legalBasis.documents') }}

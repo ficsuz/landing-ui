@@ -149,6 +149,7 @@ import { interimSessions } from './interimSessionsData'
 import WebHeroSection from '@/components/website/WebHeroSection.vue'
 import AppLearnMore from '@/components/website/AppLearnMore.vue'
 import { resolveTranslation } from '@/utils/i18n'
+import { useSeo } from '@/composables/useSeo'
 import type { Translation } from '@/types/server/api.types'
 
 const { locale } = useI18n()
@@ -157,6 +158,16 @@ const route = useRoute()
 const session = computed(() => interimSessions.find((s) => s.id === Number(route.params.id)))
 
 const L = (t?: Translation | null) => resolveTranslation(t, locale.value)
+
+useSeo(() => {
+    const s = session.value
+    if (!s) return null
+    return {
+        title: L(s.detail?.heroTitle) || s.code,
+        description: L(s.detail?.paragraph) || L(s.note),
+        image: s.detail?.heroImage,
+    }
+})
 
 function gridClass(index: number): string {
     if (index < 3) return 'col-span-3 md:col-span-2 h-[200px] md:h-[280px]'

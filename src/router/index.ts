@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import adminRoutes from './modules';
 import websiteRoutes from './modules/website.routes';
 import { setupRouterGuards } from './guards';
+import { setupLocalizedLinks } from './localizeLinks';
 
 const routes: RouteRecordRaw[] = [
   // Public website (FIC). Uzbek (default) lives at `/`, other languages under
@@ -60,6 +61,8 @@ const router = createRouter({
   }
 });
 
+// Plain paths (to="/events", router.push('/media')) keep the active language.
+setupLocalizedLinks(router);
 setupRouterGuards(router);
 
 export default router;

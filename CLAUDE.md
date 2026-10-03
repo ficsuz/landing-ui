@@ -79,8 +79,8 @@ styles/       # (optional) scoped SCSS
 - Translation files: `src/assets/locales/uz.json`, `ru.json`, `en.json`
 - All three files must be updated together when adding new keys
 - Default/fallback locale is `uz`; if a key is missing in `ru`/`en`, `uz` is shown
-- **The language lives in the URL**: `/…` = uz, `/ru/…`, `/en/…` (website parent route is `/:locale(ru|en)?`). `locale.guard.ts` syncs i18n from the URL; `localStorage` only remembers the visitor's choice (redirects on first load)
-- Internal links must keep the language: prefer named routes (`{ name: 'media' }` — they inherit `:locale`), or wrap string paths with `localePath('/media')` from `useLocale()`. `<AppLearnMore to="/x">` localizes automatically. Compare against `basePath` (path without prefix), never raw `route.path`
+- **The language lives in the URL**: `/…` = uz, `/ru/…`, `/en/…` (website parent route is `/:locale(ru|en)?`). `locale.guard.ts` syncs i18n from the URL — the URL is the only source of truth on the website (no preference redirects); `localStorage` is only used by the admin panel
+- Internal links keep the language automatically: `src/router/localizeLinks.ts` prefixes any plain path given to `<router-link to="/events">`, `router.push('/media')` or `router.replace({ path })` with the current locale. Just write the uz path. Named routes (`{ name: 'media' }`) inherit `:locale` too. To compare the current page against a path, use `basePath` from `useLocale()` (path without prefix), never raw `route.path`
 - Switch language via `switchLocale(code)` from `useLocale()` (navigates to the same page in that language)
 - For arrays/nested objects in translations, use `const items = computed(() => (tm('key') as any[]).map(i => rt(i)))`
 

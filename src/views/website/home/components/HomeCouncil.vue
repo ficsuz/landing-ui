@@ -21,10 +21,10 @@
                 <!-- Card 1: Shavkat Mirziyoyev -->
                 <div class="bg-white rounded-2xl shadow-[0_2px_24px_rgba(0,0,0,0.08)] p-4 md:p-6 flex flex-col items-center">
                     <div class="h-16 flex items-center justify-center mb-5">
-                        <img :src="icon1" alt="O'zbekiston Respublikasi Prezidenti" class="h-full w-auto object-contain" />
+                        <img loading="lazy" decoding="async" :src="icon1" alt="O'zbekiston Respublikasi Prezidenti" class="h-full w-auto object-contain" />
                     </div>
                     <div class="w-full rounded-xl overflow-hidden mb-4">
-                        <img :src="photo1" alt="Shavkat Miromonovich Mirziyoyev" class="w-full aspect-[4/5] object-cover object-top" />
+                        <img loading="lazy" decoding="async" :src="photo1" alt="Shavkat Miromonovich Mirziyoyev" class="w-full aspect-[4/5] object-cover object-top" />
                     </div>
                     <p class="font-bold text-[16px] text-[#1a1e2e] text-center leading-tight mt-1">{{ $t('council.card1.name') }}</p>
                     <p class="text-[13px] text-[#666] text-center mt-1">{{ $t('council.card1.role') }}</p>
@@ -34,10 +34,10 @@
                 <!-- Card 2: Odile Renaud-Basso -->
                 <div class="bg-white rounded-2xl shadow-[0_2px_24px_rgba(0,0,0,0.08)] p-4 md:p-6 flex flex-col items-center">
                     <div class="h-16 flex items-center justify-center mb-5">
-                        <img :src="icon2" alt="European Bank for Reconstruction and Development" class="h-full w-auto object-contain" />
+                        <img loading="lazy" decoding="async" :src="icon2" alt="European Bank for Reconstruction and Development" class="h-full w-auto object-contain" />
                     </div>
                     <div class="w-full rounded-xl overflow-hidden mb-4">
-                        <img :src="photo2" alt="Odile Renaud-Basso" class="w-full aspect-[4/5] object-cover object-top" />
+                        <img loading="lazy" decoding="async" :src="photo2" alt="Odile Renaud-Basso" class="w-full aspect-[4/5] object-cover object-top" />
                     </div>
                     <p class="font-bold text-[16px] text-[#1a1e2e] text-center leading-tight mt-1">{{ $t('council.card2.name') }}</p>
                     <p class="text-[13px] text-[#666] text-center mt-1">{{ $t('council.card2.role') }}</p>

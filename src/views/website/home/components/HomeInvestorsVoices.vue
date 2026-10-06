@@ -40,6 +40,8 @@
                                 >
                                     <div class="relative aspect-[3/4] bg-[#eef0f4]">
                                         <img
+                                            loading="lazy"
+                                            decoding="async"
                                             v-if="getMediaUrl(item.captionId)"
                                             :src="getMediaUrl(item.captionId)"
                                             :alt="item.fullName || ''"
@@ -74,6 +76,8 @@
                                         <!-- Info box -->
                                         <!-- <div class="absolute bottom-2.5 left-2.5 right-2.5 md:bottom-3 md:left-3 md:right-3 bg-white rounded-xl p-2.5 md:p-3 shadow-xl">
                                             <img
+                                                loading="lazy"
+                                                decoding="async"
                                                 v-if="getMediaUrl(item.logoId)"
                                                 :src="getMediaUrl(item.logoId)"
                                                 alt=""

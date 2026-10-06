@@ -42,6 +42,8 @@
                         :class="getMediaUrl(item.imageId) ? '' : 'aspect-[16/10]'"
                     >
                         <img
+                            loading="lazy"
+                            decoding="async"
                             v-if="getMediaUrl(item.imageId)"
                             :src="getMediaUrl(item.imageId)"
                             :alt="resolveTranslation(item.title, locale)"

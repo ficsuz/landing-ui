@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import mainPhoto from '@/assets/images/avatars/main-info.png'
+import mainPhoto from '@/assets/images/avatars/main-info.webp'
 import FicHistoryChronology from './components/FicHistoryChronology.vue'
 import FicHistoryTasks from './components/FicHistoryTasks.vue'
 </script>

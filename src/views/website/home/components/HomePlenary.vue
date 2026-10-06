@@ -24,6 +24,8 @@
                     :style="{ width: cardWidth + 'px', height: cardHeight + 'px' }"
                 >
                     <img
+                        loading="lazy"
+                        decoding="async"
                         :src="img"
                         :alt="`Plenary session ${i}`"
                         class="w-full h-full object-cover rounded-2xl transition-transform duration-700"
@@ -50,13 +52,13 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 import img1 from '@/assets/images/hero/ATM_9764.jpg'
-import img2 from '@/assets/images/avatars/main-info.png'
+import img2 from '@/assets/images/avatars/main-info.webp'
 import img3 from '@/assets/images/hero/SUT_7962.jpg'
-import img4 from '@/assets/images/avatars/investors.png'
+import img4 from '@/assets/images/avatars/investors.webp'
 import img5 from '@/assets/images/hero/SUT_8193.jpg'
 import img6 from '@/assets/images/hero/about-blog.jpg'
-import img7 from '@/assets/images/banner/banner-img.png'
-import img8 from '@/assets/images/banner/opa.png'
+import img7 from '@/assets/images/banner/banner-img.webp'
+import img8 from '@/assets/images/banner/opa.webp'
 
 const slides = [img1, img2, img3, img4, img5, img6, img7, img8]
 

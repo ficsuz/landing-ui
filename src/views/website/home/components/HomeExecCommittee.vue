@@ -22,12 +22,14 @@
                 >
                     <!-- Logo -->
                     <div class="flex items-center justify-center h-[72px] mb-3">
-                        <img :src="member.logo" :alt="$t(`exec.${member.key}.name`)" class="w-auto object-contain" :style="member.logoStyle" />
+                        <img loading="lazy" decoding="async" :src="member.logo" :alt="$t(`exec.${member.key}.name`)" class="w-auto object-contain" :style="member.logoStyle" />
                     </div>
 
                     <!-- Photo -->
                     <div class="rounded-2xl overflow-hidden aspect-[3/3.4] bg-[#eef0f4]">
                         <img
+                            loading="lazy"
+                            decoding="async"
                             :src="member.photo"
                             :alt="$t(`exec.${member.key}.name`)"
                             class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"

@@ -21,7 +21,7 @@
                         :to="{ name: 'council-members', query: { member: logo.id } }"
                         class="shrink-0 h-[108px] w-[280px] bg-white rounded-xl border border-[#eef0f4] flex items-center justify-center px-6 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200 cursor-pointer"
                     >
-                        <img :src="logo.src" :alt="logo.name" class="max-h-[76px] max-w-[220px] w-auto h-auto object-contain" />
+                        <img loading="lazy" decoding="async" :src="logo.src" :alt="logo.name" class="max-h-[76px] max-w-[220px] w-auto h-auto object-contain" />
                     </router-link>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                         :to="{ name: 'council-members', query: { member: logo.id } }"
                         class="shrink-0 h-[108px] w-[280px] bg-white rounded-xl border border-[#eef0f4] flex items-center justify-center px-6 hover:border-[#d0d5dd] hover:shadow-sm transition-all duration-200 cursor-pointer"
                     >
-                        <img :src="logo.src" :alt="logo.name" class="max-h-[76px] max-w-[220px] w-auto h-auto object-contain" />
+                        <img loading="lazy" decoding="async" :src="logo.src" :alt="logo.name" class="max-h-[76px] max-w-[220px] w-auto h-auto object-contain" />
                     </router-link>
                 </div>
             </div>
@@ -65,6 +65,8 @@
                     >
                         <div class="w-[68px] h-[68px] rounded-full overflow-hidden ring-2 ring-[#eef0f4] shrink-0">
                             <img
+                                loading="lazy"
+                                decoding="async"
                                 :src="getMediaUrl(member.photoId)"
                                 :alt="resolveTranslation(member.fullName, locale)"
                                 class="w-full h-full object-cover object-top"
@@ -91,6 +93,8 @@
                     >
                         <div class="w-[68px] h-[68px] rounded-full overflow-hidden ring-2 ring-[#eef0f4] shrink-0">
                             <img
+                                loading="lazy"
+                                decoding="async"
                                 :src="getMediaUrl(member.photoId)"
                                 :alt="resolveTranslation(member.fullName, locale)"
                                 class="w-full h-full object-cover object-top"

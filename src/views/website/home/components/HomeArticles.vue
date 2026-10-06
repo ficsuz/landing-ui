@@ -21,6 +21,8 @@
                     <!-- Image -->
                     <div class="relative overflow-hidden md:aspect-[16/10] bg-white rounded-2xl">
                         <img
+                            loading="lazy"
+                            decoding="async"
                             :src="getMediaUrl(article.imageId)"
                             :alt="resolveTranslation(article.title, locale)"
                             class="w-full h-auto md:h-full transition-transform duration-500 group-hover:scale-105"

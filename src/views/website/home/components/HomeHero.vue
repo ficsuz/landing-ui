@@ -99,8 +99,8 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
-import img1 from '@/assets/images/banner/banner-img.png'
-import img2 from '@/assets/images/banner/opa.png'
+import img1 from '@/assets/images/banner/banner-img.webp'
+import img2 from '@/assets/images/banner/opa.webp'
 import img3 from '@/assets/images/icons/fInvestor.png'
 
 const sceneEl = ref<HTMLElement | null>(null)

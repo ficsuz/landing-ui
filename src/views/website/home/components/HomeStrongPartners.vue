@@ -34,6 +34,8 @@
                     :style="{ width: cardW + 'px', height: cardH + 'px' }"
                 >
                     <img
+                        loading="lazy"
+                        decoding="async"
                         :src="img"
                         :alt="`Partner photo ${i}`"
                         class="w-full h-full object-cover"

@@ -40,12 +40,12 @@
                     <!-- Image gallery: hero + thumbnail strip -->
                     <div v-if="meeting.imageIds?.length" class="mt-8">
                         <!-- Main image -->
-                        <div class="group relative rounded-2xl overflow-hidden aspect-[16/9] bg-[#eef0f4]">
+                        <div class="group relative flex justify-center rounded-2xl overflow-hidden bg-[#eef0f4]">
                             <img
                                 :key="activeImageId"
                                 :src="getMediaUrl(activeImageId)"
                                 :alt="resolveTranslation(meeting.title, locale)"
-                                class="gallery-main-img w-full h-full object-cover cursor-zoom-in"
+                                class="gallery-main-img cursor-zoom-in"
                                 @click="lightboxOpen = true"
                             />
                             <!-- Counter -->
@@ -93,11 +93,11 @@
                                     v-for="(id, i) in meeting.imageIds"
                                     :key="id"
                                     type="button"
-                                    class="shrink-0 w-[92px] h-[64px] rounded-lg overflow-hidden bg-[#eef0f4] transition-all duration-200"
+                                    class="shrink-0 h-[64px] rounded-lg overflow-hidden bg-[#eef0f4] transition-all duration-200"
                                     :class="i === activeIndex ? 'ring-2 ring-[#1a1e2e] ring-offset-2' : 'opacity-60 hover:opacity-100'"
                                     @click="activeIndex = i"
                                 >
-                                    <img :src="getMediaUrl(id)" :alt="`${i + 1}`" class="w-full h-full object-cover" />
+                                    <img :src="getMediaUrl(id)" :alt="`${i + 1}`" class="block w-auto h-full max-w-none" @load="updateThumbScroll" />
                                 </button>
                             </div>
 
@@ -332,6 +332,13 @@ onUnmounted(() => {
 <style scoped>
 /* Smooth crossfade when the main image / lightbox image changes */
 .gallery-main-img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    /* Preserve the photo's proportions while keeping portraits within the viewport. */
+    max-height: 70vh;
+    max-height: 70svh;
     animation: imgFade 0.35s ease;
 }
 @keyframes imgFade {

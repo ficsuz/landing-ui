@@ -40,7 +40,7 @@
                     <!-- Image gallery: hero + thumbnail strip -->
                     <div v-if="meeting.imageIds?.length" class="mt-8">
                         <!-- Main image -->
-                        <div class="group relative flex justify-center rounded-2xl overflow-hidden bg-[#eef0f4]">
+                        <div class="group relative w-fit max-w-full mx-auto rounded-2xl overflow-hidden">
                             <img
                                 :key="activeImageId"
                                 :src="getMediaUrl(activeImageId)"

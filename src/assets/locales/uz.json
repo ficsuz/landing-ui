@@ -998,6 +998,10 @@
             "emptyText": "Ishchi guruh majlislari ma'lumotlari tayyorlanmoqda. Iltimos, keyinroq tashrif buyuring."
         },
         "meetingsPage": {
+            "paginationLabel": "Uchrashuvlar sahifalari",
+            "pageLabel": "{page}-sahifa",
+            "loadError": "Uchrashuvlarni yuklab bo‘lmadi. Qayta urinib ko‘ring.",
+            "retry": "Qayta urinish",
             "title": "Uchrashuvlar",
             "intro": "Kengash a'zolari, investorlar va davlat idoralari o'rtasidagi ikki tomonlama va ko'p tomonlama uchrashuvlar.",
             "emptyTitle": "Tez kunda",

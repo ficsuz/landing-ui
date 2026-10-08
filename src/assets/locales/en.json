@@ -989,6 +989,10 @@
             "emptyText": "Working group session materials are being prepared. Please check back later."
         },
         "meetingsPage": {
+            "paginationLabel": "Meeting pages",
+            "pageLabel": "Page {page}",
+            "loadError": "Unable to load meetings. Please try again.",
+            "retry": "Try again",
             "title": "Meetings",
             "intro": "Bilateral and multilateral meetings between Council members, investors and government agencies.",
             "emptyTitle": "Coming Soon",

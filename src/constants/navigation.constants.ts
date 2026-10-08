@@ -30,6 +30,7 @@ export const websiteMenu: NavMenuItem[] = [
             { labelKey: 'nav.councilMembers', path: '/council-members' },
             { labelKey: 'nav.uzbekSide', path: '/council-members/uzbek-side' },
             { labelKey: 'nav.experts', path: '/council-members/experts' },
+            { labelKey: 'nav.corporation', path: '/council-members/corporation' },
             { labelKey: 'nav.becomeAMember', path: '/council-members/become-a-member' },
         ],
     },

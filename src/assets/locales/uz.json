@@ -15,6 +15,7 @@
         "councilMembers": "Kengash a'zolari",
         "uzbekSide": "O'zbek tomoni",
         "experts": "Ekspertlar",
+        "corporation": "Korporatsiya",
         "becomeAMember": "A'zo bo'lish",
 
         "workingGroups": "Ishchi guruhlar",
@@ -787,6 +788,54 @@
         }
     },
 
+    "corporationPage": {
+        "title": "Korporatsiya",
+        "intro": "Prezident rahbarligidagi Kengashning asosiy tadbirlari. Har bir majlisda islohotlar muhokama qilinadi, muhim qarorlar qabul qilinadi va yangi tashabbuslar taqdim etiladi.",
+        "photoAlt": "{title} — {number}-rasm",
+        "session": {
+            "eyebrow": "Yalpi majlis 2025",
+            "title": "Xorijiy investorlar kengashining uchinchi yalpi majlisi",
+            "cardTitle": "Xorijiy investorlar kengashining uchinchi yalpi majlisi, 2025-yil 11-iyun",
+            "paragraphs": [
+                "Xalqaro kongress markazi, Prezident raisligida va YeTTB Prezidenti ishtirokida. 40 dan ortiq tashabbus tanlab olindi; biznes uchun asosiy soliq stavkalari 2028-yilgacha o‘zgarmas qoladi. Natijada — 2025-yil 18-iyuldagi PQ-226 (2025-yil 21-iyulda kuchga kirdi).",
+                "2025-yil 11-iyunda Xalqaro kongress markazida O‘zbekiston Respublikasi Prezidenti raisligida va YeTTB Prezidenti ishtirokida Xorijiy investorlar kengashining uchinchi yalpi majlisi bo‘lib o‘tdi. Majlisda Masdar, ACWA, Indorama, Vision Invest, DataVolt, VEON, Boeing, SpaceX, Meta, Franklin Templeton, TotalEnergies va boshqa kompaniyalar rahbarlari, shuningdek OECD, IFC, OTB va Islom taraqqiyot banki vakillari qatnashdi.",
+                "Platformaning samaradorligi ta’kidlandi: YeTTB bir yilda O‘zbekistonga rekord — taxminan 1 mlrd dollar sarmoya kiritib, mamlakatning mintaqadagi eng yirik hamkoriga aylandi; xususiy sektor bilan qo‘shma loyihalar hajmi 1 mlrd dollardan oshdi; yetakchi energetika kompaniyalari «yashil» iqtisodiyotga 8 mlrd dollardan ortiq investitsiya kiritdi.",
+                "Biznes uchun asosiy soliq stavkalari 2028-yilgacha o‘zgarmasligi e’lon qilindi; ikki yil ichida xorijiy kapitalli 5 500 ta yangi korxona tashkil etilib, umumiy soni 16 000 taga yetdi.",
+                "Majlis uchun 40 dan ortiq tashabbus tanlab olindi. Majlis yakunlari bo‘yicha 2025-yil 18-iyuldagi PQ-226-son Prezident qarori qabul qilinib, «yo‘l xaritasi» tasdiqlandi va Kengash Kotibiyatini mustaqil yuridik shaxsga aylantirish rasmiylashtirildi."
+            ],
+            "statsTitle": "PQ-226 QARORI BILAN NIMALAR MUSTAHKAMLANDI",
+            "statsLabels": [
+                "Tashabbuslar",
+                "Ishchi guruhlar",
+                "18-07-2025 yil",
+                "Majlis uchun tanlangan tashabbuslar",
+                "Asosiy soliq stavkalari muzlatildi",
+                "Xorijiy kapitalli korxonalar",
+                "Ishga tushirilgan DXSh loyihalari",
+                "«Yashil» iqtisodiyotga investitsiyalar",
+                "YeTTBning bir yillik rekord investitsiyasi"
+            ],
+            "statsValues": [
+                "22",
+                "8",
+                "PQ-226",
+                "40+",
+                "2028",
+                "16 000",
+                "$4,5 mlrd",
+                "$8 mlrd",
+                "~$1 mlrd"
+            ],
+            "initiativesList": [
+                "III yalpi majlis takliflari va tashabbuslarini amalga oshirish bo‘yicha Harakatlar rejasi tasdiqlandi (1-ilova)",
+                "Kengashning o‘zbek tomoni yangilangan tarkibi tasdiqlandi (2-ilova)",
+                "Kengashga vazirlik va idoralar rahbarlari hamda xodimlarini jalb qilgan holda yo‘nalishlar bo‘yicha ishchi guruhlar tashkil etish huquqi berildi",
+                "Kengash Kotibiyati xalqaro moliya institutlari ishtirokida nodavlat notijorat tashkilot sifatida tashkil etildi (PQ-4519 ning 29–31-bandlari yangi tahriri); rahbar Ijroiya qo‘mitasi bilan kelishilgan holda tayinlanadi",
+                "«Yagona investitsiya platformasi» axborot tizimini joriy etish (mas’ul — Bosh vazir o‘rinbosari J. Xo‘jayev)",
+                "Ijro ustidan nazorat — Bosh vazir A. N. Aripov"
+            ]
+        }
+    },
     "eventsPage": {
         "calendarTitle": "Tadbirlar Kalendari",
         "calendarIntro": "Kengash majlislari, ishchi guruh yig'ilishlari, uchrashuvlar va boshqa rasmiy tadbirlar jadvali.",

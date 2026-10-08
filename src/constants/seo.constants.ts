@@ -55,6 +55,7 @@ export const SEO_PAGES: SeoPage[] = [
     { name: 'council-members', path: '/council-members', titleKey: 'nav.councilMembers', descriptionKey: 'councilMembersPage.intro', priority: 0.8, changefreq: 'monthly' },
     { name: 'council-members-uzbek-side', path: '/council-members/uzbek-side', titleKey: 'nav.uzbekSide', descriptionKey: 'uzbekSidePage.intro', priority: 0.6, changefreq: 'monthly' },
     { name: 'council-members-experts', path: '/council-members/experts', titleKey: 'nav.experts', descriptionKey: 'expertsPage.intro', priority: 0.6, changefreq: 'monthly' },
+    { name: 'council-members-corporation', path: '/council-members/corporation', titleKey: 'nav.corporation', descriptionKey: 'corporationPage.intro', priority: 0.6, changefreq: 'monthly' },
     { name: 'council-members-become', path: '/council-members/become-a-member', titleKey: 'nav.becomeAMember', descriptionKey: 'becomeAMemberPage.intro', priority: 0.7, changefreq: 'yearly' },
 
     { name: 'working-groups', path: '/working-groups', titleKey: 'nav.workingGroups', priority: 0.8, changefreq: 'monthly' },

@@ -68,6 +68,18 @@ const websiteRoutes: RouteRecordRaw[] = [
         meta: { title: 'Experts', titleKey: 'nav.experts', descriptionKey: 'expertsPage.intro', heroImage: expertsImg, heroImagePosition: 'center 60%' },
     },
     {
+        path: 'council-members/corporation',
+        name: 'council-members-corporation',
+        component: () => import('@/views/website/council-members/corporation/Index.vue'),
+        meta: { title: 'Corporation', titleKey: 'nav.corporation', descriptionKey: 'corporationPage.intro', heroImage: membersImg, heroImagePosition: 'center 55%' },
+    },
+    {
+        path: 'council-members/corporation/3',
+        name: 'council-members-corporation-detail',
+        component: () => import('@/views/website/council-members/corporation/Detail.vue'),
+        meta: { title: 'Corporation', titleKey: 'nav.corporation', heroImage: eventsImg },
+    },
+    {
         path: 'council-members/become-a-member',
         name: 'council-members-become',
         component: () => import('../../views/website/council-members/become-a-member/Index.vue'),

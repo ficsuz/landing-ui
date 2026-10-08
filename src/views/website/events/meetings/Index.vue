@@ -167,8 +167,7 @@ async function loadMeetings() {
     loadFailed.value = false
     meetings.value = []
     try {
-        // Upload timestamps avoid unstable page boundaries when meetings share an event date.
-        const res = await meetingsStore.fetchAll({ page: requestedPage, limit: PAGE_SIZE, sortBy: 'createdAt', order: 'desc' })
+        const res = await meetingsStore.fetchAll({ page: requestedPage, limit: PAGE_SIZE, sortBy: 'date', order: 'desc' })
         if (id !== requestId) return
         const pagination = res.meta.pagination
         totalPages.value = pagination.lastPage
@@ -205,15 +204,15 @@ function formatDate(iso?: string | null) {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 2px;
-    margin-top: 40px;
+    gap: 6px;
+    margin-top: 32px;
 
     &__page {
-        width: 36px;
-        height: 44px;
+        width: 28px;
+        height: 28px;
         border-radius: 999px;
         color: #333;
-        font-size: 18px;
+        font-size: 14px;
         transition: background-color 0.2s, color 0.2s;
 
         &:hover:not(:disabled) { background: #eef0f4; }
@@ -222,13 +221,10 @@ function formatDate(iso?: string | null) {
         &:focus-visible { outline: 2px solid #191c1f; outline-offset: 3px; }
     }
 
-    &__ellipsis { width: 28px; text-align: center; color: #333; font-size: 24px; }
+    &__ellipsis { width: 28px; text-align: center; color: #333; font-size: 18px; }
 
     @media (min-width: 768px) {
-        gap: 16px;
-        margin-top: 56px;
-        &__page { width: 56px; height: 56px; font-size: 26px; }
-        &__ellipsis { width: 40px; font-size: 28px; }
+        gap: 8px;
     }
 }
 

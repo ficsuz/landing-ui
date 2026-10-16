@@ -444,6 +444,7 @@ import imgKazbek from '@/assets/images/leaders/kazbek2.png'
 import imgTimur from '@/assets/images/leaders/timur2.png'
 import imgVera from '@/assets/images/leaders/vera2.png'
 import imgKongratbay from '@/assets/images/leaders/kongratbay2.png'
+import imgTurdimov from '@/assets/images/leaders/turdimov.jpg'
 import imgAxadbek2 from '@/assets/images/leaders/axadbek2.png'
 import imgErlan2 from '@/assets/images/leaders/erlan2.png'
 import imgAziz2 from '@/assets/images/leaders/aziz2.png'
@@ -929,7 +930,7 @@ const iwgGroups: IWGroup[] = [
         nameKey: 'workingGroupsPage.interagencyGroups.i4.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i4.description',
         chairNameKey: 'wg.turdimov',
-        chairPhoto: defaultAvatar,
+        chairPhoto: imgTurdimov,
         chairPositionKey: 'wg.turdimovPos',
         chairBioKey: 'wg.turdimovBio',
         coChairNameKey: 'wg.kadyrov',

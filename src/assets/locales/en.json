@@ -510,7 +510,7 @@
                 "description": "Developing a modern legislative framework for alternative investment funds to attract diversified capital and expand financial instruments available to foreign investors."
             },
             "i2": {
-                "name": "Working group on the Improvement of the Financial Sector and Banking System",
+                "name": "Working group on the Further Improvement of the Financial Sector and Banking System",
                 "description": "Improving the financial sector and banking system to reduce risks for creditors, strengthen investor protections and broaden access to financing."
             },
             "i3": {
@@ -1124,6 +1124,8 @@
         "husainov": "Ulugbek Husainov",
         "salikhov": "Jasur Salikhov",
         "aliev": "Akram Aliev",
+        "khamidov": "B. Khamidov",
+        "usmanov": "R. Usmanov",
         "hammerson": "Mark Charles Hammerson",
         "pakChairPos": "Deputy Director of the National Agency for Prospective Projects, Head of the Working Group",
         "pakBio": "",
@@ -1269,6 +1271,9 @@
         "posRepAdb": "Representative of the Asian Development Bank",
         "posRepEbrd": "Representative of the European Bank for Reconstruction and Development",
         "posRepFicMembers": "Representatives of member companies of the Foreign Investors Council under the President of the Republic of Uzbekistan",
+        "posBanksAssociation": "General Director of the Association of Banks of Uzbekistan",
+        "posCurrencyExchange": "General Director of JSC «Republican Currency Exchange of Uzbekistan»",
+        "posCentralBankSecretary": "Responsible Officer of the Central Bank, Secretary of the Working Group",
         "posSecretary": "Head of Department at the Ministry of Investments, Industry and Trade, Secretary of the Working Group",
         "posBusinessOmbudsman": "Business Ombudsman",
         "posFirstDeputyAntiCorruption": "First Deputy Director of the Anti-Corruption Agency",

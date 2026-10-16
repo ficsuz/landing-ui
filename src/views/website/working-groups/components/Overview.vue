@@ -442,7 +442,6 @@ import imgSandro2 from '@/assets/images/leaders/sandro2.png'
 import imgLaziz from '@/assets/images/leaders/laziz2.png'
 import imgKazbek from '@/assets/images/leaders/kazbek2.png'
 import imgTimur from '@/assets/images/leaders/timur2.png'
-import imgDavron from '@/assets/images/leaders/davron2.png'
 import imgVera from '@/assets/images/leaders/vera2.png'
 import imgKongratbay from '@/assets/images/leaders/kongratbay2.png'
 import imgAxadbek2 from '@/assets/images/leaders/axadbek2.png'
@@ -462,7 +461,6 @@ import usrMaxmud from '@/assets/images/users/maxmud.png'
 import usrFarrux from '@/assets/images/users/farrux.png'
 import usrPak from '@/assets/images/users/vyacheslav-pak.jpg'
 import defaultAvatar from '@/assets/images/avatars/default-avatar.svg'
-import usrGeorgiy from '@/assets/images/users/georgiy.png'
 import usrBotir from '@/assets/images/users/botir.png'
 import usrBexzod from '@/assets/images/users/bexzod.png'
 import usrDavron from '@/assets/images/users/davron.png'
@@ -471,7 +469,6 @@ import usrFeruza from '@/assets/images/users/feruza.png'
 import usrMarat from '@/assets/images/users/marat.png'
 import usrAgzam from '@/assets/images/users/agzam.png'
 import usrObidjon from '@/assets/images/users/obidjon.png'
-import usrJaxongirAbdiyev from '@/assets/images/users/jaxongirabdiyev.png'
 import usrAkbar from '@/assets/images/users/akbar.png'
 import usrSherzod from '@/assets/images/users/sherzod.png'
 import usrShuxrat from '@/assets/images/users/shuxrat.png'
@@ -870,15 +867,23 @@ const iwgGroups: IWGroup[] = [
         chairPhoto: imgTimur,
         chairPositionKey: 'wg.timurPos',
         chairBioKey: 'wg.timurBio',
-        coChairNameKey: 'wg.davron',
-        coChairPhoto: imgDavron,
-        coChairPositionKey: 'wg.davronPos',
-        coChairBioKey: 'wg.davronBio',
+        coChairNameKey: 'wg.spartak',
+        coChairPhoto: imgLeader1,
+        coChairPositionKey: 'wg.spartakPos',
+        coChairBioKey: 'wg.spartakText',
         stateMembers: [
-            { image: usrMaxmud, nameKey: 'wg.maxmudIstamov', positionKey: 'wg.posDeputyJustice' },
             { image: usrAxadbek, nameKey: 'wg.ahadbek', positionKey: 'wg.posDeputyEcoFin' },
-            { image: usrJaxongirAbdiyev, nameKey: 'wg.jahongirAbdiev', positionKey: 'wg.posDeputyTax' },
-            { image: usrGeorgiy, nameKey: 'wg.georgiyParesishvili', positionKey: 'wg.posStockExchange' },
+            { image: usrPak, nameKey: 'wg.vyacheslavPak', positionKey: 'wg.posNappDeputy' },
+            { image: usrAliyev, nameKey: 'wg.aliev', positionKey: 'wg.posDeputyInvestMinister' },
+            { image: usrFayzibayev, nameKey: 'wg.fayzibaev', positionKey: 'wg.posDeputyTax' },
+            { image: usrToshov, nameKey: 'wg.tashov', positionKey: 'wg.posActingStockExchange' },
+            { image: defaultAvatar, nameKey: 'wg.khamidov', positionKey: 'wg.posBanksAssociation' },
+            { image: defaultAvatar, nameKey: 'wg.usmanov', positionKey: 'wg.posCurrencyExchange' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepIfc' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepAdb' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepEbrd' },
+            { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
+            { image: defaultAvatar, nameKey: 'wg.byPositionShort', positionKey: 'wg.posCentralBankSecretary' },
         ],
         councilBrands: [imgEBank, imgAdBank, imgIfc, imgEyBrand, imgZiraatBank, imgCrowe, imgAzizov, imgIndoorama, imgVeon],
     },

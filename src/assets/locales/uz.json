@@ -520,7 +520,7 @@
                 "description": "Xorijiy investorlar uchun mavjud moliyaviy vositalarni kengaytirish va xilma-xil kapital jalb etish maqsadida muqobil investitsiya fondlari uchun zamonaviy qonunchilik bazasini ishlab chiqish."
             },
             "i2": {
-                "name": "Moliya sektori va bank tizimini takomillashtirish bo'yicha ishchi guruh",
+                "name": "Moliya sohasi va bank tizimini yanada takomillashtirish bo'yicha ishchi guruh",
                 "description": "Kreditorlar uchun xatarlarni kamaytirish, investorlarni himoya qilishni kuchaytirish va moliyalashtirishdan kengroq foydalanishni ta'minlash uchun moliya sektori va bank tizimini takomillashtirish."
             },
             "i3": {
@@ -1133,6 +1133,8 @@
         "husainov": "Ulug'bek Husainov",
         "salikhov": "Jasur Salixov",
         "aliev": "Akram Aliyev",
+        "khamidov": "B. Hamidov",
+        "usmanov": "R. Usmanov",
         "hammerson": "Mark Charlz Hammerson",
         "pakChairPos": "Istiqbolli loyihalar milliy agentligi direktori o'rinbosari, ishchi guruh rahbari",
         "pakBio": "",
@@ -1278,6 +1280,9 @@
         "posRepAdb": "Osiyo taraqqiyot banki vakili",
         "posRepEbrd": "Yevropa tiklanish va taraqqiyot banki vakili",
         "posRepFicMembers": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi a'zo-kompaniyalari vakillari",
+        "posBanksAssociation": "O'zbekiston banklari assotsiatsiyasi bosh direktori",
+        "posCurrencyExchange": "«O'zbekiston Respublika valyuta birjasi» AJ bosh direktori",
+        "posCentralBankSecretary": "Markaziy bank mas'ul xodimi, ishchi guruh kotibi",
         "posSecretary": "Investitsiyalar, sanoat va savdo vazirligi boshqarma boshlig'i, ishchi guruh kotibi",
         "posBusinessOmbudsman": "Biznes-ombudsman",
         "posFirstDeputyAntiCorruption": "Korrupsiyaga qarshi kurashish agentligi direktorining birinchi o'rinbosari",

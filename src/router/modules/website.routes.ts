@@ -71,13 +71,13 @@ const websiteRoutes: RouteRecordRaw[] = [
         path: 'council-members/corporation',
         name: 'council-members-corporation',
         component: () => import('@/views/website/council-members/corporation/Index.vue'),
-        meta: { title: 'Corporation', titleKey: 'nav.corporation', descriptionKey: 'corporationPage.intro', heroImage: membersImg, heroImagePosition: 'center 55%' },
+        meta: { title: 'Cooperation', titleKey: 'nav.corporation', descriptionKey: 'corporationPage.intro', heroImage: membersImg, heroImagePosition: 'center 55%' },
     },
     {
         path: 'council-members/corporation/3',
         name: 'council-members-corporation-detail',
         component: () => import('@/views/website/council-members/corporation/Detail.vue'),
-        meta: { title: 'Corporation', titleKey: 'nav.corporation', heroImage: eventsImg },
+        meta: { title: 'Cooperation', titleKey: 'nav.corporation', heroImage: eventsImg },
     },
     {
         path: 'council-members/become-a-member',

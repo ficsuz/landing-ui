@@ -15,7 +15,7 @@
         "councilMembers": "Kengash a'zolari",
         "uzbekSide": "O'zbek tomoni",
         "experts": "Ekspertlar",
-        "corporation": "Korporatsiya",
+        "corporation": "Hamkorlik",
         "becomeAMember": "A'zo bo'lish",
 
         "workingGroups": "Ishchi guruhlar",
@@ -789,7 +789,7 @@
     },
 
     "corporationPage": {
-        "title": "Korporatsiya",
+        "title": "Hamkorlik",
         "intro": "Prezident rahbarligidagi Kengashning asosiy tadbirlari. Har bir majlisda islohotlar muhokama qilinadi, muhim qarorlar qabul qilinadi va yangi tashabbuslar taqdim etiladi.",
         "photoAlt": "{title} — {number}-rasm",
         "session": {

@@ -15,7 +15,7 @@
         "councilMembers": "Council Members",
         "uzbekSide": "Uzbek side",
         "experts": "Experts",
-        "corporation": "Corporation",
+        "corporation": "Cooperation",
         "becomeAMember": "Become a Member",
 
         "workingGroups": "Working Groups",
@@ -776,7 +776,7 @@
     },
 
     "corporationPage": {
-        "title": "Corporation",
+        "title": "Cooperation",
         "intro": "The Council's principal events chaired by the President. Each session discusses reforms, takes key decisions and presents new investment initiatives.",
         "photoAlt": "{title} — photo {number}",
         "session": {

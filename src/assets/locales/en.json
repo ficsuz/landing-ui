@@ -972,6 +972,10 @@
             "legalBasis": "Legal Basis"
         },
         "wgSessionPage": {
+            "paginationLabel": "Working group session pages",
+            "pageLabel": "Page {page}",
+            "loadError": "Unable to load working group sessions. Please try again.",
+            "retry": "Try again",
             "title": "Working Group Sessions",
             "intro": "Regular meetings of each sectoral working group — discussing initiatives, receiving government responses and setting next steps.",
             "filters": {

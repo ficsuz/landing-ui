@@ -981,6 +981,10 @@
             "legalBasis": "Huquqiy asos"
         },
         "wgSessionPage": {
+            "paginationLabel": "Ishchi guruh majlislari sahifalari",
+            "pageLabel": "{page}-sahifa",
+            "loadError": "Ishchi guruh majlislarini yuklab bo‘lmadi. Qayta urinib ko‘ring.",
+            "retry": "Qayta urinish",
             "title": "Ishchi guruh majlislari",
             "intro": "Har bir sektoral ishchi guruhning muntazam yig'ilishlari — tashabbus muhokamasi, hukumat vakillaridan javob olish va keyingi qadamlarni belgilash.",
             "filters": {

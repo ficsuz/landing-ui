@@ -1,0 +1,540 @@
+<template>
+    <div v-loading="sessionsStore.loading" class="bg-white min-h-[50vh]">
+        <div v-if="session" class="py-12 md:py-20">
+            <div class="page-container">
+                <!-- Back button -->
+                <button
+                    @click="router.back()"
+                    class="inline-flex items-center gap-2 text-[14px] font-semibold text-[#1a1e2e] border border-[#d0d5dd] px-4 py-2 rounded-full mb-10 hover:bg-[#1a1e2e] hover:text-white hover:border-[#1a1e2e] transition-all duration-200"
+                >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    {{ $t('common.back') }}
+                </button>
+
+                <div class="max-w-4xl mx-auto">
+                    <!-- Subject badge -->
+                    <span
+                        v-if="session.subject"
+                        class="inline-block text-[12px] font-bold tracking-widest uppercase text-white bg-[#1a1e2e] px-3 py-1 rounded-full mb-5"
+                    >
+                        {{ resolveTranslation(session.subject, locale) }}
+                    </span>
+
+                    <!-- Title -->
+                    <h1 class="font-black text-[clamp(26px,4vw,46px)] text-[#1a1e2e] leading-tight mb-6">
+                        {{ resolveTranslation(session.title, locale) }}
+                    </h1>
+
+                    <!-- Meta row -->
+                    <div class="flex flex-wrap items-center gap-4 text-[13px] text-[#8a94a6] pb-8 border-b border-[#eef0f4]">
+                        <span class="flex items-center gap-1.5">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                            {{ formatDate(session.date || session.createdAt) }}
+                        </span>
+                    </div>
+
+                    <!-- Image gallery: hero + thumbnail strip -->
+                    <div v-if="session.imageIds?.length" class="mt-8">
+                        <!-- Main image -->
+                        <div class="group relative w-fit max-w-full mx-auto rounded-2xl overflow-hidden">
+                            <img
+                                :key="activeImageId"
+                                :src="getMediaUrl(activeImageId)"
+                                :alt="resolveTranslation(session.title, locale)"
+                                class="gallery-main-img cursor-zoom-in"
+                                @click="lightboxOpen = true"
+                            />
+                            <!-- Counter -->
+                            <span
+                                v-if="session.imageIds.length > 1"
+                                class="absolute bottom-3 left-3 text-[12px] font-semibold text-white bg-black/55 backdrop-blur-sm px-2.5 py-1 rounded-full"
+                            >
+                                {{ activeIndex + 1 }} / {{ session.imageIds.length }}
+                            </span>
+                            <!-- Download button -->
+                            <button
+                                type="button"
+                                :title="$t('common.download')"
+                                class="absolute top-3 right-3 w-10 h-10 rounded-full flex items-center justify-center bg-white/90 backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.2)] text-[#1a1e2e] opacity-0 group-hover:opacity-100 hover:bg-white hover:scale-105 transition-all duration-300"
+                                @click.stop="downloadImage(activeImageId, activeIndex)"
+                            >
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Thumbnail strip -->
+                        <div v-if="session.imageIds.length > 1" class="relative mt-2">
+                            <!-- Scroll left -->
+                            <button
+                                v-show="canScrollLeft"
+                                type="button"
+                                class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.18)] items-center justify-center text-[#1a1e2e] hover:bg-[#1a1e2e] hover:text-white transition-colors"
+                                @click="scrollThumbs(-1)"
+                            >
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M15 18l-6-6 6-6" />
+                                </svg>
+                            </button>
+
+                            <div
+                                ref="thumbStrip"
+                                class="flex gap-2.5 overflow-x-auto p-2 thumb-strip"
+                                @scroll="updateThumbScroll"
+                            >
+                                <button
+                                    v-for="(id, i) in session.imageIds"
+                                    :key="id"
+                                    type="button"
+                                    class="shrink-0 h-[64px] rounded-lg overflow-hidden bg-[#eef0f4] transition-all duration-200"
+                                    :class="i === activeIndex ? 'ring-2 ring-[#1a1e2e] ring-offset-2' : 'opacity-60 hover:opacity-100'"
+                                    @click="activeIndex = i"
+                                >
+                                    <img :src="getMediaUrl(id)" :alt="`${i + 1}`" class="block w-auto h-full max-w-none" @load="updateThumbScroll" />
+                                </button>
+                            </div>
+
+                            <!-- Scroll right -->
+                            <button
+                                v-show="canScrollRight"
+                                type="button"
+                                class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.18)] items-center justify-center text-[#1a1e2e] hover:bg-[#1a1e2e] hover:text-white transition-colors"
+                                @click="scrollThumbs(1)"
+                            >
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- HTML Content -->
+                    <div
+                        v-if="htmlContent"
+                        class="article-body mt-10 md:mt-14"
+                        v-html="htmlContent"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <div v-else-if="!sessionsStore.loading" class="py-24 text-center text-[#8a94a6]">
+            {{ $t('common.noData') }}
+        </div>
+
+        <!-- Lightbox -->
+        <Teleport to="body">
+            <Transition name="lb-fade">
+                <div
+                    v-if="lightboxOpen && session"
+                    class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-sm select-none"
+                    @click.self="lightboxOpen = false"
+                >
+                    <!-- Close -->
+                    <button
+                        type="button"
+                        class="absolute top-4 right-4 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center text-white transition-colors z-10"
+                        @click="lightboxOpen = false"
+                    >
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                            <path d="M18 6L6 18M6 6l12 12" />
+                        </svg>
+                    </button>
+
+                    <!-- Prev -->
+                    <button
+                        v-if="session.imageIds.length > 1"
+                        type="button"
+                        class="absolute left-3 md:left-6 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center text-white transition-colors"
+                        @click.stop="prevImage"
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+
+                    <img
+                        :key="activeImageId"
+                        :src="getMediaUrl(activeImageId)"
+                        :alt="resolveTranslation(session.title, locale)"
+                        class="max-w-[92vw] max-h-[86vh] object-contain rounded-lg"
+                        @click.stop
+                    />
+
+                    <!-- Next -->
+                    <button
+                        v-if="session.imageIds.length > 1"
+                        type="button"
+                        class="absolute right-3 md:right-6 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center text-white transition-colors"
+                        @click.stop="nextImage"
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+
+                    <!-- Counter + download -->
+                    <div class="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-4">
+                        <span class="text-[13px] font-semibold text-white/90 bg-white/10 px-3 py-1.5 rounded-full">
+                            {{ activeIndex + 1 }} / {{ session.imageIds.length }}
+                        </span>
+                        <button
+                            type="button"
+                            :title="$t('common.download')"
+                            class="w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center text-white transition-colors"
+                            @click.stop="downloadImage(activeImageId, activeIndex)"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="7 10 12 15 17 10" />
+                                <line x1="12" y1="15" x2="12" y2="3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </Transition>
+        </Teleport>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { computed, ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRoute, useRouter } from 'vue-router'
+import { useWorkingGroupSessionsStore } from '@/features/workingGroupSessions/store'
+import { resolveTranslation } from '@/utils/i18n'
+import { getMediaUrl } from '@/utils/media'
+import { useSeo } from '@/composables/useSeo'
+import { truncateDescription } from '@/constants/seo.constants'
+
+const { locale } = useI18n()
+const router = useRouter()
+const route = useRoute()
+const sessionsStore = useWorkingGroupSessionsStore()
+
+const session = computed(() => sessionsStore.current)
+
+useSeo(() => {
+    const m = session.value
+    if (!m || String(m.id) !== String(route.params.id)) return null
+    return {
+        title: resolveTranslation(m.title, locale.value),
+        description: truncateDescription(resolveTranslation(m.content, locale.value)),
+        image: m.imageIds?.[0] ? getMediaUrl(m.imageIds[0]) : undefined,
+        type: 'article',
+        publishedTime: m.date || m.createdAt || undefined,
+    }
+})
+
+// --- Gallery ---
+const activeIndex = ref(0)
+const lightboxOpen = ref(false)
+const activeImageId = computed(() => session.value?.imageIds?.[activeIndex.value] ?? '')
+
+// --- Thumbnail strip scrolling ---
+const thumbStrip = ref<HTMLElement | null>(null)
+const canScrollLeft = ref(false)
+const canScrollRight = ref(false)
+
+function updateThumbScroll() {
+    const el = thumbStrip.value
+    if (!el) return
+    canScrollLeft.value = el.scrollLeft > 1
+    canScrollRight.value = el.scrollLeft + el.clientWidth < el.scrollWidth - 1
+}
+
+function scrollThumbs(dir: number) {
+    const el = thumbStrip.value
+    if (!el) return
+    el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: 'smooth' })
+}
+
+// Reset to first image whenever the session changes
+watch(session, async () => {
+    activeIndex.value = 0
+    await nextTick()
+    thumbStrip.value?.scrollTo({ left: 0 })
+    updateThumbScroll()
+})
+
+function nextImage() {
+    const len = session.value?.imageIds?.length ?? 0
+    if (len) activeIndex.value = (activeIndex.value + 1) % len
+}
+function prevImage() {
+    const len = session.value?.imageIds?.length ?? 0
+    if (len) activeIndex.value = (activeIndex.value - 1 + len) % len
+}
+
+function onKeydown(e: KeyboardEvent) {
+    if (!lightboxOpen.value) return
+    if (e.key === 'Escape') lightboxOpen.value = false
+    else if (e.key === 'ArrowRight') nextImage()
+    else if (e.key === 'ArrowLeft') prevImage()
+}
+
+const htmlContent = computed(() => {
+    if (!session.value?.content) return ''
+    return resolveTranslation(session.value.content, locale.value)
+})
+
+function formatDate(iso?: string | null) {
+    if (!iso) return ''
+    const d = new Date(iso)
+    if (Number.isNaN(d.getTime())) return ''
+    return d.toLocaleDateString('en-GB').replace(/\//g, '.')
+}
+
+async function downloadImage(id: string, i: number) {
+    const url = getMediaUrl(id)
+    if (!url) return
+    const baseName = resolveTranslation(session.value?.title, locale.value) || 'working-group-session'
+    try {
+        const res = await fetch(url)
+        const blob = await res.blob()
+        const objectUrl = URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = objectUrl
+        a.download = `${baseName}-${i + 1}`
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
+        URL.revokeObjectURL(objectUrl)
+    } catch {
+        window.open(url, '_blank')
+    }
+}
+
+watch(lightboxOpen, (open) => {
+    document.body.style.overflow = open ? 'hidden' : ''
+})
+
+onMounted(() => {
+    sessionsStore.fetchOne(String(route.params.id))
+    window.addEventListener('keydown', onKeydown)
+    window.addEventListener('resize', updateThumbScroll)
+})
+
+onUnmounted(() => {
+    window.removeEventListener('keydown', onKeydown)
+    window.removeEventListener('resize', updateThumbScroll)
+    document.body.style.overflow = ''
+})
+</script>
+
+<style scoped>
+/* Smooth crossfade when the main image / lightbox image changes */
+.gallery-main-img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    /* Preserve the photo's proportions while keeping portraits within the viewport. */
+    max-height: 70vh;
+    max-height: 70svh;
+    animation: imgFade 0.35s ease;
+}
+@keyframes imgFade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* Slim thumbnail scrollbar */
+.thumb-strip {
+    scrollbar-width: thin;
+    scrollbar-color: #d0d5dd transparent;
+}
+.thumb-strip::-webkit-scrollbar {
+    height: 6px;
+}
+.thumb-strip::-webkit-scrollbar-thumb {
+    background: #d0d5dd;
+    border-radius: 999px;
+}
+
+.lb-fade-enter-active,
+.lb-fade-leave-active {
+    transition: opacity 0.25s ease;
+}
+.lb-fade-enter-from,
+.lb-fade-leave-to {
+    opacity: 0;
+}
+
+.article-body {
+    font-size: clamp(15px, 1.3vw, 18px);
+    color: #444;
+    line-height: 1.8;
+    word-break: break-word;
+}
+
+.article-body :deep(h1),
+.article-body :deep(h2),
+.article-body :deep(h3),
+.article-body :deep(h4),
+.article-body :deep(h5),
+.article-body :deep(h6) {
+    font-weight: 900;
+    color: #1a1e2e;
+    line-height: 1.25;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+}
+
+.article-body :deep(h1) { font-size: clamp(26px, 3.5vw, 40px); }
+.article-body :deep(h2) { font-size: clamp(22px, 2.8vw, 34px); }
+.article-body :deep(h3) { font-size: clamp(19px, 2.2vw, 28px); }
+.article-body :deep(h4) { font-size: clamp(17px, 1.8vw, 22px); }
+
+.article-body :deep(p) {
+    margin-bottom: 1.4em;
+}
+
+.article-body :deep(strong),
+.article-body :deep(b) {
+    font-weight: 700;
+    color: #1a1e2e;
+}
+
+.article-body :deep(em),
+.article-body :deep(i) {
+    font-style: italic;
+}
+
+.article-body :deep(a) {
+    color: #1a1e2e;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s;
+}
+
+.article-body :deep(a:hover) {
+    opacity: 0.65;
+}
+
+.article-body :deep(ul),
+.article-body :deep(ol) {
+    padding-left: 1.5em;
+    margin-bottom: 1.4em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45em;
+}
+
+.article-body :deep(ul) { list-style-type: disc; }
+.article-body :deep(ol) { list-style-type: decimal; }
+
+.article-body :deep(li) {
+    padding-left: 0.25em;
+}
+
+.article-body :deep(blockquote) {
+    border-left: 4px solid #1a1e2e;
+    margin: 2em 0;
+    padding: 1em 1.5em;
+    background: #f7f8fa;
+    border-radius: 0 12px 12px 0;
+    color: #505a63;
+    font-style: italic;
+}
+
+.article-body :deep(img) {
+    max-width: 100%;
+    border-radius: 16px;
+    margin: 1.5em 0;
+    display: block;
+}
+
+.article-body :deep(iframe),
+.article-body :deep(video),
+.article-body :deep(embed),
+.article-body :deep(object) {
+    max-width: 100%;
+}
+
+.article-body :deep(iframe) {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+}
+
+.article-body :deep(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2em 0;
+    font-size: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #eef0f4;
+}
+
+/* CMS tables can be wider than the phone screen — scroll them internally */
+@media (max-width: 767px) {
+    .article-body :deep(table) {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+.article-body :deep(th) {
+    background: #1a1e2e;
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.article-body :deep(td) {
+    padding: 11px 16px;
+    border-bottom: 1px solid #eef0f4;
+    vertical-align: top;
+}
+
+.article-body :deep(tr:last-child td) {
+    border-bottom: none;
+}
+
+.article-body :deep(tr:nth-child(even) td) {
+    background: #f7f8fa;
+}
+
+.article-body :deep(pre) {
+    background: #1a1e2e;
+    color: #f7f8fa;
+    padding: 1.25em 1.5em;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-size: 14px;
+    margin: 1.5em 0;
+}
+
+.article-body :deep(code) {
+    background: #eef0f4;
+    color: #1a1e2e;
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.article-body :deep(pre code) {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+.article-body :deep(hr) {
+    border: none;
+    border-top: 1px solid #eef0f4;
+    margin: 2.5em 0;
+}
+</style>

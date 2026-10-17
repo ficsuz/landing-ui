@@ -171,6 +171,12 @@ const websiteRoutes: RouteRecordRaw[] = [
         meta: { title: 'Working group session', titleKey: 'nav.workingGroupSession', descriptionKey: 'eventsPage.wgSessionPage.intro', heroImage: workingGroupsImg, heroImagePosition: 'center 80%' },
     },
     {
+        path: 'events/working-group-session/:id',
+        name: 'events-working-group-session-detail',
+        component: () => import('../../views/website/events/working-group-session/Detail.vue'),
+        meta: { title: 'Working group session', titleKey: 'nav.workingGroupSession', noHero: true },
+    },
+    {
         path: 'events/meetings',
         name: 'events-meetings',
         component: () => import('../../views/website/events/meetings/Index.vue'),

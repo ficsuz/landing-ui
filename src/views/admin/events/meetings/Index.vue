@@ -1,13 +1,38 @@
 <template>
     <div class="page-wrapper">
+        <MeetingsSectionTabs />
+
         <div class="page-header">
             <h1 class="page-title">Meetings</h1>
             <el-button type="primary" @click="openCreate">+ Add</el-button>
         </div>
 
-        <div class="blog-grid" v-loading="store.loading">
-            <div v-for="row in store.items" :key="row.id" class="blog-card">
+        <div v-if="store.items.length" class="move-bar">
+            <el-checkbox
+                :model-value="allSelected"
+                :indeterminate="selectedIds.length > 0 && !allSelected"
+                :disabled="moving"
+                @change="toggleSelectAll"
+            >
+                {{ selectedIds.length ? `${selectedIds.length} selected` : 'Select all on this page' }}
+            </el-checkbox>
+            <div class="move-bar__actions">
+                <el-button v-if="selectedIds.length" :disabled="moving" @click="selectedIds = []">Clear</el-button>
+                <el-button type="primary" plain :icon="Right" :disabled="!selectedIds.length" :loading="moving" @click="moveSelected">
+                    Move to Working Group Sessions
+                </el-button>
+            </div>
+        </div>
+
+        <div class="blog-grid" v-loading="store.loading || moving">
+            <div v-for="row in store.items" :key="row.id" class="blog-card" :class="{ 'is-selected': selectedIds.includes(row.id) }">
                 <div class="blog-card__image">
+                    <el-checkbox
+                        :model-value="selectedIds.includes(row.id)"
+                        :disabled="moving"
+                        class="blog-card__select"
+                        @change="toggleSelect(row.id)"
+                    />
                     <img :src="getMediaUrl(row.imageIds?.[0]) || defaultImage" alt="" />
                     <el-tag :type="row.status === 1 ? 'success' : 'info'" size="small" class="blog-card__status">
                         {{ row.status === 1 ? 'Published' : 'Hidden' }}
@@ -21,6 +46,9 @@
                     <p v-if="row.subject" class="blog-card__subject">{{ resolveTranslation(row.subject) }}</p>
                     <h3 class="blog-card__title">{{ resolveTranslation(row.title) }}</h3>
                     <div class="blog-card__actions">
+                        <el-tooltip content="Move to Working Group Sessions" placement="top">
+                            <el-button type="warning" :icon="Right" circle plain :disabled="moving" @click="moveOne(row)" />
+                        </el-tooltip>
                         <el-tooltip content="Edit" placement="top">
                             <el-button type="primary" :icon="Edit" circle plain @click="openEdit(row)" />
                         </el-tooltip>
@@ -79,13 +107,15 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, onMounted } from 'vue'
+import { computed, reactive, ref, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { Edit, Delete } from '@element-plus/icons-vue'
+import { Edit, Delete, Right } from '@element-plus/icons-vue'
 import { useI18n } from 'vue-i18n'
 import TranslationField from '@/components/admin/TranslationField.vue'
 import MultiImageUploader from '@/components/admin/MultiImageUploader.vue'
+import MeetingsSectionTabs from './components/MeetingsSectionTabs.vue'
 import { useMeetingsStore } from '@/features/meetings/store'
+import { useWorkingGroupSessionsStore } from '@/features/workingGroupSessions/store'
 import { getMediaUrl } from '@/utils/media'
 import defaultImage from '@/assets/images/hero/about-blog.jpg'
 import type { Meeting, MeetingPayload } from '@/features/meetings/types'
@@ -133,9 +163,77 @@ function formatDate(iso?: string | null) {
 
 async function loadList() {
     await store.fetchAll({ page: page.value, limit: pageSize.value, sortBy: 'date', order: 'desc' })
+    selectedIds.value = selectedIds.value.filter(id => store.items.some(i => i.id === id))
+    // Moving items out can empty the last page — step back to the new last one.
+    const lastPage = Math.max(1, Math.ceil(store.total / pageSize.value))
+    if (page.value > lastPage) {
+        page.value = lastPage
+        await loadList()
+    }
 }
 
-function onPageChange(p: number) { page.value = p; loadList() }
+function onPageChange(p: number) { page.value = p; selectedIds.value = []; loadList() }
+
+// --- Move to Working Group Sessions ---
+const sessionsStore = useWorkingGroupSessionsStore()
+const moving = ref(false)
+const selectedIds = ref<string[]>([])
+
+const allSelected = computed(() => store.items.length > 0 && store.items.every(i => selectedIds.value.includes(i.id)))
+
+function toggleSelect(id: string) {
+    selectedIds.value = selectedIds.value.includes(id)
+        ? selectedIds.value.filter(i => i !== id)
+        : [...selectedIds.value, id]
+}
+
+function toggleSelectAll() {
+    selectedIds.value = allSelected.value ? [] : store.items.map(i => i.id)
+}
+
+function moveOne(row: Meeting) {
+    return moveMeetings([row], `Move "${resolveTranslation(row.title)}" to Working Group Sessions?`)
+}
+
+function moveSelected() {
+    const rows = store.items.filter(i => selectedIds.value.includes(i.id))
+    return moveMeetings(rows, `Move ${rows.length} selected meeting(s) to Working Group Sessions?`)
+}
+
+async function moveMeetings(rows: Meeting[], question: string) {
+    if (!rows.length || moving.value) return
+    try {
+        await ElMessageBox.confirm(`${question} Moved items will no longer appear in Meetings.`, 'Move', {
+            confirmButtonText: 'Move', cancelButtonText: 'Cancel', type: 'warning',
+        })
+    } catch {
+        return
+    }
+
+    moving.value = true
+    let moved = 0
+    let copied = 0
+    let failed = 0
+    try {
+        // One at a time: each move is two requests and must not race the others.
+        for (const row of rows) {
+            try {
+                if (await sessionsStore.moveFromMeeting(row) === 'moved') moved++
+                else copied++
+            } catch {
+                failed++
+            }
+        }
+    } finally {
+        moving.value = false
+    }
+
+    selectedIds.value = []
+    if (moved) ElMessage.success(`Moved ${moved} meeting(s) to Working Group Sessions`)
+    if (copied) ElMessage.warning({ message: `${copied} meeting(s) were copied to Working Group Sessions but could not be removed from Meetings — delete the duplicates here manually`, duration: 8000 })
+    if (failed) ElMessage.error(`${failed} meeting(s) could not be moved`)
+    loadList()
+}
 
 function openCreate() {
     editing.value = null
@@ -216,6 +314,20 @@ onMounted(loadList)
     flex-direction: column;
 }
 .blog-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.09); transform: translateY(-2px); }
+.blog-card.is-selected { border-color: var(--el-color-primary); box-shadow: 0 0 0 2px var(--el-color-primary); }
+
+.move-bar {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 10px 14px; margin-bottom: 20px;
+    border: 1px solid #eef0f4; border-radius: 12px; background: #f7f8fa;
+}
+.move-bar__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.move-bar__actions .el-button + .el-button { margin-left: 0; }
+
+.blog-card__select {
+    position: absolute; top: 8px; left: 10px; z-index: 1;
+    height: auto; padding: 4px 6px; border-radius: 8px; background: rgba(255,255,255,0.92);
+}
 
 .blog-card__image { position: relative; width: 100%; aspect-ratio: 16/10; background: #f7f8fa; flex-shrink: 0; }
 .blog-card__image img { width: 100%; height: 100%; object-fit: cover; display: block; }

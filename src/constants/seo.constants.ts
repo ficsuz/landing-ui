@@ -70,7 +70,7 @@ export const SEO_PAGES: SeoPage[] = [
     { name: 'events', path: '/events', titleKey: 'nav.calendarPlan', priority: 0.7, changefreq: 'weekly' },
     { name: 'events-plenary-sessions', path: '/events/plenary-sessions', titleKey: 'nav.plenarySessions', descriptionKey: 'eventsPage.plenaryPage.intro', priority: 0.7, changefreq: 'monthly' },
     { name: 'events-interim-session', path: '/events/interim-session', titleKey: 'nav.interimSession', descriptionKey: 'eventsPage.interimPage.intro', priority: 0.6, changefreq: 'monthly' },
-    { name: 'events-working-group-session', path: '/events/working-group-session', titleKey: 'nav.workingGroupSession', descriptionKey: 'eventsPage.wgSessionPage.intro', priority: 0.6, changefreq: 'monthly' },
+    { name: 'events-working-group-session', path: '/events/working-group-session', titleKey: 'nav.workingGroupSession', descriptionKey: 'eventsPage.wgSessionPage.intro', priority: 0.7, changefreq: 'weekly' },
     { name: 'events-meetings', path: '/events/meetings', titleKey: 'nav.meetings', descriptionKey: 'eventsPage.meetingsPage.intro', priority: 0.7, changefreq: 'weekly' },
     { name: 'events-weekly-results', path: '/events/weekly-results', titleKey: 'nav.weeklyResults', descriptionKey: 'eventsPage.weeklyPage.intro', priority: 0.7, changefreq: 'weekly' },
 

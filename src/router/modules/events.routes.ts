@@ -8,6 +8,12 @@ const eventsRoutes: RouteRecordRaw[] = [
         meta: { title: 'Uchrashuvlar', roles: ['super_admin', 'admin'] },
     },
     {
+        path: 'events/meetings/working-group-sessions',
+        name: 'admin-working-group-sessions',
+        component: () => import('@/views/admin/events/meetings/working-group-sessions/Index.vue'),
+        meta: { title: 'Ishchi guruh majlislari', roles: ['super_admin', 'admin'] },
+    },
+    {
         path: 'events/weekly-results',
         name: 'admin-weekly-results',
         component: () => import('@/views/admin/events/weekly-results/Index.vue'),

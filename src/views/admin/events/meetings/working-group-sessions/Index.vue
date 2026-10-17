@@ -1,0 +1,286 @@
+<template>
+    <div class="page-wrapper">
+        <MeetingsSectionTabs />
+
+        <div class="page-header">
+            <h1 class="page-title">Working Group Sessions</h1>
+            <el-button type="primary" @click="openCreate">+ Add</el-button>
+        </div>
+
+        <div class="blog-grid" v-loading="store.loading || moving">
+            <div v-for="row in store.items" :key="row.id" class="blog-card">
+                <div class="blog-card__image">
+                    <img :src="getMediaUrl(row.imageIds?.[0]) || defaultImage" alt="" />
+                    <el-tag :type="row.status === 1 ? 'success' : 'info'" size="small" class="blog-card__status">
+                        {{ row.status === 1 ? 'Published' : 'Hidden' }}
+                    </el-tag>
+                    <span v-if="row.imageIds?.length > 1" class="blog-card__count">
+                        {{ row.imageIds.length }} 🖼
+                    </span>
+                </div>
+                <div class="blog-card__body">
+                    <span v-if="row.date" class="blog-card__date">{{ formatDate(row.date) }}</span>
+                    <p v-if="row.subject" class="blog-card__subject">{{ resolveTranslation(row.subject) }}</p>
+                    <h3 class="blog-card__title">{{ resolveTranslation(row.title) }}</h3>
+                    <div class="blog-card__actions">
+                        <el-tooltip content="Move back to Meetings" placement="top">
+                            <el-button type="warning" :icon="Back" circle plain :disabled="moving" @click="moveToMeetings(row)" />
+                        </el-tooltip>
+                        <el-tooltip content="Edit" placement="top">
+                            <el-button type="primary" :icon="Edit" circle plain @click="openEdit(row)" />
+                        </el-tooltip>
+                        <el-tooltip content="Delete" placement="top">
+                            <el-button type="danger" :icon="Delete" circle plain @click="handleDelete(row)" />
+                        </el-tooltip>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <el-empty
+            v-if="!store.loading && store.items.length === 0"
+            :description="loadFailed ? 'Could not load working group sessions' : 'No working group sessions yet'"
+            class="py-16"
+        >
+            <el-button v-if="loadFailed" @click="loadList">Retry</el-button>
+        </el-empty>
+
+        <div class="pagination-wrap" v-if="store.total > pageSize">
+            <el-pagination
+                background
+                layout="prev, pager, next"
+                :total="store.total"
+                :page-size="pageSize"
+                :current-page="page"
+                @current-change="onPageChange"
+            />
+        </div>
+
+        <el-dialog v-model="showDialog" :title="editing ? 'Edit working group session' : 'Add working group session'" width="min(760px, 92vw)" top="5vh">
+            <el-form label-position="top" class="flex flex-col gap-1">
+                <el-form-item label="Title">
+                    <TranslationField v-model="form.title" class="w-full" placeholder="Enter title" />
+                </el-form-item>
+                <el-form-item label="Subject / Working group">
+                    <TranslationField v-model="form.subject" class="w-full" placeholder="e.g. Energy, Digital economy" />
+                </el-form-item>
+                <el-form-item label="Content">
+                    <TranslationField v-model="form.content" type="textarea" :rows="6" class="w-full" placeholder="Enter content" />
+                </el-form-item>
+                <el-form-item label="Images (2–4, slider)">
+                    <MultiImageUploader v-model="form.imageIds" :max="Infinity" />
+                </el-form-item>
+                <div class="grid grid-cols-1 gap-x-5 md:grid-cols-2">
+                    <el-form-item label="Date">
+                        <el-date-picker v-model="form.date" type="date" placeholder="Select date" value-format="YYYY-MM-DD" class="!w-full" />
+                    </el-form-item>
+                    <el-form-item label="Status">
+                        <el-switch v-model="form.status" :active-value="1" :inactive-value="0" active-text="Published" inactive-text="Hidden" />
+                    </el-form-item>
+                </div>
+            </el-form>
+            <template #footer>
+                <div class="flex justify-end gap-3">
+                    <el-button @click="showDialog = false">Cancel</el-button>
+                    <el-button type="primary" :loading="saving" @click="handleSubmit">Save</el-button>
+                </div>
+            </template>
+        </el-dialog>
+    </div>
+</template>
+
+<script lang="ts" setup>
+import { reactive, ref, onMounted } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { Edit, Delete, Back } from '@element-plus/icons-vue'
+import { useI18n } from 'vue-i18n'
+import TranslationField from '@/components/admin/TranslationField.vue'
+import MultiImageUploader from '@/components/admin/MultiImageUploader.vue'
+import MeetingsSectionTabs from '@/views/admin/events/meetings/components/MeetingsSectionTabs.vue'
+import { useWorkingGroupSessionsStore } from '@/features/workingGroupSessions/store'
+import { getMediaUrl } from '@/utils/media'
+import defaultImage from '@/assets/images/hero/about-blog.jpg'
+import type { WorkingGroupSession, WorkingGroupSessionPayload } from '@/features/workingGroupSessions/types'
+import type { Translation } from '@/types/server/api.types'
+
+const store = useWorkingGroupSessionsStore()
+const { locale } = useI18n()
+
+const page = ref(1)
+const pageSize = ref(12)
+const showDialog = ref(false)
+const saving = ref(false)
+const moving = ref(false)
+const loadFailed = ref(false)
+const editing = ref<WorkingGroupSession | null>(null)
+
+interface FormState {
+    title: Translation
+    subject: Translation
+    content: Translation
+    imageIds: string[]
+    date: string | null
+    status: number
+}
+
+const emptyForm = (): FormState => ({
+    title: { uz: '', ru: '', en: '' },
+    subject: { uz: '', ru: '', en: '' },
+    content: { uz: '', ru: '', en: '' },
+    imageIds: [],
+    date: null,
+    status: 1,
+})
+
+const form = reactive(emptyForm())
+
+function resolveTranslation(t: Translation | null | undefined) {
+    if (!t) return ''
+    return t[locale.value as keyof Translation] || t.uz || ''
+}
+
+function formatDate(iso?: string | null) {
+    if (!iso) return ''
+    const d = new Date(iso)
+    return Number.isNaN(d.getTime()) ? '' : d.toLocaleDateString('en-GB').replace(/\//g, '.')
+}
+
+async function loadList() {
+    loadFailed.value = false
+    try {
+        await store.fetchAll({ page: page.value, limit: pageSize.value, sortBy: 'date', order: 'desc' })
+    } catch {
+        store.items = []
+        loadFailed.value = true
+        return
+    }
+    // Deleting / moving items out can empty the last page — step back to the new last one.
+    const lastPage = Math.max(1, Math.ceil(store.total / pageSize.value))
+    if (page.value > lastPage) {
+        page.value = lastPage
+        await loadList()
+    }
+}
+
+function onPageChange(p: number) { page.value = p; loadList() }
+
+function openCreate() {
+    editing.value = null
+    Object.assign(form, emptyForm())
+    showDialog.value = true
+}
+
+function openEdit(row: WorkingGroupSession) {
+    editing.value = row
+    Object.assign(form, {
+        title: { ...row.title },
+        subject: row.subject ? { ...row.subject } : { uz: '', ru: '', en: '' },
+        content: row.content ? { ...row.content } : { uz: '', ru: '', en: '' },
+        imageIds: Array.isArray(row.imageIds) ? [...row.imageIds] : [],
+        date: row.date ? row.date.slice(0, 10) : null,
+        status: row.status,
+    })
+    showDialog.value = true
+}
+
+async function handleSubmit() {
+    saving.value = true
+    try {
+        const payload: WorkingGroupSessionPayload = {
+            title: form.title,
+            subject: form.subject,
+            content: form.content,
+            imageIds: form.imageIds,
+            date: form.date || undefined,
+            status: form.status,
+        }
+        const res = editing.value
+            ? await store.updateItem(editing.value.id, payload)
+            : await store.createItem(payload)
+        if (res.success) {
+            ElMessage.success('Saved')
+            showDialog.value = false
+            loadList()
+        }
+    } finally {
+        saving.value = false
+    }
+}
+
+async function handleDelete(row: WorkingGroupSession) {
+    try {
+        await ElMessageBox.confirm(`Delete "${resolveTranslation(row.title)}"?`, 'Warning', {
+            confirmButtonText: 'Yes', cancelButtonText: 'No', type: 'warning',
+        })
+        const res = await store.deleteItem(row.id)
+        if (res.success) { ElMessage.success('Deleted'); loadList() }
+    } catch {}
+}
+
+async function moveToMeetings(row: WorkingGroupSession) {
+    if (moving.value) return
+    try {
+        await ElMessageBox.confirm(
+            `Move "${resolveTranslation(row.title)}" back to Meetings? It will be removed from Working Group Sessions.`,
+            'Move',
+            { confirmButtonText: 'Move', cancelButtonText: 'Cancel', type: 'warning' },
+        )
+    } catch {
+        return
+    }
+
+    moving.value = true
+    try {
+        const result = await store.moveToMeetings(row)
+        if (result === 'moved') ElMessage.success('Moved to Meetings')
+        else ElMessage.warning({ message: 'Copied to Meetings but could not be removed from here — delete the duplicate manually', duration: 8000 })
+    } catch {
+        // The API error toast has already been shown; nothing was changed.
+    } finally {
+        moving.value = false
+    }
+    loadList()
+}
+
+onMounted(loadList)
+</script>
+
+<style scoped>
+.page-wrapper { padding: 24px; }
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.page-title { font-size: 22px; font-weight: 600; color: #101828; margin: 0; }
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    min-height: 120px;
+}
+
+.blog-card {
+    border: 1px solid #eef0f4;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+.blog-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.09); transform: translateY(-2px); }
+
+.blog-card__image { position: relative; width: 100%; aspect-ratio: 16/10; background: #f7f8fa; flex-shrink: 0; }
+.blog-card__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.blog-card__status { position: absolute; top: 10px; right: 10px; }
+.blog-card__count { position: absolute; bottom: 10px; right: 10px; font-size: 12px; font-weight: 600; color: #fff; background: rgba(26,30,46,0.72); padding: 2px 9px; border-radius: 999px; }
+
+.blog-card__body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex: 1; }
+.blog-card__date { font-size: 12px; color: #8a94a6; font-weight: 600; margin-bottom: 4px; display: block; }
+.blog-card__subject { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4361ee; margin: 0 0 6px; }
+.blog-card__title {
+    font-size: 15px; font-weight: 600; color: #101828; margin: 0 0 8px; line-height: 1.45;
+    display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.blog-card__actions { margin-top: auto; padding-top: 12px; display: flex; justify-content: flex-end; gap: 8px; border-top: 1px solid #f4f5f7; }
+.pagination-wrap { display: flex; justify-content: flex-end; margin-top: 20px; }
+</style>

@@ -7,7 +7,7 @@
             <el-button type="primary" @click="openCreate">+ Add</el-button>
         </div>
 
-        <div class="blog-grid" v-loading="store.loading || moving">
+        <div class="blog-grid" v-loading="store.loading">
             <div v-for="row in store.items" :key="row.id" class="blog-card">
                 <div class="blog-card__image">
                     <img :src="getMediaUrl(row.imageIds?.[0]) || defaultImage" alt="" />
@@ -23,9 +23,6 @@
                     <p v-if="row.subject" class="blog-card__subject">{{ resolveTranslation(row.subject) }}</p>
                     <h3 class="blog-card__title">{{ resolveTranslation(row.title) }}</h3>
                     <div class="blog-card__actions">
-                        <el-tooltip content="Move back to Meetings" placement="top">
-                            <el-button type="warning" :icon="Back" circle plain :disabled="moving" @click="moveToMeetings(row)" />
-                        </el-tooltip>
                         <el-tooltip content="Edit" placement="top">
                             <el-button type="primary" :icon="Edit" circle plain @click="openEdit(row)" />
                         </el-tooltip>
@@ -80,9 +77,22 @@
                 </div>
             </el-form>
             <template #footer>
-                <div class="flex justify-end gap-3">
-                    <el-button @click="showDialog = false">Cancel</el-button>
-                    <el-button type="primary" :loading="saving" @click="handleSubmit">Save</el-button>
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <el-button
+                        v-if="editing"
+                        type="warning"
+                        plain
+                        :icon="Back"
+                        :loading="moving"
+                        :disabled="saving"
+                        @click="handleMove"
+                    >
+                        Move back to Meetings
+                    </el-button>
+                    <div class="flex gap-3 ml-auto">
+                        <el-button :disabled="moving" @click="showDialog = false">Cancel</el-button>
+                        <el-button type="primary" :loading="saving" :disabled="moving" @click="handleSubmit">Save</el-button>
+                    </div>
                 </div>
             </template>
         </el-dialog>
@@ -217,11 +227,12 @@ async function handleDelete(row: WorkingGroupSession) {
     } catch {}
 }
 
-async function moveToMeetings(row: WorkingGroupSession) {
-    if (moving.value) return
+async function handleMove() {
+    const row = editing.value
+    if (!row || moving.value) return
     try {
         await ElMessageBox.confirm(
-            `Move "${resolveTranslation(row.title)}" back to Meetings? It will be removed from Working Group Sessions.`,
+            `Move "${resolveTranslation(form.title)}" back to Meetings? It will no longer appear in Working Group Sessions.`,
             'Move',
             { confirmButtonText: 'Move', cancelButtonText: 'Cancel', type: 'warning' },
         )
@@ -231,15 +242,25 @@ async function moveToMeetings(row: WorkingGroupSession) {
 
     moving.value = true
     try {
-        const result = await store.moveToMeetings(row)
+        // Move what is in the form, so unsaved edits are carried over too.
+        const result = await store.moveToMeetings({
+            ...row,
+            title: form.title,
+            subject: form.subject,
+            content: form.content,
+            imageIds: form.imageIds,
+            date: form.date,
+            status: form.status,
+        })
+        showDialog.value = false
         if (result === 'moved') ElMessage.success('Moved to Meetings')
         else ElMessage.warning({ message: 'Copied to Meetings but could not be removed from here — delete the duplicate manually', duration: 8000 })
+        loadList()
     } catch {
         // The API error toast has already been shown; nothing was changed.
     } finally {
         moving.value = false
     }
-    loadList()
 }
 
 onMounted(loadList)

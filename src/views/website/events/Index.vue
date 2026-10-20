@@ -1,9 +1,9 @@
 <template>
     <div class="events-calendar-page">
-        <HomeCouncilCalendar :show-learn-more="false" />
+        <EventsCalendar />
     </div>
 </template>
 
 <script setup lang="ts">
-import HomeCouncilCalendar from '@/views/website/home/components/HomeCouncilCalendar.vue'
+import EventsCalendar from './components/EventsCalendar.vue'
 </script>

@@ -2,6 +2,12 @@ import { RouteRecordRaw } from 'vue-router'
 
 const eventsRoutes: RouteRecordRaw[] = [
     {
+        path: 'events/calendar-plan',
+        name: 'admin-calendar-plan',
+        component: () => import('@/views/admin/events/calendar-plan/Index.vue'),
+        meta: { title: 'Kalendar reja', roles: ['super_admin', 'admin'] },
+    },
+    {
         path: 'events/meetings',
         name: 'admin-meetings',
         component: () => import('@/views/admin/events/meetings/Index.vue'),

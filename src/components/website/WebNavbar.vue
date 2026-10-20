@@ -551,13 +551,17 @@ const isParentActive = (item: NavMenuItem): boolean => {
 
 /* ── Responsive ── */
 
+/* The brand text is never hidden — it only scales down where space is tight.
+   The mark is drawn with many fine strokes, so it needs ≥48px to stay crisp. */
 @media (min-width: 1400px) {
     .web-navbar__mobile-controls { display: none !important; }
+    .web-navbar__logo :deep(.app-brand__mark) { width: 52px; height: 52px; }
 }
 
 @media (min-width: 1280px) and (max-width: 1399px) {
     .web-navbar__mobile-controls { display: none !important; }
-    .web-navbar__logo :deep(.app-brand__text) { display: none; }
+    .web-navbar__logo :deep(.app-brand__mark) { width: 48px; height: 48px; }
+    .web-navbar__logo :deep(.app-brand__text) { font-size: 9px; }
     .web-navbar__inner { gap: 20px; }
     .web-navbar__menu { gap: 16px; }
     .web-navbar__link { font-size: 14px; }
@@ -575,7 +579,7 @@ const isParentActive = (item: NavMenuItem): boolean => {
     .web-navbar__inner { gap: 0; padding: 0 16px; }
 
     .web-navbar__logo { flex-shrink: 1; min-width: 0; }
-    .web-navbar__logo :deep(.app-brand__mark) { width: 36px; height: 36px; }
+    .web-navbar__logo :deep(.app-brand__mark) { width: 44px; height: 44px; }
     .web-navbar__logo :deep(.app-brand__text) { display: block; font-size: 9px; }
 
     .web-navbar__mobile-controls { flex-shrink: 0; }
@@ -587,9 +591,20 @@ const isParentActive = (item: NavMenuItem): boolean => {
     }
 }
 
+/* Phones: keep the three brand lines on three lines next to the controls */
+@media (max-width: 767px) {
+    .web-navbar__logo :deep(.app-brand__mark) { width: 38px; height: 38px; }
+    .web-navbar__logo :deep(.app-brand__text) { font-size: clamp(7px, 2.3vw, 9px); }
+}
+
 @media (max-width: 374px) {
-    .web-navbar__logo :deep(.app-brand__text) { display: none; }
-    .web-navbar__logo :deep(.app-brand__mark) { width: 32px; height: 32px; }
+    .web-navbar__inner { padding: 0 12px; }
+    .web-navbar__logo { gap: 6px; }
+    .web-navbar__logo :deep(.app-brand__mark) { width: 36px; height: 36px; }
+    .web-navbar__logo :deep(.app-brand__text) { font-size: 7px; }
+    .web-navbar__mobile-controls { gap: 2px; }
+    .web-navbar__locale { width: 24px; height: 24px; font-size: 11px; }
+    .web-navbar__hamburger { width: 36px; height: 36px; padding: 6px; }
 }
 
 /* ── Transitions ── */

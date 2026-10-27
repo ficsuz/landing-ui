@@ -45,7 +45,7 @@
                     <TranslationField v-model="form.title" class="w-full" placeholder="Enter title" />
                 </el-form-item>
                 <el-form-item label="Content">
-                    <TranslationField v-model="form.content" type="textarea" :rows="5" class="w-full" placeholder="Enter content" />
+                    <TranslationField v-model="form.content" type="rich" class="w-full" placeholder="Enter content" />
                 </el-form-item>
                 <el-form-item label="Cover image (preview)">
                     <FileUploader v-model="form.previewImageId" />

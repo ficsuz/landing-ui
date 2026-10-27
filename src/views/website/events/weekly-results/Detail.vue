@@ -60,6 +60,7 @@ import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { useEventsStore } from '@/features/events/store'
 import { getMediaUrl } from '@/utils/media'
+import { renderRichText } from '@/utils/richText'
 import { useSeo } from '@/composables/useSeo'
 import { truncateDescription } from '@/constants/seo.constants'
 import type { Translation } from '@/types/server/api.types'
@@ -76,21 +77,7 @@ function resolveTranslation(t: Translation | null | undefined) {
     return t[locale.value as keyof Translation] || t.uz || ''
 }
 
-const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-
-// Admin enters content in a plain textarea — keep its line breaks: blank line → new paragraph, single newline → <br>
-function toHtml(text: string) {
-    if (!text || /<[a-z][\s\S]*>/i.test(text)) return text
-    return text
-        .replace(/\r\n?/g, '\n')
-        .split(/\n\s*\n/)
-        .map((p) => p.trim())
-        .filter(Boolean)
-        .map((p) => `<p>${escapeHtml(p).replace(/\n/g, '<br>')}</p>`)
-        .join('')
-}
-
-const htmlContent = computed(() => toHtml(resolveTranslation(item.value?.content)))
+const htmlContent = computed(() => renderRichText(resolveTranslation(item.value?.content)))
 
 function fmtDate(iso?: string | null) {
     if (!iso) return ''

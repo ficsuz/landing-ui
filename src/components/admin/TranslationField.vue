@@ -1,7 +1,14 @@
 <template>
     <el-tabs v-model="activeTab" class="translation-field">
         <el-tab-pane v-for="locale in locales" :key="locale.key" :label="locale.label" :name="locale.key">
+            <RichTextEditor
+                v-if="type === 'rich'"
+                :model-value="modelValue[locale.key]"
+                :placeholder="placeholder"
+                @update:model-value="(val: string) => emit('update:modelValue', { ...modelValue, [locale.key]: val })"
+            />
             <el-input
+                v-else
                 class="w-full"
                 :model-value="modelValue[locale.key]"
                 :type="type"
@@ -15,11 +22,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import RichTextEditor from '@/components/admin/RichTextEditor.vue'
 import type { Translation } from '@/types/server/api.types'
 
 withDefaults(defineProps<{
     modelValue: Translation
-    type?: 'text' | 'textarea'
+    type?: 'text' | 'textarea' | 'rich'
     rows?: number
     placeholder?: string
 }>(), {

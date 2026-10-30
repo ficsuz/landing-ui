@@ -134,6 +134,7 @@ const loadFailed = ref(false)
 const totalPages = ref(0)
 const listRef = ref<HTMLElement | null>(null)
 let requestId = 0
+let snapshotRequest: Promise<Meeting[]> | null = null
 
 const page = computed(() => {
     const value = Number(route.query.page)
@@ -167,19 +168,21 @@ async function loadMeetings() {
     loadFailed.value = false
     meetings.value = []
     try {
-        const res = await meetingsStore.fetchAll({ page: requestedPage, limit: PAGE_SIZE, sortBy: 'date', order: 'desc' })
+        // Reuse one complete list while paging; a failed load can be retried.
+        const all = await (snapshotRequest ??= meetingsStore.fetchAllOrdered())
         if (id !== requestId) return
-        const pagination = res.meta.pagination
-        totalPages.value = pagination.lastPage
-        const lastValidPage = Math.max(1, pagination.lastPage)
+        const published = all.filter((meeting) => meeting.status === 1)
+        totalPages.value = Math.ceil(published.length / PAGE_SIZE)
+        const lastValidPage = Math.max(1, totalPages.value)
         if (requestedPage > lastValidPage) {
             await router.replace({ query: { ...route.query, page: lastValidPage === 1 ? undefined : String(lastValidPage) }, hash: route.hash })
             return
         }
-        meetings.value = res.data
+        meetings.value = published.slice((requestedPage - 1) * PAGE_SIZE, requestedPage * PAGE_SIZE)
         await nextTick()
         if (requestedPage > 1) listRef.value?.scrollIntoView({ block: 'start', behavior: 'smooth' })
     } catch {
+        snapshotRequest = null
         if (id === requestId) loadFailed.value = true
     } finally {
         if (id === requestId) loading.value = false

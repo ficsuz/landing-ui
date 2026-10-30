@@ -8,7 +8,7 @@
         </div>
 
         <div class="blog-grid" v-loading="store.loading">
-            <div v-for="row in store.items" :key="row.id" class="blog-card">
+            <div v-for="row in pagedMeetings" :key="row.id" class="blog-card">
                 <div class="blog-card__image">
                     <img :src="getMediaUrl(row.imageIds?.[0]) || defaultImage" alt="" />
                     <el-tag :type="row.status === 1 ? 'success' : 'info'" size="small" class="blog-card__status">
@@ -94,7 +94,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, onMounted } from 'vue'
+import { computed, reactive, ref, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { Edit, Delete, Right } from '@element-plus/icons-vue'
 import { useI18n } from 'vue-i18n'
@@ -113,6 +113,7 @@ const { locale } = useI18n()
 
 const page = ref(1)
 const pageSize = ref(12)
+const pagedMeetings = computed(() => store.items.slice((page.value - 1) * pageSize.value, page.value * pageSize.value))
 const showDialog = ref(false)
 const saving = ref(false)
 const editing = ref<Meeting | null>(null)
@@ -149,16 +150,15 @@ function formatDate(iso?: string | null) {
 }
 
 async function loadList() {
-    await store.fetchAll({ page: page.value, limit: pageSize.value, sortBy: 'date', order: 'desc' })
+    await store.fetchAllOrdered()
     // Moving the last item out of a page empties it — step back to the new last one.
     const lastPage = Math.max(1, Math.ceil(store.total / pageSize.value))
     if (page.value > lastPage) {
         page.value = lastPage
-        await loadList()
     }
 }
 
-function onPageChange(p: number) { page.value = p; loadList() }
+function onPageChange(p: number) { page.value = p }
 
 function openCreate() {
     editing.value = null

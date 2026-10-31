@@ -1,34 +1,37 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import img1Cover from '@/assets/images/planery-session/info3_1.png'
-import img1_2 from '@/assets/images/planery-session/info3_2.png'
-import img1_3 from '@/assets/images/planery-session/info3_3.png'
-import img1_4 from '@/assets/images/planery-session/info3_4.png'
-import img1_5 from '@/assets/images/planery-session/info3_5.png'
-import img1_6 from '@/assets/images/planery-session/info3_6.png'
-import img1_7 from '@/assets/images/planery-session/info3_7.png'
-import img1_8 from '@/assets/images/planery-session/info3_8.png'
+import img1Cover from '@/assets/images/planery-session/2022/1.webp'
+import img1_2 from '@/assets/images/planery-session/2022/2.webp'
+import img1_3 from '@/assets/images/planery-session/2022/3.webp'
+import img1_4 from '@/assets/images/planery-session/2022/4.webp'
+import img1_5 from '@/assets/images/planery-session/2022/5.webp'
+import img1_6 from '@/assets/images/planery-session/2022/6.webp'
+import img1_7 from '@/assets/images/planery-session/2022/7.webp'
+import img1_8 from '@/assets/images/planery-session/2022/8.webp'
 
-import img2Cover from '@/assets/images/planery-session/info2_1.png'
-import img2_2 from '@/assets/images/planery-session/info2_2.png'
-import img2_3 from '@/assets/images/planery-session/info2_3.png'
-import img2_4 from '@/assets/images/planery-session/info2_4.png'
-import img2_5 from '@/assets/images/planery-session/info2_5.png'
-import img2_6 from '@/assets/images/planery-session/info2_6.png'
-import img2_7 from '@/assets/images/planery-session/info2_7.png'
-import img2_8 from '@/assets/images/planery-session/info2_8.png'
+import img2Cover from '@/assets/images/planery-session/2024/1.webp'
+import img2_2 from '@/assets/images/planery-session/2024/2.webp'
+import img2_3 from '@/assets/images/planery-session/2024/3.webp'
+import img2_4 from '@/assets/images/planery-session/2024/4.webp'
+import img2_5 from '@/assets/images/planery-session/2024/5.webp'
+import img2_6 from '@/assets/images/planery-session/2024/6.webp'
+import img2_7 from '@/assets/images/planery-session/2024/7.webp'
+import img2_8 from '@/assets/images/planery-session/2024/8.webp'
 
-import img3Cover from '@/assets/images/planery-session/ps_4.png'
-import img3_1 from '@/assets/images/planery-session/ps_1.png'
-import img3_2 from '@/assets/images/planery-session/ps_2.png'
-import img3_3 from '@/assets/images/planery-session/ps_3.png'
-import img3_5 from '@/assets/images/planery-session/ps_5.png'
-import img3_6 from '@/assets/images/planery-session/ps_6.png'
-import img3_7 from '@/assets/images/planery-session/ps_7.png'
-import img3_8 from '@/assets/images/planery-session/ps_8.png'
+import img3Cover from '@/assets/images/planery-session/2025/1.webp'
+import img3_2 from '@/assets/images/planery-session/2025/2.webp'
+import img3_3 from '@/assets/images/planery-session/2025/3.webp'
+import img3_4 from '@/assets/images/planery-session/2025/4.webp'
 
-import img4Cover from '@/assets/images/planery-session/fourth-planery-session.JPG'
+import img4Cover from '@/assets/images/planery-session/2026/1.webp'
+import img4_2 from '@/assets/images/planery-session/2026/2.webp'
+import img4_3 from '@/assets/images/planery-session/2026/3.webp'
+import img4_4 from '@/assets/images/planery-session/2026/4.webp'
+import img4_5 from '@/assets/images/planery-session/2026/5.webp'
+import img4_6 from '@/assets/images/planery-session/2026/6.webp'
+import img4_7 from '@/assets/images/planery-session/2026/7.webp'
+import img4_8 from '@/assets/images/planery-session/2026/8.webp'
 
 export type SessionLink = { label: string; href: string; outlined?: boolean }
 export type StatCard = { label: string; value: string; dark?: boolean }
@@ -79,8 +82,7 @@ const base: SessionBase[] = [
     {
         id: 3,
         cover: img3Cover,
-        gallery: [img3Cover, img3_1, img3_2, img3_3, img3_5, img3_6, img3_7, img3_8],
-        featureImages: [img3_1, img3_2, img3_3],
+        gallery: [img3Cover, img3_2, img3_3, img3_4],
         statCards: [{}, { dark: true }, {}, {}, {}, {}, {}, {}, {}],
         links: [
             { label: 'president.uz', href: 'https://president.uz' },
@@ -90,8 +92,7 @@ const base: SessionBase[] = [
     {
         id: 4,
         cover: img4Cover,
-        gallery: [img3Cover, img3_1, img3_2, img3_3, img3_5, img3_6, img3_7, img3_8],
-        featureImages: [img3_1, img3_2, img3_3],
+        gallery: [img4Cover, img4_2, img4_3, img4_4, img4_5, img4_6, img4_7, img4_8],
         statCards: [{}, { dark: true }, {}, {}, {}, {}, {}, {}, {}],
         links: [
             { label: 'president.uz', href: 'https://president.uz' },

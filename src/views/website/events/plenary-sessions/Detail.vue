@@ -33,7 +33,7 @@
                 </h1>
             </div>
 
-            <!-- Photo gallery: 3 + 2 + 3 grid -->
+            <!-- Photo gallery: 3 + 2 + 3 grid (2 × 2 for four photos) -->
             <div class="grid grid-cols-6 gap-3 md:gap-4">
                 <div v-for="(img, i) in session.gallery" :key="i" class="overflow-hidden rounded-2xl" :class="gridClass(i)">
                     <img :src="img" :alt="`${session.title} — photo ${i + 1}`" class="w-full h-full object-cover" />
@@ -155,6 +155,8 @@ const session = computed(() => sessions.value.find((s) => s.id === Number(route.
 useSeo(() => session.value && { title: session.value.title, description: session.value.summary, image: session.value.cover })
 
 function gridClass(index: number): string {
+    // Four-photo gallery: 2 × 2 grid, shown uncropped
+    if (session.value?.gallery.length === 4) return 'col-span-6 md:col-span-3 aspect-[3/2]'
     if (index < 3) return 'col-span-3 md:col-span-2 h-[200px] md:h-[280px]'
     if (index < 5) return 'col-span-3 h-[220px] md:h-[340px]'
     return 'col-span-3 md:col-span-2 h-[200px] md:h-[280px]'

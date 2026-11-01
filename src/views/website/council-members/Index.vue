@@ -7,6 +7,8 @@
                     {{ $t('councilMembersPage.membersIntro') }}
                 </p>
 
+                <CabinetCallout />
+
                 <!-- Tabs -->
                 <div ref="tabsRef" class="member-tabs mb-8">
                     <button
@@ -69,6 +71,7 @@ import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useCouncilMembersStore } from '@/features/councilMembers/store'
+import CabinetCallout from './components/CabinetCallout.vue'
 import { resolveTranslation } from '@/utils/i18n'
 import { getMediaUrl } from '@/utils/media'
 import type { MemberType } from '@/features/councilMembers/types'

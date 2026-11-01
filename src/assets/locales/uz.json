@@ -368,6 +368,13 @@
         ]
     },
     "councilMembersPage": {
+        "cabinet": {
+            "eyebrow": "A'zolar kabineti",
+            "title": "Kengash a'zolari uchun yopiq ish maydoni",
+            "text": "Tashkilotingiz profili, rahbariyat, loyihalar, tashabbuslar va takliflar — bitta joyda. FICS bergan login va parol bilan kiring.",
+            "button": "Kabinetga o'tish",
+            "note": "Faqat Kengash a'zolari uchun"
+        },
         "intro": "Xorijiy Investorlar Kengashi 43 a'zodan iborat bo'lib, ular xorijiy investorlar, xalqaro moliya institutlari va O'zbekiston hukumati vakillari — O'zbekistonda faoliyat yurituvchi yetakchi kompaniyalar va tashkilotlarni birlashtiradi.",
         "membersIntro": "Xorijiy investorlar kengashi a’zolari — O‘zbekiston iqtisodiyotiga strategik investitsiya kiritayotgan yetakchi xalqaro kompaniyalar, banklar va moliya institutlaridir. A’zolik mamlakat taraqqiyotiga uzoq muddatli sodiqlikni aks ettiradi va investitsiya siyosati masalalari bo‘yicha Hukumat bilan to‘g‘ridan-to‘g‘ri muloqot kanalini taqdim etadi. Kengash 23 ta iqtisodiyot tarmog‘ini ifodalovchi 19 ta davlatdan 43 a’zoni birlashtiradi",
         "execBoardTitle": "Ijroiya qo'mitasi a'zolari",

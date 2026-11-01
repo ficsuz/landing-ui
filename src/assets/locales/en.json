@@ -362,6 +362,13 @@
         ]
     },
     "councilMembersPage": {
+        "cabinet": {
+            "eyebrow": "Members' cabinet",
+            "title": "A private workspace for Council members",
+            "text": "Your organisation's profile, leadership, projects, initiatives and proposals in one place. Sign in with the login and password issued by FICS.",
+            "button": "Go to the cabinet",
+            "note": "For Council members only"
+        },
         "intro": "The Foreign Investors Council consists of 43 members — foreign investors, international financial institutions and representatives of the Government of Uzbekistan — bringing together leading companies and organizations operating in Uzbekistan.",
         "membersIntro": "The members of the Foreign Investors Council are leading international companies, banks and financial institutions making strategic investments in the economy of Uzbekistan. Membership reflects a long-term commitment to the country's development and provides a direct channel of dialogue with the Government on investment policy matters. The Council brings together 43 members from 19 countries, representing 23 sectors of the economy.",
         "execBoardTitle": "Members of the Executive Board",

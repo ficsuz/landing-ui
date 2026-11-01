@@ -6,7 +6,7 @@ const stamp = (iso: string) => iso.replace(/[-:]/g, '').replace(/\.\d{3}/, '')
 const escape = (s: string) => s.replace(/[\\,;]/g, (c) => `\\${c}`).replace(/\n/g, '\\n')
 
 /** Downloads a single-event .ics file the viewer can open in any calendar app. */
-export function downloadIcs(event: CalendarEntry, text: { title: string; location: string; organizer: string }) {
+export function downloadIcs(event: CalendarEntry, text: { title: string; location: string; organizer: string; coOrganizer?: string }) {
     const body = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
@@ -18,7 +18,7 @@ export function downloadIcs(event: CalendarEntry, text: { title: string; locatio
         `DTEND:${stamp(toApiDate(event.end))}`,
         `SUMMARY:${escape(text.title)}`,
         `LOCATION:${escape(text.location)}`,
-        `DESCRIPTION:${escape(text.organizer)}`,
+        `DESCRIPTION:${escape([text.organizer, text.coOrganizer].filter(Boolean).join('\n'))}`,
         'END:VEVENT',
         'END:VCALENDAR',
     ].join('\r\n')

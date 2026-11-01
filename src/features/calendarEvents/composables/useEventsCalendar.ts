@@ -14,6 +14,7 @@ const toEntry = (e: CalendarEvent): CalendarEntry => ({
     title: e.title,
     location: e.location,
     organizer: e.organizer,
+    coOrganizer: e.coOrganizer ?? null,
     start: fromApiDate(e.startDate),
     end: fromApiDate(e.endDate),
 })

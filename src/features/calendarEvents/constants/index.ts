@@ -6,6 +6,7 @@ export const EVENT_TYPES: { value: CalendarEventType; labelKey: string; label: s
     { value: 'interim', labelKey: 'eventsPage.calendar.types.interim', label: 'Interim session' },
     { value: 'wgSession', labelKey: 'eventsPage.calendar.types.wgSession', label: 'Working group session' },
     { value: 'meeting', labelKey: 'eventsPage.calendar.types.meeting', label: 'Meeting' },
+    { value: 'event', labelKey: 'eventsPage.calendar.types.event', label: 'Events' },
 ]
 
 export const EVENT_TYPE_MAP = Object.fromEntries(EVENT_TYPES.map((t) => [t.value, t])) as Record<

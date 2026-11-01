@@ -60,6 +60,12 @@
                     </svg>
                     <span>{{ resolveTranslation(event.organizer, locale) }}</span>
                 </li>
+                <li v-if="resolveTranslation(event.coOrganizer, locale)" class="flex items-start gap-2">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" :aria-label="t('eventsPage.calendar.coOrganizer')">
+                        <circle cx="9" cy="8" r="3.5" /><path d="M2 21v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1" /><path d="M16 4.5a3.5 3.5 0 0 1 0 7" /><path d="M22 21v-1a5 5 0 0 0-3.5-4.8" />
+                    </svg>
+                    <span>{{ resolveTranslation(event.coOrganizer, locale) }}</span>
+                </li>
             </ul>
 
             <div v-if="canAdd(event)" class="pt-4">
@@ -145,6 +151,7 @@ function addToCalendar(event: CalendarEntry) {
         title: resolveTranslation(event.title, locale.value),
         location: resolveTranslation(event.location, locale.value),
         organizer: resolveTranslation(event.organizer, locale.value),
+        coOrganizer: resolveTranslation(event.coOrganizer, locale.value),
     })
 }
 </script>

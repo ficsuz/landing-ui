@@ -1,6 +1,6 @@
 import type { Translation, ListParams } from '@/types/server/api.types'
 
-export type CalendarEventType = 'plenary' | 'interim' | 'wgSession' | 'meeting'
+export type CalendarEventType = 'plenary' | 'interim' | 'wgSession' | 'meeting' | 'event'
 
 /**
  * Calendar plan entry as returned by `GET /v1/calendar-events`.
@@ -13,6 +13,7 @@ export interface CalendarEvent {
     title: Translation
     location: Translation
     organizer: Translation
+    coOrganizer: Translation | null
     startDate: string
     endDate: string
     status: number
@@ -26,6 +27,7 @@ export interface CalendarEventPayload {
     title: Translation
     location: Translation
     organizer: Translation
+    coOrganizer: Translation | null
     startDate: string
     endDate: string
     status?: number
@@ -38,6 +40,7 @@ export interface CalendarEntry {
     title: Translation
     location: Translation
     organizer: Translation
+    coOrganizer: Translation | null
     start: string
     end: string
 }

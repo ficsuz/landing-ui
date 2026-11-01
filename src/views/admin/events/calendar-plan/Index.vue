@@ -87,6 +87,9 @@
                 <el-form-item label="Organizer">
                     <TranslationField v-model="form.organizer" class="w-full" placeholder="e.g. Council Secretariat" />
                 </el-form-item>
+                <el-form-item label="Co-Organizer">
+                    <TranslationField v-model="form.coOrganizer" class="w-full" placeholder="e.g. Ministry of Investment" />
+                </el-form-item>
             </el-form>
             <template #footer>
                 <div class="flex justify-end gap-3">
@@ -124,6 +127,7 @@ interface FormState {
     title: Translation
     location: Translation
     organizer: Translation
+    coOrganizer: Translation
     date: string | null
     start: string | null
     end: string | null
@@ -137,6 +141,7 @@ const emptyForm = (): FormState => ({
     title: emptyTranslation(),
     location: emptyTranslation(),
     organizer: emptyTranslation(),
+    coOrganizer: emptyTranslation(),
     date: null,
     start: null,
     end: null,
@@ -186,6 +191,7 @@ function openEdit(row: CalendarEvent) {
         title: { ...row.title },
         location: row.location ? { ...row.location } : emptyTranslation(),
         organizer: row.organizer ? { ...row.organizer } : emptyTranslation(),
+        coOrganizer: row.coOrganizer ? { ...row.coOrganizer } : emptyTranslation(),
         date: start.slice(0, 10),
         start: start.slice(11, 16),
         end: fromApiDate(row.endDate).slice(11, 16),
@@ -214,6 +220,7 @@ async function handleSubmit() {
             title: form.title,
             location: form.location,
             organizer: form.organizer,
+            coOrganizer: form.coOrganizer,
             startDate: toApiDate(`${form.date}T${form.start}`),
             endDate: toApiDate(`${form.date}T${form.end}`),
             status: form.status,

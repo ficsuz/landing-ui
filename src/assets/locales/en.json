@@ -1020,7 +1020,8 @@
                 "plenary": "Plenary session",
                 "interim": "Interim session",
                 "wgSession": "Working group session",
-                "meeting": "Meeting"
+                "meeting": "Meeting",
+                "event": "Events"
             },
             "allTypes": "All",
             "typeFilter": "Event type",
@@ -1054,6 +1055,7 @@
             "time": "Time",
             "location": "Location",
             "organizer": "Organiser",
+            "coOrganizer": "Co-organiser",
             "dayFormat": "{day} {month}",
             "months": [
                 "January",

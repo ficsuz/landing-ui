@@ -1032,7 +1032,8 @@
                 "plenary": "Пленарная сессия",
                 "interim": "Промежуточная сессия",
                 "wgSession": "Сессия рабочей группы",
-                "meeting": "Встреча"
+                "meeting": "Встреча",
+                "event": "Мероприятия"
             },
             "allTypes": "Все",
             "typeFilter": "Тип мероприятия",
@@ -1066,6 +1067,7 @@
             "time": "Время",
             "location": "Место",
             "organizer": "Организатор",
+            "coOrganizer": "Соорганизатор",
             "dayFormat": "{day} {month}",
             "months": [
                 "Январь",

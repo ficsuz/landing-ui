@@ -11,13 +11,13 @@ const eventsRoutes: RouteRecordRaw[] = [
         path: 'events/meetings',
         name: 'admin-meetings',
         component: () => import('@/views/admin/events/meetings/Index.vue'),
-        meta: { title: 'Uchrashuvlar', roles: ['super_admin', 'admin'] },
+        meta: { title: 'Uçraşuvlar', roles: ['super_admin', 'admin'] },
     },
     {
         path: 'events/meetings/working-group-sessions',
         name: 'admin-working-group-sessions',
         component: () => import('@/views/admin/events/meetings/working-group-sessions/Index.vue'),
-        meta: { title: 'Ishchi guruh majlislari', roles: ['super_admin', 'admin'] },
+        meta: { title: 'Işçi guruh majlislari', roles: ['super_admin', 'admin'] },
     },
     {
         path: 'events/weekly-results',
@@ -29,7 +29,7 @@ const eventsRoutes: RouteRecordRaw[] = [
         path: 'events/working-group',
         name: 'admin-working-group',
         component: () => import('@/views/admin/events/working-group/Index.vue'),
-        meta: { title: 'Ishchi guruhlar', roles: ['super_admin', 'admin'] },
+        meta: { title: 'Işçi guruhlar', roles: ['super_admin', 'admin'] },
     },
     {
         path: 'events/plenary',

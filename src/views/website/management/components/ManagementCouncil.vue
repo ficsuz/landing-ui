@@ -9,10 +9,10 @@
                 <!-- Card 1: Shavkat Mirziyoyev -->
                 <div class="bg-white rounded-2xl border border-[#eef0f4] shadow-[0_2px_24px_rgba(0,0,0,0.07)] p-5 md:p-7 flex flex-col items-center">
                     <div class="h-16 flex items-center justify-center mb-5">
-                        <img :src="icon1" alt="O'zbekiston Respublikasi Prezidenti" class="h-full w-auto object-contain" />
+                        <img :src="icon1" alt="Özbekiston Respublikasi Prezidenti" class="h-full w-auto object-contain" />
                     </div>
                     <div class="w-full rounded-xl overflow-hidden mb-5">
-                        <img :src="photo1" alt="Shavkat Miromonovich Mirziyoyev" class="w-full aspect-[4/5] object-cover object-top" />
+                        <img :src="photo1" alt="Şavkat Miromonoviç Mirziyoyev" class="w-full aspect-[4/5] object-cover object-top" />
                     </div>
                     <p class="font-bold text-[17px] text-[#1a1e2e] text-center leading-tight">{{ $t('council.card1.name') }}</p>
                     <p class="text-[13px] text-[#8a94a6] text-center mt-1.5 leading-snug">{{ $t('council.card1.role') }}</p>

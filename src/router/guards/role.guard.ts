@@ -34,6 +34,6 @@ export default function roleGuard(to: RouteLocationNormalized, _from: RouteLocat
         return
     }
 
-    ElMessage({ message: 'Bu sahifaga kirishga ruxsatingiz yoq', type: 'error', duration: 5000 })
+    ElMessage({ message: 'Bu sahifaga kirişga ruxsatingiz yoq', type: 'error', duration: 5000 })
     next('/admin')
 }

@@ -1,32 +1,32 @@
 {
     "brand": {
-        "line1": "O'zbekiston Respublikasi",
+        "line1": "Özbekiston Respublikasi",
         "line2": "Prezidenti huzuridagi Xorijiy",
-        "line3": "investorlar kengashi"
+        "line3": "investorlar kengaşi"
     },
     "nav": {
-        "aboutCouncil": "Kengash haqida",
-        "home": "Bosh sahifa",
+        "aboutCouncil": "Kengaş haqida",
+        "home": "Boş sahifa",
         "ficHistory": "XIK tarixi",
         "association": "Assotsiatsiya",
         "management": "Rahbariyat",
         "secretariat": "Kotibiyat",
 
-        "councilMembers": "Kengash a'zolari",
-        "uzbekSide": "O'zbek tomoni",
+        "councilMembers": "Kengaş a'zolari",
+        "uzbekSide": "Özbek tomoni",
         "experts": "Ekspertlar",
         "corporation": "Hamkorlik",
-        "becomeAMember": "A'zo bo'lish",
+        "becomeAMember": "A'zo böliş",
 
-        "workingGroups": "Ishchi guruhlar",
-        "overview": "Umumiy ko'rinish",
-        "councilWorkingGroups": "Kengash ishchi guruhlari",
-        "interagencyWorkingGroups": "Idoralararo ishchi guruhlar",
+        "workingGroups": "Işçi guruhlar",
+        "overview": "Umumiy köriniş",
+        "councilWorkingGroups": "Kengaş işçi guruhlari",
+        "interagencyWorkingGroups": "Idoralararo işçi guruhlar",
         "sessionOutcomes": "Majlis natijalari",
 
         "results": "Natijalar",
-        "councilResults": "Kengash natijalari",
-        "initiatives": "Tashabbuslar",
+        "councilResults": "Kengaş natijalari",
+        "initiatives": "Taşabbuslar",
         "investments": "Investitsiyalar",
         "documents": "Hujjatlar",
         "regionalAlliance": "Mintaqaviy ittifoq",
@@ -35,8 +35,8 @@
         "calendarPlan": "Kalendar reja",
         "plenarySessions": "Yalpi majlislar",
         "interimSession": "Oraliq majlislar",
-        "workingGroupSession": "Ishchi guruh majlislari",
-        "meetings": "Uchrashuvlar",
+        "workingGroupSession": "Işçi guruh majlislari",
+        "meetings": "Uçraşuvlar",
         "weeklyResults": "Haftalik natijalar",
 
         "media": "Media",
@@ -50,31 +50,31 @@
     },
     "common": {
         "readMore": "Batafsil",
-        "showAll": "Hammasini ko'rish",
-        "search": "Qidirish",
+        "showAll": "Hammasini köriş",
+        "search": "Qidiriş",
         "loading": "Yuklanmoqda...",
         "noData": "Ma'lumot topilmadi",
         "back": "Orqaga",
-        "close": "Yopish",
-        "save": "Saqlash",
-        "cancel": "Bekor qilish",
-        "confirm": "Tasdiqlash",
-        "delete": "O'chirish",
-        "edit": "Tahrirlash",
-        "add": "Qo'shish",
+        "close": "Yopiş",
+        "save": "Saqlaş",
+        "cancel": "Bekor qiliş",
+        "confirm": "Tasdiqlaş",
+        "delete": "Öçiriş",
+        "edit": "Tahrirlaş",
+        "add": "Qöşiş",
         "filter": "Filtr",
-        "reset": "Tozalash",
-        "download": "Yuklab olish",
-        "print": "Chop etish",
-        "share": "Ulashish",
+        "reset": "Tozalaş",
+        "download": "Yuklab oliş",
+        "print": "Çop etiş",
+        "share": "Ulaşiş",
         "date": "Sana",
         "name": "Nomi",
         "status": "Holat",
         "actions": "Amallar",
         "learnMore": "Batafsil",
-        "viewDocuments": "Hujjatlarni ko'rish",
+        "viewDocuments": "Hujjatlarni köriş",
         "comingSoon": "Tez kunda",
-        "loadMore": "Yana yuklash",
+        "loadMore": "Yana yuklaş",
         "bn": "mlrd"
     },
     "contact": {
@@ -85,421 +85,421 @@
         "lastNamePlaceholder": "Familiyangiz",
         "phone": "Telefon raqami",
         "phonePlaceholder": "+998 99 999 99 99",
-        "email": "Elektron pochta",
+        "email": "Elektron poçta",
         "emailPlaceholder": "example{'@'}gmail.com",
         "message": "Xabar",
-        "messagePlaceholder": "Fikringizni bildiring. Savolingiz bormi? Bizing bilan bo'lishing",
-        "submit": "Yuborish",
+        "messagePlaceholder": "Fikringizni bildiring. Savolingiz bormi? Bizing bilan bölişing",
+        "submit": "Yuboriş",
         "successMessage": "Xabaringiz muvaffaqiyatli yuborildi!",
-        "errorMessage": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
+        "errorMessage": "Xatolik yuz berdi. Iltimos, qayta urinib köring."
     },
     "hero": {
         "scroll": "Pastga",
         "slide1": {
-            "quote": "Bizning asosiy maqsadimiz – O‘zbekistonni xorijiy investorlar uchun ishonchli va uzoq muddatli hamkorga aylantirishdir",
-            "author": "Shavkat Miromonovich Mirziyoyev",
-            "role": "O'zbekiston Respublikasi Prezidenti"
+            "quote": "Bizning asosiy maqsadimiz – Özbekistonni xorijiy investorlar uçun işonçli va uzoq muddatli hamkorga aylantirişdir",
+            "author": "Şavkat Miromonoviç Mirziyoyev",
+            "role": "Özbekiston Respublikasi Prezidenti"
         },
         "slide2": {
-            "quote": "Biz tajribamiz va investitsiyalarimiz qo‘shimcha qiymat yaratishi mumkin bo‘lgan barcha yo‘nalishlarda o‘z hissamizni qo‘shishga tayyormiz.",
+            "quote": "Biz tajribamiz va investitsiyalarimiz qöşimça qiymat yaratişi mumkin bölgan barça yönalişlarda öz hissamizni qöşişga tayyormiz.",
             "author": "Odile Renaud-Basso",
-            "role": "Yevropa Tiklanish va Taraqqiyot Bankining Prezidenti"
+            "role": "Yevropa Tiklaniş va Taraqqiyot Bankining Prezidenti"
         },
         "slide3": {
-            "title": "Kengash YeTTB tomonidan qo'llab-quvvatlanmoqda!"
+            "title": "Kengaş YeTTB tomonidan qöllab-quvvatlanmoqda!"
         }
     },
     "council": {
-        "title": "Xorijiy Investorlar Kengashi",
-        "subtitle": "barqaror rivojlanish va iqtisodiy islohotlarni qo‘llab-quvvatlash maqsadidagi tashkilotlarni birlashtiradi",
+        "title": "Xorijiy Investorlar Kengaşi",
+        "subtitle": "barqaror rivojlaniş va iqtisodiy islohotlarni qöllab-quvvatlaş maqsadidagi taşkilotlarni birlaştiradi",
         "management": "Rahbariyat",
         "card1": {
-            "name": "Shavkat Miromonovich Mirziyoyev",
-            "role": "Kengash raisi",
-            "subrole": "O'zbekiston Respublikasi Prezidenti"
+            "name": "Şavkat Miromonoviç Mirziyoyev",
+            "role": "Kengaş raisi",
+            "subrole": "Özbekiston Respublikasi Prezidenti"
         },
         "card2": {
             "name": "Odile Renaud-Basso",
-            "role": "Kengash rais o'rinbosari",
+            "role": "Kengaş rais örinbosari",
             "subrole": "YeTTB Prezidenti"
         }
     },
     "keyFigures": {
-        "title": "Asosiy ko'rsatkichlar",
-        "councilMembers": "Kengash a'zolari",
+        "title": "Asosiy körsatkiçlar",
+        "councilMembers": "Kengaş a'zolari",
         "activeCompanies": "Faol kompaniyalar",
         "countries": "Mamlakatlar",
-        "workingGroups": "Ishchi guruhlar",
-        "initiatives": "IV Yalpi majlis uchun tashabbuslar"
+        "workingGroups": "Işçi guruhlar",
+        "initiatives": "IV Yalpi majlis uçun taşabbuslar"
     },
     "exec": {
-        "title": "Ijroiya Qo'mitasi",
+        "title": "Ijroiya Qömitasi",
         "m1": {
             "name": "Laziz Kudratov",
-            "role": "O‘zbekiston Respublikasi Investitsiyalar, Savdo va Sanoat Vaziri",
-            "quote": "O‘zbekistonda amalga oshirilayotgan islohotlar va xorijiy investorlar uchun qulay shart-sharoitlar yaratilgani tufayli investitsiyaviy faollik izchil o‘sib bormoqda.",
-            "bio": "O'zbekiston Respublikasi Investitsiyalar, sanoat va savdo vaziri, Ijroiya qo'mitasi raisi. Mamlakatning investitsiya siyosati, sanoat rivojlanishi va tashqi savdosiga rahbarlik qiladi."
+            "role": "Özbekiston Respublikasi Investitsiyalar, Savdo va Sanoat Vaziri",
+            "quote": "Özbekistonda amalga oşirilayotgan islohotlar va xorijiy investorlar uçun qulay şart-şaroitlar yaratilgani tufayli investitsiyaviy faollik izçil ösib bormoqda.",
+            "bio": "Özbekiston Respublikasi Investitsiyalar, sanoat va savdo vaziri, Ijroiya qömitasi raisi. Mamlakatning investitsiya siyosati, sanoat rivojlanişi va taşqi savdosiga rahbarlik qiladi."
         },
         "m2": {
             "name": "Andy Aranitasi",
-            "role": "YeTTBning O'zbekistondagi rahbari",
-            "quote": "Biz mamlakatda ishbilarmonlik muhitini yaxshilashga katta ahamiyat qaratamiz, bu esa Prezident Mirziyoyev tomonidan strategik milliy ustuvor yo‘nalish sifatida belgilangan.",
-            "bio": "Direktor, YETTBning O'zbekistondagi vakolatxonasi rahbari. Bank sohasida 25 yildan ortiq tajribaga ega; YETTBning energetika, infratuzilma va O'zbekiston xususiy sektoriga investitsiyalarini kengaytirgan."
+            "role": "YeTTBning Özbekistondagi rahbari",
+            "quote": "Biz mamlakatda işbilarmonlik muhitini yaxşilaşga katta ahamiyat qaratamiz, bu esa Prezident Mirziyoyev tomonidan strategik milliy ustuvor yönaliş sifatida belgilangan.",
+            "bio": "Direktor, YETTBning Özbekistondagi vakolatxonasi rahbari. Bank sohasida 25 yildan ortiq tajribaga ega; YETTBning energetika, infratuzilma va Özbekiston xususiy sektoriga investitsiyalarini kengaytirgan."
         },
         "m3": {
             "name": "Kanokpan Lao-Araya",
             "role": "Osiyo Taraqqiyot Banki mamlakat direktori",
-            "quote": "Hukumat islohotlarga qat‘iy sodiq bo‘lib, mamlakatdagi barcha manfaatdor tomonlarni, jumladan xususiy sektorni ham, rivojlanish jarayoniga jalb etishga intilmoqda.",
-            "bio": "OTBning O'zbekistondagi mamlakat direktori. Rivojlanish va iqtisodiy siyosat sohasida 25 yildan ortiq tajribaga ega."
+            "quote": "Hukumat islohotlarga qat‘iy sodiq bölib, mamlakatdagi barça manfaatdor tomonlarni, jumladan xususiy sektorni ham, rivojlaniş jarayoniga jalb etişga intilmoqda.",
+            "bio": "OTBning Özbekistondagi mamlakat direktori. Rivojlaniş va iqtisodiy siyosat sohasida 25 yildan ortiq tajribaga ega."
         },
         "m4": {
             "name": "Neil McCain",
-            "role": "XMKning O‘zbekiston va Turkmaniston bo‘yicha ofisi direktori",
-            "quote": "O‘zbekistonning asosiy raqobat ustunliklari — Markaziy Osiyodagi eng ko‘p aholiga ega mamlakat va eng diversifikatsiyalashgan iqtisodiyot.",
-            "bio": "XMKning O‘zbekiston va Turkmaniston bo‘yicha ofisi direktori. XMKning xususiy sektorni rivojlantirish operatsiyalariga rahbarlik qiladi."
+            "role": "XMKning Özbekiston va Turkmaniston böyiça ofisi direktori",
+            "quote": "Özbekistonning asosiy raqobat ustunliklari — Markaziy Osiyodagi eng köp aholiga ega mamlakat va eng diversifikatsiyalaşgan iqtisodiyot.",
+            "bio": "XMKning Özbekiston va Turkmaniston böyiça ofisi direktori. XMKning xususiy sektorni rivojlantiriş operatsiyalariga rahbarlik qiladi."
         },
         "m5": {
             "name": "Aziz Gafurov",
             "role": "XIK Kotibiyati rahbari",
             "mgmtRole": "XIK Kotibiyati rahbari",
-            "mgmtSubRole": "Kengash assotsiatsiyasi rahbari",
-            "quote": "Biz mamlakatning tadbirkorlik muhitini yaxshilashga katta ahamiyat beramiz — bu prezident Mirziyoyev tomonidan strategik milliy ustuvorlik sifatida belgilangan.",
-            "bio": "Kengash Assotsiatsiyasi rahbari va Kotibiyat boshlig'i. Korporativ boshqaruv, risklarni boshqarish va investitsiya siyosati sohasida 20 yildan ortiq tajribaga ega top-menejer."
+            "mgmtSubRole": "Kengaş assotsiatsiyasi rahbari",
+            "quote": "Biz mamlakatning tadbirkorlik muhitini yaxşilaşga katta ahamiyat beramiz — bu prezident Mirziyoyev tomonidan strategik milliy ustuvorlik sifatida belgilangan.",
+            "bio": "Kengaş Assotsiatsiyasi rahbari va Kotibiyat boşliği. Korporativ boşqaruv, risklarni boşqariş va investitsiya siyosati sohasida 20 yildan ortiq tajribaga ega top-menejer."
         }
     },
     "plenary": {
         "title": "Yalpi majlislardan lavhalar",
-        "subtitle": "Islohotlar muhokama qilinadigan, asosiy qarorlar qabul qilinadigan va O‘zbekistonning investitsiyaviy kelajagi yaratiladigan davlat va investorlar muloqoti"
+        "subtitle": "Islohotlar muhokama qilinadigan, asosiy qarorlar qabul qilinadigan va Özbekistonning investitsiyaviy kelajagi yaratiladigan davlat va investorlar muloqoti"
     },
     "members": {
-        "title": "Kengash a'zolari",
-        "foreignSubtitle": "Xorijiy Investorlar Kengashining xorijiy a'zolari",
-        "uzbekSubtitle": "Xorijiy Investorlar Kengashining o'zbek a'zolari"
+        "title": "Kengaş a'zolari",
+        "foreignSubtitle": "Xorijiy Investorlar Kengaşining xorijiy a'zolari",
+        "uzbekSubtitle": "Xorijiy Investorlar Kengaşining özbek a'zolari"
     },
     "strongPartners": {
-        "title": "Biz bilan yonma-yon yurgan kuchli hamkorlar",
+        "title": "Biz bilan yonma-yon yurgan kuçli hamkorlar",
         "subtitle": "Biz birgalikda faxrlanadigan natija yaratamiz",
-        "btn": "Ishchi guruhlar"
+        "btn": "Işçi guruhlar"
     },
     "councilCalendar": {
-        "title": "Kengash Kalendari",
-        "allEvents": "Barcha tadbirlar"
+        "title": "Kengaş Kalendari",
+        "allEvents": "Barça tadbirlar"
     },
     "news": {
         "title": "Yangiliklar",
-        "allNews": "Barcha yangiliklar"
+        "allNews": "Barça yangiliklar"
     },
     "investments": {
-        "title": "O'zbekistonga investitsiyalar",
-        "subtitle": "Asosiy makroiqtisodiy ko'rsatkichlar",
+        "title": "Özbekistonga investitsiyalar",
+        "subtitle": "Asosiy makroiqtisodiy körsatkiçlar",
         "gdp": "YaIM (2026 maqsad — >150 mlrd dollar)",
-        "gdpGrowth": "YaIM o'sishi (XVF, 2025)",
+        "gdpGrowth": "YaIM ösişi (XVF, 2025)",
         "foreignInflow": "Xorijiy investitsiyalar oqimi",
         "rating": "Fitch va S&P reytingi; Moody's Ba3 (musbat istiqbol)",
         "reserves": "Oltin-valyuta zahiralari (+35%)",
         "inflation": "Inflyatsiya (bir yil avval 9,8% edi)",
-        "exportGrowth": "Eksport o'sishi (~32 mlrd dollar)",
+        "exportGrowth": "Eksport ösişi (~32 mlrd dollar)",
         "totalInvestment": "YaIMga nisbatan jami investitsiyalar",
-        "unemployment": "Ishsizlik (minimal daraja)",
+        "unemployment": "Işsizlik (minimal daraja)",
         "sector": {
-            "energy": "Yashil energetika",
+            "energy": "Yaşil energetika",
             "energyP1": "ACWA, Masdar, TotalEnergies, EDF, Voltalia",
-            "energyP2": "QTM uchun 8 mlrd dollardan ortiq investitsiya",
-            "energyP3": "quyosh, shamol, vodorod, energiya akkumulyatsiyasi",
+            "energyP2": "QTM uçun 8 mlrd dollardan ortiq investitsiya",
+            "energyP3": "quyoş, şamol, vodorod, energiya akkumulyatsiyasi",
             "digital": "Raqamli infratuzilma va AI",
-            "digitalP1": "DataVolt — mintaqaning eng yirik «yashil» ma'lumotlar markazi",
+            "digitalP1": "DataVolt — mintaqaning eng yirik «yaşil» ma'lumotlar markazi",
             "digitalP2": "VEON — AI asosidagi supradastur",
             "digitalP3": "Yandex — xaritalar va raqamli xizmatlar",
-            "infra": "Infratuzilma va GXSh",
-            "infraP1": "2025 yilda GXSh loyihalari uchun 4,5 mlrd dollar",
-            "infraP2": "yo'llar, transport, suv ta'minoti, irrigatsiya",
-            "infraP3": "xalqaro moliya institutlari (XMI) bilan aralash moliyalashtirish",
+            "infra": "Infratuzilma va GXŞ",
+            "infraP1": "2025 yilda GXŞ loyihalari uçun 4,5 mlrd dollar",
+            "infraP2": "yöllar, transport, suv ta'minoti, irrigatsiya",
+            "infraP3": "xalqaro moliya institutlari (XMI) bilan aralaş moliyalaştiriş",
             "finance": "Moliyaviy xizmatlar",
-            "financeP1": "Toshkent xalqaro moliya markazi",
+            "financeP1": "Toşkent xalqaro moliya markazi",
             "financeP2": "Islom moliyasi (Green Sukuk, Takaful)",
-            "financeP3": "so'mda dastlabki suveren obligatsiyalar",
-            "mfg": "Qayta ishlash sanoati",
-            "mfgP1": "kimyo va o'g'itlar (Indorama)",
-            "mfgP2": "to'qimachilik, qurilish materiallari (Knauf)",
-            "mfgP3": "eksportga yo'naltirilgan ishlab chiqarish",
-            "mining": "Kritik minerallar va konchilik",
-            "miningP1": "katta xom ashyo bazasi",
-            "miningP2": "qo'shimcha qiymat yaratadigan qayta ishlash loyihalari",
+            "financeP3": "sömda dastlabki suveren obligatsiyalar",
+            "mfg": "Qayta işlaş sanoati",
+            "mfgP1": "kimyo va öğitlar (Indorama)",
+            "mfgP2": "töqimaçilik, quriliş materiallari (Knauf)",
+            "mfgP3": "eksportga yönaltirilgan işlab çiqariş",
+            "mining": "Kritik minerallar va konçilik",
+            "miningP1": "katta xom aşyo bazasi",
+            "miningP2": "qöşimça qiymat yaratadigan qayta işlaş loyihalari",
             "miningP3": "xalqaro ESG standartlari"
         },
         "g1term": "Huquqiy kafolatlar.",
-        "g1text": "«Investitsiyalar va investitsiya faoliyati to’g’risida»gi qonun mablag’larni mamlakatdan tashqariga erkin o’tkazishni va investitsiyalarni milliylashtirishdan himoya qilishni kafolatlaydi.",
+        "g1text": "«Investitsiyalar va investitsiya faoliyati töğrisida»gi qonun mablağlarni mamlakatdan taşqariga erkin ötkazişni va investitsiyalarni milliylaştirişdan himoya qilişni kafolatlaydi.",
         "g2term": "Soliq barqarorligi.",
-        "g2text": "Biznes uchun asosiy soliq stavkalari 2028 yilgacha o'zgarmaydi.",
-        "g3term": "To'g'ridan-to'g'ri muloqot.",
-        "g3text": "Prezident huzuridagi Xorijiy investorlar kengashi — investorlar masalalarini eng yuqori darajada hal etishning institutsional kanali.",
-        "g4term": "Nizolarni hal etish.",
-        "g4text": "Toshkent xalqaro arbitraj markazi; Toshkent xalqaro tijorat sudi.",
-        "g5term": "Kengash a'zolari uchun imtiyozlar.",
-        "g5text": "Kengash a'zolari va ularning oila a'zolari uchun vizasiz kirish.",
+        "g2text": "Biznes uçun asosiy soliq stavkalari 2028 yilgaça özgarmaydi.",
+        "g3term": "Töğridan-töğri muloqot.",
+        "g3text": "Prezident huzuridagi Xorijiy investorlar kengaşi — investorlar masalalarini eng yuqori darajada hal etişning institutsional kanali.",
+        "g4term": "Nizolarni hal etiş.",
+        "g4text": "Toşkent xalqaro arbitraj markazi; Toşkent xalqaro tijorat sudi.",
+        "g5term": "Kengaş a'zolari uçun imtiyozlar.",
+        "g5text": "Kengaş a'zolari va ularning oila a'zolari uçun vizasiz kiriş.",
         "sourcesLabel": "Ma'lumot manbalari",
-        "sourcesText": "XVF (IV modda, 2026), Jahon banki, YAIB; Fitch, S&P, Moody's; 2025 yil natijalari bo'yicha Prezident nutqi; invest.gov.uz / MIFT; PwC Investor Guide.",
-        "introEyebrow": "Umumiy ko'rinish",
-        "introHeading": "O'zbekiston — Yevrosiyoning eng jadal rivojlanayotgan iqtisodiyotlaridan biri",
-        "intro1": "2017 yildan buyon O‘zbekiston Yevrosiyodagi eng yirik iqtisodiy transformatsiyalardan birini amalga oshirdi. Valyuta bozorining liberallashtirilishi, soliq va sud-huquq islohotlari, kapital bozorlarining ochilishi hamda xususiylashtirish ilgari yopiq bo‘lgan iqtisodiyotni mintaqaning eng jadal rivojlanayotgan investitsiya yo‘nalishlaridan biriga aylantirdi. Bugungi kunda mamlakat Markaziy Osiyodagi eng yirik aholi bozoriga ega bo‘lib, aholisi taxminan 37,7 million kishini tashkil etadi va ichki talab barqaror o‘sib bormoqda.",
-        "intro2": "2025 yil ushbu yo‘nalishning to‘g‘riligini yana bir bor tasdiqladi. YAIM o‘sishi 7,7% ga yetib, aksariyat prognozlardan yuqori bo‘ldi; inflyatsiya 7,3% gacha pasaydi, ishsizlik darajasi esa 4,8% ni tashkil etdi. Fitch yetti yil ichida ilk bor suveren reytingni BB darajasiga oshirdi, S&P BB reytingini tasdiqladi, Moody's esa Ba3 reytingini saqlab qolib, prognozni «ijobiy»ga yaxshiladi. Jahon Savdo Tashkilotiga a'zo bo‘lish jarayoni yakunlanish arafasida bo‘lib, bu 2017 yilgi valyuta liberallashuvidan buyon iqtisodiyotning eng muhim tarkibiy ochilishidir.",
+        "sourcesText": "XVF (IV modda, 2026), Jahon banki, YAIB; Fitch, S&P, Moody's; 2025 yil natijalari böyiça Prezident nutqi; invest.gov.uz / MIFT; PwC Investor Guide.",
+        "introEyebrow": "Umumiy köriniş",
+        "introHeading": "Özbekiston — Yevrosiyoning eng jadal rivojlanayotgan iqtisodiyotlaridan biri",
+        "intro1": "2017 yildan buyon Özbekiston Yevrosiyodagi eng yirik iqtisodiy transformatsiyalardan birini amalga oşirdi. Valyuta bozorining liberallaştirilişi, soliq va sud-huquq islohotlari, kapital bozorlarining oçilişi hamda xususiylaştiriş ilgari yopiq bölgan iqtisodiyotni mintaqaning eng jadal rivojlanayotgan investitsiya yönalişlaridan biriga aylantirdi. Bugungi kunda mamlakat Markaziy Osiyodagi eng yirik aholi bozoriga ega bölib, aholisi taxminan 37,7 million kişini taşkil etadi va içki talab barqaror ösib bormoqda.",
+        "intro2": "2025 yil uşbu yönalişning töğriligini yana bir bor tasdiqladi. YAIM ösişi 7,7% ga yetib, aksariyat prognozlardan yuqori böldi; inflyatsiya 7,3% gaça pasaydi, işsizlik darajasi esa 4,8% ni taşkil etdi. Fitch yetti yil içida ilk bor suveren reytingni BB darajasiga oşirdi, S&P BB reytingini tasdiqladi, Moody's esa Ba3 reytingini saqlab qolib, prognozni «ijobiy»ga yaxşiladi. Jahon Savdo Taşkilotiga a'zo böliş jarayoni yakunlaniş arafasida bölib, bu 2017 yilgi valyuta liberallaşuvidan buyon iqtisodiyotning eng muhim tarkibiy oçilişidir.",
         "timeline": {
-            "eyebrow": "To'qqiz yil islohotlar",
+            "eyebrow": "Töqqiz yil islohotlar",
             "title": "Islohotlar traektoriyasi",
-            "sub": "Iqtisodiyotni ochishdan kapital bozoriga",
-            "y2017": "Valyuta bozori liberallashtirildi, tizimli islohotlar boshlandi; YaIM taxminan 56 mlrd dollar.",
-            "y2019": "Prezident huzuridagi Xorijiy Investorlar Kengashi tashkil etildi — investorlar bilan muloqot uchun institutsional platforma.",
-            "y2024": "Energetika islohotlari; xalqaro kompaniyalarning yashil iqtisodiyotga rekord miqdordagi investitsiyalari.",
-            "y2025": "Fitch va S&P reytinglari BB gacha ko'tarildi; xorijiy investitsiyalar oqimi ~42 mlrd dollar; YaIM o'sishi 7,7%.",
-            "y2026": "JTO ga a'zolik yakunlanadi; Toshkent xalqaro moliya markazi tashkil etiladi; maqsad — YaIM 150 mlrd dollardan ortiq. To'qqiz yil ichida ~125 mlrd dollar xorijiy investitsiya jalb qilindi — 2017 yildagi ~4,5 mlrd dollarga nisbatan."
+            "sub": "Iqtisodiyotni oçişdan kapital bozoriga",
+            "y2017": "Valyuta bozori liberallaştirildi, tizimli islohotlar boşlandi; YaIM taxminan 56 mlrd dollar.",
+            "y2019": "Prezident huzuridagi Xorijiy Investorlar Kengaşi taşkil etildi — investorlar bilan muloqot uçun institutsional platforma.",
+            "y2024": "Energetika islohotlari; xalqaro kompaniyalarning yaşil iqtisodiyotga rekord miqdordagi investitsiyalari.",
+            "y2025": "Fitch va S&P reytinglari BB gaça kötarildi; xorijiy investitsiyalar oqimi ~42 mlrd dollar; YaIM ösişi 7,7%.",
+            "y2026": "JTO ga a'zolik yakunlanadi; Toşkent xalqaro moliya markazi taşkil etiladi; maqsad — YaIM 150 mlrd dollardan ortiq. Töqqiz yil içida ~125 mlrd dollar xorijiy investitsiya jalb qilindi — 2017 yildagi ~4,5 mlrd dollarga nisbatan."
         }
     },
     "articles": {
         "title": "Maqolalar"
     },
     "tasks": {
-        "title": "Kengash vazifalari",
-        "subtitle": "Kengash faoliyatining asosiy yo'nalishlari",
+        "title": "Kengaş vazifalari",
+        "subtitle": "Kengaş faoliyatining asosiy yönalişlari",
         "tasksLabel": "VAZIFA",
         "items": {
-            "advising": "Hukumatga maslahat berish",
-            "investment": "Investitsiya muhitini yaxshilash",
+            "advising": "Hukumatga maslahat beriş",
+            "investment": "Investitsiya muhitini yaxşilaş",
             "dialogue": "Biznes bilan muloqot",
-            "barriers": "To'siqlarni aniqlash",
-            "recommendations": "Tavsiyalar ishlab chiqish",
-            "export": "Eksportni rivojlantirish",
+            "barriers": "Tösiqlarni aniqlaş",
+            "recommendations": "Tavsiyalar işlab çiqiş",
+            "export": "Eksportni rivojlantiriş",
             "quality": "Sifat standartlari",
             "legal": "Huquqiy islohotlar",
-            "image": "Xalqaro obro'"
+            "image": "Xalqaro obrö"
         }
     },
     "chronology": {
         "title": "Xronologiya",
-        "subtitle": "Kengash rivojlanishining asosiy bosqichlari",
+        "subtitle": "Kengaş rivojlanişining asosiy bosqiçlari",
         "milestones": [
-            { "date": "Noyabr 2019", "description": "Kengashning tashkil etilishi (PP-4519). Birinchi navbatdan tashqari majlis — 20 noyabr" },
-            { "date": "Noyabr 2022", "description": "I Yalpi majlis — 9 noyabr. Ustav va asosiy strategik qarorlarning qabul qilinishi" },
+            { "date": "Noyabr 2019", "description": "Kengaşning taşkil etilişi (PP-4519). Birinçi navbatdan taşqari majlis — 20 noyabr" },
+            { "date": "Noyabr 2022", "description": "I Yalpi majlis — 9 noyabr. Ustav va asosiy strategik qarorlarning qabul qilinişi" },
             {
                 "date": "May 2024",
-                "description": "II Yalpi majlis — 3 may, III Toshkent xalqaro investitsiya forumi doirasida. PP-179 — to'rtta ishchi guruh tashkil etilishi"
+                "description": "II Yalpi majlis — 3 may, III Toşkent xalqaro investitsiya forumi doirasida. PP-179 — törtta işçi guruh taşkil etilişi"
             },
             {
                 "date": "Iyun 2025",
-                "description": "Yalpi majlis — 11 iyun. PP-226 — ishchi guruhlarning kengaytirilishi va qayta tashkil etilishi"
+                "description": "Yalpi majlis — 11 iyun. PP-226 — işçi guruhlarning kengaytirilişi va qayta taşkil etilişi"
             },
-            { "date": "Noyabr 2025", "description": "Assotsiatsiyaning tashkil etilishi — 4 noyabr. Navbatdan tashqari majlis — 19 noyabr" },
+            { "date": "Noyabr 2025", "description": "Assotsiatsiyaning taşkil etilişi — 4 noyabr. Navbatdan taşqari majlis — 19 noyabr" },
             {
                 "date": "Iyun 2026",
-                "description": "III Yalpi majlis — iyun. Yangi investitsiya tashabbuslari va ishchi guruhlar natijalari taqdimoti"
+                "description": "III Yalpi majlis — iyun. Yangi investitsiya taşabbuslari va işçi guruhlar natijalari taqdimoti"
             }
         ]
     },
     "ficHistory": {
         "viewDecree": "Batafsil",
-        "p1": "O‘zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi — O‘zbekiston hukumati va mamlakatda faoliyat yuritayotgan investorlar o‘rtasida to‘g‘ridan-to‘g‘ri muloqot qilish uchun institutsional maydondir. Prezidentning 2019-yil 13-noyabrdagi PQ-4519-son qarori bilan tashkil etilgan.",
-        "p2": "Kengash faoliyati investitsiyalarni jalb qilishdagi asosiy to‘siqlarni aniqlash, ularni bartaraf etish bo‘yicha davlat organlari bilan hamkorlikda yechimlar ishlab chiqish va qulay investitsiya muhitini ta’minlashga qaratilgan. Kengash raisi — O‘zbekiston Respublikasi Prezidenti; hamraisi — YeTTB Prezidenti."
+        "p1": "Özbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengaşi — Özbekiston hukumati va mamlakatda faoliyat yuritayotgan investorlar örtasida töğridan-töğri muloqot qiliş uçun institutsional maydondir. Prezidentning 2019-yil 13-noyabrdagi PQ-4519-son qarori bilan taşkil etilgan.",
+        "p2": "Kengaş faoliyati investitsiyalarni jalb qilişdagi asosiy tösiqlarni aniqlaş, ularni bartaraf etiş böyiça davlat organlari bilan hamkorlikda yeçimlar işlab çiqiş va qulay investitsiya muhitini ta’minlaşga qaratilgan. Kengaş raisi — Özbekiston Respublikasi Prezidenti; hamraisi — YeTTB Prezidenti."
     },
     "investorsVoices": {
         "title": "Investorlar Ovozi",
-        "subtitle": "Xalqaro tashkilotlar vakillari XIKda ishtirok etish natijalari va taassurotlarini bo'lishdi."
+        "subtitle": "Xalqaro taşkilotlar vakillari XIKda iştirok etiş natijalari va taassurotlarini bölişdi."
     },
     "specialProjects": {
         "title": "Maxsus loyihalar",
-        "subtitle": "Kengash tomonidan tayyorlangan O'zbekistondagi investitsiya muhiti haqidagi video loyihalar va maxsus materiallar."
+        "subtitle": "Kengaş tomonidan tayyorlangan Özbekistondagi investitsiya muhiti haqidagi video loyihalar va maxsus materiallar."
     },
     "management": {
-        "title": "Kengash rahbariyati",
+        "title": "Kengaş rahbariyati",
         "biography": "Biografiya",
-        "execChair": "Ijroiya qo'mita raisi",
-        "execMember": "Ijroiya qo'mita a'zosi"
+        "execChair": "Ijroiya qömita raisi",
+        "execMember": "Ijroiya qömita a'zosi"
     },
     "association": {
         "legalBasis": {
             "title": "Huquqiy asos va institutsional maqom",
-            "p1": "O‘zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi xorijiy investorlar, xalqaro moliya institutlari va O‘zbekiston Respublikasi Hukumati o‘rtasida to‘g‘ridan-to‘g‘ri muloqot qilish uchun maslahat-kengash organi sifatida Prezidentning 2019-yil 13-noyabrdagi PQ-4519-son qarori bilan tashkil etilgan.",
-            "p2": "Kengash faoliyati kengayishi bilan doimiy faoliyat yurituvchi operatsion organga ehtiyoj tug‘ildi. Prezidentning 2025-yil 18-iyuldagi PQ-226-son qarori bilan Kengash a’zolari va xalqaro moliya institutlarining Kengash Kotibiyatini nodavlat notijorat tashkilot shaklida tashkil etish to‘g‘risidagi taklifi qo‘llab-quvvatlandi.",
-            "p3": "Ushbu qaror ijrosida 2025-yil 4-noyabrda “Foreign Investors Council” yuridik shaxslar uyushmasi (Assotsiatsiya, Ittifoq), STIR 312 551 219, ro‘yxatdan o‘tkazildi — Kengash Kotibiyati funksiyalarini bajaruvchi yuridik shaxs.",
+            "p1": "Özbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengaşi xorijiy investorlar, xalqaro moliya institutlari va Özbekiston Respublikasi Hukumati örtasida töğridan-töğri muloqot qiliş uçun maslahat-kengaş organi sifatida Prezidentning 2019-yil 13-noyabrdagi PQ-4519-son qarori bilan taşkil etilgan.",
+            "p2": "Kengaş faoliyati kengayişi bilan doimiy faoliyat yurituvçi operatsion organga ehtiyoj tuğildi. Prezidentning 2025-yil 18-iyuldagi PQ-226-son qarori bilan Kengaş a’zolari va xalqaro moliya institutlarining Kengaş Kotibiyatini nodavlat notijorat taşkilot şaklida taşkil etiş töğrisidagi taklifi qöllab-quvvatlandi.",
+            "p3": "Uşbu qaror ijrosida 2025-yil 4-noyabrda “Foreign Investors Council” yuridik şaxslar uyuşmasi (Assotsiatsiya, Ittifoq), STIR 312 551 219, röyxatdan ötkazildi — Kengaş Kotibiyati funksiyalarini bajaruvçi yuridik şaxs.",
             "documents": "Hujjatlar"
         },
         "functions": {
             "title": "Kotibiyat funksiyalari",
             "items": [
-                "yalpi va oraliq majlislarni tashkil etish",
-                "16 ta ishchi guruh faoliyatini muvofiqlashtirish",
+                "yalpi va oraliq majlislarni taşkil etiş",
+                "16 ta işçi guruh faoliyatini muvofiqlaştiriş",
                 "investorlar bilan kundalik hamkorlik",
-                "tashabbuslarni yig‘ish va ilgari surish",
-                "Kengashni tahliliy qo‘llab-quvvatlash"
+                "taşabbuslarni yiğiş va ilgari suriş",
+                "Kengaşni tahliliy qöllab-quvvatlaş"
             ]
         },
         "governance": {
-            "title": "Boshqaruv tuzilmasi",
+            "title": "Boşqaruv tuzilmasi",
             "items": [
-                "Ta’sischilarning umumiy yig‘ilishi — oliy organ",
-                "Ijroiya qo‘mitasi — kollegial organ",
+                "Ta’sisçilarning umumiy yiğilişi — oliy organ",
+                "Ijroiya qömitasi — kollegial organ",
                 "Assotsiatsiya rahbari / Kotibiyat rahbari"
             ]
         }
     },
     "secretariatPage": {
         "title": "Kotibiyat",
-        "subtitle": "Xorijiy Investorlar Kengashining doimiy faoliyat yurituvchi operativ organi",
+        "subtitle": "Xorijiy Investorlar Kengaşining doimiy faoliyat yurituvçi operativ organi",
         "missionTitle": "Bizning vazifamiz",
-        "missionText": "Xorijiy investorlar kengashi Kotibiyati — majlislar orasida Kengash ishining uzluksizligi va tizimliligini ta’minlovchi doimiy faoliyat yurituvchi operatsion organ. Kotibiyat yalpi va oraliq majlislarni tashkil etadi, o‘n oltita ishchi guruh faoliyatini muvofiqlashtiradi, Kengash a’zolari va xorijiy investorlar bilan kundalik muloqot olib boradi, investitsiya muhitini yaxshilash bo‘yicha tashabbuslarni yig‘adi va tahlil qiladi hamda ularning tegishli davlat siyosatiga ilgari surilishini ta’minlaydi.",
-        "legalText": "Yuridik shaxs maqomiga ega bo‘lishi bilan Kotibiyat o‘z vakolatini samarali bajarish va xalqaro moliya institutlari bilan hamkorlik qilish uchun zarur institutsional mustaqillikka ega bo‘ldi.",
+        "missionText": "Xorijiy investorlar kengaşi Kotibiyati — majlislar orasida Kengaş işining uzluksizligi va tizimliligini ta’minlovçi doimiy faoliyat yurituvçi operatsion organ. Kotibiyat yalpi va oraliq majlislarni taşkil etadi, ön oltita işçi guruh faoliyatini muvofiqlaştiradi, Kengaş a’zolari va xorijiy investorlar bilan kundalik muloqot olib boradi, investitsiya muhitini yaxşilaş böyiça taşabbuslarni yiğadi va tahlil qiladi hamda ularning tegişli davlat siyosatiga ilgari surilişini ta’minlaydi.",
+        "legalText": "Yuridik şaxs maqomiga ega bölişi bilan Kotibiyat öz vakolatini samarali bajariş va xalqaro moliya institutlari bilan hamkorlik qiliş uçun zarur institutsional mustaqillikka ega böldi.",
         "teamTitle": "Kotibiyat",
         "contactTitle": "Aloqa ma'lumotlari",
-        "address": "100084, O'zbekiston Respublikasi, Toshkent sh., Mustakillik ko'chasi, 5",
+        "address": "100084, Özbekiston Respublikasi, Toşkent ş., Mustakillik köçasi, 5",
         "phone": "+998 71 239 80 30",
         "email": "info{'@'}fics.uz",
-        "workHours": "Dush–Juma: 09:00 – 18:00",
+        "workHours": "Duş–Juma: 09:00 – 18:00",
         "roles": {
             "head": "Kotibiyat rahbari",
             "coordinator": "Dastur koordinatori",
             "pr": "PR va Marketing mutaxassisi",
-            "admin": "Ma'muriy yordamchi"
+            "admin": "Ma'muriy yordamçi"
         },
         "team": [
             { "name": "Aziz Gafurov", "role": "Kotibiyat rahbari", "key": "m5" },
-            { "name": "Madina Xolmatova", "role": "Ishchi guruhlar koordinatori", "key": "madina" },
-            { "name": "Jorabek Toshmatov", "role": "Tahlil va tadqiqotlar bo'limi", "key": "jorabek" },
-            { "name": "Vladislav Petrov", "role": "Investorlar bilan munosabatlar bo'limi", "key": "vladislav" },
-            { "name": "Avaz Yusupov", "role": "Huquqiy maslahat bo'limi", "key": "avaz" },
-            { "name": "Avazbek Mirzayev", "role": "Kommunikatsiya va media bo'limi", "key": "avazbek" }
+            { "name": "Madina Xolmatova", "role": "Işçi guruhlar koordinatori", "key": "madina" },
+            { "name": "Jorabek Toşmatov", "role": "Tahlil va tadqiqotlar bölimi", "key": "jorabek" },
+            { "name": "Vladislav Petrov", "role": "Investorlar bilan munosabatlar bölimi", "key": "vladislav" },
+            { "name": "Avaz Yusupov", "role": "Huquqiy maslahat bölimi", "key": "avaz" },
+            { "name": "Avazbek Mirzayev", "role": "Kommunikatsiya va media bölimi", "key": "avazbek" }
         ]
     },
     "councilMembersPage": {
         "cabinet": {
             "eyebrow": "A'zolar kabineti",
-            "title": "Kengash a'zolari uchun yopiq ish maydoni",
-            "text": "Tashkilotingiz profili, rahbariyat, loyihalar, tashabbuslar va takliflar — bitta joyda. FICS bergan login va parol bilan kiring.",
-            "button": "Kabinetga o'tish",
-            "note": "Faqat Kengash a'zolari uchun"
+            "title": "Kengaş a'zolari uçun yopiq iş maydoni",
+            "text": "Taşkilotingiz profili, rahbariyat, loyihalar, taşabbuslar va takliflar — bitta joyda. FICS bergan login va parol bilan kiring.",
+            "button": "Kabinetga ötiş",
+            "note": "Faqat Kengaş a'zolari uçun"
         },
-        "intro": "Xorijiy Investorlar Kengashi 43 a'zodan iborat bo'lib, ular xorijiy investorlar, xalqaro moliya institutlari va O'zbekiston hukumati vakillari — O'zbekistonda faoliyat yurituvchi yetakchi kompaniyalar va tashkilotlarni birlashtiradi.",
-        "membersIntro": "Xorijiy investorlar kengashi a’zolari — O‘zbekiston iqtisodiyotiga strategik investitsiya kiritayotgan yetakchi xalqaro kompaniyalar, banklar va moliya institutlaridir. A’zolik mamlakat taraqqiyotiga uzoq muddatli sodiqlikni aks ettiradi va investitsiya siyosati masalalari bo‘yicha Hukumat bilan to‘g‘ridan-to‘g‘ri muloqot kanalini taqdim etadi. Kengash 23 ta iqtisodiyot tarmog‘ini ifodalovchi 19 ta davlatdan 43 a’zoni birlashtiradi",
-        "execBoardTitle": "Ijroiya qo'mitasi a'zolari",
-        "fullMembersTitle": "To'laqonli a'zolar",
-        "observersTitle": "Kuzatuvchi a'zolar",
+        "intro": "Xorijiy Investorlar Kengaşi 43 a'zodan iborat bölib, ular xorijiy investorlar, xalqaro moliya institutlari va Özbekiston hukumati vakillari — Özbekistonda faoliyat yurituvçi yetakçi kompaniyalar va taşkilotlarni birlaştiradi.",
+        "membersIntro": "Xorijiy investorlar kengaşi a’zolari — Özbekiston iqtisodiyotiga strategik investitsiya kiritayotgan yetakçi xalqaro kompaniyalar, banklar va moliya institutlaridir. A’zolik mamlakat taraqqiyotiga uzoq muddatli sodiqlikni aks ettiradi va investitsiya siyosati masalalari böyiça Hukumat bilan töğridan-töğri muloqot kanalini taqdim etadi. Kengaş 23 ta iqtisodiyot tarmoğini ifodalovçi 19 ta davlatdan 43 a’zoni birlaştiradi",
+        "execBoardTitle": "Ijroiya qömitasi a'zolari",
+        "fullMembersTitle": "Tölaqonli a'zolar",
+        "observersTitle": "Kuzatuvçi a'zolar",
         "tabs": {
-            "all": "Barchasi",
+            "all": "Barçasi",
             "foreign": "Xorijiy a'zolar",
-            "uzbek": "O'zbek tomoni",
+            "uzbek": "Özbek tomoni",
             "experts": "Ekspertlar"
         }
     },
     "uzbekSidePage": {
-        "title": "O'zbek tomoni",
-        "intro": "O'zbekiston Respublikasi Hukumatining Xorijiy Investorlar Kengashidagi vakillik tarkibi — tegishli soha vazirlari, agentlik va idora rahbarlari.",
+        "title": "Özbek tomoni",
+        "intro": "Özbekiston Respublikasi Hukumatining Xorijiy Investorlar Kengaşidagi vakillik tarkibi — tegişli soha vazirlari, agentlik va idora rahbarlari.",
         "membersCount": "a'zo",
-        "officialNote": "Kengashning hukumat tomonidan rasmiy tarkibi.\nPrezidentning PP-226-son qarori, 2-ilova.",
-        "officialLink": "Ko‘proq bilish"
+        "officialNote": "Kengaşning hukumat tomonidan rasmiy tarkibi.\nPrezidentning PP-226-son qarori, 2-ilova.",
+        "officialLink": "Köproq biliş"
     },
     "expertsPage": {
         "title": "Ekspertlar",
-        "subtitle": "Kengashning maslahat organi a'zolari",
-        "intro": "Kengash ekspertlari — Xorijiy investorlar kengashining ishchi guruhlari va tashabbuslariga ekspert yordamini ko‘rsatuvchi e’tirof etilgan xalqaro va mahalliy mutaxassislardir. Kengash ularning O‘zbekiston investitsiya siyosatini rivojlantirishga qo‘shgan hissasini yuqori baholaydi va professional malakasini e’tirof etadi.",
+        "subtitle": "Kengaşning maslahat organi a'zolari",
+        "intro": "Kengaş ekspertlari — Xorijiy investorlar kengaşining işçi guruhlari va taşabbuslariga ekspert yordamini körsatuvçi e’tirof etilgan xalqaro va mahalliy mutaxassislardir. Kengaş ularning Özbekiston investitsiya siyosatini rivojlantirişga qöşgan hissasini yuqori baholaydi va professional malakasini e’tirof etadi.",
         "internationalTitle": "Xalqaro ekspertlar",
-        "internationalDesc": "Yetakchi konsalting, yuridik va moliyaviy tashkilotlar (EY, Crowe, Franklin Templeton, BDO, Kosta Legal va boshqalar) vakillari bo‘lib, qonunchilik tashabbuslarini ishlab chiqish va xalqaro standartlarni moslashtirish jarayonida ishtirok etadilar.",
+        "internationalDesc": "Yetakçi konsalting, yuridik va moliyaviy taşkilotlar (EY, Crowe, Franklin Templeton, BDO, Kosta Legal va boşqalar) vakillari bölib, qonunçilik taşabbuslarini işlab çiqiş va xalqaro standartlarni moslaştiriş jarayonida iştirok etadilar.",
         "localTitle": "Mahalliy ekspertlar",
-        "localDesc": "Investitsiya siyosati, korporativ boshqaruv va tarmoq tartibga solish sohasidagi milliy mutaxassislar bo‘lib, xalqaro amaliyotni O‘zbekiston sharoitlari bilan bog‘laydilar.",
+        "localDesc": "Investitsiya siyosati, korporativ boşqaruv va tarmoq tartibga soliş sohasidagi milliy mutaxassislar bölib, xalqaro amaliyotni Özbekiston şaroitlari bilan boğlaydilar.",
         "specialties": {
             "legal": "Huquq",
             "finance": "Moliya",
             "energy": "Energetika",
             "digital": "Raqamli iqtisodiyot",
-            "agri": "Qishloq xo'jaligi",
+            "agri": "Qişloq xöjaligi",
             "logistics": "Logistika"
         }
     },
     "becomeAMemberPage": {
-        "title": "A'zo bo'lish",
-        "categoriesSubtitle": "Toifalar, ta'sir va qabul qilish tartibi",
-        "intro": "XIK — xorijiy investorlar va O'zbekiston Hukumati o'rtasidagi tuzilgan muloqot uchun asosiy institutsional platforma.",
-        "requirementsTitle": "A'zolik shartlari",
+        "title": "A'zo böliş",
+        "categoriesSubtitle": "Toifalar, ta'sir va qabul qiliş tartibi",
+        "intro": "XIK — xorijiy investorlar va Özbekiston Hukumati örtasidagi tuzilgan muloqot uçun asosiy institutsional platforma.",
+        "requirementsTitle": "A'zolik şartlari",
         "requirements": [
-            "O'zbekistonda ro'yxatdan o'tgan yoki faoliyat yurituvchi xorijiy kompaniya yoki xalqaro moliya instituti",
-            "Mamlakatning iqtisodiy rivojlanishiga hissa qo'shish niyati va imkoniyati",
-            "Kengash majlislari va ishchi guruh faoliyatida faol ishtirok etish",
-            "Kengash Ustaviga rioya qilish"
+            "Özbekistonda röyxatdan ötgan yoki faoliyat yurituvçi xorijiy kompaniya yoki xalqaro moliya instituti",
+            "Mamlakatning iqtisodiy rivojlanişiga hissa qöşiş niyati va imkoniyati",
+            "Kengaş majlislari va işçi guruh faoliyatida faol iştirok etiş",
+            "Kengaş Ustaviga rioya qiliş"
         ],
-        "admissionTitle": "Qabul qilish tartibi",
-        "admissionNote": "Qabul qilish va ishtirok etish formatlari Ustav, A'zolik nizomi va tegishli protokol qoidalariga muvofiq belgilanadi.",
+        "admissionTitle": "Qabul qiliş tartibi",
+        "admissionNote": "Qabul qiliş va iştirok etiş formatlari Ustav, A'zolik nizomi va tegişli protokol qoidalariga muvofiq belgilanadi.",
         "steps": [
             {
                 "num": "01",
                 "title": "Ariza va hujjatlar",
-                "desc": "So'ralgan a'zolik kategoriyasini ko'rsatib, zarur tasdiqlovchi hujjatlarning to'liq to'plami bilan birga yozma ariza topshirish"
+                "desc": "Söralgan a'zolik kategoriyasini körsatib, zarur tasdiqlovçi hujjatlarning töliq töplami bilan birga yozma ariza topşiriş"
             },
             {
                 "num": "02",
-                "title": "Ko'rib chiqish",
-                "desc": "Hujjatlarni va talablarga muvofiqligini tekshirishni o'z ichiga olgan baholash"
+                "title": "Körib çiqiş",
+                "desc": "Hujjatlarni va talablarga muvofiqligini tekşirişni öz içiga olgan baholaş"
             },
-            { "num": "03", "title": "Qaror", "desc": "Ijroiya qo'mitasi tomonidan ko'rib chiqish va qaror qabul qilish" },
-            { "num": "04", "title": "Rasmiylashtirish", "desc": "A'zolik shartnomasini imzolash va a'zolik badallarini to'lash" }
+            { "num": "03", "title": "Qaror", "desc": "Ijroiya qömitasi tomonidan körib çiqiş va qaror qabul qiliş" },
+            { "num": "04", "title": "Rasmiylaştiriş", "desc": "A'zolik şartnomasini imzolaş va a'zolik badallarini tölaş" }
         ],
         "categoriesTitle": "A'zolik kategoriyalari va ta'sir darajasi",
         "categories": [
             {
-                "title": "Ijroiya qo'mitasi",
-                "perks": ["Boshqaruvda strategik rol", "Ustav o'zgartirishlari, qayta tashkil etish va tugatish bo'yicha hal qiluvchi ovoz"]
+                "title": "Ijroiya qömitasi",
+                "perks": ["Boşqaruvda strategik rol", "Ustav özgartirişlari, qayta taşkil etiş va tugatiş böyiça hal qiluvçi ovoz"]
             },
             {
-                "title": "To'laqonli a'zolar",
-                "limit": "40 tagacha a'zo",
+                "title": "Tölaqonli a'zolar",
+                "limit": "40 tagaça a'zo",
                 "perks": [
                     "Asosiy va faol investorlar",
-                    "Hal qiluvchi ovoz huquqi",
-                    "O'zbekiston Prezidenti bilan yalpi majlislarda ishtirok etish",
-                    "Rasmiy protokol va yopiq ishchi formatlarda qatnashish"
+                    "Hal qiluvçi ovoz huquqi",
+                    "Özbekiston Prezidenti bilan yalpi majlislarda iştirok etiş",
+                    "Rasmiy protokol va yopiq işçi formatlarda qatnaşiş"
                 ]
             },
             {
-                "title": "Kuzatuvchilar",
-                "limit": "60 tagacha a'zo",
+                "title": "Kuzatuvçilar",
+                "limit": "60 tagaça a'zo",
                 "perks": [
-                    "Maslahat (hal qiluvchi ovoz huquqisiz) roli",
-                    "XIK yalpi majlislarida ishtirok etish",
-                    "Ochiq majlislar, muhokamalar va ekspert formatlarida ishtirok etish"
+                    "Maslahat (hal qiluvçi ovoz huquqisiz) roli",
+                    "XIK yalpi majlislarida iştirok etiş",
+                    "Oçiq majlislar, muhokamalar va ekspert formatlarida iştirok etiş"
                 ]
             }
         ],
         "formTitle": "A'zolik arizasi",
         "companyName": "Kompaniya nomi",
-        "contactPerson": "Aloqa shaxsi",
+        "contactPerson": "Aloqa şaxsi",
         "position": "Lavozim",
         "sector": "Faoliyat sohasi",
-        "message": "Qo'shimcha ma'lumot",
-        "submit": "Ariza yuborish"
+        "message": "Qöşimça ma'lumot",
+        "submit": "Ariza yuboriş"
     },
     "workingGroupsPage": {
-        "overviewTitle": "Ishchi guruhlar",
-        "overviewIntro": "Kengash doirasida 16 ta ishchi guruh faoliyat yuritadi — ular investitsiya muhiti, qonunchilik islohoti va tarmoq rivojlanishining ustuvor yo'nalishlarini qamrab oladi.",
-        "overviewStat1": "ta ishchi guruh",
-        "overviewStat2": "ta kompaniya ishtiroki",
-        "overviewStat3": "ta tashabbus",
-        "cwgTitle": "Kengash ishchi guruhlari",
-        "cwgIntro": "Kengash ishchi guruhlari sektoral yo'nalishlar bo'yicha investorlar va hukumat idoralari o'rtasida bevosita muloqot platformasini ta'minlaydi.",
-        "iwgTitle": "Idoralararo ishchi guruhlar",
-        "iwgIntro": "Idoralararo ishchi guruhlar O'zbekiston hukumatining tegishli vazirliklari va agentliklari bilan birgalikda iqtisodiy islohotlarning kompleks masalalarini hal etadi.",
+        "overviewTitle": "Işçi guruhlar",
+        "overviewIntro": "Kengaş doirasida 16 ta işçi guruh faoliyat yuritadi — ular investitsiya muhiti, qonunçilik islohoti va tarmoq rivojlanişining ustuvor yönalişlarini qamrab oladi.",
+        "overviewStat1": "ta işçi guruh",
+        "overviewStat2": "ta kompaniya iştiroki",
+        "overviewStat3": "ta taşabbus",
+        "cwgTitle": "Kengaş işçi guruhlari",
+        "cwgIntro": "Kengaş işçi guruhlari sektoral yönalişlar böyiça investorlar va hukumat idoralari örtasida bevosita muloqot platformasini ta'minlaydi.",
+        "iwgTitle": "Idoralararo işçi guruhlar",
+        "iwgIntro": "Idoralararo işçi guruhlar Özbekiston hukumatining tegişli vazirliklari va agentliklari bilan birgalikda iqtisodiy islohotlarning kompleks masalalarini hal etadi.",
         "outcomeTitle": "Majlis natijalari",
-        "outcomeIntro": "Har bir majlisda qabul qilingan qarorlar, tashabbuslar va keyingi qadamlar bo'yicha batafsil hisobotlar.",
+        "outcomeIntro": "Har bir majlisda qabul qilingan qarorlar, taşabbuslar va keyingi qadamlar böyiça batafsil hisobotlar.",
         "outcomeView": "Batafsil",
         "outcomes": [
             {
                 "type": "Yalpi majlis",
                 "date": "2022-yil 16-noyabr",
-                "summary": "«Ko‘ksaroy» qarorgohi. 150 dan ortiq ishtirokchi, 40 dan ortiq taklif. Ustuvorliklar: ishbilarmonlik muhiti, soliq barqarorligi, DXSh, yashil iqtisodiyot, raqamlashtirish."
+                "summary": "«Köksaroy» qarorgohi. 150 dan ortiq iştirokçi, 40 dan ortiq taklif. Ustuvorliklar: işbilarmonlik muhiti, soliq barqarorligi, DXŞ, yaşil iqtisodiyot, raqamlaştiriş."
             },
             {
                 "type": "Yalpi majlis",
                 "date": "2024-yil 3-may",
-                "summary": "III TIIF doirasida Prezident raisligida o‘tkazildi. Natijada — 14 tashabbusdan iborat yo‘l xaritasiga ega PQ-179, jumladan to‘rtta ishchi guruh tashkil etilishi."
+                "summary": "III TIIF doirasida Prezident raisligida ötkazildi. Natijada — 14 taşabbusdan iborat yöl xaritasiga ega PQ-179, jumladan törtta işçi guruh taşkil etilişi."
             },
             {
                 "type": "Yalpi majlis",
                 "date": "2025-yil 11-iyun",
-                "summary": "III TIIF doirasida Prezident raisligida o‘tkazildi. Natijada — 120 tashabbusdan iborat yo‘l xaritasiga ega PQ-226, jumladan to‘rtta ishchi guruh tashkil etilishi"
+                "summary": "III TIIF doirasida Prezident raisligida ötkazildi. Natijada — 120 taşabbusdan iborat yöl xaritasiga ega PQ-226, jumladan törtta işçi guruh taşkil etilişi"
             },
             {
                 "type": "Yalpi majlis",
@@ -508,318 +508,318 @@
             }
         ],
         "groups": {
-            "g1": { "name": "Energetika va yashil o'tish", "members": 8, "initiatives": 14 },
+            "g1": { "name": "Energetika va yaşil ötiş", "members": 8, "initiatives": 14 },
             "g2": { "name": "Moliya sektori va kapital bozori", "members": 7, "initiatives": 11 },
             "g3": { "name": "Raqamli iqtisodiyot va IT", "members": 9, "initiatives": 16 },
             "g4": { "name": "Infratuzilma va logistika", "members": 6, "initiatives": 9 },
-            "g5": { "name": "Qishloq xo'jaligi va oziq-ovqat sanoati", "members": 5, "initiatives": 8 },
+            "g5": { "name": "Qişloq xöjaligi va oziq-ovqat sanoati", "members": 5, "initiatives": 8 },
             "g6": { "name": "Kon sanoati va metallurgiya", "members": 4, "initiatives": 7 },
             "g7": { "name": "Turizm va xizmatlar", "members": 6, "initiatives": 10 },
-            "g8": { "name": "Ishlab chiqarish va kimyo sanoati", "members": 5, "initiatives": 8 },
+            "g8": { "name": "Işlab çiqariş va kimyo sanoati", "members": 5, "initiatives": 8 },
             "g9": { "name": "Huquqiy va me'yoriy islohot", "members": 7, "initiatives": 12 },
-            "g10": { "name": "Sog'liqni saqlash va farmatsevtika", "members": 4, "initiatives": 6 },
-            "g11": { "name": "Savdo va eksportni rivojlantirish", "members": 6, "initiatives": 9 },
+            "g10": { "name": "Soğliqni saqlaş va farmatsevtika", "members": 4, "initiatives": 6 },
+            "g11": { "name": "Savdo va eksportni rivojlantiriş", "members": 6, "initiatives": 9 },
             "g12": { "name": "Inson kapitali va ta'lim", "members": 5, "initiatives": 7 }
         },
         "interagencyGroups": {
             "i1": {
-                "name": "Muqobil investitsiya fondlari to'g'risidagi qonun loyihasini ishlab chiqish bo'yicha ishchi guruh",
-                "description": "Xorijiy investorlar uchun mavjud moliyaviy vositalarni kengaytirish va xilma-xil kapital jalb etish maqsadida muqobil investitsiya fondlari uchun zamonaviy qonunchilik bazasini ishlab chiqish."
+                "name": "Muqobil investitsiya fondlari töğrisidagi qonun loyihasini işlab çiqiş böyiça işçi guruh",
+                "description": "Xorijiy investorlar uçun mavjud moliyaviy vositalarni kengaytiriş va xilma-xil kapital jalb etiş maqsadida muqobil investitsiya fondlari uçun zamonaviy qonunçilik bazasini işlab çiqiş."
             },
             "i2": {
-                "name": "Moliya sohasi va bank tizimini yanada takomillashtirish bo'yicha ishchi guruh",
-                "description": "Kreditorlar uchun xatarlarni kamaytirish, investorlarni himoya qilishni kuchaytirish va moliyalashtirishdan kengroq foydalanishni ta'minlash uchun moliya sektori va bank tizimini takomillashtirish."
+                "name": "Moliya sohasi va bank tizimini yanada takomillaştiriş böyiça işçi guruh",
+                "description": "Kreditorlar uçun xatarlarni kamaytiriş, investorlarni himoya qilişni kuçaytiriş va moliyalaştirişdan kengroq foydalanişni ta'minlaş uçun moliya sektori va bank tizimini takomillaştiriş."
             },
             "i3": {
-                "name": "Mas'uliyatli tadbirkorlik tamoyillarini joriy etish bo'yicha ishchi guruh",
-                "description": "O'zbekistonda faoliyat yurituvchi kompaniyalar orasida ESG standartlari va mas'uliyatli tadbirkorlik amaliyotlarini targ'ib qilish, OECD Ko'pmillatli korxonalar uchun ko'rsatmalariga muvofiqlashtirish."
+                "name": "Mas'uliyatli tadbirkorlik tamoyillarini joriy etiş böyiça işçi guruh",
+                "description": "Özbekistonda faoliyat yurituvçi kompaniyalar orasida ESG standartlari va mas'uliyatli tadbirkorlik amaliyotlarini tarğib qiliş, OECD Köpmillatli korxonalar uçun körsatmalariga muvofiqlaştiriş."
             },
             "i4": {
-                "name": "Xorijiy kompaniyalar uchun malakali kadrlar tayyorlash bo'yicha ishchi guruh",
-                "description": "O'zbekistonda faoliyat yurituvchi xalqaro kompaniyalar talablariga javob beradigan mahalliy kadrlarni kasbiy tayyorlash va malakasini oshirish dasturlarini ishlab chiqish."
+                "name": "Xorijiy kompaniyalar uçun malakali kadrlar tayyorlaş böyiça işçi guruh",
+                "description": "Özbekistonda faoliyat yurituvçi xalqaro kompaniyalar talablariga javob beradigan mahalliy kadrlarni kasbiy tayyorlaş va malakasini oşiriş dasturlarini işlab çiqiş."
             },
             "i5": {
-                "name": "Mahalliy kompaniyalarda korporativ boshqaruvni yaxshilash bo'yicha ishchi guruh",
-                "description": "O'zbek kompaniyalarida korporativ boshqaruv standartlarini takomillashtirish, direktorlar kengashi, shaffoflik va hisobdorlik bo'yicha eng yaxshi amaliyotlarni rivojlantirish."
+                "name": "Mahalliy kompaniyalarda korporativ boşqaruvni yaxşilaş böyiça işçi guruh",
+                "description": "Özbek kompaniyalarida korporativ boşqaruv standartlarini takomillaştiriş, direktorlar kengaşi, şaffoflik va hisobdorlik böyiça eng yaxşi amaliyotlarni rivojlantiriş."
             },
             "i6": {
-                "name": "Soliq ma'muriyatchiligini yaxshilash bo'yicha ishchi guruh",
-                "description": "Soliq ma'muriyatchilik tartib-qoidalarini soddalashtirish, korxonalarga ma'muriy yukni kamaytirish, soliq tizimining shaffofligini oshirish va nizolarni hal qilishning samarali mexanizmlarini rivojlantirish."
+                "name": "Soliq ma'muriyatçiligini yaxşilaş böyiça işçi guruh",
+                "description": "Soliq ma'muriyatçilik tartib-qoidalarini soddalaştiriş, korxonalarga ma'muriy yukni kamaytiriş, soliq tizimining şaffofligini oşiriş va nizolarni hal qilişning samarali mexanizmlarini rivojlantiriş."
             },
             "i7": {
-                "name": "Yer ajratish tartib-taomillarini takomillashtirish bo'yicha ishchi guruh",
+                "name": "Yer ajratiş tartib-taomillarini takomillaştiriş böyiça işçi guruh",
                 "ministry": "Kadastr agentligi",
-                "description": "Yer ajratish tartib-taomillarini soddalashtirish va tezlashtirish, yer resurslaridan foydalanish strategiyasini shakllantirish."
+                "description": "Yer ajratiş tartib-taomillarini soddalaştiriş va tezlaştiriş, yer resurslaridan foydalaniş strategiyasini şakllantiriş."
             },
             "i8": {
-                "name": "Energetika masalalari bo'yicha ishchi guruh",
+                "name": "Energetika masalalari böyiça işçi guruh",
                 "ministry": "Energetika vazirligi",
-                "description": "Elektr energiyasini taqsimlash sohasiga xususiy investitsiyalarni jalb etish, tarmoqlarni rivojlantirish rejasini ishlab chiqish va huquqiy-soliq rejimining barqarorligini ta'minlash."
+                "description": "Elektr energiyasini taqsimlaş sohasiga xususiy investitsiyalarni jalb etiş, tarmoqlarni rivojlantiriş rejasini işlab çiqiş va huquqiy-soliq rejimining barqarorligini ta'minlaş."
             },
             "i9": {
-                "name": "Aylanma iqtisodiyot bo'yicha ishchi guruh",
-                "ministry": "Ekologiya davlat qo'mitasi",
-                "description": "Aylanma iqtisodiyot tamoyillarini joriy etish, chiqindilarni qayta ishlash va resurslarni tejashni rag'batlantirish, xorijiy kompaniyalar orasida barqaror ishlab chiqarish amaliyotlarini qo'llab-quvvatlash."
+                "name": "Aylanma iqtisodiyot böyiça işçi guruh",
+                "ministry": "Ekologiya davlat qömitasi",
+                "description": "Aylanma iqtisodiyot tamoyillarini joriy etiş, çiqindilarni qayta işlaş va resurslarni tejaşni rağbatlantiriş, xorijiy kompaniyalar orasida barqaror işlab çiqariş amaliyotlarini qöllab-quvvatlaş."
             },
             "i10": {
-                "name": "Raqamlashtirish va sun'iy intellekt bo'yicha ishchi guruh",
+                "name": "Raqamlaştiriş va sun'iy intellekt böyiça işçi guruh",
                 "ministry": "Raqamli texnologiyalar vazirligi",
-                "description": "Raqamlashtirish va sun'iy intellektni joriy etish uchun normativ-huquqiy bazani ishlab chiqish, raqamli innovatsiyalarni rag'batlantirish va xorijiy texnologiya kompaniyalarini bu sohaga jalb etish."
+                "description": "Raqamlaştiriş va sun'iy intellektni joriy etiş uçun normativ-huquqiy bazani işlab çiqiş, raqamli innovatsiyalarni rağbatlantiriş va xorijiy texnologiya kompaniyalarini bu sohaga jalb etiş."
             },
             "i11": {
-                "name": "Toshkent xalqaro moliya markazini rivojlantirish bo'yicha ishchi guruh",
+                "name": "Toşkent xalqaro moliya markazini rivojlantiriş böyiça işçi guruh",
                 "ministry": "",
-                "description": "Toshkent xalqaro moliya markazini rivojlantirish, xalqaro moliya institutlarini jalb etish va mintaqaviy moliya markazi sifatidagi mavqeini mustahkamlash."
+                "description": "Toşkent xalqaro moliya markazini rivojlantiriş, xalqaro moliya institutlarini jalb etiş va mintaqaviy moliya markazi sifatidagi mavqeini mustahkamlaş."
             }
         },
         "membersLabel": "a'zo",
-        "initiativesLabel": "tashabbus",
-        "councilStatLabel": "Kengash ishchi guruhlari",
-        "interagencyStatLabel": "Idoralararo ishchi guruhlar",
+        "initiativesLabel": "taşabbus",
+        "councilStatLabel": "Kengaş işçi guruhlari",
+        "interagencyStatLabel": "Idoralararo işçi guruhlar",
         "legalBasisLabel": "Huquqiy asos",
-        "legalBasisText": "18.07.2025 yildagi Prezident qaroriga asosan (21.07.2025 dan kuchga kirgan) — PP-226",
+        "legalBasisText": "18.07.2025 yildagi Prezident qaroriga asosan (21.07.2025 dan kuçga kirgan) — PP-226",
         "learnMore": "Batafsil",
-        "tabCouncil": "Ishchi guruhlar (IG)",
-        "tabInteragency": "Ishchi guruhlar",
-        "chairLabel": "Ishchi guruh raisi.",
+        "tabCouncil": "Işçi guruhlar (IG)",
+        "tabInteragency": "Işçi guruhlar",
+        "chairLabel": "Işçi guruh raisi.",
         "coChairLabel": "Hamrais",
-        "membershipBadge": "Idoralararo ishchi guruh a'zoligi",
-        "participantsTitle": "Ishchi guruh ishtrokchilari",
+        "membershipBadge": "Idoralararo işçi guruh a'zoligi",
+        "participantsTitle": "Işçi guruh iştrokçilari",
         "stateMembersTitle": "Davlat tomonidan",
-        "councilMembersTitle": "Kengash tomonidan",
-        "backButton": "Ishchi guruhlarga qaytish",
+        "councilMembersTitle": "Kengaş tomonidan",
+        "backButton": "Işçi guruhlarga qaytiş",
         "councilGroups": {
             "c1": {
-                "name": "Energetika sektori bo'yicha IG",
-                "description": "Elektr energiyasini ishlab chiqarish, uzatish va taqsimlashga xususiy investitsiyalarni rag'batlantirish, qayta tiklanuvchi energiya manbalarini va energetika loyihalari uchun aralash moliyalashtirish mexanizmlarini rivojlantirish."
+                "name": "Energetika sektori böyiça IG",
+                "description": "Elektr energiyasini işlab çiqariş, uzatiş va taqsimlaşga xususiy investitsiyalarni rağbatlantiriş, qayta tiklanuvçi energiya manbalarini va energetika loyihalari uçun aralaş moliyalaştiriş mexanizmlarini rivojlantiriş."
             },
             "c2": {
-                "name": "Moliya sektori va bank tizimi bo'yicha IG",
-                "description": "Bank sektorini mustahkamlash, kapital bozorlarini rivojlantirish, moliyaviy tartibga solishni takomillashtirish va moliyaviy institutlar uchun investitsion muhitni yaxshilash."
+                "name": "Moliya sektori va bank tizimi böyiça IG",
+                "description": "Bank sektorini mustahkamlaş, kapital bozorlarini rivojlantiriş, moliyaviy tartibga solişni takomillaştiriş va moliyaviy institutlar uçun investitsion muhitni yaxşilaş."
             },
             "c3": {
-                "name": "Kadrlar jalb etish va inson kapitali rivojlanishi bo'yicha IG",
-                "description": "Xalqaro kadrlarni jalb etish, mahalliy ishchi kuchini rivojlantirish va xorijiy investorlar uchun raqobatbardosh inson kapitali muhitini shakllantirishga yo'naltirilgan siyosatni rivojlantirish."
+                "name": "Kadrlar jalb etiş va inson kapitali rivojlanişi böyiça IG",
+                "description": "Xalqaro kadrlarni jalb etiş, mahalliy işçi kuçini rivojlantiriş va xorijiy investorlar uçun raqobatbardoş inson kapitali muhitini şakllantirişga yönaltirilgan siyosatni rivojlantiriş."
             },
             "c4": {
-                "name": "Raqamlashtirish va AKT bo'yicha IG",
-                "description": "Investorlar va davlat o'rtasidagi o'zaro munosabatlarni raqamli transformatsiya qilish, elektron xizmat ko'rsatish platformalarini va zamonaviy raqamli infratuzilmani rivojlantirish."
+                "name": "Raqamlaştiriş va AKT böyiça IG",
+                "description": "Investorlar va davlat örtasidagi özaro munosabatlarni raqamli transformatsiya qiliş, elektron xizmat körsatiş platformalarini va zamonaviy raqamli infratuzilmani rivojlantiriş."
             },
             "c5": {
-                "name": "Ijodiy sohalar bo'yicha IG",
-                "description": "Ijodiy tarmoqlarni kelgusi besh yil ichida investitsiya va eksportga yo'naltirilgan iqtisodiyot segmentiga aylantirish."
+                "name": "Ijodiy sohalar böyiça IG",
+                "description": "Ijodiy tarmoqlarni kelgusi beş yil içida investitsiya va eksportga yönaltirilgan iqtisodiyot segmentiga aylantiriş."
             },
             "c6": {
-                "name": "Investitsiya muhiti bo'yicha IG",
-                "description": "Investitsiya muhitini tizimli yaxshilash: ma'muriy to'siqlarni bartaraf etish, tartibga solishning shaffofligi va bashoratliligini oshirish."
+                "name": "Investitsiya muhiti böyiça IG",
+                "description": "Investitsiya muhitini tizimli yaxşilaş: ma'muriy tösiqlarni bartaraf etiş, tartibga solişning şaffofligi va başoratliligini oşiriş."
             }
         }
     },
     "resultsPage": {
-        "overviewTitle": "Kengash natijalari",
-        "overviewIntro": "Hisobot davrida Xorijiy investorlar kengashi davlat va xorijiy investorlar o‘rtasidagi o‘zaro hamkorlikning asosiy platformasi hamda O‘zbekiston investitsiya siyosatini rivojlantirish vositasi sifatidagi rolini sezilarli darajada kuchaytirdi.",
-        "stat1Label": "bajarilgan tashabbus",
+        "overviewTitle": "Kengaş natijalari",
+        "overviewIntro": "Hisobot davrida Xorijiy investorlar kengaşi davlat va xorijiy investorlar örtasidagi özaro hamkorlikning asosiy platformasi hamda Özbekiston investitsiya siyosatini rivojlantiriş vositasi sifatidagi rolini sezilarli darajada kuçaytirdi.",
+        "stat1Label": "bajarilgan taşabbus",
         "stat2Label": "tahrirlangan qonun hujjatlari",
         "stat3Label": "jalb qilingan investitsiyalar",
-        "stat4Label": "ishchi guruh majlislari",
-        "platformTitle": "INVESTORLAR UCHUN PLATFORMA",
+        "stat4Label": "işçi guruh majlislari",
+        "platformTitle": "INVESTORLAR UÇUN PLATFORMA",
         "platform": {
-            "s1": "Kompaniyalar jalb etilishining o‘sishi",
-            "s2": "Faol ishtirokchi kompaniyalar",
-            "s3": "Kompaniya — Kengash a’zolari",
-            "s4": "Ishtirokchi davlatlar",
-            "s5": "Xalqaro institutlar (3 tasi Ijroiya qo'mitasida)",
+            "s1": "Kompaniyalar jalb etilişining ösişi",
+            "s2": "Faol iştirokçi kompaniyalar",
+            "s3": "Kompaniya — Kengaş a’zolari",
+            "s4": "Iştirokçi davlatlar",
+            "s5": "Xalqaro institutlar (3 tasi Ijroiya qömitasida)",
             "s6": "Iqtisodiyot tarmoqlari"
         },
-        "investEnvTitle": "Investitsiya muhitining rivojlanishi",
+        "investEnvTitle": "Investitsiya muhitining rivojlanişi",
         "investEnv": {
-            "s1": "Ishchi guruhlar sonining o‘sishi",
-            "s2": "Ishchi guruhlar majlislari",
-            "s3": "Tashabbuslar (uch barobar o'sish)",
-            "s4": "Normativ-huquqiy hujjat Kengash ishtirokida ishlab chiqilgan",
-            "s5": "Strategik tashabbuslar",
-            "s6": "Ijtimoiy tashabbuslar"
+            "s1": "Işçi guruhlar sonining ösişi",
+            "s2": "Işçi guruhlar majlislari",
+            "s3": "Taşabbuslar (uç barobar ösiş)",
+            "s4": "Normativ-huquqiy hujjat Kengaş iştirokida işlab çiqilgan",
+            "s5": "Strategik taşabbuslar",
+            "s6": "Ijtimoiy taşabbuslar"
         },
         "legalActs": {
-            "title": "Kengash ishtirokida ishlab chiqilgan sakkizta normativ-huquqiy hujjat",
-            "subtitle": "Xorijiy investorlar kengashi ishtirokida ishlab chiqilgan me'yoriy-huquqiy hujjatlar",
-            "a1": "Muqobil investitsiya fondlari to‘g‘risidagi qonun loyihasi",
-            "a2": "Mas’uliyatli biznes yuritish tamoyillari to‘g‘risidagi Prezident qarori loyihasi",
-            "a3": "Soliq kodeksiga o‘zgartirishlar kiritish to‘g‘risidagi qonun loyihasi",
-            "a4": "Elektr energetikasi to‘g‘risidagi qonunga o‘zgartirishlar kiritish to‘g‘risidagi qonun loyihasi",
-            "a5": "Elektr energiyasi va tabiiy gazdan foydalanish qoidalari to‘g‘risidagi Vazirlar Mahkamasi qarori loyihasi",
-            "a6": "Davlat-xususiy sheriklik to‘g‘risidagi qonunga o‘zgartirishlar kiritish to‘g‘risidagi qonun loyihasi",
-            "a7": "Yer uchastkalarini zaxiraga olish to‘g‘risidagi Prezident qarori loyihasi",
-            "a8": "Xalqaro standartlar bo‘yicha moliyaviy hisob tizimi to‘g‘risidagi qaror loyihasi"
+            "title": "Kengaş iştirokida işlab çiqilgan sakkizta normativ-huquqiy hujjat",
+            "subtitle": "Xorijiy investorlar kengaşi iştirokida işlab çiqilgan me'yoriy-huquqiy hujjatlar",
+            "a1": "Muqobil investitsiya fondlari töğrisidagi qonun loyihasi",
+            "a2": "Mas’uliyatli biznes yuritiş tamoyillari töğrisidagi Prezident qarori loyihasi",
+            "a3": "Soliq kodeksiga özgartirişlar kiritiş töğrisidagi qonun loyihasi",
+            "a4": "Elektr energetikasi töğrisidagi qonunga özgartirişlar kiritiş töğrisidagi qonun loyihasi",
+            "a5": "Elektr energiyasi va tabiiy gazdan foydalaniş qoidalari töğrisidagi Vazirlar Mahkamasi qarori loyihasi",
+            "a6": "Davlat-xususiy şeriklik töğrisidagi qonunga özgartirişlar kiritiş töğrisidagi qonun loyihasi",
+            "a7": "Yer uçastkalarini zaxiraga oliş töğrisidagi Prezident qarori loyihasi",
+            "a8": "Xalqaro standartlar böyiça moliyaviy hisob tizimi töğrisidagi qaror loyihasi"
         },
         "strategic": {
-            "badge": "STRATEGIK TASHABBUS",
-            "description": "Raqobatbardosh investitsiya muhitini shakllantirish va chegaralararo muvofiqlashtirish uchun Markaziy Osiyo va Kavkaz Mintaqaviy Investitsiya Kengashlari Alyansini (RAIC-CAC) tashkil etish."
+            "badge": "STRATEGIK TAŞABBUS",
+            "description": "Raqobatbardoş investitsiya muhitini şakllantiriş va çegaralararo muvofiqlaştiriş uçun Markaziy Osiyo va Kavkaz Mintaqaviy Investitsiya Kengaşlari Alyansini (RAIC-CAC) taşkil etiş."
         },
         "reports": {
-            "title": "Yangi yondashuvlar — beshta tahliliy ma'ruza",
-            "r1": { "cover": "O'zbekiston Respublikasida boshqaruv kompetentsiyalari", "title": "Boshqaruv kompetentsiyalarini rivojlantirish" },
-            "r2": { "cover": "Kreativ investitsiyalarni jalb qilish: global tajriba va O'zbekistonga moslash", "title": "Kreativ investitsiyalar" },
+            "title": "Yangi yondaşuvlar — beşta tahliliy ma'ruza",
+            "r1": { "cover": "Özbekiston Respublikasida boşqaruv kompetentsiyalari", "title": "Boşqaruv kompetentsiyalarini rivojlantiriş" },
+            "r2": { "cover": "Kreativ investitsiyalarni jalb qiliş: global tajriba va Özbekistonga moslaş", "title": "Kreativ investitsiyalar" },
             "r3": {
-                "cover": "Investitsiya faoliyati samaradorligini har tomonlama baholash",
-                "title": "Investitsiya faoliyati samaradorligini baholash"
+                "cover": "Investitsiya faoliyati samaradorligini har tomonlama baholaş",
+                "title": "Investitsiya faoliyati samaradorligini baholaş"
             },
             "r4": {
                 "cover": "Markaziy Osiyo va Kavkaz: Investitsiya ustuvorliklari",
                 "title": "Markaziy Osiyo va Kavkaz: Investitsiya ustuvorliklari"
             },
-            "r5": { "cover": "Halqa yopish: Chiziqli dunyoda aylanmali iqtisodiyot uchun asos", "title": "Aylanmali iqtisodiyot" }
+            "r5": { "cover": "Halqa yopiş: Çiziqli dunyoda aylanmali iqtisodiyot uçun asos", "title": "Aylanmali iqtisodiyot" }
         },
         "initiativesPage": {
-            "title": "Tashabbuslar",
-            "pageTitle": "INVESTITSIYA MUHITINI YAXSHILASH BO'YICHA TASHABBUSLAR",
-            "intro": "Har bir tashabbus soliq va energetika sohalaridagi islohotlarga hamda investitsiya, bandlik va korporativ boshqaruvga yo‘naltirilgan",
+            "title": "Taşabbuslar",
+            "pageTitle": "INVESTITSIYA MUHITINI YAXŞILAŞ BÖYIÇA TAŞABBUSLAR",
+            "intro": "Har bir taşabbus soliq va energetika sohalaridagi islohotlarga hamda investitsiya, bandlik va korporativ boşqaruvga yönaltirilgan",
             "colSession": "Majlis",
             "colDocument": "Hujjat",
-            "colGroups": "Ishchi guruhlar",
-            "colInitiatives": "Tashabbuslar",
+            "colGroups": "Işçi guruhlar",
+            "colInitiatives": "Taşabbuslar",
             "r1": {
                 "session": "I Yalpi majlis (2022)",
                 "document": "—",
-                "groups": "Dastlabki tematik yo'nalishlar"
+                "groups": "Dastlabki tematik yönalişlar"
             },
             "r2": {
                 "session": "II Yalpi majlis (2024)",
                 "document": "PQ-179",
-                "groups": "To'rtta guruh: kapital bozori va XMM · mas'uliyatli biznes yuritish · muqobil investitsiyalar · investorlar bilan ishlashni raqamlashtirish"
+                "groups": "Törtta guruh: kapital bozori va XMM · mas'uliyatli biznes yuritiş · muqobil investitsiyalar · investorlar bilan işlaşni raqamlaştiriş"
             },
             "r3": {
                 "session": "III Yalpi majlis (2025)",
                 "document": "PQ-226",
-                "groups": "Idoralararo ishchi guruhlar; umumiy soni 16 taga yetkazildi"
+                "groups": "Idoralararo işçi guruhlar; umumiy soni 16 taga yetkazildi"
             },
             "collected": {
-                "title": "TO'PLANGAN TASHABBUSLAR SONI (2025–2026)",
-                "subtitle": "Tashabbuslar soni:",
-                "strategic": "Strategik tashabbuslar",
+                "title": "TÖPLANGAN TAŞABBUSLAR SONI (2025–2026)",
+                "subtitle": "Taşabbuslar soni:",
+                "strategic": "Strategik taşabbuslar",
                 "energy": "Energetika sektori",
                 "financial": "Moliya sektori va bank tizimi",
-                "taxes": "Soliqlar va soliq ma'muriyatchiligi",
-                "investClimate": "Investitsiya muhitini yaxshilash",
-                "corporate": "Korporativ boshqaruv",
+                "taxes": "Soliqlar va soliq ma'muriyatçiligi",
+                "investClimate": "Investitsiya muhitini yaxşilaş",
+                "corporate": "Korporativ boşqaruv",
                 "aiDigital": "Sun'iy intellekt va raqamli iqtisodiyot",
                 "land": "Yer masalalari",
                 "alternative": "Muqobil investitsiyalar",
-                "sustainable": "Barqaror rivojlanish",
-                "colInitiative": "Tashtabbus",
-                "colSpeaker": "Tashabbuskor"
+                "sustainable": "Barqaror rivojlaniş",
+                "colInitiative": "Taştabbus",
+                "colSpeaker": "Taşabbuskor"
             }
         },
         "investmentsPage": {
             "title": "Investitsiyalar",
-            "intro": "O'zbekistonga xorijiy to'g'ridan-to'g'ri investitsiyalar dinamikasi va asosiy ko'rsatkichlar.",
-            "sectorsTitle": "Investitsiya uchun sektorlar",
-            "regionsTitle": "Hududlar bo'yicha",
-            "trendsTitle": "O'sish dinamikasi",
+            "intro": "Özbekistonga xorijiy töğridan-töğri investitsiyalar dinamikasi va asosiy körsatkiçlar.",
+            "sectorsTitle": "Investitsiya uçun sektorlar",
+            "regionsTitle": "Hududlar böyiça",
+            "trendsTitle": "Ösiş dinamikasi",
             "macroEyebrow": "Makroiqtisodiyot",
-            "macroTitle": "Asosiy ko'rsatkichlar",
+            "macroTitle": "Asosiy körsatkiçlar",
             "macroSub": "2025 yil yakunlari",
             "sectorsEyebrow": "Imkoniyatlar sektorlari",
-            "sectorsIntro": "Davlat tomonidan qo’llab-quvvatlanadigan ustuvor yo’nalishlar",
-            "guaranteesTitle": "Investorlar uchun kafolatlar",
+            "sectorsIntro": "Davlat tomonidan qöllab-quvvatlanadigan ustuvor yönalişlar",
+            "guaranteesTitle": "Investorlar uçun kafolatlar",
             "guaranteesSub": "Kapitalning huquqiy va institutsional himoyasi"
         },
         "documentsPage": {
             "title": "Hujjatlar",
-            "pageTitle": "Kengashning rasmiy hujjatlarining yagona manbai: yillik hisobotlar, yig'ilish bayonnomasi, prezident farmonlari va ta'sis materiallari.",
-            "pageSubtitle": "Tahliliy hisobotlar va ekspert materiallari «Tahlil va maqolalar» bo'limida mavjud.",
-            "intro": "Kengash qarorlari, majlis protokollari, hisobotlar va huquqiy hujjatlar.",
-            "filterAll": "Barchasi",
+            "pageTitle": "Kengaşning rasmiy hujjatlarining yagona manbai: yillik hisobotlar, yiğiliş bayonnomasi, prezident farmonlari va ta'sis materiallari.",
+            "pageSubtitle": "Tahliliy hisobotlar va ekspert materiallari «Tahlil va maqolalar» bölimida mavjud.",
+            "intro": "Kengaş qarorlari, majlis protokollari, hisobotlar va huquqiy hujjatlar.",
+            "filterAll": "Barçasi",
             "filterReports": "Yillik hisobotlar",
-            "filterWgMinutes": "Ishchi guruh bayonnomasi",
+            "filterWgMinutes": "Işçi guruh bayonnomasi",
             "filterDecrees": "Prezident farmonlari",
-            "filterCouncilMinutes": "Kengash bayonnomasi",
+            "filterCouncilMinutes": "Kengaş bayonnomasi",
             "filterCharters": "Ta'sis hujjatlari",
             "filterProtocols": "Protokollar",
-            "downloadLabel": "Yuklab olish",
-            "viewLabel": "Ko'rish"
+            "downloadLabel": "Yuklab oliş",
+            "viewLabel": "Köriş"
         }
     },
     "regionalAlliancePage": {
-        "title": "Markaziy Osiyo va Kavkaz investitsiya kengashlarining mintaqaviy ittifoqi",
-        "heroTitle": "Markaziy Osiyo va Kavkaz investitsiya kengashlarining mintaqaviy ittifoqi (RAIC-CAC)",
+        "title": "Markaziy Osiyo va Kavkaz investitsiya kengaşlarining mintaqaviy ittifoqi",
+        "heroTitle": "Markaziy Osiyo va Kavkaz investitsiya kengaşlarining mintaqaviy ittifoqi (RAIC-CAC)",
         "heroShort": "Mintaqaviy ittifoq",
         "abbr": "RAIC-CAC",
-        "tagline": "Mintaqaviy investitsiya salohiyatini ochish",
+        "tagline": "Mintaqaviy investitsiya salohiyatini oçiş",
         "missionLabel": "Missiya",
-        "mission": "Investorlar va tegishli tashkilotlar uchun yagona mintaqaviy platforma — Markaziy Osiyo va Kavkazdagi investitsiya imkoniyatlari hamda chegaralararo loyihalar bo'yicha muloqot, muvofiqlashtirish va bilim almashinuvini ta'minlaydi.",
+        "mission": "Investorlar va tegişli taşkilotlar uçun yagona mintaqaviy platforma — Markaziy Osiyo va Kavkazdagi investitsiya imkoniyatlari hamda çegaralararo loyihalar böyiça muloqot, muvofiqlaştiriş va bilim almaşinuvini ta'minlaydi.",
         "membersTitle": "Muassislar",
         "members": [
-            { "country": "Armaniston", "council": "Armaniston Investitsiya kengashi" },
+            { "country": "Armaniston", "council": "Armaniston Investitsiya kengaşi" },
             { "country": "Gruziya", "council": "Iqtisodiyot vazirligi huzuridagi Investitsiya va eksport agentligi" },
-            { "country": "Qozog'iston", "council": "Qozog'iston Respublikasi Prezidenti raisligidagi Xorijiy investorlar kengashi" },
+            { "country": "Qozoğiston", "council": "Qozoğiston Respublikasi Prezidenti raisligidagi Xorijiy investorlar kengaşi" },
             {
-                "country": "Qirg'iziston Respublikasi",
-                "council": "Qirg'iziston Respublikasi Prezidenti huzuridagi Milliy investitsiya agentligi qoshidagi Xorijiy investorlar kengashi"
+                "country": "Qirğiziston Respublikasi",
+                "council": "Qirğiziston Respublikasi Prezidenti huzuridagi Milliy investitsiya agentligi qoşidagi Xorijiy investorlar kengaşi"
             },
             { "country": "Tojikiston", "council": "«Tojinvest» davlat unitar korxonasi" },
-            { "country": "Turkmaniston", "council": "Bozorga kirish va siyosat markazi, Turkmen Kongress ES" },
-            { "country": "O'zbekiston", "council": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi" }
+            { "country": "Turkmaniston", "council": "Bozorga kiriş va siyosat markazi, Turkmen Kongress ES" },
+            { "country": "Özbekiston", "council": "Özbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengaşi" }
         ],
         "partnerTitle": "Strategik hamkor",
         "partnerName": "Osiyo taraqqiyot banki",
         "objectivesTitle": "Maqsadlar",
         "objectives": [
-            { "title": "Mintaqaviy muloqot", "desc": "MOK mintaqasida investitsiya siyosatini muvofiqlashtirish" },
-            { "title": "Global integratsiya", "desc": "Mintaqani global savdo va investitsiya oqimlariga ulash" },
-            { "title": "Raqobatbardosh investitsiya muhiti", "desc": "Raqobatbardosh mintaqaviy investitsiya muhitini shakllantirish" },
-            { "title": "Bilim almashinuvi", "desc": "Mintaqa bo'ylab ilg'or tajriba va tahlillar almashinuvi" },
-            { "title": "Birgalikda targ'ibot", "desc": "Mintaqani birgalikda targ'ib qilish va namoyon etish" }
+            { "title": "Mintaqaviy muloqot", "desc": "MOK mintaqasida investitsiya siyosatini muvofiqlaştiriş" },
+            { "title": "Global integratsiya", "desc": "Mintaqani global savdo va investitsiya oqimlariga ulaş" },
+            { "title": "Raqobatbardoş investitsiya muhiti", "desc": "Raqobatbardoş mintaqaviy investitsiya muhitini şakllantiriş" },
+            { "title": "Bilim almaşinuvi", "desc": "Mintaqa böylab ilğor tajriba va tahlillar almaşinuvi" },
+            { "title": "Birgalikda tarğibot", "desc": "Mintaqani birgalikda tarğib qiliş va namoyon etiş" }
         ],
-        "eventsSubtitle": "Toshkent xalqaro investitsiya forumi",
+        "eventsSubtitle": "Toşkent xalqaro investitsiya forumi",
         "eventsTitle": "Asosiy tadbirlar",
         "events": [
             {
                 "date": "16-iyun",
                 "subject": "TIIF strategik majlisi",
                 "title": "RAIC-CAC 2026–2027 kun tartibi",
-                "desc": "Ittifoq yo'l xaritasi va qo'shma tashabbuslarni tayyorlash."
+                "desc": "Ittifoq yöl xaritasi va qöşma taşabbuslarni tayyorlaş."
             },
             {
                 "date": "16-iyun",
                 "subject": "TIIF panel majlisi",
-                "title": "MOK investitsiya kengashlarining mintaqaviy ittifoqi",
-                "desc": "Mintaqaviy investitsiya salohiyatini ochish."
+                "title": "MOK investitsiya kengaşlarining mintaqaviy ittifoqi",
+                "desc": "Mintaqaviy investitsiya salohiyatini oçiş."
             }
         ],
         "memorandum": {
             "date": "18-iyun",
             "subject": "XIK yalpi majlisi",
-            "title": "Memorandumni imzolash marosimi",
-            "desc": "RAIC-CAC tashkil etilishi to'g'risida."
+            "title": "Memorandumni imzolaş marosimi",
+            "desc": "RAIC-CAC taşkil etilişi töğrisida."
         }
     },
 
     "corporationPage": {
         "title": "Hamkorlik",
-        "intro": "Prezident rahbarligidagi Kengashning asosiy tadbirlari. Har bir majlisda islohotlar muhokama qilinadi, muhim qarorlar qabul qilinadi va yangi tashabbuslar taqdim etiladi.",
+        "intro": "Prezident rahbarligidagi Kengaşning asosiy tadbirlari. Har bir majlisda islohotlar muhokama qilinadi, muhim qarorlar qabul qilinadi va yangi taşabbuslar taqdim etiladi.",
         "photoAlt": "{title} — {number}-rasm",
         "session": {
             "eyebrow": "Yalpi majlis 2025",
-            "title": "Xorijiy investorlar kengashining uchinchi yalpi majlisi",
-            "cardTitle": "Xorijiy investorlar kengashining uchinchi yalpi majlisi, 2025-yil 11-iyun",
+            "title": "Xorijiy investorlar kengaşining uçinçi yalpi majlisi",
+            "cardTitle": "Xorijiy investorlar kengaşining uçinçi yalpi majlisi, 2025-yil 11-iyun",
             "paragraphs": [
-                "Xalqaro kongress markazi, Prezident raisligida va YeTTB Prezidenti ishtirokida. 40 dan ortiq tashabbus tanlab olindi; biznes uchun asosiy soliq stavkalari 2028-yilgacha o‘zgarmas qoladi. Natijada — 2025-yil 18-iyuldagi PQ-226 (2025-yil 21-iyulda kuchga kirdi).",
-                "2025-yil 11-iyunda Xalqaro kongress markazida O‘zbekiston Respublikasi Prezidenti raisligida va YeTTB Prezidenti ishtirokida Xorijiy investorlar kengashining uchinchi yalpi majlisi bo‘lib o‘tdi. Majlisda Masdar, ACWA, Indorama, Vision Invest, DataVolt, VEON, Boeing, SpaceX, Meta, Franklin Templeton, TotalEnergies va boshqa kompaniyalar rahbarlari, shuningdek OECD, IFC, OTB va Islom taraqqiyot banki vakillari qatnashdi.",
-                "Platformaning samaradorligi ta’kidlandi: YeTTB bir yilda O‘zbekistonga rekord — taxminan 1 mlrd dollar sarmoya kiritib, mamlakatning mintaqadagi eng yirik hamkoriga aylandi; xususiy sektor bilan qo‘shma loyihalar hajmi 1 mlrd dollardan oshdi; yetakchi energetika kompaniyalari «yashil» iqtisodiyotga 8 mlrd dollardan ortiq investitsiya kiritdi.",
-                "Biznes uchun asosiy soliq stavkalari 2028-yilgacha o‘zgarmasligi e’lon qilindi; ikki yil ichida xorijiy kapitalli 5 500 ta yangi korxona tashkil etilib, umumiy soni 16 000 taga yetdi.",
-                "Majlis uchun 40 dan ortiq tashabbus tanlab olindi. Majlis yakunlari bo‘yicha 2025-yil 18-iyuldagi PQ-226-son Prezident qarori qabul qilinib, «yo‘l xaritasi» tasdiqlandi va Kengash Kotibiyatini mustaqil yuridik shaxsga aylantirish rasmiylashtirildi."
+                "Xalqaro kongress markazi, Prezident raisligida va YeTTB Prezidenti iştirokida. 40 dan ortiq taşabbus tanlab olindi; biznes uçun asosiy soliq stavkalari 2028-yilgaça özgarmas qoladi. Natijada — 2025-yil 18-iyuldagi PQ-226 (2025-yil 21-iyulda kuçga kirdi).",
+                "2025-yil 11-iyunda Xalqaro kongress markazida Özbekiston Respublikasi Prezidenti raisligida va YeTTB Prezidenti iştirokida Xorijiy investorlar kengaşining uçinçi yalpi majlisi bölib ötdi. Majlisda Masdar, ACWA, Indorama, Vision Invest, DataVolt, VEON, Boeing, SpaceX, Meta, Franklin Templeton, TotalEnergies va boşqa kompaniyalar rahbarlari, şuningdek OECD, IFC, OTB va Islom taraqqiyot banki vakillari qatnaşdi.",
+                "Platformaning samaradorligi ta’kidlandi: YeTTB bir yilda Özbekistonga rekord — taxminan 1 mlrd dollar sarmoya kiritib, mamlakatning mintaqadagi eng yirik hamkoriga aylandi; xususiy sektor bilan qöşma loyihalar hajmi 1 mlrd dollardan oşdi; yetakçi energetika kompaniyalari «yaşil» iqtisodiyotga 8 mlrd dollardan ortiq investitsiya kiritdi.",
+                "Biznes uçun asosiy soliq stavkalari 2028-yilgaça özgarmasligi e’lon qilindi; ikki yil içida xorijiy kapitalli 5 500 ta yangi korxona taşkil etilib, umumiy soni 16 000 taga yetdi.",
+                "Majlis uçun 40 dan ortiq taşabbus tanlab olindi. Majlis yakunlari böyiça 2025-yil 18-iyuldagi PQ-226-son Prezident qarori qabul qilinib, «yöl xaritasi» tasdiqlandi va Kengaş Kotibiyatini mustaqil yuridik şaxsga aylantiriş rasmiylaştirildi."
             ],
             "statsTitle": "PQ-226 QARORI BILAN NIMALAR MUSTAHKAMLANDI",
             "statsLabels": [
-                "Tashabbuslar",
-                "Ishchi guruhlar",
+                "Taşabbuslar",
+                "Işçi guruhlar",
                 "18-07-2025 yil",
-                "Majlis uchun tanlangan tashabbuslar",
+                "Majlis uçun tanlangan taşabbuslar",
                 "Asosiy soliq stavkalari muzlatildi",
                 "Xorijiy kapitalli korxonalar",
-                "Ishga tushirilgan DXSh loyihalari",
-                "«Yashil» iqtisodiyotga investitsiyalar",
+                "Işga tuşirilgan DXŞ loyihalari",
+                "«Yaşil» iqtisodiyotga investitsiyalar",
                 "YeTTBning bir yillik rekord investitsiyasi"
             ],
             "statsValues": [
@@ -834,197 +834,197 @@
                 "~$1 mlrd"
             ],
             "initiativesList": [
-                "III yalpi majlis takliflari va tashabbuslarini amalga oshirish bo‘yicha Harakatlar rejasi tasdiqlandi (1-ilova)",
-                "Kengashning o‘zbek tomoni yangilangan tarkibi tasdiqlandi (2-ilova)",
-                "Kengashga vazirlik va idoralar rahbarlari hamda xodimlarini jalb qilgan holda yo‘nalishlar bo‘yicha ishchi guruhlar tashkil etish huquqi berildi",
-                "Kengash Kotibiyati xalqaro moliya institutlari ishtirokida nodavlat notijorat tashkilot sifatida tashkil etildi (PQ-4519 ning 29–31-bandlari yangi tahriri); rahbar Ijroiya qo‘mitasi bilan kelishilgan holda tayinlanadi",
-                "«Yagona investitsiya platformasi» axborot tizimini joriy etish (mas’ul — Bosh vazir o‘rinbosari J. Xo‘jayev)",
-                "Ijro ustidan nazorat — Bosh vazir A. N. Aripov"
+                "III yalpi majlis takliflari va taşabbuslarini amalga oşiriş böyiça Harakatlar rejasi tasdiqlandi (1-ilova)",
+                "Kengaşning özbek tomoni yangilangan tarkibi tasdiqlandi (2-ilova)",
+                "Kengaşga vazirlik va idoralar rahbarlari hamda xodimlarini jalb qilgan holda yönalişlar böyiça işçi guruhlar taşkil etiş huquqi berildi",
+                "Kengaş Kotibiyati xalqaro moliya institutlari iştirokida nodavlat notijorat taşkilot sifatida taşkil etildi (PQ-4519 ning 29–31-bandlari yangi tahriri); rahbar Ijroiya qömitasi bilan kelişilgan holda tayinlanadi",
+                "«Yagona investitsiya platformasi» axborot tizimini joriy etiş (mas’ul — Boş vazir örinbosari J. Xöjayev)",
+                "Ijro ustidan nazorat — Boş vazir A. N. Aripov"
             ]
         }
     },
     "eventsPage": {
         "calendarTitle": "Tadbirlar Kalendari",
-        "calendarIntro": "Kengash majlislari, ishchi guruh yig'ilishlari, uchrashuvlar va boshqa rasmiy tadbirlar jadvali.",
-        "upcoming": "Yaqinlashib kelayotgan tadbirlar",
-        "past": "O'tgan tadbirlar",
-        "filterAll": "Barchasi",
+        "calendarIntro": "Kengaş majlislari, işçi guruh yiğilişlari, uçraşuvlar va boşqa rasmiy tadbirlar jadvali.",
+        "upcoming": "Yaqinlaşib kelayotgan tadbirlar",
+        "past": "Ötgan tadbirlar",
+        "filterAll": "Barçasi",
         "types": {
             "plenary": "Yalpi majlis",
-            "interim": "Navbatdan tashqari majlis",
-            "wgSession": "Ishchi guruh majlisi",
-            "meeting": "Uchrashuv",
+            "interim": "Navbatdan taşqari majlis",
+            "wgSession": "Işçi guruh majlisi",
+            "meeting": "Uçraşuv",
             "weekly": "Haftalik natija"
         },
         "plenaryPage": {
             "title": "Yalpi majlislar",
-            "intro": "Prezident rahbarligidagi Kengashning asosiy tadbirlari. Har bir majlisda islohotlar muhokama qilinadi, muhim qarorlar qabul qilinadi va yangi tashabbuslar taqdim etiladi.",
+            "intro": "Prezident rahbarligidagi Kengaşning asosiy tadbirlari. Har bir majlisda islohotlar muhokama qilinadi, muhim qarorlar qabul qilinadi va yangi taşabbuslar taqdim etiladi.",
             "keyDecisions": "Asosiy qarorlar",
-            "participants": "ishtirokchi",
-            "initiatives": "tashabbus",
+            "participants": "iştirokçi",
+            "initiatives": "taşabbus",
             "sessions": {
                 "s1": {
                     "eyebrow": "Yalpi majlis 2022",
-                    "title": "Xorijiy investorlar kengashining birinchi yalpi majlisi",
-                    "cardTitle": "Xorijiy investorlar kengashining birinchi yalpi majlisi, 2022-yil 16-noyabr",
+                    "title": "Xorijiy investorlar kengaşining birinçi yalpi majlisi",
+                    "cardTitle": "Xorijiy investorlar kengaşining birinçi yalpi majlisi, 2022-yil 16-noyabr",
                     "paragraphs": [
-                        "2022-yil 16-noyabrda Toshkentdagi «Ko‘ksaroy» qarorgohida O‘zbekiston Respublikasi Prezidenti raisligida Xorijiy investorlar kengashining birinchi yalpi majlisi bo‘lib o‘tdi. Majlis Hukumat va xalqaro investorlar o‘rtasidagi to‘g‘ridan-to‘g‘ri muloqot uchun institutsional formatni ochib berdi.",
-                        "Majlisda 150 dan ortiq yuqori darajadagi vakillar — xalqaro moliya institutlari, yetakchi sanoat va investitsiya kompaniyalari, vazirlik va idoralar ishtirok etdi.",
-                        "Muhokamalar ishbilarmonlik muhitini yaxshilash, soliq va huquqiy tizim barqarorligi, davlat-xususiy sheriklikni rivojlantirish, «yashil» iqtisodiyot va raqamli transformatsiyani qamrab oldi.",
-                        "Majlis natijasida 40 dan ortiq aniq taklif va tashabbus ishlab chiqilib, Kengashning tizimli faoliyatiga asos solindi."
+                        "2022-yil 16-noyabrda Toşkentdagi «Köksaroy» qarorgohida Özbekiston Respublikasi Prezidenti raisligida Xorijiy investorlar kengaşining birinçi yalpi majlisi bölib ötdi. Majlis Hukumat va xalqaro investorlar örtasidagi töğridan-töğri muloqot uçun institutsional formatni oçib berdi.",
+                        "Majlisda 150 dan ortiq yuqori darajadagi vakillar — xalqaro moliya institutlari, yetakçi sanoat va investitsiya kompaniyalari, vazirlik va idoralar iştirok etdi.",
+                        "Muhokamalar işbilarmonlik muhitini yaxşilaş, soliq va huquqiy tizim barqarorligi, davlat-xususiy şeriklikni rivojlantiriş, «yaşil» iqtisodiyot va raqamli transformatsiyani qamrab oldi.",
+                        "Majlis natijasida 40 dan ortiq aniq taklif va taşabbus işlab çiqilib, Kengaşning tizimli faoliyatiga asos solindi."
                     ]
                 },
                 "s2": {
                     "eyebrow": "Yalpi majlis 2024",
-                    "title": "Xorijiy investorlar kengashining ikkinchi yalpi majlisi",
-                    "cardTitle": "Xorijiy investorlar kengashining ikkinchi yalpi majlisi, 2024-yil 3-may",
+                    "title": "Xorijiy investorlar kengaşining ikkinçi yalpi majlisi",
+                    "cardTitle": "Xorijiy investorlar kengaşining ikkinçi yalpi majlisi, 2024-yil 3-may",
                     "paragraphs": [
-                        "2024-yil 3-mayda III Toshkent xalqaro investitsiya forumi doirasida O‘zbekiston Respublikasi Prezidenti raisligida Xorijiy investorlar kengashining ikkinchi yalpi majlisi bo‘lib o‘tdi. Majlis takliflarni ishlab chiqishdan ularni tizimli amalga oshirishga o‘tishni mustahkamladi.",
-                        "Majlis yakunlari bo‘yicha 2024-yil 15-maydagi PQ-179-son Prezident qarori qabul qilinib, 14 ta tashabbusdan iborat «yo‘l xaritasi» tasdiqlandi.",
-                        "Ular orasida investitsiyalar va maxsus iqtisodiy zonalar to‘g‘risidagi qonunlarning yangi tahrirlari, muqobil (venchur) investitsiyalar to‘g‘risidagi qonun, OECD «Investitsiya siyosati sharhi» loyihasini amalga oshirish hamda Kengashning to‘rtta ishchi guruhini tashkil etish bor."
+                        "2024-yil 3-mayda III Toşkent xalqaro investitsiya forumi doirasida Özbekiston Respublikasi Prezidenti raisligida Xorijiy investorlar kengaşining ikkinçi yalpi majlisi bölib ötdi. Majlis takliflarni işlab çiqişdan ularni tizimli amalga oşirişga ötişni mustahkamladi.",
+                        "Majlis yakunlari böyiça 2024-yil 15-maydagi PQ-179-son Prezident qarori qabul qilinib, 14 ta taşabbusdan iborat «yöl xaritasi» tasdiqlandi.",
+                        "Ular orasida investitsiyalar va maxsus iqtisodiy zonalar töğrisidagi qonunlarning yangi tahrirlari, muqobil (vençur) investitsiyalar töğrisidagi qonun, OECD «Investitsiya siyosati şarhi» loyihasini amalga oşiriş hamda Kengaşning törtta işçi guruhini taşkil etiş bor."
                     ],
-                    "statsTitle": "II YALPI MAJLIS YO‘L XARITASI — 14 TASHABBUS (PQ-179, 3-ILOVA)",
-                    "statsLabels": ["Yo‘l xaritasidagi tashabbuslar", "Ishchi guruhlar (8-tashabbus)", "2024-yil 16-may"],
+                    "statsTitle": "II YALPI MAJLIS YÖL XARITASI — 14 TAŞABBUS (PQ-179, 3-ILOVA)",
+                    "statsLabels": ["Yöl xaritasidagi taşabbuslar", "Işçi guruhlar (8-taşabbus)", "2024-yil 16-may"],
                     "statsValues": ["14", "4", "PQ-179"],
                     "initiativesList": [
-                        "«Investitsiyalar va investitsiya faoliyati to‘g‘risida»gi Qonunni (yangi tahrir) JST qoidalariga muvofiq ishlab chiqish",
-                        "«Maxsus iqtisodiy zonalar to‘g‘risida»gi Qonunni (yangi tahrir) ishlab chiqish",
-                        "Startaplar va innovatsion loyihalar uchun «Muqobil (venchur) investitsiyalar to‘g‘risida»gi Qonunni ishlab chiqish",
-                        "Xalqaro raqamli texnologiyalar markazida Toshkent xalqaro tijorat sudini tashkil etish",
-                        "OECD «Investitsiya siyosati sharhi» loyihasini amalga oshirish",
-                        "Ustav kapitalini shakllantirishda kurs farqlarini soliqqa tortishni bekor qilishni o‘rganish",
-                        "100 million dollardan oshadigan loyihalar uchun soliq stavkalarini o‘zgarmas saqlash mexanizmini o‘rganish",
-                        "Kengash tarkibida to‘rtta ishchi guruh tashkil etish (quyidagi blokka qarang)",
-                        "«Yagona investitsiya platformasi» axborot tizimini joriy etish",
-                        "Sun’iy intellektni rivojlantirish strategiyasi va raqamli xaritalarni yangilash (Yandex bilan)",
-                        "Hududiy bosh rejalar va yerlarni vaqtincha zaxiraga olish mexanizmini tezlashtirish",
-                        "Investor dividendlarini soliqqa tortish tartibini takomillashtirish",
-                        "Shartnomaviy munosabatlarni tartibga solishning zamonaviy mexanizmlari (korporativ shartnoma, kafolat, indemnitet)",
-                        "Yuridik shaxs maqomiga ega bo‘lmagan xorijiy kompaniyalar filiallari uchun huquqiy asos"
+                        "«Investitsiyalar va investitsiya faoliyati töğrisida»gi Qonunni (yangi tahrir) JST qoidalariga muvofiq işlab çiqiş",
+                        "«Maxsus iqtisodiy zonalar töğrisida»gi Qonunni (yangi tahrir) işlab çiqiş",
+                        "Startaplar va innovatsion loyihalar uçun «Muqobil (vençur) investitsiyalar töğrisida»gi Qonunni işlab çiqiş",
+                        "Xalqaro raqamli texnologiyalar markazida Toşkent xalqaro tijorat sudini taşkil etiş",
+                        "OECD «Investitsiya siyosati şarhi» loyihasini amalga oşiriş",
+                        "Ustav kapitalini şakllantirişda kurs farqlarini soliqqa tortişni bekor qilişni örganiş",
+                        "100 million dollardan oşadigan loyihalar uçun soliq stavkalarini özgarmas saqlaş mexanizmini örganiş",
+                        "Kengaş tarkibida törtta işçi guruh taşkil etiş (quyidagi blokka qarang)",
+                        "«Yagona investitsiya platformasi» axborot tizimini joriy etiş",
+                        "Sun’iy intellektni rivojlantiriş strategiyasi va raqamli xaritalarni yangilaş (Yandex bilan)",
+                        "Hududiy boş rejalar va yerlarni vaqtinça zaxiraga oliş mexanizmini tezlaştiriş",
+                        "Investor dividendlarini soliqqa tortiş tartibini takomillaştiriş",
+                        "Şartnomaviy munosabatlarni tartibga solişning zamonaviy mexanizmlari (korporativ şartnoma, kafolat, indemnitet)",
+                        "Yuridik şaxs maqomiga ega bölmagan xorijiy kompaniyalar filiallari uçun huquqiy asos"
                     ],
-                    "infoTitle": "TO‘RTTA ISHCHI GURUH (PQ-179)",
+                    "infoTitle": "TÖRTTA IŞÇI GURUH (PQ-179)",
                     "infoItems": [
-                        "kapital bozorini rivojlantirish va uni xalqaro moliya markaziga aylantirish",
-                        "mas’uliyatli biznes yuritish (OECD tamoyillari)",
-                        "muqobil (venchur) investitsiyalar — qonun loyihasini ishlab chiqish",
-                        "investorlar bilan ishlash tizimini raqamlashtirish — elektron platforma"
+                        "kapital bozorini rivojlantiriş va uni xalqaro moliya markaziga aylantiriş",
+                        "mas’uliyatli biznes yuritiş (OECD tamoyillari)",
+                        "muqobil (vençur) investitsiyalar — qonun loyihasini işlab çiqiş",
+                        "investorlar bilan işlaş tizimini raqamlaştiriş — elektron platforma"
                     ]
                 },
                 "s3": {
                     "eyebrow": "Yalpi majlis 2025",
-                    "title": "Xorijiy investorlar kengashining uchinchi yalpi majlisi",
-                    "cardTitle": "Xorijiy investorlar kengashining uchinchi yalpi majlisi, 2025-yil 11-iyun",
+                    "title": "Xorijiy investorlar kengaşining uçinçi yalpi majlisi",
+                    "cardTitle": "Xorijiy investorlar kengaşining uçinçi yalpi majlisi, 2025-yil 11-iyun",
                     "paragraphs": [
-                        "Xalqaro kongress markazi, Prezident raisligida va YeTTB Prezidenti ishtirokida. 40 dan ortiq tashabbus tanlab olindi; biznes uchun asosiy soliq stavkalari 2028-yilgacha o‘zgarmas qoladi. Natijada — 2025-yil 18-iyuldagi PQ-226 (2025-yil 21-iyulda kuchga kirdi).",
-                        "2025-yil 11-iyunda Xalqaro kongress markazida O‘zbekiston Respublikasi Prezidenti raisligida va YeTTB Prezidenti ishtirokida Xorijiy investorlar kengashining uchinchi yalpi majlisi bo‘lib o‘tdi. Majlisda Masdar, ACWA, Indorama, Vision Invest, DataVolt, VEON, Boeing, SpaceX, Meta, Franklin Templeton, TotalEnergies va boshqa kompaniyalar rahbarlari, shuningdek OECD, IFC, OTB va Islom taraqqiyot banki vakillari qatnashdi.",
-                        "Platformaning samaradorligi ta’kidlandi: YeTTB bir yilda O‘zbekistonga rekord — taxminan 1 mlrd dollar sarmoya kiritib, mamlakatning mintaqadagi eng yirik hamkoriga aylandi; xususiy sektor bilan qo‘shma loyihalar hajmi 1 mlrd dollardan oshdi; yetakchi energetika kompaniyalari «yashil» iqtisodiyotga 8 mlrd dollardan ortiq investitsiya kiritdi.",
-                        "Biznes uchun asosiy soliq stavkalari 2028-yilgacha o‘zgarmasligi e’lon qilindi; ikki yil ichida xorijiy kapitalli 5 500 ta yangi korxona tashkil etilib, umumiy soni 16 000 taga yetdi.",
-                        "Majlis uchun 40 dan ortiq tashabbus tanlab olindi. Majlis yakunlari bo‘yicha 2025-yil 18-iyuldagi PQ-226-son Prezident qarori qabul qilinib, «yo‘l xaritasi» tasdiqlandi va Kengash Kotibiyatini mustaqil yuridik shaxsga aylantirish rasmiylashtirildi."
+                        "Xalqaro kongress markazi, Prezident raisligida va YeTTB Prezidenti iştirokida. 40 dan ortiq taşabbus tanlab olindi; biznes uçun asosiy soliq stavkalari 2028-yilgaça özgarmas qoladi. Natijada — 2025-yil 18-iyuldagi PQ-226 (2025-yil 21-iyulda kuçga kirdi).",
+                        "2025-yil 11-iyunda Xalqaro kongress markazida Özbekiston Respublikasi Prezidenti raisligida va YeTTB Prezidenti iştirokida Xorijiy investorlar kengaşining uçinçi yalpi majlisi bölib ötdi. Majlisda Masdar, ACWA, Indorama, Vision Invest, DataVolt, VEON, Boeing, SpaceX, Meta, Franklin Templeton, TotalEnergies va boşqa kompaniyalar rahbarlari, şuningdek OECD, IFC, OTB va Islom taraqqiyot banki vakillari qatnaşdi.",
+                        "Platformaning samaradorligi ta’kidlandi: YeTTB bir yilda Özbekistonga rekord — taxminan 1 mlrd dollar sarmoya kiritib, mamlakatning mintaqadagi eng yirik hamkoriga aylandi; xususiy sektor bilan qöşma loyihalar hajmi 1 mlrd dollardan oşdi; yetakçi energetika kompaniyalari «yaşil» iqtisodiyotga 8 mlrd dollardan ortiq investitsiya kiritdi.",
+                        "Biznes uçun asosiy soliq stavkalari 2028-yilgaça özgarmasligi e’lon qilindi; ikki yil içida xorijiy kapitalli 5 500 ta yangi korxona taşkil etilib, umumiy soni 16 000 taga yetdi.",
+                        "Majlis uçun 40 dan ortiq taşabbus tanlab olindi. Majlis yakunlari böyiça 2025-yil 18-iyuldagi PQ-226-son Prezident qarori qabul qilinib, «yöl xaritasi» tasdiqlandi va Kengaş Kotibiyatini mustaqil yuridik şaxsga aylantiriş rasmiylaştirildi."
                     ],
                     "statsTitle": "PQ-226 QARORI BILAN NIMALAR MUSTAHKAMLANDI",
                     "statsLabels": [
-                        "Tashabbuslar",
-                        "Ishchi guruhlar",
+                        "Taşabbuslar",
+                        "Işçi guruhlar",
                         "18-07-2025 yil",
-                        "Majlis uchun tanlangan tashabbuslar",
+                        "Majlis uçun tanlangan taşabbuslar",
                         "Asosiy soliq stavkalari muzlatildi",
                         "Xorijiy kapitalli korxonalar",
-                        "Ishga tushirilgan DXSh loyihalari",
-                        "«Yashil» iqtisodiyotga investitsiyalar",
+                        "Işga tuşirilgan DXŞ loyihalari",
+                        "«Yaşil» iqtisodiyotga investitsiyalar",
                         "YeTTBning bir yillik rekord investitsiyasi"
                     ],
                     "statsValues": ["22", "8", "PQ-226", "40+", "2028", "16 000", "$4,5 mlrd", "$8 mlrd", "~$1 mlrd"],
                     "initiativesList": [
-                        "III yalpi majlis takliflari va tashabbuslarini amalga oshirish bo‘yicha Harakatlar rejasi tasdiqlandi (1-ilova)",
-                        "Kengashning o‘zbek tomoni yangilangan tarkibi tasdiqlandi (2-ilova)",
-                        "Kengashga vazirlik va idoralar rahbarlari hamda xodimlarini jalb qilgan holda yo‘nalishlar bo‘yicha ishchi guruhlar tashkil etish huquqi berildi",
-                        "Kengash Kotibiyati xalqaro moliya institutlari ishtirokida nodavlat notijorat tashkilot sifatida tashkil etildi (PQ-4519 ning 29–31-bandlari yangi tahriri); rahbar Ijroiya qo‘mitasi bilan kelishilgan holda tayinlanadi",
-                        "«Yagona investitsiya platformasi» axborot tizimini joriy etish (mas’ul — Bosh vazir o‘rinbosari J. Xo‘jayev)",
-                        "Ijro ustidan nazorat — Bosh vazir A. N. Aripov"
+                        "III yalpi majlis takliflari va taşabbuslarini amalga oşiriş böyiça Harakatlar rejasi tasdiqlandi (1-ilova)",
+                        "Kengaşning özbek tomoni yangilangan tarkibi tasdiqlandi (2-ilova)",
+                        "Kengaşga vazirlik va idoralar rahbarlari hamda xodimlarini jalb qilgan holda yönalişlar böyiça işçi guruhlar taşkil etiş huquqi berildi",
+                        "Kengaş Kotibiyati xalqaro moliya institutlari iştirokida nodavlat notijorat taşkilot sifatida taşkil etildi (PQ-4519 ning 29–31-bandlari yangi tahriri); rahbar Ijroiya qömitasi bilan kelişilgan holda tayinlanadi",
+                        "«Yagona investitsiya platformasi» axborot tizimini joriy etiş (mas’ul — Boş vazir örinbosari J. Xöjayev)",
+                        "Ijro ustidan nazorat — Boş vazir A. N. Aripov"
                     ]
                 },
                 "s4": {
                     "eyebrow": "Yalpi majlis 2026",
-                    "title": "Xorijiy investorlar kengashining to‘rtinchi yalpi majlisi",
-                    "cardTitle": "Xorijiy investorlar kengashining to‘rtinchi yalpi majlisi, 2026-yil",
+                    "title": "Xorijiy investorlar kengaşining törtinçi yalpi majlisi",
+                    "cardTitle": "Xorijiy investorlar kengaşining törtinçi yalpi majlisi, 2026-yil",
                     "paragraphs": [
-                        "Xalqaro kongress markazi, Prezident raisligida va YeTTB Prezidenti ishtirokida. 40 dan ortiq tashabbus tanlab olindi; biznes uchun asosiy soliq stavkalari 2028-yilgacha o‘zgarmas qoladi. Natijada — 2025-yil 18-iyuldagi PQ-226 (2025-yil 21-iyulda kuchga kirdi).",
-                        "2025-yil 11-iyunda Xalqaro kongress markazida O‘zbekiston Respublikasi Prezidenti raisligida va YeTTB Prezidenti ishtirokida Xorijiy investorlar kengashining uchinchi yalpi majlisi bo‘lib o‘tdi. Majlisda Masdar, ACWA, Indorama, Vision Invest, DataVolt, VEON, Boeing, SpaceX, Meta, Franklin Templeton, TotalEnergies va boshqa kompaniyalar rahbarlari, shuningdek OECD, IFC, OTB va Islom taraqqiyot banki vakillari qatnashdi.",
-                        "Platformaning samaradorligi ta’kidlandi: YeTTB bir yilda O‘zbekistonga rekord — taxminan 1 mlrd dollar sarmoya kiritib, mamlakatning mintaqadagi eng yirik hamkoriga aylandi; xususiy sektor bilan qo‘shma loyihalar hajmi 1 mlrd dollardan oshdi; yetakchi energetika kompaniyalari «yashil» iqtisodiyotga 8 mlrd dollardan ortiq investitsiya kiritdi.",
-                        "Biznes uchun asosiy soliq stavkalari 2028-yilgacha o‘zgarmasligi e’lon qilindi; ikki yil ichida xorijiy kapitalli 5 500 ta yangi korxona tashkil etilib, umumiy soni 16 000 taga yetdi.",
-                        "Majlis uchun 40 dan ortiq tashabbus tanlab olindi. Majlis yakunlari bo‘yicha 2025-yil 18-iyuldagi PQ-226-son Prezident qarori qabul qilinib, «yo‘l xaritasi» tasdiqlandi va Kengash Kotibiyatini mustaqil yuridik shaxsga aylantirish rasmiylashtirildi."
+                        "Xalqaro kongress markazi, Prezident raisligida va YeTTB Prezidenti iştirokida. 40 dan ortiq taşabbus tanlab olindi; biznes uçun asosiy soliq stavkalari 2028-yilgaça özgarmas qoladi. Natijada — 2025-yil 18-iyuldagi PQ-226 (2025-yil 21-iyulda kuçga kirdi).",
+                        "2025-yil 11-iyunda Xalqaro kongress markazida Özbekiston Respublikasi Prezidenti raisligida va YeTTB Prezidenti iştirokida Xorijiy investorlar kengaşining uçinçi yalpi majlisi bölib ötdi. Majlisda Masdar, ACWA, Indorama, Vision Invest, DataVolt, VEON, Boeing, SpaceX, Meta, Franklin Templeton, TotalEnergies va boşqa kompaniyalar rahbarlari, şuningdek OECD, IFC, OTB va Islom taraqqiyot banki vakillari qatnaşdi.",
+                        "Platformaning samaradorligi ta’kidlandi: YeTTB bir yilda Özbekistonga rekord — taxminan 1 mlrd dollar sarmoya kiritib, mamlakatning mintaqadagi eng yirik hamkoriga aylandi; xususiy sektor bilan qöşma loyihalar hajmi 1 mlrd dollardan oşdi; yetakçi energetika kompaniyalari «yaşil» iqtisodiyotga 8 mlrd dollardan ortiq investitsiya kiritdi.",
+                        "Biznes uçun asosiy soliq stavkalari 2028-yilgaça özgarmasligi e’lon qilindi; ikki yil içida xorijiy kapitalli 5 500 ta yangi korxona taşkil etilib, umumiy soni 16 000 taga yetdi.",
+                        "Majlis uçun 40 dan ortiq taşabbus tanlab olindi. Majlis yakunlari böyiça 2025-yil 18-iyuldagi PQ-226-son Prezident qarori qabul qilinib, «yöl xaritasi» tasdiqlandi va Kengaş Kotibiyatini mustaqil yuridik şaxsga aylantiriş rasmiylaştirildi."
                     ],
                     "statsTitle": "PQ-226 QARORI BILAN NIMALAR MUSTAHKAMLANDI",
                     "statsLabels": [
-                        "Tashabbuslar",
-                        "Ishchi guruhlar",
+                        "Taşabbuslar",
+                        "Işçi guruhlar",
                         "18-07-2025 yil",
-                        "Majlis uchun tanlangan tashabbuslar",
+                        "Majlis uçun tanlangan taşabbuslar",
                         "Asosiy soliq stavkalari muzlatildi",
                         "Xorijiy kapitalli korxonalar",
-                        "Ishga tushirilgan DXSh loyihalari",
-                        "«Yashil» iqtisodiyotga investitsiyalar",
+                        "Işga tuşirilgan DXŞ loyihalari",
+                        "«Yaşil» iqtisodiyotga investitsiyalar",
                         "YeTTBning bir yillik rekord investitsiyasi"
                     ],
                     "statsValues": ["22", "8", "PQ-226", "40+", "2028", "16 000", "$4,5 mlrd", "$8 mlrd", "~$1 mlrd"],
                     "initiativesList": [
-                        "III yalpi majlis takliflari va tashabbuslarini amalga oshirish bo‘yicha Harakatlar rejasi tasdiqlandi (1-ilova)",
-                        "Kengashning o‘zbek tomoni yangilangan tarkibi tasdiqlandi (2-ilova)",
-                        "Kengashga vazirlik va idoralar rahbarlari hamda xodimlarini jalb qilgan holda yo‘nalishlar bo‘yicha ishchi guruhlar tashkil etish huquqi berildi",
-                        "Kengash Kotibiyati xalqaro moliya institutlari ishtirokida nodavlat notijorat tashkilot sifatida tashkil etildi (PQ-4519 ning 29–31-bandlari yangi tahriri); rahbar Ijroiya qo‘mitasi bilan kelishilgan holda tayinlanadi",
-                        "«Yagona investitsiya platformasi» axborot tizimini joriy etish (mas’ul — Bosh vazir o‘rinbosari J. Xo‘jayev)",
-                        "Ijro ustidan nazorat — Bosh vazir A. N. Aripov"
+                        "III yalpi majlis takliflari va taşabbuslarini amalga oşiriş böyiça Harakatlar rejasi tasdiqlandi (1-ilova)",
+                        "Kengaşning özbek tomoni yangilangan tarkibi tasdiqlandi (2-ilova)",
+                        "Kengaşga vazirlik va idoralar rahbarlari hamda xodimlarini jalb qilgan holda yönalişlar böyiça işçi guruhlar taşkil etiş huquqi berildi",
+                        "Kengaş Kotibiyati xalqaro moliya institutlari iştirokida nodavlat notijorat taşkilot sifatida taşkil etildi (PQ-4519 ning 29–31-bandlari yangi tahriri); rahbar Ijroiya qömitasi bilan kelişilgan holda tayinlanadi",
+                        "«Yagona investitsiya platformasi» axborot tizimini joriy etiş (mas’ul — Boş vazir örinbosari J. Xöjayev)",
+                        "Ijro ustidan nazorat — Boş vazir A. N. Aripov"
                     ]
                 }
             }
         },
         "interimPage": {
-            "title": "Navbatdan tashqari majlislar",
-            "intro": "Yalpi majlislar oralig'ida dolzarb masalalarni muhokama qilish uchun chaqiriladigan maxsus yig'ilishlar.",
+            "title": "Navbatdan taşqari majlislar",
+            "intro": "Yalpi majlislar oraliğida dolzarb masalalarni muhokama qiliş uçun çaqiriladigan maxsus yiğilişlar.",
             "chronology": "Oraliq majlislar",
             "note": "Eslatma",
-            "roadmapTitle": "Ishchi guruhlar bo'yicha yo'l xaritasi (21 Tashabbus)",
-            "initiativesTitle": "Majlisning Strategik Tashabbusi",
+            "roadmapTitle": "Işçi guruhlar böyiça yöl xaritasi (21 Taşabbus)",
+            "initiativesTitle": "Majlisning Strategik Taşabbusi",
             "legalBasis": "Huquqiy asos"
         },
         "wgSessionPage": {
-            "paginationLabel": "Ishchi guruh majlislari sahifalari",
+            "paginationLabel": "Işçi guruh majlislari sahifalari",
             "pageLabel": "{page}-sahifa",
-            "loadError": "Ishchi guruh majlislarini yuklab bo‘lmadi. Qayta urinib ko‘ring.",
-            "retry": "Qayta urinish",
-            "title": "Ishchi guruh majlislari",
-            "intro": "Har bir sektoral ishchi guruhning muntazam yig'ilishlari — tashabbus muhokamasi, hukumat vakillaridan javob olish va keyingi qadamlarni belgilash.",
+            "loadError": "Işçi guruh majlislarini yuklab bölmadi. Qayta urinib köring.",
+            "retry": "Qayta uriniş",
+            "title": "Işçi guruh majlislari",
+            "intro": "Har bir sektoral işçi guruhning muntazam yiğilişlari — taşabbus muhokamasi, hukumat vakillaridan javob oliş va keyingi qadamlarni belgilaş.",
             "filters": {
-                "all": "Barchasi",
+                "all": "Barçasi",
                 "energy": "Energetika",
                 "digitalEconomy": "Raqamli iqtisodiyot",
                 "finance": "Moliya",
                 "infrastructure": "Infratuzilma",
-                "agriculture": "Qishloq xo'jaligi",
+                "agriculture": "Qişloq xöjaligi",
                 "legalReform": "Huquqiy islohot"
             },
-            "initiativesDiscussed": "tashabbus muhokama qilindi",
-            "participantsLabel": "ishtirokchi",
+            "initiativesDiscussed": "taşabbus muhokama qilindi",
+            "participantsLabel": "iştirokçi",
             "emptyTitle": "Tez kunda",
-            "emptyText": "Ishchi guruh majlislari ma'lumotlari tayyorlanmoqda. Iltimos, keyinroq tashrif buyuring."
+            "emptyText": "Işçi guruh majlislari ma'lumotlari tayyorlanmoqda. Iltimos, keyinroq taşrif buyuring."
         },
         "meetingsPage": {
-            "paginationLabel": "Uchrashuvlar sahifalari",
+            "paginationLabel": "Uçraşuvlar sahifalari",
             "pageLabel": "{page}-sahifa",
-            "loadError": "Uchrashuvlarni yuklab bo‘lmadi. Qayta urinib ko‘ring.",
-            "retry": "Qayta urinish",
-            "title": "Uchrashuvlar",
-            "intro": "Kengash a'zolari, investorlar va davlat idoralari o'rtasidagi ikki tomonlama va ko'p tomonlama uchrashuvlar.",
+            "loadError": "Uçraşuvlarni yuklab bölmadi. Qayta urinib köring.",
+            "retry": "Qayta uriniş",
+            "title": "Uçraşuvlar",
+            "intro": "Kengaş a'zolari, investorlar va davlat idoralari örtasidagi ikki tomonlama va köp tomonlama uçraşuvlar.",
             "emptyTitle": "Tez kunda",
-            "emptyText": "Uchrashuvlar ma'lumotlari tayyorlanmoqda. Iltimos, keyinroq tashrif buyuring."
+            "emptyText": "Uçraşuvlar ma'lumotlari tayyorlanmoqda. Iltimos, keyinroq taşrif buyuring."
         },
         "weeklyPage": {
             "title": "Haftalik natijalar",
-            "intro": "Kengash faoliyatining haftalik qisqacha xulosasi — muhokama qilingan masalalar, erishilgan kelishuvlar va keyingi qadamlar.",
-            "sectionTitle": "Xorijiy Investorlar Kengashining Haftalik Natijalari",
+            "intro": "Kengaş faoliyatining haftalik qisqaça xulosasi — muhokama qilingan masalalar, erişilgan kelişuvlar va keyingi qadamlar.",
+            "sectionTitle": "Xorijiy Investorlar Kengaşining Haftalik Natijalari",
             "cardLabel": "Haftalik natijalar",
             "cardTitle": "Haftaning asosiy tadbirlari",
-            "viewMore": "Ko'proq ko'rish"
+            "viewMore": "Köproq köriş"
         },
         "sessionNotFound": "Majlis topilmadi",
         "dateLabel": "Sana",
@@ -1035,43 +1035,43 @@
             "types": {
                 "plenary": "Yalpi majlis",
                 "interim": "Oraliq majlis",
-                "wgSession": "Ishchi guruh majlisi",
-                "meeting": "Uchrashuv",
+                "wgSession": "Işçi guruh majlisi",
+                "meeting": "Uçraşuv",
                 "event": "Tadbirlar"
             },
-            "allTypes": "Barchasi",
+            "allTypes": "Barçasi",
             "typeFilter": "Tadbir turi",
             "date": "Sana",
             "singleDay": "Bitta kun",
             "period": "Davr",
             "presets": {
                 "today": "Bugun",
-                "thisWeek": "Shu hafta",
-                "thisMonth": "Shu oy",
+                "thisWeek": "Şu hafta",
+                "thisMonth": "Şu oy",
                 "next30": "Keyingi 30 kun"
             },
-            "pickEnd": "Tugash sanasini tanlang",
-            "clear": "Tozalash",
-            "resetFilters": "Filtrlarni tozalash",
+            "pickEnd": "Tugaş sanasini tanlang",
+            "clear": "Tozalaş",
+            "resetFilters": "Filtrlarni tozalaş",
             "today": "Bugun",
             "live": "Jarayonda",
             "ended": "Yakunlandi",
-            "past": "O'tdi",
+            "past": "Ötdi",
             "tomorrow": "Ertaga",
-            "inDays": "{n} kundan so'ng",
+            "inDays": "{n} kundan söng",
             "eventsCount": "{n} ta tadbir",
             "prevMonth": "Oldingi oy",
             "nextMonth": "Keyingi oy",
             "monthsLabel": "Oylar",
-            "emptyMonth": "Bu oyda tadbirlar rejalashtirilmagan",
-            "emptyFiltered": "Tanlangan filtrlar bo'yicha tadbir topilmadi",
+            "emptyMonth": "Bu oyda tadbirlar rejalaştirilmagan",
+            "emptyFiltered": "Tanlangan filtrlar böyiça tadbir topilmadi",
             "nextEvent": "Keyingi tadbir: {date}",
             "lastEvent": "Oxirgi tadbir: {date}",
-            "addToCalendar": "Kalendarga qo'shish",
+            "addToCalendar": "Kalendarga qöşiş",
             "time": "Vaqti",
             "location": "Joyi",
-            "organizer": "Tashkilotchi",
-            "coOrganizer": "Hamkor tashkilotchi",
+            "organizer": "Taşkilotçi",
+            "coOrganizer": "Hamkor taşkilotçi",
             "dayFormat": "{day}-{month}",
             "months": [
                 "Yanvar",
@@ -1116,49 +1116,49 @@
                 "Dek"
             ],
             "weekdays": [
-                "Dushanba",
-                "Seshanba",
-                "Chorshanba",
-                "Payshanba",
+                "Duşanba",
+                "Seşanba",
+                "Çorşanba",
+                "Payşanba",
                 "Juma",
-                "Shanba",
-                "Yakshanba"
+                "Şanba",
+                "Yakşanba"
             ],
             "weekdaysShort": [
                 "Du",
                 "Se",
-                "Ch",
+                "Ç",
                 "Pa",
                 "Ju",
-                "Sh",
+                "Ş",
                 "Ya"
             ],
-            "loadError": "Kalendarni yuklab bo'lmadi",
-            "retry": "Qayta urinish"
+            "loadError": "Kalendarni yuklab bölmadi",
+            "retry": "Qayta uriniş"
         }
     },
     "mediaPage": {
         "newsTitle": "Yangiliklar",
-        "newsIntro": "Xorijiy Investorlar Kengashi faoliyati, O'zbekistondagi investitsiya muhiti va iqtisodiy islohotlar bo'yicha so'nggi yangiliklar.",
+        "newsIntro": "Xorijiy Investorlar Kengaşi faoliyati, Özbekistondagi investitsiya muhiti va iqtisodiy islohotlar böyiça sönggi yangiliklar.",
         "analyticsTitle": "Tahlil va Maqolalar",
-        "analyticsIntro": "Mutaxassislar va ekspertlarning O'zbekiston iqtisodiyoti, investitsiya muhiti va islohot jarayonlari bo'yicha tahliliy maqolalari.",
+        "analyticsIntro": "Mutaxassislar va ekspertlarning Özbekiston iqtisodiyoti, investitsiya muhiti va islohot jarayonlari böyiça tahliliy maqolalari.",
         "interviewTitle": "Blits-Intervyu",
-        "interviewIntro": "Kengash a'zolari va ekspertlari bilan qisqa intervyular — O'zbekistonda investitsiya tajribasi va kelajak rejalari haqida.",
+        "interviewIntro": "Kengaş a'zolari va ekspertlari bilan qisqa intervyular — Özbekistonda investitsiya tajribasi va kelajak rejalari haqida.",
         "reportsTitle": "Hisobotlar",
-        "reportsIntro": "Kengashning yillik va maxsus hisobotlari — investitsiya muhiti tahlili, ishchi guruhlar natijalari va tavsiyalar.",
+        "reportsIntro": "Kengaşning yillik va maxsus hisobotlari — investitsiya muhiti tahlili, işçi guruhlar natijalari va tavsiyalar.",
         "categories": {
-            "all": "Barchasi",
+            "all": "Barçasi",
             "investment": "Investitsiyalar",
             "reforms": "Islohotlar",
             "events": "Tadbirlar",
             "announcements": "E'lonlar"
         },
-        "readMore": "Batafsil o'qish",
-        "downloadReport": "Yuklab olish",
-        "publishedLabel": "Chop etilgan",
+        "readMore": "Batafsil öqiş",
+        "downloadReport": "Yuklab oliş",
+        "publishedLabel": "Çop etilgan",
         "authorLabel": "Muallif",
         "analyticsPage": {
-            "intro": "XIK Kotibiyati, ishchi guruh ekspertlari va a'zo kompaniyalar tomonidan O'zbekistondagi investitsiya muhiti va iqtisodiy islohotlar bo'yicha tayyorlangan tadqiqot va tahliliy materiallar.",
+            "intro": "XIK Kotibiyati, işçi guruh ekspertlari va a'zo kompaniyalar tomonidan Özbekistondagi investitsiya muhiti va iqtisodiy islohotlar böyiça tayyorlangan tadqiqot va tahliliy materiallar.",
             "topics": {
                 "investment": "Investitsiya",
                 "reform": "Islohotlar",
@@ -1168,23 +1168,23 @@
         },
         "blitzPage": {
             "title": "Blits-intervyu",
-            "description": "Kengash a'zosi kompaniyalar rahbarlari bilan qisqa video intervyular seriyasi. Ishtirokchilar to'rtta savolga javob beradilar: O'zbekistondagi bizneslari haqida; mamlakat asosiy raqobat afzalligi; muvaffaqiyat tarixi; rivojlanishdagi asosiy muammo.",
-            "intro": "XIK a'zo kompaniyalari vakillari, xalqaro tashkilotlar vakillari va ishchi guruh ekspertlari bilan qisqa intervyular — O'zbekistondagi investitsiya muhiti haqida ularning fikrlari.",
+            "description": "Kengaş a'zosi kompaniyalar rahbarlari bilan qisqa video intervyular seriyasi. Iştirokçilar törtta savolga javob beradilar: Özbekistondagi bizneslari haqida; mamlakat asosiy raqobat afzalligi; muvaffaqiyat tarixi; rivojlanişdagi asosiy muammo.",
+            "intro": "XIK a'zo kompaniyalari vakillari, xalqaro taşkilotlar vakillari va işçi guruh ekspertlari bilan qisqa intervyular — Özbekistondagi investitsiya muhiti haqida ularning fikrlari.",
             "featured": "Tanlangan Intervyu",
-            "readInterview": "To'liq o'qish"
+            "readInterview": "Töliq öqiş"
         },
         "specialProjectsPage": {
             "title": "Maxsus loyihalar",
-            "description": "Kengash tomonidan tayyorlangan O'zbekistondagi investitsiya muhiti haqidagi video loyihalar va maxsus materiallar.",
-            "intro": "Kengash tomonidan tayyorlangan O'zbekistondagi investitsiya muhiti haqidagi video loyihalar va maxsus materiallar.",
+            "description": "Kengaş tomonidan tayyorlangan Özbekistondagi investitsiya muhiti haqidagi video loyihalar va maxsus materiallar.",
+            "intro": "Kengaş tomonidan tayyorlangan Özbekistondagi investitsiya muhiti haqidagi video loyihalar va maxsus materiallar.",
             "featured": "Tanlangan loyiha"
         },
         "reportsPage": {
-            "intro": "Xorijiy Investorlar Kengashining rasmiy hisobotlari, bayonnomalar va siyosat hujjatlari — yuklab olish uchun mavjud.",
-            "quote": "Bizning asosiy maqsadimiz – O‘zbekistonni xorijiy investorlar uchun ishonchli va uzoq muddatli hamkorga aylantirishdir",
+            "intro": "Xorijiy Investorlar Kengaşining rasmiy hisobotlari, bayonnomalar va siyosat hujjatlari — yuklab oliş uçun mavjud.",
+            "quote": "Bizning asosiy maqsadimiz – Özbekistonni xorijiy investorlar uçun işonçli va uzoq muddatli hamkorga aylantirişdir",
             "newApproaches": {
                 "label": "Tanlangan seriya",
-                "title": "Yangi yondashuvlar — beshta tahliliy hisobot"
+                "title": "Yangi yondaşuvlar — beşta tahliliy hisobot"
             },
             "categories": {
                 "annualReport": "Yillik Hisobot",
@@ -1197,34 +1197,34 @@
     },
     "footer": {
         "phoneLabel": "Telefon raqami",
-        "emailLabel": "Elektron pochta",
+        "emailLabel": "Elektron poçta",
         "addressLabel": "Manzil",
-        "brand": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi",
-        "copyright": "©2019-{year} – O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi"
+        "brand": "Özbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengaşi",
+        "copyright": "©2019-{year} – Özbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengaşi"
     },
     "wg": {
         "laziz": "Laziz Kudratov",
         "kazbek": "Kazbek Bassiev",
-        "timur": "Timur Ishmetov",
+        "timur": "Timur Işmetov",
         "davron": "Davron Yakubov",
         "vera": "Vera Bell",
-        "kongratbay": "Kongratbay Sharipov",
+        "kongratbay": "Kongratbay Şaripov",
         "ilkhom": "Ilkhom Norkulov",
         "marius": "Marius Dan",
         "ahadbek": "Ahadbek Haydarov",
         "farrukh": "Farrukh Pulatov",
         "azizbekAkhmadjonov": "Azizbek Akhmadjonov",
-        "sherzodXodjayev": "Sherzod Xodjayev",
+        "sherzodXodjayev": "Şerzod Xodjayev",
         "azizAbdukhakimov": "Aziz Abdukhakimov",
         "kazumasa": "Kazumasa Mukae",
         "olimjon": "Olimjon Umarov",
-        "akbarTashkulov": "Akbar Tashkulov",
-        "sherzodShermatov": "Sherzod Shermatov",
+        "akbarTashkulov": "Akbar Taşkulov",
+        "sherzodShermatov": "Şerzod Şermatov",
         "shukhratVafaev": "Shukhrat Vafaev",
         "maxmudIstamov": "Maxmud Istamov",
         "jahongirAbdiev": "Jahongir Abdiev",
-        "georgiyParesishvili": "Georgiy Paresishvili",
-        "feruzaEshmatova": "Feruza Eshmatova",
+        "georgiyParesishvili": "Georgiy Paresişvili",
+        "feruzaEshmatova": "Feruza Eşmatova",
         "maratJuraev": "Marat Juraev",
         "farrukhKarabaev": "Farrukh Karabaev",
         "rustemMahmammadiev": "Rustem Mahmammadiev",
@@ -1233,82 +1233,82 @@
         "botirZahidov": "Botir Zahidov",
         "bexzodMusaev": "Bexzod Musaev",
         "davronVahobov": "Davron Vahobov",
-        "vyacheslavPak": "Vyacheslav Pak",
-        "tashov": "Fayzulla Toshov",
+        "vyacheslavPak": "Vyaçeslav Pak",
+        "tashov": "Fayzulla Toşov",
         "karamatov": "Azamat Karamatov",
         "temirov": "S. Temirov",
-        "byPosition": "Lavozimi bo'yicha (kelishilgan holda)",
-        "byPositionShort": "Lavozimi bo'yicha",
+        "byPosition": "Lavozimi böyiça (kelişilgan holda)",
+        "byPositionShort": "Lavozimi böyiça",
         "istamov": "Maxmud Istamov",
         "buriev": "Abdumannop Buriyev",
         "fayzibaev": "Alimjan Fayzibayev",
-        "kushmatov": "Abror Qushmatov",
+        "kushmatov": "Abror Quşmatov",
         "kadyrov": "Sardor Qodirov",
-        "kadyrovPos": "«Yandex» kompaniyasi vitse-prezidenti, ishchi guruh rahbari o'rinbosari",
+        "kadyrovPos": "«Yandex» kompaniyasi vitse-prezidenti, işçi guruh rahbari örinbosari",
         "kadyrovBio": "",
-        "husainov": "Ulug'bek Husainov",
+        "husainov": "Uluğbek Husainov",
         "salikhov": "Jasur Salixov",
         "aliev": "Akram Aliyev",
         "khamidov": "B. Hamidov",
         "usmanov": "R. Usmanov",
-        "hammerson": "Mark Charlz Hammerson",
-        "pakChairPos": "Istiqbolli loyihalar milliy agentligi direktori o'rinbosari, ishchi guruh rahbari",
+        "hammerson": "Mark Çarlz Hammerson",
+        "pakChairPos": "Istiqbolli loyihalar milliy agentligi direktori örinbosari, işçi guruh rahbari",
         "pakBio": "",
-        "hammersonPos": "«Curtis, Mallet-Prevost, Colt & Mosle LLP» kompaniyasi hamkori, ishchi guruh rahbari o'rinbosari",
+        "hammersonPos": "«Curtis, Mallet-Prevost, Colt & Mosle LLP» kompaniyasi hamkori, işçi guruh rahbari örinbosari",
         "hammersonBio": "",
         "murodov": "Sohibjon Murodov",
-        "dosimbekovPos": "«EY» kompaniyasining Kavkaz va Markaziy Osiyo bo'yicha bosh hamkori, ishchi guruh rahbari o'rinbosari",
-        "posMinEcoFinSecretary": "Iqtisodiyot va moliya vazirligi mas'ul xodimi, ishchi guruh kotibi",
-        "zaidiPos": "«ACWA» kompaniyasining O'zbekiston bo'yicha mintaqaviy direktori, ishchi guruh rahbari o'rinbosari",
+        "dosimbekovPos": "«EY» kompaniyasining Kavkaz va Markaziy Osiyo böyiça boş hamkori, işçi guruh rahbari örinbosari",
+        "posMinEcoFinSecretary": "Iqtisodiyot va moliya vazirligi mas'ul xodimi, işçi guruh kotibi",
+        "zaidiPos": "«ACWA» kompaniyasining Özbekiston böyiça mintaqaviy direktori, işçi guruh rahbari örinbosari",
         "pekos": "Oleg Pekos",
         "turdiev": "Mirsaid Mirmaksudov",
-        "turdievPos": "Kadastr agentligi direktori, ishchi guruh rahbari",
+        "turdievPos": "Kadastr agentligi direktori, işçi guruh rahbari",
         "turdievBio": "",
-        "kutbiev": "Sherzod Qutbiyev",
+        "kutbiev": "Şerzod Qutbiyev",
         "abdurakhmonov": "Ibrohim Abdurahmonov",
-        "posUrbanization": "Urbanizatsiya va uy-joy bozorini barqaror rivojlantirish milliy qo'mitasi raisi",
-        "posAgriMinister": "Qishloq xo'jaligi vaziri",
-        "posAuctionCenter": "«Elektron onlayn-auksionlarni tashkil etish markazi» AJ direktori",
-        "posCadastreSecretary": "Kadastr agentligi mas'ul xodimi, ishchi guruh kotibi",
+        "posUrbanization": "Urbanizatsiya va uy-joy bozorini barqaror rivojlantiriş milliy qömitasi raisi",
+        "posAgriMinister": "Qişloq xöjaligi vaziri",
+        "posAuctionCenter": "«Elektron onlayn-auksionlarni taşkil etiş markazi» AJ direktori",
+        "posCadastreSecretary": "Kadastr agentligi mas'ul xodimi, işçi guruh kotibi",
         "mamadaminov": "Umid Mamadaminov",
-        "ishpulatov": "Zokir Ishpo'latov",
-        "hasanov": "Sharifbek Hasanov",
+        "ishpulatov": "Zokir Işpölatov",
+        "hasanov": "Şarifbek Hasanov",
         "suvankulov": "Ahmad Suvankulov",
-        "posDeputyEnergyMinister": "Energetika vaziri o'rinbosari",
-        "posDeputyWaterMinister": "Suv xo'jaligi vaziri o'rinbosari",
-        "posWasteAgency": "Chiqindilarni boshqarish va sirkulyar iqtisodiyotni rivojlantirish agentligi direktori",
+        "posDeputyEnergyMinister": "Energetika vaziri örinbosari",
+        "posDeputyWaterMinister": "Suv xöjaligi vaziri örinbosari",
+        "posWasteAgency": "Çiqindilarni boşqariş va sirkulyar iqtisodiyotni rivojlantiriş agentligi direktori",
         "posUzsuv": "«Uzsuvta'minot» AJ raisi",
-        "posEcoCommitteeSecretary": "Ekologiya va iqlim o'zgarishi milliy qo'mitasi mas'ul xodimi, ishchi guruh kotibi",
+        "posEcoCommitteeSecretary": "Ekologiya va iqlim özgarişi milliy qömitasi mas'ul xodimi, işçi guruh kotibi",
         "nastradin": "Yevgeniy Nastradin",
-        "sherzodChairPos": "Raqamli texnologiyalar vaziri, ishchi guruh rahbari",
+        "sherzodChairPos": "Raqamli texnologiyalar vaziri, işçi guruh rahbari",
         "sherzodShermatovBio": "",
-        "nastradinPos": "«VEON» kompaniyasining O'zbekiston bo'yicha bosh ijrochi direktori, ishchi guruh rahbari o'rinbosari",
+        "nastradinPos": "«VEON» kompaniyasining Özbekiston böyiça boş ijroçi direktori, işçi guruh rahbari örinbosari",
         "nastradinBio": "",
-        "bakhodjaev": "Bobur Xo'jayev",
+        "bakhodjaev": "Bobur Xöjayev",
         "mardiev": "Amir Mardiyev",
-        "posPresidentDeptFintech": "Prezident Administratsiyasi Moliyaviy texnologiyalar, raqamlashtirish va sun'iy intellekt departamenti rahbari",
+        "posPresidentDeptFintech": "Prezident Administratsiyasi Moliyaviy texnologiyalar, raqamlaştiriş va sun'iy intellekt departamenti rahbari",
         "posEnterpriseUz": "«Enterprise Uzbekistan Xalqaro raqamli texnologiyalar markazi direksiyasi» AJ rahbari",
-        "posDigitalMinSecretary": "Raqamli texnologiyalar vazirligi xodimi, ishchi guruh kotibi",
-        "khodjaev": "Sherzod Xo'jayev",
+        "posDigitalMinSecretary": "Raqamli texnologiyalar vazirligi xodimi, işçi guruh kotibi",
+        "khodjaev": "Şerzod Xöjayev",
         "bobohonAbdullaev": "Bobohon Abdullaev",
         "robahonMahmudova": "Robahon Mahmudova",
         "nodirJuraev": "Nodir Juraev",
-        "shavkatUmurzakov": "Shavkat Umurzakov",
+        "shavkatUmurzakov": "Şavkat Umurzakov",
         "dianaBayzakova": "Diana Bayzakova",
-        "saidolimKodirkhodjaev": "Saidolim Qodirxo'jayev",
-        "posConsolidatedAnalytical": "Axborot-tahlil boshqarma boshlig'i",
-        "posSupremeCourtChair": "O'zbekiston Respublikasi Oliy sudi raisi",
+        "saidolimKodirkhodjaev": "Saidolim Qodirxöjayev",
+        "posConsolidatedAnalytical": "Axborot-tahlil boşqarma boşliği",
+        "posSupremeCourtChair": "Özbekiston Respublikasi Oliy sudi raisi",
         "posPresidentAdminOfficial": "Prezident Administratsiyasining mas'ul xodimi",
-        "posTashkentMayor": "Toshkent shahri hokimi",
-        "posTiacDirector": "Toshkent xalqaro arbitraj markazi direktori",
+        "posTashkentMayor": "Toşkent şahri hokimi",
+        "posTiacDirector": "Toşkent xalqaro arbitraj markazi direktori",
         "posHigherEducationMinister": "Oliy ta'lim, fan va innovatsiyalar vaziri",
-        "tiffcChairPos": "Investitsiyalar, sanoat va savdo vaziri, ishchi guruh rahbari",
-        "tiffcCoChairPos": "«JPMorgan Chase» kompaniyasining O'zbekiston bo'yicha bosh ijrochi direktori, ishchi guruh rahbari o'rinbosari",
-        "posFirstDeputyDigital": "Raqamli texnologiyalar vazirining birinchi o'rinbosari",
-        "posElectricityMarket": "Elektr energiyasi bozorini rivojlantirish va tartibga solish agentligi direktori",
-        "posMinEnergySecretary": "Energetika vazirligi mas'ul xodimi, ishchi guruh kotibi",
-        "posStateAssetsDirector": "Davlat aktivlarini boshqarish agentligi direktori",
-        "posNappSecretary": "Istiqbolli loyihalar milliy agentligi mas'ul xodimi, ishchi guruh kotibi",
+        "tiffcChairPos": "Investitsiyalar, sanoat va savdo vaziri, işçi guruh rahbari",
+        "tiffcCoChairPos": "«JPMorgan Chase» kompaniyasining Özbekiston böyiça boş ijroçi direktori, işçi guruh rahbari örinbosari",
+        "posFirstDeputyDigital": "Raqamli texnologiyalar vazirining birinçi örinbosari",
+        "posElectricityMarket": "Elektr energiyasi bozorini rivojlantiriş va tartibga soliş agentligi direktori",
+        "posMinEnergySecretary": "Energetika vazirligi mas'ul xodimi, işçi guruh kotibi",
+        "posStateAssetsDirector": "Davlat aktivlarini boşqariş agentligi direktori",
+        "posNappSecretary": "Istiqbolli loyihalar milliy agentligi mas'ul xodimi, işçi guruh kotibi",
         "nodirbekHusanov": "Nodirbek Husanov",
         "khurshedMustafaev": "Khurshed Mustafaev",
         "asrarjonAskarov": "Asrarjon Askarov",
@@ -1316,122 +1316,122 @@
         "nodirbekNasretdinov": "Nodirbek Nasretdinov",
         "askarIsakov": "Askar Isakov",
         "johnZaidi": "John Zaidi",
-        "johnZaidiPos": "Acwa, O'zbekiston bo'yicha bosh direktor",
-        "johnZaidiText": "Jon Zaidi soliq, energetika rivojlanishi va investitsiya infratuzilmasi sohasida 25 yildan ortiq tajribaga ega. U energetika loyihalarini targ'ib qilishda, yangi texnologiyalarni joriy etishda va O'zbekistonning energetika sektorini mustahkamlashda faol ishtirok etadi. U Qozog'iston xorijiy investorlar kengashi assotsiatsiyasining a'zosi va Acwani Yevropa Energetika Kompaniyalari Assotsiatsiyasida ifodalaydi.",
-        "spartak": "Spartak Tetrashvili",
-        "spartakPos": "TBC Bank Uzbekistan Boshqaruv raisi",
-        "spartakText": "2020 yil dekabr oyida lavozimga kirishgan TBC Bank Uzbekistan Boshqaruv raisi. O'zbekistonda Tetrashvilining vazifasi noodatiy va ambitsiyali: to'liq raqamli bank — TBC Bank Uzbekistanning ishini yo'lga qo'yish. Spartak TBC brend falsafasi shaffof, qulay va dadil yechimlar yaratishdan iborat, deb hisoblaydi.",
+        "johnZaidiPos": "Acwa, Özbekiston böyiça boş direktor",
+        "johnZaidiText": "Jon Zaidi soliq, energetika rivojlanişi va investitsiya infratuzilmasi sohasida 25 yildan ortiq tajribaga ega. U energetika loyihalarini tarğib qilişda, yangi texnologiyalarni joriy etişda va Özbekistonning energetika sektorini mustahkamlaşda faol iştirok etadi. U Qozoğiston xorijiy investorlar kengaşi assotsiatsiyasining a'zosi va Acwani Yevropa Energetika Kompaniyalari Assotsiatsiyasida ifodalaydi.",
+        "spartak": "Spartak Tetraşvili",
+        "spartakPos": "TBC Bank Uzbekistan Boşqaruv raisi",
+        "spartakText": "2020 yil dekabr oyida lavozimga kirişgan TBC Bank Uzbekistan Boşqaruv raisi. Özbekistonda Tetraşvilining vazifasi noodatiy va ambitsiyali: töliq raqamli bank — TBC Bank Uzbekistanning işini yölga qöyiş. Spartak TBC brend falsafasi şaffof, qulay va dadil yeçimlar yaratişdan iborat, deb hisoblaydi.",
         "sandro": "Sandro Rtveladze",
-        "sandroPos": "Ipoteka Bank OTP Group bosh direktori",
-        "sandroText": "Sandro Rtveladze Ipoteka Bank OTP Group bosh direktoridir. U bank va moliya sektori boshqaruvida keng tajribaga ega bo'lib, O'zbekistonning yetakchi ipoteka bankida yirik transformatsiya tashabbuslarini boshqargan. Uning rahbarligida Ipoteka Bank chakana va korporativ bank xizmatlarini sezilarli darajada kengaytirdi, raqamli transformatsiyani jadallashtirib, xalqaro moliya institutlari bilan hamkorlikni mustahkamladi. Sandro XIK ishchi guruhi doirasida iqtidorli mutaxassislarni jalb qilish va mahalliy inson kapitalini rivojlantirish siyosatiga faol hissa qo'shmoqda.",
+        "sandroPos": "Ipoteka Bank OTP Group boş direktori",
+        "sandroText": "Sandro Rtveladze Ipoteka Bank OTP Group boş direktoridir. U bank va moliya sektori boşqaruvida keng tajribaga ega bölib, Özbekistonning yetakçi ipoteka bankida yirik transformatsiya taşabbuslarini boşqargan. Uning rahbarligida Ipoteka Bank çakana va korporativ bank xizmatlarini sezilarli darajada kengaytirdi, raqamli transformatsiyani jadallaştirib, xalqaro moliya institutlari bilan hamkorlikni mustahkamladi. Sandro XIK işçi guruhi doirasida iqtidorli mutaxassislarni jalb qiliş va mahalliy inson kapitalini rivojlantiriş siyosatiga faol hissa qöşmoqda.",
         "sergey": "Sergey Salikov",
-        "sergeyPos": "Uzum, bosh yurist maslahatchi",
-        "sergeyText": "Sergey Salikov — Uzum, Bosh yurist maslahatchi. Turli yurisdiktsiyalarda investitsiya shartnomalarini qo'llab-quvvatlash, fondlar va xoldinglar yaratishda 12 yildan ortiq tajribaga ega. U Rossiya to'g'ridan-to'g'ri investitsiyalar fondida yuridik blokga rahbarlik qilgan.",
+        "sergeyPos": "Uzum, boş yurist maslahatçi",
+        "sergeyText": "Sergey Salikov — Uzum, Boş yurist maslahatçi. Turli yurisdiktsiyalarda investitsiya şartnomalarini qöllab-quvvatlaş, fondlar va xoldinglar yaratişda 12 yildan ortiq tajribaga ega. U Rossiya töğridan-töğri investitsiyalar fondida yuridik blokga rahbarlik qilgan.",
         "gayana": "Gayana Umerova",
-        "gayanaPos": "O'zbekiston Respublikasi Vazirlar Mahkamasi huzuridagi Madaniyat va san'atni rivojlantirish jamg'armasi raisi",
-        "gayanaText": "O'zbekiston Respublikasi Vazirlar Mahkamasi huzuridagi Madaniyat va san'atni rivojlantirish jamg'armasining raisi. O'zbekiston Milliy YuNESKO komissiyasining Bosh kotibi. Manchesterga oid universitetda Zamonaviy san'at va San'at biznesi bo'yicha magistr darajasiga ega.",
+        "gayanaPos": "Özbekiston Respublikasi Vazirlar Mahkamasi huzuridagi Madaniyat va san'atni rivojlantiriş jamğarmasi raisi",
+        "gayanaText": "Özbekiston Respublikasi Vazirlar Mahkamasi huzuridagi Madaniyat va san'atni rivojlantiriş jamğarmasining raisi. Özbekiston Milliy YuNESKO komissiyasining Boş kotibi. Manchesterga oid universitetda Zamonaviy san'at va San'at biznesi böyiça magistr darajasiga ega.",
         "erlan": "Erlan Dosymbekov",
-        "erlanPos": "EY, Kavkaz va Markaziy Osiyo bo'yicha boshqaruvchi hamkor",
-        "erlanText": "Erlan mahalliy va xalqaro soliqqa tortish, soliq samaradorligi, soliq nizolari va soliq risklarini boshqarish sohasida 25 yildan ortiq tajribaga ega. Erlan ishbilarmonlik muhiti va investitsiya jozibadorligini yaxshilash loyihalarida faol ishtirok etadi. U Qozog'iston xorijiy investorlar kengashi assotsiatsiyasi kengashi raisi.",
+        "erlanPos": "EY, Kavkaz va Markaziy Osiyo böyiça boşqaruvçi hamkor",
+        "erlanText": "Erlan mahalliy va xalqaro soliqqa tortiş, soliq samaradorligi, soliq nizolari va soliq risklarini boşqariş sohasida 25 yildan ortiq tajribaga ega. Erlan işbilarmonlik muhiti va investitsiya jozibadorligini yaxşilaş loyihalarida faol iştirok etadi. U Qozoğiston xorijiy investorlar kengaşi assotsiatsiyasi kengaşi raisi.",
         "lazizPos": "Investitsiyalar, sanoat va savdo vaziri",
-        "lazizBio": "Laziz Kudratov 2022 yil dekabr oyidan beri O'zbekiston Respublikasining Investitsiyalar, sanoat va savdo vaziri lavozimini egallaydi. U tashqi iqtisodiy munosabatlar va investitsiyalar sohasida keng tajribaga ega bo'lib, Tashqi iqtisodiy aloqalar, investitsiyalar va savdo vazirligi hamda AQShdagi O'zbekiston elchixonasida muhim lavozimlarda ishlagan. Uning rahbarligida mamlakatning investitsion jozibadorligini oshirish, sanoatni rivojlantirish va tashqi savdoni rag'batlantirishga qaratilgan strategik islohotlar amalga oshirilmoqda.",
-        "kazbekPos": "Vision Invest katta vitse-prezidenti va O'zbekistondagi vakolatxona rahbari",
-        "kazbekBio": "Kazbek Bassiyev Vision Invest korporatsiyasining katta vitse-prezidenti va O'zbekistondagi vakolatxona rahbaridir. U Ishchi guruhining rais o'rinbosari lavozimini egallaydi, bu esa uning davlat-xususiy sheriklik va investitsiyalar sohasidagi loyihalarni muvofiqlashtirish hamda hukumat tuzilmalari bilan o'zaro hamkorlikdagi muhim rolini ko'rsatadi. Vision Invest energetika, suv ta'minoti, qurilish va transport sohalarida aktivlarga ega yirik infratuzilma xoldingi bo'lib, O'zbekiston va Saudiya Arabistonida faol faoliyat yuritadi.",
-        "timurPos": "O'zbekiston Respublikasi Markaziy banki raisi",
-        "timurBio": "Timur Ishmetov 2024 yil dekabr oyidan beri O'zbekiston Respublikasi Markaziy bankining raisi lavozimini egallaydi. U bank sohasida 19 yildan ortiq tajribaga ega bo'lib, Markaziy bank va Moliya vazirligida muhim lavozimlarda ishlagan. Uning rahbarligida mamlakat moliya tizimining shaffofligi, samaradorligi va barqaror rivojlanishini oshirishga qaratilgan islohotlar amalga oshirilmoqda.",
-        "davronPos": "BDO Uzbekistan boshqaruvchi sherigi",
-        "davronBio": "Davron Yakubov BDO Uzbekistan kompaniyasining boshqaruvchi sherigidir. U mahalliy bozorda ham, xalqaro amaliyotda ham audit va konsalting sohasida katta tajribaga ega. Uning rahbarligida kompaniya audit, soliq maslahati va biznes-konsalting bo'yicha professional xizmatlar ko'rsatib, mamlakatda korporativ boshqaruv standartlarini mustahkamlashga hissa qo'shmoqda.",
-        "veraPos": "Crowe Uzbekistan boshqaruvchi sherigi",
-        "veraBio": "Vera Bell Crowe Uzbekistan kompaniyasining boshqaruvchi sherigidir. U Buyuk Britaniya, YEI mamlakatlari va Markaziy Osiyoda ishlash bo'yicha katta xalqaro tajribaga ega. Uning rahbarligida Crowe Uzbekistan yirik xalqaro va milliy kompaniyalar bilan hamkorlikda audit, konsalting va moliyaviy xizmatlar ko'rsatadi.",
-        "kongratbayPos": "Oliy ta'lim, fan va innovatsiyalar vaziri, ishchi guruh rahbari",
-        "kongratbayBio": "Kongratbay Sharipov O'zbekiston Respublikasining Oliy ta'lim, fan va innovatsiyalar vaziri lavozimini egallaydi. U texnika fanlari doktori va professor bo'lib, ta'lim va fan sohasida, jumladan Toshkent arxitektura-qurilish institutiga rahbarlik qilishda boy tajribaga ega. Uning rahbarligida vazirlik malakali kadrlar tayyorlash tizimini rivojlantirish va ta'lim jarayoniga innovatsiyalarni joriy etishga qaratilgan islohotlarni amalga oshirmoqda.",
+        "lazizBio": "Laziz Kudratov 2022 yil dekabr oyidan beri Özbekiston Respublikasining Investitsiyalar, sanoat va savdo vaziri lavozimini egallaydi. U taşqi iqtisodiy munosabatlar va investitsiyalar sohasida keng tajribaga ega bölib, Taşqi iqtisodiy aloqalar, investitsiyalar va savdo vazirligi hamda AQŞdagi Özbekiston elçixonasida muhim lavozimlarda işlagan. Uning rahbarligida mamlakatning investitsion jozibadorligini oşiriş, sanoatni rivojlantiriş va taşqi savdoni rağbatlantirişga qaratilgan strategik islohotlar amalga oşirilmoqda.",
+        "kazbekPos": "Vision Invest katta vitse-prezidenti va Özbekistondagi vakolatxona rahbari",
+        "kazbekBio": "Kazbek Bassiyev Vision Invest korporatsiyasining katta vitse-prezidenti va Özbekistondagi vakolatxona rahbaridir. U Işçi guruhining rais örinbosari lavozimini egallaydi, bu esa uning davlat-xususiy şeriklik va investitsiyalar sohasidagi loyihalarni muvofiqlaştiriş hamda hukumat tuzilmalari bilan özaro hamkorlikdagi muhim rolini körsatadi. Vision Invest energetika, suv ta'minoti, quriliş va transport sohalarida aktivlarga ega yirik infratuzilma xoldingi bölib, Özbekiston va Saudiya Arabistonida faol faoliyat yuritadi.",
+        "timurPos": "Özbekiston Respublikasi Markaziy banki raisi",
+        "timurBio": "Timur Işmetov 2024 yil dekabr oyidan beri Özbekiston Respublikasi Markaziy bankining raisi lavozimini egallaydi. U bank sohasida 19 yildan ortiq tajribaga ega bölib, Markaziy bank va Moliya vazirligida muhim lavozimlarda işlagan. Uning rahbarligida mamlakat moliya tizimining şaffofligi, samaradorligi va barqaror rivojlanişini oşirişga qaratilgan islohotlar amalga oşirilmoqda.",
+        "davronPos": "BDO Uzbekistan boşqaruvçi şerigi",
+        "davronBio": "Davron Yakubov BDO Uzbekistan kompaniyasining boşqaruvçi şerigidir. U mahalliy bozorda ham, xalqaro amaliyotda ham audit va konsalting sohasida katta tajribaga ega. Uning rahbarligida kompaniya audit, soliq maslahati va biznes-konsalting böyiça professional xizmatlar körsatib, mamlakatda korporativ boşqaruv standartlarini mustahkamlaşga hissa qöşmoqda.",
+        "veraPos": "Crowe Uzbekistan boşqaruvçi şerigi",
+        "veraBio": "Vera Bell Crowe Uzbekistan kompaniyasining boşqaruvçi şerigidir. U Buyuk Britaniya, YEI mamlakatlari va Markaziy Osiyoda işlaş böyiça katta xalqaro tajribaga ega. Uning rahbarligida Crowe Uzbekistan yirik xalqaro va milliy kompaniyalar bilan hamkorlikda audit, konsalting va moliyaviy xizmatlar körsatadi.",
+        "kongratbayPos": "Oliy ta'lim, fan va innovatsiyalar vaziri, işçi guruh rahbari",
+        "kongratbayBio": "Kongratbay Şaripov Özbekiston Respublikasining Oliy ta'lim, fan va innovatsiyalar vaziri lavozimini egallaydi. U texnika fanlari doktori va professor bölib, ta'lim va fan sohasida, jumladan Toşkent arxitektura-quriliş institutiga rahbarlik qilişda boy tajribaga ega. Uning rahbarligida vazirlik malakali kadrlar tayyorlaş tizimini rivojlantiriş va ta'lim jarayoniga innovatsiyalarni joriy etişga qaratilgan islohotlarni amalga oşirmoqda.",
         "turdimov": "Erkinjon Turdimov",
-        "turdimovPos": "Bosh vazirning birinchi o'rinbosari — ta'lim va fan vaziri, ishchi guruh rahbari",
-        "turdimovBio": "Erkinjon Turdimov O'zbekiston Respublikasi Bosh vazirining birinchi o'rinbosari — ta'lim va fan vaziri lavozimini egallaydi. U ma'lumoti bo'yicha iqtisodchi, 25 yildan ortiq boshqaruv tajribasiga ega davlat arbobi. U Navoiy, Surxondaryo, Samarqand va Sirdaryo viloyatlariga rahbarlik qilgan, shuningdek, Qishloq va suv xo'jaligi vazirining birinchi o'rinbosari lavozimida ishlagan. Uning rahbarligida birlashtirilgan vazirlik maktabgacha va maktab ta'limidan tortib oliy ta'lim va fangacha bo'lgan yagona ta'lim boshqaruvi tizimini shakllantirmoqda.",
-        "ilkhomPos": "Iqtisodiyot va moliya birinchi vazir o'rinbosari",
-        "ilkhomBio": "Ilxom Norqulov O'zbekiston Respublikasi iqtisodiyot va moliya birinchi vazir o'rinbosari lavozimini egallaydi. U iqtisodiyot sohasida, jumladan Markaziy bankda rahbarlik lavozimlarida boy tajribaga ega. 2023 yil fevralidan beri iqtisodiy rivojlanish, soliq rag'batlantirish va norasmiy iqtisodiyotga qarshi kurash yo'nalishidagi ishlarga rahbarlik qiladi.",
-        "mariusPos": "Franklin Templeton Markaziy Osiyo bosh direktori",
-        "mariusBio": "Marius Dan Franklin Templeton kompaniyasining Markaziy Osiyo bo'yicha bosh direktori lavozimini egallaydi. U O'zbekiston Respublikasi Milliy investitsiya fondi (UzNIF) boshqaruvi va kompaniyaning mintaqadagi investitsiya strategiyalarini rivojlantirishga rahbarlik qiladi. Uning rahbarligida Franklin Templeton xalqaro investorlarni jalb qilish va UzNIFni fond bozorlarida listingga tayyorlash bo'yicha faol ishlarni olib bormoqda.",
-        "ahadbekPos": "Iqtisodiyot va moliya vazir o'rinbosari, ishchi guruh rahbari",
-        "ahadbekBio": "Ahadbek Haydarov davlat siyosati, makroiqtisodiyot va moliyaviy boshqaruv sohasida tajribali mutaxassisdir. Iqtisodiyot va moliya vazirligiga tayinlanishidan oldin davlat aktivlarini boshqarish, bank va moliya sohalarida rahbarlik lavozimlarida ishlagan. 2019 yildan beri iqtisodiyot va moliya vazir o'rinbosari lavozimida davlat byudjeti va iqtisodiy rivojlanish masalalariga rahbarlik qiladi.",
+        "turdimovPos": "Boş vazirning birinçi örinbosari — ta'lim va fan vaziri, işçi guruh rahbari",
+        "turdimovBio": "Erkinjon Turdimov Özbekiston Respublikasi Boş vazirining birinçi örinbosari — ta'lim va fan vaziri lavozimini egallaydi. U ma'lumoti böyiça iqtisodçi, 25 yildan ortiq boşqaruv tajribasiga ega davlat arbobi. U Navoiy, Surxondaryo, Samarqand va Sirdaryo viloyatlariga rahbarlik qilgan, şuningdek, Qişloq va suv xöjaligi vazirining birinçi örinbosari lavozimida işlagan. Uning rahbarligida birlaştirilgan vazirlik maktabgaça va maktab ta'limidan tortib oliy ta'lim va fangaça bölgan yagona ta'lim boşqaruvi tizimini şakllantirmoqda.",
+        "ilkhomPos": "Iqtisodiyot va moliya birinçi vazir örinbosari",
+        "ilkhomBio": "Ilxom Norqulov Özbekiston Respublikasi iqtisodiyot va moliya birinçi vazir örinbosari lavozimini egallaydi. U iqtisodiyot sohasida, jumladan Markaziy bankda rahbarlik lavozimlarida boy tajribaga ega. 2023 yil fevralidan beri iqtisodiy rivojlaniş, soliq rağbatlantiriş va norasmiy iqtisodiyotga qarşi kuraş yönalişidagi işlarga rahbarlik qiladi.",
+        "mariusPos": "Franklin Templeton Markaziy Osiyo boş direktori",
+        "mariusBio": "Marius Dan Franklin Templeton kompaniyasining Markaziy Osiyo böyiça boş direktori lavozimini egallaydi. U Özbekiston Respublikasi Milliy investitsiya fondi (UzNIF) boşqaruvi va kompaniyaning mintaqadagi investitsiya strategiyalarini rivojlantirişga rahbarlik qiladi. Uning rahbarligida Franklin Templeton xalqaro investorlarni jalb qiliş va UzNIFni fond bozorlarida listingga tayyorlaş böyiça faol işlarni olib bormoqda.",
+        "ahadbekPos": "Iqtisodiyot va moliya vazir örinbosari, işçi guruh rahbari",
+        "ahadbekBio": "Ahadbek Haydarov davlat siyosati, makroiqtisodiyot va moliyaviy boşqaruv sohasida tajribali mutaxassisdir. Iqtisodiyot va moliya vazirligiga tayinlanişidan oldin davlat aktivlarini boşqariş, bank va moliya sohalarida rahbarlik lavozimlarida işlagan. 2019 yildan beri iqtisodiyot va moliya vazir örinbosari lavozimida davlat byudjeti va iqtisodiy rivojlaniş masalalariga rahbarlik qiladi.",
         "farrukhPos": "Kadastr agentligi direktori",
-        "farrukhBio": "Farrux Pulatov 2022 yil mart oyidan beri O'zbekiston Respublikasi Davlat soliq qo'mitasi huzuridagi Kadastr agentligi direktori lavozimini egallaydi. U muhandislik va huquqshunoslik sohasida oliy ma'lumotga ega bo'lib, katta boshqaruv tajribasiga ega — ilgari «Uzdonmahsulot» kompaniyasiga rahbarlik qilgan. Uning rahbarligida agentlik yer va mol-mulk hisobini raqamlashtirish bo'yicha islohotlarni amalga oshirmoqda.",
-        "azizbekAkhmadjonovPos": "«Kosta Legal» kompaniyasi boshqaruvchi sherigi, ishchi guruh rahbari o'rinbosari",
-        "azizbekAkhmadjonovBio": "Azizbek Ahmadjonov O'zbekistondagi yetakchi yuridik kompaniyalardan biri bo'lgan Kosta Legal firmasining boshqaruvchi sherigidir. U ko'chmas mulk, qurilish, korporativ huquq va sud vakolatxonasi sohalarida boy tajribaga ega. Ahmadjonov O'zbekiston huquq tizimini isloh qilishda, xususan yuridik kasbni tartibga solish va xorijiy investitsiyalarni jalb qilish sohasida faol ishtirok etadi.",
-        "sherzodXodjayevPos": "Energetika vaziri, ishchi guruh rahbari",
-        "sherzodXodjayevBio": "Sherzod Xodjayev faoliyatini 1998-2001-yillarda Energetika va elektrlashtirish vazirligida dasturchi-muhandis sifatida boshlagan. 2004-yildan 2010-yilgacha «O'zbekenergo» davlat aksiyadorlik kompaniyasida turli lavozimlarda ishlagan, 2017-yilgacha kompaniya direktori o'rinbosari, 2018-yilgacha esa kompaniya direktori bo'lgan.",
-        "azizAbdukhakimovPos": "Ekologiya va iqlim o'zgarishi milliy qo'mitasi raisi, ishchi guruh rahbari",
-        "azizAbdukhakimovBio": "Azizbek Abduhakimov Ekologiya va iqlim o'zgarishi davlat qo'mitasi raisi lavozimini egallaydi. U davlat boshqaruvi, turizm va ekologiya sohasida ko'p yillik tajribaga ega bo'lib, turli yillarda turizmni rivojlantirish bo'yicha Bosh vazir o'rinbosari lavozimida ishlagan. Uning rahbarligida atrof-muhitni muhofaza qilish va iqlim o'zgarishiga qarshi kurashish bo'yicha tizimli islohotlar amalga oshirilmoqda.",
-        "kazumasaPos": "«Coca-Cola Uzbekistan» kompaniyasi bosh menejeri, ishchi guruh rahbari o'rinbosari",
-        "kazumasaBio": "Kazumasa Mukae Coca-Cola Bottlers Uzbekistan kompaniyasining bosh menejeridir. U ichimliklar sanoati va xalqaro kompaniyalarni boshqarish bo'yicha katta tajribaga ega bo'lib, kompaniyaning O'zbekistondagi operatsion faoliyatini rivojlantirishda muhim rol o'ynaydi. Uning rahbarligida ishlab chiqarish samaradorligini oshirish va barqaror rivojlanishga qaratilgan tashabbuslar amalga oshirilmoqda.",
-        "olimjonPos": "Raqamli texnologiyalar vazir o'rinbosari",
-        "olimjonBio": "Olimjon Umarov raqamli texnologiyalar vazir o'rinbosaridir. U axborot siyosati, ommaviy komunikatsiyalar va raqamli rivojlanish sohasida ko'p yillik tajribaga ega bo'lib, turli yillarda davlat boshqaruvi tizimida mas'ul lavozimlarda ishlagan. Uning rahbarligida davlat organlari faoliyatining shaffofligini oshirish va zamonaviy axborot texnologiyalarini joriy etishga qaratilgan tashabbuslar ilgari surilmoqda.",
+        "farrukhBio": "Farrux Pulatov 2022 yil mart oyidan beri Özbekiston Respublikasi Davlat soliq qömitasi huzuridagi Kadastr agentligi direktori lavozimini egallaydi. U muhandislik va huquqşunoslik sohasida oliy ma'lumotga ega bölib, katta boşqaruv tajribasiga ega — ilgari «Uzdonmahsulot» kompaniyasiga rahbarlik qilgan. Uning rahbarligida agentlik yer va mol-mulk hisobini raqamlaştiriş böyiça islohotlarni amalga oşirmoqda.",
+        "azizbekAkhmadjonovPos": "«Kosta Legal» kompaniyasi boşqaruvçi şerigi, işçi guruh rahbari örinbosari",
+        "azizbekAkhmadjonovBio": "Azizbek Ahmadjonov Özbekistondagi yetakçi yuridik kompaniyalardan biri bölgan Kosta Legal firmasining boşqaruvçi şerigidir. U köçmas mulk, quriliş, korporativ huquq va sud vakolatxonasi sohalarida boy tajribaga ega. Ahmadjonov Özbekiston huquq tizimini isloh qilişda, xususan yuridik kasbni tartibga soliş va xorijiy investitsiyalarni jalb qiliş sohasida faol iştirok etadi.",
+        "sherzodXodjayevPos": "Energetika vaziri, işçi guruh rahbari",
+        "sherzodXodjayevBio": "Şerzod Xodjayev faoliyatini 1998-2001-yillarda Energetika va elektrlaştiriş vazirligida dasturçi-muhandis sifatida boşlagan. 2004-yildan 2010-yilgaça «Özbekenergo» davlat aksiyadorlik kompaniyasida turli lavozimlarda işlagan, 2017-yilgaça kompaniya direktori örinbosari, 2018-yilgaça esa kompaniya direktori bölgan.",
+        "azizAbdukhakimovPos": "Ekologiya va iqlim özgarişi milliy qömitasi raisi, işçi guruh rahbari",
+        "azizAbdukhakimovBio": "Azizbek Abduhakimov Ekologiya va iqlim özgarişi davlat qömitasi raisi lavozimini egallaydi. U davlat boşqaruvi, turizm va ekologiya sohasida köp yillik tajribaga ega bölib, turli yillarda turizmni rivojlantiriş böyiça Boş vazir örinbosari lavozimida işlagan. Uning rahbarligida atrof-muhitni muhofaza qiliş va iqlim özgarişiga qarşi kuraşiş böyiça tizimli islohotlar amalga oşirilmoqda.",
+        "kazumasaPos": "«Coca-Cola Uzbekistan» kompaniyasi boş menejeri, işçi guruh rahbari örinbosari",
+        "kazumasaBio": "Kazumasa Mukae Coca-Cola Bottlers Uzbekistan kompaniyasining boş menejeridir. U içimliklar sanoati va xalqaro kompaniyalarni boşqariş böyiça katta tajribaga ega bölib, kompaniyaning Özbekistondagi operatsion faoliyatini rivojlantirişda muhim rol öynaydi. Uning rahbarligida işlab çiqariş samaradorligini oşiriş va barqaror rivojlanişga qaratilgan taşabbuslar amalga oşirilmoqda.",
+        "olimjonPos": "Raqamli texnologiyalar vazir örinbosari",
+        "olimjonBio": "Olimjon Umarov raqamli texnologiyalar vazir örinbosaridir. U axborot siyosati, ommaviy komunikatsiyalar va raqamli rivojlaniş sohasida köp yillik tajribaga ega bölib, turli yillarda davlat boşqaruvi tizimida mas'ul lavozimlarda işlagan. Uning rahbarligida davlat organlari faoliyatining şaffofligini oşiriş va zamonaviy axborot texnologiyalarini joriy etişga qaratilgan taşabbuslar ilgari surilmoqda.",
         "posCentralBankChair": "Markaziy bank raisi",
         "posJusticeMinister": "Adliya vaziri",
         "posDigitalMinister": "Raqamli texnologiyalar vaziri",
-        "posDeputyEcoFin": "Iqtisodiyot va moliya vazir o'rinbosari",
-        "posRdfDirector": "Tiklanish va taraqqiyot jamg'armasi ijrochi direktori",
-        "posTaxChairman": "Soliq qo'mitasi raisi",
-        "posDeputyJustice": "Adliya vazirining o'rinbosari",
-        "posDeputyTax": "Soliq qo'mitasi raisining o'rinbosari",
-        "posStockExchange": "«Toshkent» Respublika fond birjasi boshqaruvi raisi",
-        "posOmbudsperson": "O'zbekiston Respublikasi Oliy Majlisi huzuridagi Inson huquqlari bo'yicha vakil (Ombudsman)",
-        "posDeputyPoverty": "Bandlik va kambag'allikni qisqartirish vazirining birinchi o'rinbosari",
-        "posCompetition": "Raqobatni rivojlantirish va iste'molchilar huquqlarini himoya qilish qo'mitasi raisining o'rinbosari",
-        "posStatistics": "Davlat statistika qo'mitasi raisi o'rinbosari",
-        "posEcologyDeputy": "Ekologiya va iqlim o'zgarishi bo'yicha milliy agentligi raisi o'rinbosari",
-        "posEmployment": "O'zbekiston Respublikasi bandlik va kambag'allikni qisqartirish vaziri",
-        "posLaborMigration": "Tashqi mehnat migratsiyasi agentligi direktori",
+        "posDeputyEcoFin": "Iqtisodiyot va moliya vazir örinbosari",
+        "posRdfDirector": "Tiklaniş va taraqqiyot jamğarmasi ijroçi direktori",
+        "posTaxChairman": "Soliq qömitasi raisi",
+        "posDeputyJustice": "Adliya vazirining örinbosari",
+        "posDeputyTax": "Soliq qömitasi raisining örinbosari",
+        "posStockExchange": "«Toşkent» Respublika fond birjasi boşqaruvi raisi",
+        "posOmbudsperson": "Özbekiston Respublikasi Oliy Majlisi huzuridagi Inson huquqlari böyiça vakil (Ombudsman)",
+        "posDeputyPoverty": "Bandlik va kambağallikni qisqartiriş vazirining birinçi örinbosari",
+        "posCompetition": "Raqobatni rivojlantiriş va iste'molçilar huquqlarini himoya qiliş qömitasi raisining örinbosari",
+        "posStatistics": "Davlat statistika qömitasi raisi örinbosari",
+        "posEcologyDeputy": "Ekologiya va iqlim özgarişi böyiça milliy agentligi raisi örinbosari",
+        "posEmployment": "Özbekiston Respublikasi bandlik va kambağallikni qisqartiriş vaziri",
+        "posLaborMigration": "Taşqi mehnat migratsiyasi agentligi direktori",
         "posChamber": "Savdo-sanoat palatasi raisi",
-        "posNapp": "Istiqbolli loyihalar milliy agentligi direktorining birinchi o'rinbosari",
-        "posStateAssetsDeputy": "Davlat aktivlarini boshqarish agentligi direktorining o'rinbosari",
-        "posFirstDeputyJustice": "Adliya vazirining birinchi o'rinbosari",
-        "posHududiy": "«Hududiy elektr tarmoqlari» AJ boshqaruvi raisi",
-        "posUzenergo": "«Uzenergosotish» AJ boshqaruvi raisi",
-        "posYashilEnergiya": "«Yashil Energiya» MChJ direktori",
-        "posUztransgaz": "«Uztransgaz» AJ boshqaruvi raisi v.b.",
-        "posNappDeputy": "Istiqbolli loyihalar milliy agentligi direktori o'rinbosari",
-        "posActingStockExchange": "«Toshkent» Respublika fond birjasi boshqaruvi raisi v.b.",
+        "posNapp": "Istiqbolli loyihalar milliy agentligi direktorining birinçi örinbosari",
+        "posStateAssetsDeputy": "Davlat aktivlarini boşqariş agentligi direktorining örinbosari",
+        "posFirstDeputyJustice": "Adliya vazirining birinçi örinbosari",
+        "posHududiy": "«Hududiy elektr tarmoqlari» AJ boşqaruvi raisi",
+        "posUzenergo": "«Uzenergosotiş» AJ boşqaruvi raisi",
+        "posYashilEnergiya": "«Yaşil Energiya» MÇJ direktori",
+        "posUztransgaz": "«Uztransgaz» AJ boşqaruvi raisi v.b.",
+        "posNappDeputy": "Istiqbolli loyihalar milliy agentligi direktori örinbosari",
+        "posActingStockExchange": "«Toşkent» Respublika fond birjasi boşqaruvi raisi v.b.",
         "posItPark": "IT Park direktori",
-        "posFirstDeputyEcoFin": "Iqtisodiyot va moliya vazirining birinchi o'rinbosari",
+        "posFirstDeputyEcoFin": "Iqtisodiyot va moliya vazirining birinçi örinbosari",
         "posRepKostaLegal": "«Kosta Legal» kompaniyasi vakili",
         "posRepIfc": "Xalqaro moliya korporatsiyasi vakili",
         "posRepAdb": "Osiyo taraqqiyot banki vakili",
-        "posRepEbrd": "Yevropa tiklanish va taraqqiyot banki vakili",
-        "posRepFicMembers": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi a'zo-kompaniyalari vakillari",
-        "posBanksAssociation": "O'zbekiston banklari assotsiatsiyasi bosh direktori",
-        "posCurrencyExchange": "«O'zbekiston Respublika valyuta birjasi» AJ bosh direktori",
-        "posCentralBankSecretary": "Markaziy bank mas'ul xodimi, ishchi guruh kotibi",
-        "posSecretary": "Investitsiyalar, sanoat va savdo vazirligi boshqarma boshlig'i, ishchi guruh kotibi",
+        "posRepEbrd": "Yevropa tiklaniş va taraqqiyot banki vakili",
+        "posRepFicMembers": "Özbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengaşi a'zo-kompaniyalari vakillari",
+        "posBanksAssociation": "Özbekiston banklari assotsiatsiyasi boş direktori",
+        "posCurrencyExchange": "«Özbekiston Respublika valyuta birjasi» AJ boş direktori",
+        "posCentralBankSecretary": "Markaziy bank mas'ul xodimi, işçi guruh kotibi",
+        "posSecretary": "Investitsiyalar, sanoat va savdo vazirligi boşqarma boşliği, işçi guruh kotibi",
         "posBusinessOmbudsman": "Biznes-ombudsman",
-        "posFirstDeputyAntiCorruption": "Korrupsiyaga qarshi kurashish agentligi direktorining birinchi o'rinbosari",
-        "posFirstDeputyTax": "Soliq qo'mitasi raisining birinchi o'rinbosari",
-        "posDeputySecretary": "Investitsiyalar, sanoat va savdo vazirligi boshqarma boshlig'i o'rinbosari, ishchi guruh kotibi",
-        "posMgmtEfficiency": "O'zbekiston Respublikasi Prezidenti huzuridagi Boshqaruv samaradorligi agentligi direktori v.b.",
-        "posPublicPolicyRector": "O'zbekiston Respublikasi Prezidenti huzuridagi Davlat siyosati va boshqaruvi akademiyasi rektori",
-        "posDeputyInvestMinister": "Investitsiyalar, sanoat va savdo vaziri o'rinbosari",
-        "posMinHigherEduSecretary": "Oliy ta'lim, fan va innovatsiyalar vazirligi mas'ul xodimi, ishchi guruh kotibi"
+        "posFirstDeputyAntiCorruption": "Korrupsiyaga qarşi kuraşiş agentligi direktorining birinçi örinbosari",
+        "posFirstDeputyTax": "Soliq qömitasi raisining birinçi örinbosari",
+        "posDeputySecretary": "Investitsiyalar, sanoat va savdo vazirligi boşqarma boşliği örinbosari, işçi guruh kotibi",
+        "posMgmtEfficiency": "Özbekiston Respublikasi Prezidenti huzuridagi Boşqaruv samaradorligi agentligi direktori v.b.",
+        "posPublicPolicyRector": "Özbekiston Respublikasi Prezidenti huzuridagi Davlat siyosati va boşqaruvi akademiyasi rektori",
+        "posDeputyInvestMinister": "Investitsiyalar, sanoat va savdo vaziri örinbosari",
+        "posMinHigherEduSecretary": "Oliy ta'lim, fan va innovatsiyalar vazirligi mas'ul xodimi, işçi guruh kotibi"
     },
     "notFound": {
         "title": "Sahifa topilmadi",
-        "description": "Siz qidirayotgan sahifa mavjud emas yoki o'chirilgan bo'lishi mumkin. Bosh sahifaga qayting yoki orqaga o'ting.",
-        "backHome": "Bosh sahifaga qaytish"
+        "description": "Siz qidirayotgan sahifa mavjud emas yoki öçirilgan bölişi mumkin. Boş sahifaga qayting yoki orqaga öting.",
+        "backHome": "Boş sahifaga qaytiş"
     },
     "seo": {
-        "siteName": "Xorijiy investorlar kengashi",
-        "homeTitle": "Xorijiy investorlar kengashi — O'zbekiston Respublikasi Prezidenti huzuridagi",
-        "orgName": "O'zbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengashi",
-        "description": "O'zbekiston Prezidenti huzuridagi Xorijiy investorlar kengashi (XIK) — investorlar va davlat muloqoti hamda investitsiya muhitini yaxshilash platformasi.",
-        "keywords": "Xorijiy investorlar kengashi, XIK, FIC, O'zbekiston investitsiyalar, investitsiya muhiti, xorijiy investorlar, iqtisodiy islohotlar, ishchi guruhlar, YETTB, Toshkent",
+        "siteName": "Xorijiy investorlar kengaşi",
+        "homeTitle": "Xorijiy investorlar kengaşi — Özbekiston Respublikasi Prezidenti huzuridagi",
+        "orgName": "Özbekiston Respublikasi Prezidenti huzuridagi Xorijiy investorlar kengaşi",
+        "description": "Özbekiston Prezidenti huzuridagi Xorijiy investorlar kengaşi (XIK) — investorlar va davlat muloqoti hamda investitsiya muhitini yaxşilaş platformasi.",
+        "keywords": "Xorijiy investorlar kengaşi, XIK, FIC, Özbekiston investitsiyalar, investitsiya muhiti, xorijiy investorlar, iqtisodiy islohotlar, işçi guruhlar, YETTB, Toşkent",
         "pages": {
-            "fic-history": "Xorijiy investorlar kengashining tashkil topishi, asosiy bosqichlari va O'zbekiston investitsiya muhitini isloh qilishdagi yutuqlari tarixi.",
-            "association": "\"Xorijiy investorlar kengashi\" assotsiatsiyasi — Kengash Kotibiyati vazifalarini bajaruvchi yuridik shaxs: huquqiy asos, funksiyalar va boshqaruv tuzilmasi.",
-            "management": "Xorijiy investorlar kengashi rahbariyati va Ijroiya qo'mitasi: kengash ishini boshqaruvchi davlat va xalqaro investorlar vakillari.",
-            "secretariat": "XIK Kotibiyati — kengash faoliyatini muvofiqlashtiradi, ishchi guruhlar ishini tashkil etadi va investorlar bilan muloqotni ta'minlaydi.",
-            "working-groups": "Kengash va idoralararo ishchi guruhlari: soliq, energetika, bank-moliya, savdo va boshqa sohalarda investitsiya muhitini yaxshilash takliflari.",
-            "results": "Xorijiy investorlar kengashi natijalari: amalga oshirilgan tashabbuslar, jalb qilingan investitsiyalar va qabul qilingan normativ hujjatlar.",
-            "events": "Xorijiy investorlar kengashi tadbirlarining kalendar rejasi: plenar sessiyalar, oraliq majlislar, ishchi guruh sessiyalari va uchrashuvlar.",
-            "contact": "Xorijiy investorlar kengashi Kotibiyati bilan bog'laning: Toshkent, BoMI Finance Center. Telefon: +998 88 099 88 88."
+            "fic-history": "Xorijiy investorlar kengaşining taşkil topişi, asosiy bosqiçlari va Özbekiston investitsiya muhitini isloh qilişdagi yutuqlari tarixi.",
+            "association": "\"Xorijiy investorlar kengaşi\" assotsiatsiyasi — Kengaş Kotibiyati vazifalarini bajaruvçi yuridik şaxs: huquqiy asos, funksiyalar va boşqaruv tuzilmasi.",
+            "management": "Xorijiy investorlar kengaşi rahbariyati va Ijroiya qömitasi: kengaş işini boşqaruvçi davlat va xalqaro investorlar vakillari.",
+            "secretariat": "XIK Kotibiyati — kengaş faoliyatini muvofiqlaştiradi, işçi guruhlar işini taşkil etadi va investorlar bilan muloqotni ta'minlaydi.",
+            "working-groups": "Kengaş va idoralararo işçi guruhlari: soliq, energetika, bank-moliya, savdo va boşqa sohalarda investitsiya muhitini yaxşilaş takliflari.",
+            "results": "Xorijiy investorlar kengaşi natijalari: amalga oşirilgan taşabbuslar, jalb qilingan investitsiyalar va qabul qilingan normativ hujjatlar.",
+            "events": "Xorijiy investorlar kengaşi tadbirlarining kalendar rejasi: plenar sessiyalar, oraliq majlislar, işçi guruh sessiyalari va uçraşuvlar.",
+            "contact": "Xorijiy investorlar kengaşi Kotibiyati bilan boğlaning: Toşkent, BoMI Finance Center. Telefon: +998 88 099 88 88."
         }
     }
 }

@@ -89,7 +89,7 @@ export interface LocaleOption {
 }
 
 export const localeOptions: LocaleOption[] = [
-    { code: 'uz', label: "O'z" },
+    { code: 'uz', label: "Öz" },
     { code: 'ru', label: 'Ру' },
     { code: 'en', label: 'En' },
 ]

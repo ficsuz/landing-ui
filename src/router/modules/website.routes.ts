@@ -80,6 +80,12 @@ const websiteRoutes: RouteRecordRaw[] = [
         meta: { title: 'Cooperation', titleKey: 'nav.corporation', heroImage: eventsImg },
     },
     {
+        path: 'council-members/corporation/amcham-memorandum',
+        name: 'council-members-corporation-memorandum',
+        component: () => import('@/views/website/council-members/corporation/Memorandum.vue'),
+        meta: { title: 'Cooperation', titleKey: 'nav.corporation', heroImage: eventsImg },
+    },
+    {
         path: 'council-members/become-a-member',
         name: 'council-members-become',
         component: () => import('../../views/website/council-members/become-a-member/Index.vue'),

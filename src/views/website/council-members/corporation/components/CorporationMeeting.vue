@@ -15,21 +15,21 @@
             <div class="max-w-4xl mx-auto">
                 <!-- Subject badge -->
                 <span class="inline-block text-[12px] font-bold tracking-widest uppercase text-white bg-[#1a1e2e] px-3 py-1 rounded-full mb-5">
-                    {{ memorandum.eyebrow }}
+                    {{ meeting.eyebrow }}
                 </span>
 
                 <!-- Title -->
                 <h1 class="font-black text-[clamp(26px,4vw,46px)] text-[#1a1e2e] leading-tight mb-6">
-                    {{ memorandum.title }}
+                    {{ meeting.title }}
                 </h1>
 
                 <!-- Meta row -->
                 <div class="flex flex-wrap items-center gap-4 text-[13px] text-[#8a94a6] pb-8 border-b border-[#eef0f4]">
-                    <time :datetime="memorandum.date" class="flex items-center gap-1.5">
+                    <time :datetime="meeting.date" class="flex items-center gap-1.5">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
                         </svg>
-                        {{ memorandum.dateLabel }}
+                        {{ meeting.dateLabel }}
                     </time>
                 </div>
 
@@ -46,7 +46,7 @@
                         />
                         <!-- Counter -->
                         <span class="absolute bottom-3 left-3 text-[12px] font-semibold text-white bg-black/55 backdrop-blur-sm px-2.5 py-1 rounded-full">
-                            {{ activeIndex + 1 }} / {{ memorandum.gallery.length }}
+                            {{ activeIndex + 1 }} / {{ meeting.gallery.length }}
                         </span>
                         <!-- Download button -->
                         <button
@@ -80,7 +80,7 @@
 
                         <div ref="thumbStrip" class="flex gap-2.5 overflow-x-auto p-2 thumb-strip" @scroll="updateThumbScroll">
                             <button
-                                v-for="(img, i) in memorandum.gallery"
+                                v-for="(img, i) in meeting.gallery"
                                 :key="img"
                                 type="button"
                                 :aria-label="photoAlt(i)"
@@ -107,8 +107,8 @@
                 </div>
 
                 <!-- Description paragraphs -->
-                <div v-if="memorandum.paragraphs.length" class="mt-10 md:mt-14 flex flex-col gap-6">
-                    <p v-for="(para, i) in memorandum.paragraphs" :key="i" class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-[1.8]">
+                <div v-if="meeting.paragraphs.length" class="mt-10 md:mt-14 flex flex-col gap-6">
+                    <p v-for="(para, i) in meeting.paragraphs" :key="i" class="text-[clamp(15px,1.3vw,18px)] text-[#444] leading-[1.8]">
                         {{ para }}
                     </p>
                 </div>
@@ -171,7 +171,7 @@
                     <!-- Counter + download -->
                     <div class="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-4">
                         <span class="text-[13px] font-semibold text-white/90 bg-white/10 px-3 py-1.5 rounded-full">
-                            {{ activeIndex + 1 }} / {{ memorandum.gallery.length }}
+                            {{ activeIndex + 1 }} / {{ meeting.gallery.length }}
                         </span>
                         <button
                             type="button"
@@ -196,36 +196,37 @@
 <script setup lang="ts">
 import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useCorporationMemorandum } from '@/views/website/council-members/corporation/memorandumData'
+import type { CorporationMeeting } from '@/views/website/council-members/corporation/meetingsData'
 import { useSeo } from '@/composables/useSeo'
 import { truncateDescription } from '@/constants/seo.constants'
 
+const props = defineProps<{ meeting: CorporationMeeting }>()
+
 const { t } = useI18n()
-const memorandum = useCorporationMemorandum()
 
 useSeo(() => ({
-    title: memorandum.value.title,
-    description: truncateDescription(memorandum.value.paragraphs.join(' ')),
-    image: memorandum.value.cover,
+    title: props.meeting.title,
+    description: truncateDescription(props.meeting.paragraphs.join(' ')),
+    image: props.meeting.cover,
     type: 'article',
-    publishedTime: memorandum.value.date,
+    publishedTime: props.meeting.date,
 }))
 
 function photoAlt(index: number): string {
-    return t('corporationPage.photoAlt', { title: memorandum.value.title, number: index + 1 })
+    return t('corporationPage.photoAlt', { title: props.meeting.title, number: index + 1 })
 }
 
 // --- Gallery ---
 const activeIndex = ref(0)
 const lightboxOpen = ref(false)
-const activeImage = computed(() => memorandum.value.gallery[activeIndex.value])
+const activeImage = computed(() => props.meeting.gallery[activeIndex.value])
 
 function nextImage() {
-    const len = memorandum.value.gallery.length
+    const len = props.meeting.gallery.length
     activeIndex.value = (activeIndex.value + 1) % len
 }
 function prevImage() {
-    const len = memorandum.value.gallery.length
+    const len = props.meeting.gallery.length
     activeIndex.value = (activeIndex.value - 1 + len) % len
 }
 
@@ -276,14 +277,14 @@ function onTouchEnd(e: TouchEvent) {
 }
 
 async function downloadImage(i: number) {
-    const url = memorandum.value.gallery[i]
+    const url = props.meeting.gallery[i]
     try {
         const res = await fetch(url)
         const blob = await res.blob()
         const objectUrl = URL.createObjectURL(blob)
         const a = document.createElement('a')
         a.href = objectUrl
-        a.download = `${memorandum.value.title}-${i + 1}.jpg`
+        a.download = `${props.meeting.title}-${i + 1}.jpg`
         document.body.appendChild(a)
         a.click()
         a.remove()

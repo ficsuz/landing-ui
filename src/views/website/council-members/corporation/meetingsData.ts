@@ -1,20 +1,34 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import img1 from '@/assets/images/corporation/amcham-memorandum/1.jpg'
-import img2 from '@/assets/images/corporation/amcham-memorandum/2.jpg'
-import img3 from '@/assets/images/corporation/amcham-memorandum/3.jpg'
-import img4 from '@/assets/images/corporation/amcham-memorandum/4.jpg'
-import img5 from '@/assets/images/corporation/amcham-memorandum/5.jpg'
-import img6 from '@/assets/images/corporation/amcham-memorandum/6.jpg'
-import img7 from '@/assets/images/corporation/amcham-memorandum/7.jpg'
-import img8 from '@/assets/images/corporation/amcham-memorandum/8.jpg'
-import img9 from '@/assets/images/corporation/amcham-memorandum/9.jpg'
+import raic1 from '@/assets/images/corporation/raic-cac-session/1.jpg'
+import raic2 from '@/assets/images/corporation/raic-cac-session/2.jpg'
+import raic3 from '@/assets/images/corporation/raic-cac-session/3.jpg'
+import raic4 from '@/assets/images/corporation/raic-cac-session/4.jpg'
+import raic5 from '@/assets/images/corporation/raic-cac-session/5.jpg'
+import raic6 from '@/assets/images/corporation/raic-cac-session/6.jpg'
+import raic7 from '@/assets/images/corporation/raic-cac-session/7.jpg'
+import raic8 from '@/assets/images/corporation/raic-cac-session/8.jpg'
+import raic9 from '@/assets/images/corporation/raic-cac-session/9.jpg'
+import raic10 from '@/assets/images/corporation/raic-cac-session/10.jpg'
+import raic11 from '@/assets/images/corporation/raic-cac-session/11.jpg'
 
-const MEMORANDUM_DATE = '2026-10-27'
+import amcham1 from '@/assets/images/corporation/amcham-memorandum/1.jpg'
+import amcham2 from '@/assets/images/corporation/amcham-memorandum/2.jpg'
+import amcham3 from '@/assets/images/corporation/amcham-memorandum/3.jpg'
+import amcham4 from '@/assets/images/corporation/amcham-memorandum/4.jpg'
+import amcham5 from '@/assets/images/corporation/amcham-memorandum/5.jpg'
+import amcham6 from '@/assets/images/corporation/amcham-memorandum/6.jpg'
+import amcham7 from '@/assets/images/corporation/amcham-memorandum/7.jpg'
+import amcham8 from '@/assets/images/corporation/amcham-memorandum/8.jpg'
+import amcham9 from '@/assets/images/corporation/amcham-memorandum/9.jpg'
 
-export interface CorporationMemorandum {
+export interface CorporationMeeting {
+    /** URL segment: /council-members/corporation/<slug> */
+    slug: string
     cover: string
+    /** CSS object-position for the card cover — keeps the important part of a photo in the 3:2 frame */
+    coverPosition: string
     gallery: string[]
     /** ISO date, used for machine-readable markup */
     date: string
@@ -25,23 +39,57 @@ export interface CorporationMemorandum {
     paragraphs: string[]
 }
 
-// Static copy of the meeting "/events/meetings/01a17bea-e03a-73fa-8c89-e2bf57503dbe"
-// (AmCham Uzbekistan × FIC cooperation memorandum), kept independent of the CMS.
-export function useCorporationMemorandum() {
+interface MeetingSource {
+    slug: string
+    /** i18n namespace holding eyebrow / title / paragraphs */
+    key: string
+    date: string
+    gallery: string[]
+    /** Defaults to `center` */
+    coverPosition?: string
+}
+
+// Static copies of meetings from "/events/meetings/<id>", kept independent of the CMS.
+// Order here is the order of the cards on the Corporation page.
+// Slugs must match the `:slug(...)` pattern of the `council-members-corporation-meeting` route.
+const MEETINGS: MeetingSource[] = [
+    {
+        // /events/meetings/01a100f8-2491-7328-a44e-9c14180ca294 (+ an extra cover photo prepended)
+        slug: 'raic-cac-strategic-session',
+        key: 'corporationPage.raicCacSession',
+        date: '2026-06-16',
+        // 4:3 photo: anchor to the top so the emblem, captions and all signatories stay in the 3:2 card
+        // frame — only the empty front edge of the table falls outside.
+        coverPosition: 'center top',
+        gallery: [raic1, raic2, raic3, raic4, raic5, raic6, raic7, raic8, raic9, raic10, raic11],
+    },
+    {
+        // /events/meetings/01a17bea-e03a-73fa-8c89-e2bf57503dbe
+        slug: 'amcham-memorandum',
+        key: 'corporationPage.amchamMemorandum',
+        date: '2026-10-27',
+        gallery: [amcham1, amcham2, amcham3, amcham4, amcham5, amcham6, amcham7, amcham8, amcham9],
+    },
+]
+
+export function useCorporationMeetings() {
     const { t, tm, rt } = useI18n()
-    const key = 'corporationPage.amchamMemorandum'
 
-    return computed<CorporationMemorandum>(() => {
-        const paragraphs = tm(`${key}.paragraphs`)
+    return computed<CorporationMeeting[]>(() =>
+        MEETINGS.map(({ slug, key, date, gallery, coverPosition = 'center' }) => {
+            const paragraphs = tm(`${key}.paragraphs`)
 
-        return {
-            cover: img1,
-            gallery: [img1, img2, img3, img4, img5, img6, img7, img8, img9],
-            date: MEMORANDUM_DATE,
-            dateLabel: new Date(MEMORANDUM_DATE).toLocaleDateString('en-GB').replace(/\//g, '.'),
-            eyebrow: t(`${key}.eyebrow`),
-            title: t(`${key}.title`),
-            paragraphs: Array.isArray(paragraphs) ? paragraphs.map((item) => rt(item as string)) : [],
-        }
-    })
+            return {
+                slug,
+                cover: gallery[0],
+                coverPosition,
+                gallery,
+                date,
+                dateLabel: new Date(date).toLocaleDateString('en-GB').replace(/\//g, '.'),
+                eyebrow: t(`${key}.eyebrow`),
+                title: t(`${key}.title`),
+                paragraphs: Array.isArray(paragraphs) ? paragraphs.map((item) => rt(item as string)) : [],
+            }
+        })
+    )
 }

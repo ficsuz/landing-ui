@@ -81,7 +81,7 @@ const websiteRoutes: RouteRecordRaw[] = [
     },
     {
         // Slugs come from MEETINGS in corporation/meetingsData.ts
-        path: 'council-members/corporation/:slug(raic-cac-strategic-session|amcham-memorandum)',
+        path: 'council-members/corporation/:slug(raic-cac-strategic-session|amcham-memorandum|eurouz-memorandum)',
         name: 'council-members-corporation-meeting',
         component: () => import('@/views/website/council-members/corporation/Meeting.vue'),
         meta: { title: 'Cooperation', titleKey: 'nav.corporation', heroImage: eventsImg },

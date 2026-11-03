@@ -23,6 +23,12 @@ import amcham7 from '@/assets/images/corporation/amcham-memorandum/7.jpg'
 import amcham8 from '@/assets/images/corporation/amcham-memorandum/8.jpg'
 import amcham9 from '@/assets/images/corporation/amcham-memorandum/9.jpg'
 
+import eurouz1 from '@/assets/images/corporation/eurouz-memorandum/1.jpg'
+import eurouz2 from '@/assets/images/corporation/eurouz-memorandum/2.jpg'
+import eurouz3 from '@/assets/images/corporation/eurouz-memorandum/3.jpg'
+import eurouz4 from '@/assets/images/corporation/eurouz-memorandum/4.jpg'
+import eurouz5 from '@/assets/images/corporation/eurouz-memorandum/5.jpg'
+
 export interface CorporationMeeting {
     /** URL segment: /council-members/corporation/<slug> */
     slug: string
@@ -69,6 +75,13 @@ const MEETINGS: MeetingSource[] = [
         key: 'corporationPage.amchamMemorandum',
         date: '2026-10-27',
         gallery: [amcham1, amcham2, amcham3, amcham4, amcham5, amcham6, amcham7, amcham8, amcham9],
+    },
+    {
+        // EUROUZ × FIC memorandum — content and photos provided directly (no CMS source)
+        slug: 'eurouz-memorandum',
+        key: 'corporationPage.eurouzMemorandum',
+        date: '2026-11-03',
+        gallery: [eurouz1, eurouz2, eurouz3, eurouz4, eurouz5],
     },
 ]
 

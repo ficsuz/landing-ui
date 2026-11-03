@@ -33,7 +33,7 @@
                             <time :datetime="meeting.date" class="text-[13px] text-[#8a94a6] mb-2">
                                 {{ meeting.dateLabel }}
                             </time>
-                            <h3 class="font-bold text-[17px] text-[#1a1e2e] leading-snug line-clamp-3 mb-5">
+                            <h3 class="font-bold text-[17px] text-[#1a1e2e] leading-snug mb-5">
                                 {{ meeting.title }}
                             </h3>
                             <span class="mt-auto w-full py-2.5 rounded-xl bg-[#f2f3f6] text-[#1a1e2e] text-[14px] font-semibold text-center block transition-colors duration-200 group-hover:bg-[#1a1e2e] group-hover:text-white">

@@ -183,7 +183,11 @@
     },
     "councilCalendar": {
         "title": "Council Calendar",
-        "allEvents": "All events"
+        "allEvents": "All events",
+        "empty": "No upcoming events scheduled yet",
+        "prev": "Previous event",
+        "next": "Next event",
+        "moreEvents": "{n} more event | {n} more events"
     },
     "news": {
         "title": "News",

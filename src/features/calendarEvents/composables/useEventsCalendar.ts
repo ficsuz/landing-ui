@@ -5,10 +5,12 @@ import { EVENT_TYPES } from '../constants'
 import type { CalendarDay, CalendarEntry, CalendarEvent, CalendarEventType, DateMode, DayStatus, EventTiming } from '../types'
 import { addMonths, diffDays, fromApiDate, isDayKey, isMonthKey, monthOf, parseDateTime, toKey, weekdayOf } from '../utils/date'
 
-const dayOf = (e: CalendarEntry) => e.start.slice(0, 10)
+/** `YYYY-MM-DD` day key of an entry (Tashkent wall-clock). */
+export const dayOf = (e: CalendarEntry) => e.start.slice(0, 10)
 const TYPE_VALUES = EVENT_TYPES.map((t) => t.value)
 
-const toEntry = (e: CalendarEvent): CalendarEntry => ({
+/** API event → website view model (dates converted to Tashkent wall-clock). */
+export const toEntry = (e: CalendarEvent): CalendarEntry => ({
     id: e.id,
     type: e.type,
     title: e.title,

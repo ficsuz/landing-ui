@@ -183,7 +183,11 @@
     },
     "councilCalendar": {
         "title": "Kengaş Kalendari",
-        "allEvents": "Barça tadbirlar"
+        "allEvents": "Barça tadbirlar",
+        "empty": "Yaqin kunlarda tadbirlar rejalaştirilmagan",
+        "prev": "Oldingi tadbir",
+        "next": "Keyingi tadbir",
+        "moreEvents": "Yana {n} ta tadbir"
     },
     "news": {
         "title": "Yangiliklar",

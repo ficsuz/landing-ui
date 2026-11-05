@@ -211,6 +211,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useWorkingGroupSessionsStore } from '@/features/workingGroupSessions/store'
 import { resolveTranslation } from '@/utils/i18n'
 import { getMediaUrl } from '@/utils/media'
+import { renderRichText } from '@/utils/richText'
 import { useSeo } from '@/composables/useSeo'
 import { truncateDescription } from '@/constants/seo.constants'
 
@@ -282,7 +283,7 @@ function onKeydown(e: KeyboardEvent) {
 
 const htmlContent = computed(() => {
     if (!session.value?.content) return ''
-    return resolveTranslation(session.value.content, locale.value)
+    return renderRichText(resolveTranslation(session.value.content, locale.value))
 })
 
 function formatDate(iso?: string | null) {

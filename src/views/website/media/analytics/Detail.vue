@@ -69,6 +69,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useBlogStore } from '@/features/blog/store'
 import { resolveTranslation } from '@/utils/i18n'
 import { getMediaUrl } from '@/utils/media'
+import { renderRichText } from '@/utils/richText'
 import { useSeo } from '@/composables/useSeo'
 import { truncateDescription, SITE_URL } from '@/constants/seo.constants'
 
@@ -81,7 +82,7 @@ const article = computed(() => blogStore.current)
 
 const htmlContent = computed(() => {
     if (!article.value?.content) return ''
-    return resolveTranslation(article.value.content, locale.value)
+    return renderRichText(resolveTranslation(article.value.content, locale.value))
 })
 
 function formatDate(iso?: string | null) {

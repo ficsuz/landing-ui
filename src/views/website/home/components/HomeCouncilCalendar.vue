@@ -46,7 +46,7 @@
                 @touchend.passive="onTouchEnd"
             >
                 <article
-                    v-for="(slide, i) in slides"
+                    v-for="{ slide, i } in renderedSlides"
                     :key="slide.day"
                     class="absolute select-none"
                     :class="{ 'cursor-pointer': i !== current }"
@@ -198,9 +198,11 @@ import { resolveTranslation } from '@/utils/i18n'
 
 withDefaults(defineProps<{ showLearnMore?: boolean }>(), { showLearnMore: true })
 
-/** How many days the slider holds, and how many of them may be past ones. */
-const MAX_SLIDES = 10
-const PAST_SLIDES = 2
+/**
+ * Cards kept in the DOM on each side of the current one: 2 visible + 2 parked
+ * off-screen, so clicking a side card (a jump of 2) still slides the next ones in.
+ */
+const RENDER_RADIUS = 4
 /** A day with more events lists this many and links to the rest. */
 const MAX_EVENTS_PER_CARD = 2
 const CARD_HEIGHT = 400
@@ -242,15 +244,9 @@ const days = computed(() => {
 /** Index of the first day today or later; -1 when every day is in the past. */
 const firstUpcoming = computed(() => days.value.findIndex((d) => d.day >= todayKey))
 
-/** Window of up to MAX_SLIDES days: a couple of past ones, then upcoming (filled with past if few are upcoming). */
-const windowStart = computed(() => {
-    const n = days.value.length
-    const first = firstUpcoming.value === -1 ? n : firstUpcoming.value
-    return Math.max(0, Math.min(first - PAST_SLIDES, n - MAX_SLIDES))
-})
-
+/** Every day with an event, oldest first. */
 const slides = computed(() =>
-    days.value.slice(windowStart.value, windowStart.value + MAX_SLIDES).map(({ day, events }) => {
+    days.value.map(({ day, events }) => {
         const [year, month] = day.split('-').map(Number)
         const status: SlideStatus = day === todayKey ? 'today' : day < todayKey ? 'past' : 'upcoming'
         const badge =
@@ -278,7 +274,7 @@ const slides = computed(() =>
 )
 
 /** Centre on the nearest upcoming event, or on the latest one when all are past. */
-const initialIndex = computed(() => (firstUpcoming.value === -1 ? slides.value.length - 1 : firstUpcoming.value - windowStart.value))
+const initialIndex = computed(() => (firstUpcoming.value === -1 ? slides.value.length - 1 : firstUpcoming.value))
 
 const loaded = ref(store.calendar.length > 0)
 const loadFailed = ref(false)
@@ -287,6 +283,12 @@ const loading = computed(() => store.calendarLoading && !loaded.value)
 // ---- Carousel state ----
 const current = ref(0)
 let interacted = false
+
+/** Only the cards around the current one are rendered; the rest are invisible anyway. */
+const renderedSlides = computed(() => {
+    const from = Math.max(0, current.value - RENDER_RADIUS)
+    return slides.value.slice(from, current.value + RENDER_RADIUS + 1).map((slide, k) => ({ slide, i: from + k }))
+})
 
 const sectionEl = ref<HTMLElement | null>(null)
 const visible = ref(false)

@@ -56,7 +56,7 @@ interface MeetingSource {
 }
 
 // Static copies of meetings from "/events/meetings/<id>", kept independent of the CMS.
-// Order here is the order of the cards on the Corporation page.
+// Cards are sorted by ISO date, newest first, in useCorporationMeetings.
 // Slugs must match the `:slug(...)` pattern of the `council-members-corporation-meeting` route.
 const MEETINGS: MeetingSource[] = [
     {
@@ -103,6 +103,6 @@ export function useCorporationMeetings() {
                 title: t(`${key}.title`),
                 paragraphs: Array.isArray(paragraphs) ? paragraphs.map((item) => rt(item as string)) : [],
             }
-        })
+        }).sort((a, b) => b.date.localeCompare(a.date))
     )
 }

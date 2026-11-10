@@ -21,7 +21,7 @@
                         <!-- Image -->
                         <div class="overflow-hidden">
                             <img
-                                :src="session.detail?.heroImage || fallbackCover"
+                                :src="session.cover"
                                 :alt="session.code"
                                 class="w-full h-[220px] object-cover"
                             />
@@ -50,8 +50,7 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { interimSessions as sessions } from './interimSessionsData'
-import fallbackCover from '@/assets/images/hero/ATM_9764.jpg'
+import { interimSessions as sessions } from '@/views/website/events/interim-session/interimSessionsData'
 import { resolveTranslation } from '@/utils/i18n'
 import type { Translation } from '@/types/server/api.types'
 

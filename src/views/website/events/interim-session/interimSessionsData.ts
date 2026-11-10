@@ -3,6 +3,22 @@ import type { Translation } from '@/types/server/api.types'
 import img5Hero from '@/assets/images/hero/ATM_9764.jpg'
 import img6Hero from '@/assets/images/hero/SUT_8193.jpg'
 
+import is1Cover from '@/assets/images/interim-session/is-1.webp'
+import is3Cover from '@/assets/images/interim-session/is-3.webp'
+import is4Cover from '@/assets/images/interim-session/is-4.webp'
+import is5Cover from '@/assets/images/interim-session/is-5.webp'
+import is6Cover from '@/assets/images/interim-session/is-6.webp'
+
+import is5_1 from '@/assets/images/interim-session/is-5-1.webp'
+import is5_2 from '@/assets/images/interim-session/is-5-2.webp'
+import is5_3 from '@/assets/images/interim-session/is-5-3.webp'
+import is5_4 from '@/assets/images/interim-session/is-5-4.webp'
+import is5_5 from '@/assets/images/interim-session/is-5-5.webp'
+import is5_6 from '@/assets/images/interim-session/is-5-6.webp'
+import is5_7 from '@/assets/images/interim-session/is-5-7.webp'
+import is5_8 from '@/assets/images/interim-session/is-5-8.webp'
+import is5_9 from '@/assets/images/interim-session/is-5-9.webp'
+
 import is6_1 from '@/assets/images/interim-session/DSC02251.JPG'
 import is6_2 from '@/assets/images/interim-session/DSC02281.JPG'
 import is6_3 from '@/assets/images/interim-session/DSC02353.JPG'
@@ -35,6 +51,7 @@ export type InterimSessionDetail = {
 export type InterimSession = {
     id: number
     code: string
+    cover: string
     date: Translation
     note: Translation
     hasDetail: boolean
@@ -45,6 +62,7 @@ export const interimSessions: InterimSession[] = [
     {
         id: 1,
         code: 'IS-1',
+        cover: is1Cover,
         date: {
             en: '20 November 2019',
             ru: '20 ноября 2019',
@@ -60,6 +78,7 @@ export const interimSessions: InterimSession[] = [
     {
         id: 2,
         code: 'IS-2',
+        cover: img5Hero,
         date: { en: '2022', ru: '2022', uz: '2022' },
         note: {
             en: 'Progress on the implementation of approved initiatives and preparations for the next plenary session were reviewed',
@@ -71,6 +90,7 @@ export const interimSessions: InterimSession[] = [
     {
         id: 3,
         code: 'IS-3',
+        cover: is3Cover,
         date: {
             en: '29 August 2023',
             ru: '29 августа 2023',
@@ -86,6 +106,7 @@ export const interimSessions: InterimSession[] = [
     {
         id: 4,
         code: 'IS-4',
+        cover: is4Cover,
         date: {
             en: '8 November 2024',
             ru: '8 ноября 2024',
@@ -101,6 +122,7 @@ export const interimSessions: InterimSession[] = [
     {
         id: 5,
         code: 'IS-5',
+        cover: is5Cover,
         date: {
             en: '19 November 2025',
             ru: '19 ноября 2025',
@@ -114,6 +136,7 @@ export const interimSessions: InterimSession[] = [
         hasDetail: true,
         detail: {
             heroImage: img5Hero,
+            gallery: [is5_1, is5_2, is5_3, is5_4, is5_5, is5_6, is5_7, is5_8, is5_9],
             heroTitle: {
                 en: 'V Interim Session of the Council',
                 ru: 'V промежуточная сессия Совета',
@@ -323,6 +346,7 @@ export const interimSessions: InterimSession[] = [
     {
         id: 6,
         code: 'IS-6',
+        cover: is6Cover,
         date: {
             en: '18 May 2026',
             ru: '18 мая 2026',

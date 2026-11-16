@@ -30,7 +30,7 @@
 
                         <!-- Content -->
                         <div class="p-6 flex flex-col flex-1">
-                            <time :datetime="meeting.date" class="text-[13px] text-[#8a94a6] mb-2">
+                            <time v-if="meeting.date" :datetime="meeting.date" class="text-[13px] text-[#8a94a6] mb-2">
                                 {{ meeting.dateLabel }}
                             </time>
                             <h3 class="font-bold text-[17px] text-[#1a1e2e] leading-snug mb-5">

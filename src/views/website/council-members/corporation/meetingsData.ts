@@ -29,6 +29,10 @@ import eurouz3 from '@/assets/images/corporation/eurouz-memorandum/3.jpg'
 import eurouz4 from '@/assets/images/corporation/eurouz-memorandum/4.jpg'
 import eurouz5 from '@/assets/images/corporation/eurouz-memorandum/5.jpg'
 
+import cafa1 from '@/assets/images/corporation/cafa-memorandum/1.jpg'
+import cafa2 from '@/assets/images/corporation/cafa-memorandum/2.jpg'
+import cafa3 from '@/assets/images/corporation/cafa-memorandum/3.jpg'
+
 export interface CorporationMeeting {
     /** URL segment: /council-members/corporation/<slug> */
     slug: string
@@ -37,7 +41,7 @@ export interface CorporationMeeting {
     coverPosition: string
     gallery: string[]
     /** ISO date, used for machine-readable markup */
-    date: string
+    date?: string
     /** Display date in the same `dd.mm.yyyy` format as the meetings detail page */
     dateLabel: string
     eyebrow: string
@@ -49,16 +53,22 @@ interface MeetingSource {
     slug: string
     /** i18n namespace holding eyebrow / title / paragraphs */
     key: string
-    date: string
+    date?: string
     gallery: string[]
     /** Defaults to `center` */
     coverPosition?: string
 }
 
 // Static copies of meetings from "/events/meetings/<id>", kept independent of the CMS.
-// Cards are sorted by ISO date, newest first, in useCorporationMeetings.
+// Undated new entries appear first; dated cards follow in newest-first order.
 // Slugs must match the `:slug(...)` pattern of the `council-members-corporation-meeting` route.
 const MEETINGS: MeetingSource[] = [
+    {
+        slug: 'cafa-memorandum',
+        key: 'corporationPage.cafaMemorandum',
+        date: '2026-11-16',
+        gallery: [cafa1, cafa2, cafa3],
+    },
     {
         // /events/meetings/01a100f8-2491-7328-a44e-9c14180ca294 (+ an extra cover photo prepended)
         slug: 'raic-cac-strategic-session',
@@ -98,11 +108,15 @@ export function useCorporationMeetings() {
                 coverPosition,
                 gallery,
                 date,
-                dateLabel: new Date(date).toLocaleDateString('en-GB').replace(/\//g, '.'),
+                dateLabel: date ? new Date(date).toLocaleDateString('en-GB').replace(/\//g, '.') : '',
                 eyebrow: t(`${key}.eyebrow`),
                 title: t(`${key}.title`),
                 paragraphs: Array.isArray(paragraphs) ? paragraphs.map((item) => rt(item as string)) : [],
             }
-        }).sort((a, b) => b.date.localeCompare(a.date))
+        }).sort((a, b) => {
+            if (!a.date) return b.date ? -1 : 0
+            if (!b.date) return 1
+            return b.date.localeCompare(a.date)
+        })
     )
 }

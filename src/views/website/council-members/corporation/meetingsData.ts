@@ -67,7 +67,7 @@ const MEETINGS: MeetingSource[] = [
         slug: 'cafa-memorandum',
         key: 'corporationPage.cafaMemorandum',
         date: '2026-11-16',
-        gallery: [cafa1, cafa2, cafa3],
+        gallery: [cafa3, cafa1, cafa2],
     },
     {
         // /events/meetings/01a100f8-2491-7328-a44e-9c14180ca294 (+ an extra cover photo prepended)

@@ -432,6 +432,8 @@ import { useRoute, useRouter } from 'vue-router'
 // interagencyOnly: render only the Interagency (IWG) cards; councilOnly: render only the Council (CWG) cards.
 // Either one hides the stat tabs and legal-basis bar, leaving just that single section.
 const props = defineProps<{ interagencyOnly?: boolean; councilOnly?: boolean }>()
+// Tells the parent whether a single group's detail view is open, so it can hide page-level blocks.
+const emit = defineEmits<{ (e: 'groupChange', open: boolean): void }>()
 
 import imgLeader1 from '@/assets/images/leaders/leader1.png'
 import imgLeader3 from '@/assets/images/leaders/leader3.png'
@@ -1255,6 +1257,7 @@ function syncQuery(group: AnyGroup | null) {
 // Run during setup so a reload renders the detail view straight away, with no grid flash.
 applyQuery()
 watch(() => route.query[WG_QUERY_KEY], applyQuery)
+watch(selected, (group) => emit('groupChange', group !== null), { immediate: true })
 
 // Animated stats
 const ANIM_DURATION = 1500

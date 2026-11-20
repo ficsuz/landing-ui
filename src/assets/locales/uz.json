@@ -1050,8 +1050,6 @@
             "emptyText": "Işçi guruh majlislari ma'lumotlari tayyorlanmoqda. Iltimos, keyinroq taşrif buyuring."
         },
         "meetingsPage": {
-            "paginationLabel": "Uçraşuvlar sahifalari",
-            "pageLabel": "{page}-sahifa",
             "loadError": "Uçraşuvlarni yuklab bölmadi. Qayta urinib köring.",
             "retry": "Qayta uriniş",
             "title": "Uçraşuvlar",

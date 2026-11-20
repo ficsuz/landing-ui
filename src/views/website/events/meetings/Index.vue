@@ -2,7 +2,7 @@
     <div class="meetings-page">
         <section class="bg-[#f7f8fa] py-12 md:py-16">
             <div class="page-container">
-                <div ref="listRef" v-loading="loading" :aria-busy="loading" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 min-h-[120px]">
+                <div v-loading="loading" :aria-busy="loading" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 min-h-[120px]">
                     <router-link
                         v-for="m in publishedMeetings"
                         :key="m.id"
@@ -90,33 +90,14 @@
                         </svg>
                     </template>
                 </WebEmptyState>
-
-                <nav v-if="totalPages > 1" class="meetings-pagination" :aria-label="$t('eventsPage.meetingsPage.paginationLabel')">
-                    <template v-for="(item, index) in pageItems" :key="`${item}-${index}`">
-                        <span v-if="item === 'ellipsis'" class="meetings-pagination__ellipsis" aria-hidden="true">…</span>
-                        <button
-                            v-else
-                            type="button"
-                            class="meetings-pagination__page"
-                            :class="{ 'is-active': item === page }"
-                            :aria-current="item === page ? 'page' : undefined"
-                            :aria-label="$t('eventsPage.meetingsPage.pageLabel', { page: item })"
-                            :disabled="loading"
-                            @click="changePage(item)"
-                        >
-                            {{ item }}
-                        </button>
-                    </template>
-                </nav>
             </div>
         </section>
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, nextTick, onBeforeUnmount } from 'vue'
+import { computed, ref, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRoute, useRouter } from 'vue-router'
 import WebEmptyState from '@/components/website/WebEmptyState.vue'
 import CardImageSlider from '@/components/website/CardImageSlider.vue'
 import { useMeetingsStore } from '@/features/meetings/store'
@@ -125,71 +106,30 @@ import type { Meeting } from '@/features/meetings/types'
 
 const { locale } = useI18n()
 const meetingsStore = useMeetingsStore()
-const route = useRoute()
-const router = useRouter()
-const PAGE_SIZE = 12
 const meetings = ref<Meeting[]>([])
 const loading = ref(false)
 const loadFailed = ref(false)
-const totalPages = ref(0)
-const listRef = ref<HTMLElement | null>(null)
 let requestId = 0
-let snapshotRequest: Promise<Meeting[]> | null = null
-
-const page = computed(() => {
-    const value = Number(route.query.page)
-    return Number.isSafeInteger(value) && value > 0 ? value : 1
-})
 
 const publishedMeetings = computed(() => meetings.value.filter((m) => m.status === 1))
 
-const pageItems = computed<(number | 'ellipsis')[]>(() => {
-    const last = totalPages.value
-    if (last <= 8) return Array.from({ length: last }, (_, i) => i + 1)
-    const start = Math.max(2, Math.min(page.value - 2, last - 5))
-    const end = Math.min(last - 1, Math.max(page.value + 2, 6))
-    const items: (number | 'ellipsis')[] = [1]
-    if (start > 2) items.push('ellipsis')
-    for (let i = start; i <= end; i++) items.push(i)
-    if (end < last - 1) items.push('ellipsis')
-    items.push(last)
-    return items
-})
-
-function changePage(value: number) {
-    if (loading.value || value === page.value) return
-    router.push({ query: { ...route.query, page: value === 1 ? undefined : String(value) }, hash: route.hash })
-}
-
 async function loadMeetings() {
     const id = ++requestId
-    const requestedPage = page.value
     loading.value = true
     loadFailed.value = false
     meetings.value = []
     try {
-        // Reuse one complete list while paging; a failed load can be retried.
-        const all = await (snapshotRequest ??= meetingsStore.fetchAllOrdered())
+        const all = await meetingsStore.fetchAllOrdered()
         if (id !== requestId) return
-        const published = all.filter((meeting) => meeting.status === 1)
-        totalPages.value = Math.ceil(published.length / PAGE_SIZE)
-        const lastValidPage = Math.max(1, totalPages.value)
-        if (requestedPage > lastValidPage) {
-            await router.replace({ query: { ...route.query, page: lastValidPage === 1 ? undefined : String(lastValidPage) }, hash: route.hash })
-            return
-        }
-        meetings.value = published.slice((requestedPage - 1) * PAGE_SIZE, requestedPage * PAGE_SIZE)
-        await nextTick()
-        if (requestedPage > 1) listRef.value?.scrollIntoView({ block: 'start', behavior: 'smooth' })
+        meetings.value = all
     } catch {
-        snapshotRequest = null
         if (id === requestId) loadFailed.value = true
     } finally {
         if (id === requestId) loading.value = false
     }
 }
 
-watch(page, loadMeetings, { immediate: true })
+loadMeetings()
 onBeforeUnmount(() => { requestId++ })
 
 function formatDate(iso?: string | null) {
@@ -200,36 +140,3 @@ function formatDate(iso?: string | null) {
 }
 
 </script>
-
-<style scoped lang="scss">
-.meetings-pagination {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    margin-top: 32px;
-
-    &__page {
-        width: 28px;
-        height: 28px;
-        border-radius: 999px;
-        color: #333;
-        font-size: 14px;
-        transition: background-color 0.2s, color 0.2s;
-
-        &:hover:not(:disabled) { background: #eef0f4; }
-        &.is-active { background: #191c1f; color: #fff; font-weight: 700; }
-        &:disabled { cursor: default; }
-        &:focus-visible { outline: 2px solid #191c1f; outline-offset: 3px; }
-    }
-
-    &__ellipsis { width: 28px; text-align: center; color: #333; font-size: 18px; }
-
-    @media (min-width: 768px) {
-        gap: 8px;
-    }
-}
-
-[aria-busy] { scroll-margin-top: 100px; }
-</style>

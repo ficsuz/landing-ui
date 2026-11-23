@@ -10,23 +10,21 @@
                 <CabinetCallout />
 
                 <!-- Tabs -->
-                <div ref="tabsRef" class="member-tabs mb-8">
-                    <button
-                        v-for="(section, i) in memberSections"
-                        :key="section.targetId"
-                        class="member-tab"
-                        :class="{ 'member-tab--active': activeTab === i }"
-                        @click="activeTab = i"
-                    >
-                        <span class="member-tab__count">{{ displayValues[i] }}</span>
-                        <span class="member-tab__label">{{ section.title }}</span>
-                    </button>
+                <div ref="tabsRef" class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8 scroll-mt-24 md:scroll-mt-28">
+                    <MemberCategoryCard
+                        v-for="category in memberCategories"
+                        :key="category.slug"
+                        :title="t(category.titleKey)"
+                        :count="displayCount(category.type)"
+                        :active="activeCategory.slug === category.slug"
+                        @click="selectCategory(category)"
+                    />
                 </div>
 
                 <!-- Company list -->
-                <div v-loading="membersStore.loading" class="grid grid-cols-1 gap-4 md:gap-5">
+                <div v-loading="membersStore.publicLoading && !membersStore.publicMembers" class="grid grid-cols-1 gap-4 md:gap-5">
                     <div
-                        v-for="item in memberSections[activeTab].items"
+                        v-for="item in activeMembers"
                         :id="`member-${item.id}`"
                         :key="item.id"
                         class="group flex overflow-hidden bg-white border rounded-2xl shadow-[0_2px_12px_rgba(25,28,31,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d0d5dd] hover:shadow-[0_12px_36px_rgba(25,28,31,0.10)]"
@@ -57,8 +55,8 @@
                 </div>
 
                 <el-empty
-                    v-if="!membersStore.loading && memberSections[activeTab].items.length === 0"
-                    :description="$t('common.noData')"
+                    v-if="!membersStore.publicLoading && !activeMembers.length"
+                    :description="t(membersStore.publicError ? 'councilMembersPage.loadError' : 'common.noData')"
                     class="py-10"
                 />
             </div>
@@ -68,8 +66,10 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute, useRouter, type LocationQueryRaw } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { memberCategories, type MemberCategory } from '@/features/councilMembers/categories'
+import MemberCategoryCard from '@/features/councilMembers/components/MemberCategoryCard.vue'
 import { useCouncilMembersStore } from '@/features/councilMembers/store'
 import CabinetCallout from './components/CabinetCallout.vue'
 import { resolveTranslation } from '@/utils/i18n'
@@ -81,192 +81,102 @@ const route = useRoute()
 const router = useRouter()
 const membersStore = useCouncilMembersStore()
 
-// Member highlighted when arriving from a home-page logo click (?member=<id>).
+const requestedCategory = computed(() => memberCategories.find(({ slug }) => slug === route.query.category))
+const activeCategory = ref<MemberCategory>(requestedCategory.value ?? memberCategories[0])
+const tabsRef = ref<HTMLElement | null>(null)
 const highlightedId = ref<string | null>(null)
-let highlightTimer: ReturnType<typeof setTimeout> | null = null
 
-function focusMemberFromQuery() {
+const activeMembers = computed(() => membersStore.publicMembersByType[activeCategory.value.type].map((member) => ({
+    id: member.id,
+    image: getMediaUrl(member.logoId),
+    name: resolveTranslation(member.name, locale.value),
+    bio: resolveTranslation(member.description, locale.value),
+})))
+
+watch(requestedCategory, (category) => {
+    if (route.name === 'council-members') activeCategory.value = category ?? memberCategories[0]
+})
+
+function selectCategory(category: MemberCategory) {
+    activeCategory.value = category
+    const query: LocationQueryRaw = { ...route.query, category: category.slug }
+    delete query.member
+    router.replace({ query, hash: route.hash })
+}
+
+// Keep home-page links to individual companies working alongside category links.
+const requestedMemberCategory = computed(() => {
     const id = route.query.member
-    if (!id || typeof id !== 'string') return
+    if (route.name !== 'council-members' || typeof id !== 'string') return
+    return memberCategories.find(({ type }) => membersStore.publicMembersByType[type].some((member) => member.id === id))
+})
 
-    const sectionIdx = memberSections.value.findIndex((s) => s.items.some((it) => it.id === id))
-    if (sectionIdx === -1) return
+watch([() => route.query.member, requestedMemberCategory], ([id, category], _previous, onCleanup) => {
+    highlightedId.value = null
+    if (!category || typeof id !== 'string') return
 
-    activeTab.value = sectionIdx
+    activeCategory.value = category
     highlightedId.value = id
-
     nextTick(() => {
-        const el = document.getElementById(`member-${id}`)
-        el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        if (highlightedId.value !== id) return
+        const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        document.getElementById(`member-${id}`)?.scrollIntoView({ behavior, block: 'center' })
     })
 
-    // Clear the highlight and the query param after a few seconds.
-    if (highlightTimer) clearTimeout(highlightTimer)
-    highlightTimer = setTimeout(() => {
-        highlightedId.value = null
-        router.replace({ query: {} })
+    const timer = setTimeout(() => {
+        const query = { ...route.query }
+        delete query.member
+        router.replace({ query, hash: route.hash })
     }, 3500)
+    onCleanup(() => clearTimeout(timer))
+}, { immediate: true })
+
+const countProgress = ref(0)
+const countsVisible = ref(false)
+let animationFrame: number | undefined
+let statsObserver: IntersectionObserver | undefined
+
+function displayCount(type: MemberType) {
+    if (!membersStore.publicMembers) return null
+    return Math.floor(membersStore.publicMembersByType[type].length * countProgress.value)
 }
 
-interface DisplayCompany {
-    id: string
-    image: string
-    name: string
-    bio: string
-}
-
-function mapByType(type: MemberType): DisplayCompany[] {
-    return membersStore.items
-        .filter((m) => m.status && m.type === type)
-        .map((m) => ({
-            id: m.id,
-            image: getMediaUrl(m.logoId),
-            name: resolveTranslation(m.name, locale.value),
-            bio: m.description ? resolveTranslation(m.description, locale.value) : '',
-        }))
-}
-
-const memberSections = computed(() => {
-    const sections = [
-        { title: t('councilMembersPage.execBoardTitle'), targetId: 'exec-board', items: mapByType('EXECUTIVE_BOARD') },
-        { title: t('councilMembersPage.fullMembersTitle'), targetId: 'full-members', items: mapByType('FULL') },
-        { title: t('councilMembersPage.observersTitle'), targetId: 'observers', items: mapByType('OBSERVER') },
-    ]
-    return sections.map((s) => ({ ...s, count: s.items.length }))
-})
-
-// --- Tab + count-up ---
-const activeTab = ref(0)
-const tabsRef = ref<HTMLElement | null>(null)
-const displayValues = ref([0, 0, 0])
-const isVisible = ref(false)
-const hasAnimated = ref(false)
-let statsObserver: IntersectionObserver | null = null
-
-function easeOutCubic(x: number) {
-    return 1 - Math.pow(1 - x, 3)
-}
-
-function animateCountUp(targets: number[]) {
-    if (hasAnimated.value) return
-    hasAnimated.value = true
-    const duration = 1800
+watch([countsVisible, () => membersStore.publicMembers !== null], ([visible, loaded]) => {
+    if (!visible || !loaded || animationFrame !== undefined || countProgress.value === 1) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        countProgress.value = 1
+        return
+    }
     const startTime = performance.now()
     function update(now: number) {
-        const progress = Math.min((now - startTime) / duration, 1)
-        targets.forEach((t, i) => {
-            displayValues.value[i] = Math.floor(easeOutCubic(progress) * t)
-        })
-        if (progress < 1) requestAnimationFrame(update)
+        const progress = Math.min((now - startTime) / 1800, 1)
+        countProgress.value = 1 - Math.pow(1 - progress, 3)
+        animationFrame = progress < 1 ? requestAnimationFrame(update) : undefined
     }
-    requestAnimationFrame(update)
-}
-
-// Animate once the section is on-screen AND data has loaded.
-watch(
-    [isVisible, memberSections],
-    () => {
-        const counts = memberSections.value.map((s) => s.count)
-        if (isVisible.value && !hasAnimated.value && counts.some((c) => c > 0)) {
-            animateCountUp(counts)
-        }
-    },
-    { deep: true }
-)
-
-watch(tabsRef, (el) => {
-    if (!el) return
-    statsObserver = new IntersectionObserver(
-        (entries) => {
-            if (entries[0].isIntersecting) isVisible.value = true
-        },
-        { threshold: 0.3 }
-    )
-    statsObserver.observe(el)
+    animationFrame = requestAnimationFrame(update)
 })
 
-// Focus the requested member once the list has loaded.
-let hasFocused = false
-watch(
-    memberSections,
-    () => {
-        if (hasFocused) return
-        const hasItems = memberSections.value.some((s) => s.items.length > 0)
-        if (hasItems && route.query.member) {
-            hasFocused = true
-            focusMemberFromQuery()
-        }
+onMounted(async () => {
+    membersStore.fetchPublicMembers()
+    const tabs = tabsRef.value
+    if (!tabs) return
+    statsObserver = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) return
+        countsVisible.value = true
+        statsObserver?.disconnect()
     },
-    { deep: true, immediate: true }
-)
+    { threshold: 0.3 })
+    statsObserver.observe(tabs)
 
-onMounted(() => {
-    membersStore.fetchAll({ limit: 100, sortBy: 'order', order: 'asc' })
+    if (requestedCategory.value && !requestedMemberCategory.value) {
+        await nextTick()
+        tabs.scrollIntoView({ block: 'start' })
+        tabs.querySelector<HTMLButtonElement>('button[aria-pressed="true"]')?.focus({ preventScroll: true })
+    }
 })
 
 onBeforeUnmount(() => {
     statsObserver?.disconnect()
-    if (highlightTimer) clearTimeout(highlightTimer)
+    if (animationFrame !== undefined) cancelAnimationFrame(animationFrame)
 })
 </script>
-
-<style scoped>
-.member-tabs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-@media (max-width: 640px) {
-    .member-tabs {
-        grid-template-columns: 1fr;
-    }
-}
-
-.member-tab {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 24px 28px;
-    border-radius: 20px;
-    border: 1.5px solid rgba(25, 28, 31, 0.1);
-    background: #fff;
-    cursor: pointer;
-    text-align: left;
-    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
-}
-.member-tab:hover {
-    border-color: rgba(25, 28, 31, 0.25);
-    box-shadow: 0 8px 24px rgba(25, 28, 31, 0.07);
-    transform: translateY(-2px);
-}
-.member-tab--active {
-    background: #191c1f;
-    border-color: #191c1f;
-    box-shadow: 0 12px 32px rgba(25, 28, 31, 0.2);
-    transform: translateY(-2px);
-}
-.member-tab--active:hover {
-    border-color: #191c1f;
-}
-.member-tab__count {
-    font-size: clamp(36px, 5vw, 52px);
-    font-weight: 700;
-    line-height: 1;
-    color: #191c1f;
-    transition: color 0.2s;
-}
-.member-tab--active .member-tab__count {
-    color: #fff;
-}
-.member-tab__label {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.4;
-    color: #505a63;
-    transition: color 0.2s;
-}
-.member-tab--active .member-tab__label {
-    color: rgba(255, 255, 255, 0.75);
-}
-</style>

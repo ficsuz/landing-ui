@@ -378,6 +378,7 @@
         "execBoardTitle": "Members of the Executive Board",
         "fullMembersTitle": "Full Members",
         "observersTitle": "Observer Members",
+        "loadError": "Could not load the Council membership data.",
         "tabs": {
             "all": "All",
             "foreign": "Foreign Members",

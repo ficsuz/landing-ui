@@ -381,9 +381,10 @@
         },
         "intro": "Xorijiy Investorlar Kengaşi 43 a'zodan iborat bölib, ular xorijiy investorlar, xalqaro moliya institutlari va Özbekiston hukumati vakillari — Özbekistonda faoliyat yurituvçi yetakçi kompaniyalar va taşkilotlarni birlaştiradi.",
         "membersIntro": "Xorijiy investorlar kengaşi a’zolari — Özbekiston iqtisodiyotiga strategik investitsiya kiritayotgan yetakçi xalqaro kompaniyalar, banklar va moliya institutlaridir. A’zolik mamlakat taraqqiyotiga uzoq muddatli sodiqlikni aks ettiradi va investitsiya siyosati masalalari böyiça Hukumat bilan töğridan-töğri muloqot kanalini taqdim etadi. Kengaş 23 ta iqtisodiyot tarmoğini ifodalovçi 19 ta davlatdan 43 a’zoni birlaştiradi",
-        "execBoardTitle": "Ijroiya qömitasi a'zolari",
-        "fullMembersTitle": "Tölaqonli a'zolar",
-        "observersTitle": "Kuzatuvçi a'zolar",
+        "execBoardTitle": "Ijroiya qömitasi a’zolari",
+        "fullMembersTitle": "Tölaqonli a’zolar",
+        "observersTitle": "Kuzatuvçi a’zolar",
+        "loadError": "Kengaş a’zolari haqidagi ma’lumotni yuklab bölmadi.",
         "tabs": {
             "all": "Barçasi",
             "foreign": "Xorijiy a'zolar",

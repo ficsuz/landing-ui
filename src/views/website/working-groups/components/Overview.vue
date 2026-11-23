@@ -236,21 +236,7 @@
                         </div>
                     </div>
 
-                    <!-- From the Council -->
-                    <div v-if="selected.councilBrands.length" class="mt-12 md:mt-16">
-                        <h4 class="text-[clamp(22px,3vw,40px)] font-extrabold uppercase text-[#191C1F] mb-8">
-                            {{ $t('workingGroupsPage.councilMembersTitle') }}
-                        </h4>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <div
-                                v-for="(logo, i) in selected.councilBrands"
-                                :key="i"
-                                class="border border-gray-200 rounded-xl bg-white flex items-center justify-center h-[100px] p-4"
-                            >
-                                <img :src="logo" alt="" class="max-w-full max-h-full object-contain" />
-                            </div>
-                        </div>
-                    </div>
+                    <CouncilMemberLinks />
                 </div>
 
                 <!-- Card grid -->
@@ -428,6 +414,7 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import CouncilMemberLinks from './CouncilMemberLinks.vue'
 
 // interagencyOnly: render only the Interagency (IWG) cards; councilOnly: render only the Council (CWG) cards.
 // Either one hides the stat tabs and legal-basis bar, leaving just that single section.
@@ -572,9 +559,6 @@ import imgSasaIntern from '@/assets/images/brands/sasa-intern.png'
 import imgAzizov from '@/assets/images/brands/azizov.png'
 import imgUzumMarket from '@/assets/images/brands/uzum-market.png'
 import imgLekhim from '@/assets/images/brands/lekhim.png'
-import imgVoltalia from '@/assets/images/brands/voltalia.png'
-import imgWildberries from '@/assets/images/brands/wildberries.png'
-import imgHalykBank from '@/assets/images/brands/halyk-bank.png'
 
 interface CWGroup {
     type: 'cwg'
@@ -615,7 +599,6 @@ interface IWGroup {
     coChairPositionKey?: string
     coChairBioKey?: string
     stateMembers: WGMember[]
-    councilBrands: string[]
 }
 
 type AnyGroup = CWGroup | IWGroup
@@ -852,7 +835,6 @@ const iwgGroups: IWGroup[] = [
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
             { image: defaultAvatar, nameKey: 'wg.temirov', positionKey: 'wg.posSecretary' },
         ],
-        councilBrands: [imgEBank, imgAdBank, imgIfc, imgEyBrand, imgMastercard, imgTbcBank, imgCentLaw],
     },
     {
         type: 'iwg',
@@ -888,7 +870,6 @@ const iwgGroups: IWGroup[] = [
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
             { image: defaultAvatar, nameKey: 'wg.byPositionShort', positionKey: 'wg.posCentralBankSecretary' },
         ],
-        councilBrands: [imgEBank, imgAdBank, imgIfc, imgEyBrand, imgZiraatBank, imgCrowe, imgAzizov, imgIndoorama, imgVeon],
     },
     {
         type: 'iwg',
@@ -922,7 +903,6 @@ const iwgGroups: IWGroup[] = [
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
             { image: defaultAvatar, nameKey: 'wg.kushmatov', positionKey: 'wg.posDeputySecretary' },
         ],
-        councilBrands: [imgEBank, imgAdBank, imgIfc, imgAzizov, imgCrowe, imgVoltalia, imgBatBetter, imgMiCor, imgCola, imgIndoorama, imgVeon],
     },
     {
         type: 'iwg',
@@ -952,7 +932,6 @@ const iwgGroups: IWGroup[] = [
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posMinHigherEduSecretary' },
         ],
-        councilBrands: [imgEBank, imgAdBank, imgIfc, imgUzCarls, imgVeon, imgBdo, imgEyBrand, imgIndoorama, imgCrowe],
     },
     {
         type: 'iwg',
@@ -982,21 +961,6 @@ const iwgGroups: IWGroup[] = [
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posNappSecretary' },
         ],
-        councilBrands: [
-            imgEBank,
-            imgAdBank,
-            imgIfc,
-            imgDentos,
-            imgCrowe,
-            imgKostaLegal,
-            imgCentLaw,
-            imgAzizov,
-            imgBatBetter,
-            imgMiCor,
-            imgIndoorama,
-            imgVeon,
-            imgAvesta,
-        ],
     },
     {
         type: 'iwg',
@@ -1024,7 +988,6 @@ const iwgGroups: IWGroup[] = [
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posMinEcoFinSecretary' },
         ],
-        councilBrands: [imgEBank, imgAdBank, imgIfc, imgDeloitte, imgPwc, imgDentos, imgBatBetter, imgCrowe, imgIndoorama, imgSuez],
     },
     {
         type: 'iwg',
@@ -1054,7 +1017,6 @@ const iwgGroups: IWGroup[] = [
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posCadastreSecretary' },
         ],
-        councilBrands: [imgEBank, imgAdBank, imgIfc, imgAzizov, imgTe, imgCrowe, imgVoltalia, imgIndoorama, imgEyBrand, imgMastercard],
     },
     {
         type: 'iwg',
@@ -1090,24 +1052,6 @@ const iwgGroups: IWGroup[] = [
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posMinEnergySecretary' },
         ],
-        councilBrands: [
-            imgEBank,
-            imgAdBank,
-            imgIfc,
-            imgMasdar,
-            imgTe,
-            imgEdf,
-            imgDentos,
-            imgEyBrand,
-            imgSiemens,
-            imgAzizov,
-            imgCentLaw,
-            imgMiCor,
-            imgCrowe,
-            imgVoltalia,
-            imgMitCo,
-            imgIndoorama,
-        ],
     },
     {
         type: 'iwg',
@@ -1138,7 +1082,6 @@ const iwgGroups: IWGroup[] = [
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posEcoCommitteeSecretary' },
         ],
-        councilBrands: [imgEBank, imgAdBank, imgIfc, imgEyBrand, imgZiraatBank, imgCrowe, imgAzizov, imgIndoorama, imgVeon],
     },
     {
         type: 'iwg',
@@ -1168,23 +1111,6 @@ const iwgGroups: IWGroup[] = [
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepFicMembers' },
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posDigitalMinSecretary' },
         ],
-        councilBrands: [
-            imgEBank,
-            imgAdBank,
-            imgIndoorama,
-            imgDentos,
-            imgCrowe,
-            imgHalykBank,
-            imgYandeks,
-            imgAcwaPower,
-            imgWildberries,
-            imgMiCor,
-            imgCafa,
-            imgBdo,
-            imgIpoteka,
-            imgUzum,
-            imgEnergyChina,
-        ],
     },
     {
         type: 'iwg',
@@ -1213,7 +1139,6 @@ const iwgGroups: IWGroup[] = [
             { image: usrBayzakova, nameKey: 'wg.dianaBayzakova', positionKey: 'wg.posTiacDirector' },
             { image: usrKodirkhodjaev, nameKey: 'wg.saidolimKodirkhodjaev', positionKey: 'wg.posConsolidatedAnalytical' },
         ],
-        councilBrands: [],
     },
 ]
 

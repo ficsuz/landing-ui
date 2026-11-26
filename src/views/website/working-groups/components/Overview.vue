@@ -432,7 +432,6 @@ import imgLaziz from '@/assets/images/leaders/laziz2.png'
 import imgKazbek from '@/assets/images/leaders/kazbek2.png'
 import imgTimur from '@/assets/images/leaders/timur2.png'
 import imgVera from '@/assets/images/leaders/vera2.png'
-import imgKongratbay from '@/assets/images/leaders/kongratbay2.png'
 import imgTurdimov from '@/assets/images/leaders/turdimov.jpg'
 import imgAxadbek2 from '@/assets/images/leaders/axadbek2.png'
 import imgErlan2 from '@/assets/images/leaders/erlan2.png'
@@ -472,7 +471,7 @@ import usrSalixov from '@/assets/images/users/jasur-salixov.jpg'
 import usrAliyev from '@/assets/images/users/akram-aliyev.jpeg'
 import usrHammerson from '@/assets/images/users/mark-hammerson.webp'
 import usrMurodov from '@/assets/images/users/sohibjon-murodov.webp'
-import usrMirmaksudov from '@/assets/images/users/mirsaid-mirmaksudov.jpg'
+import usrTurdiev from '@/assets/images/users/sadriddin-turdiev.jpg'
 import usrQutbiyev from '@/assets/images/users/sherzod-qutbiyev.jpg'
 import usrAbdurahmonov from '@/assets/images/users/ibrohim-abdurahmonov.webp'
 import usrPekos from '@/assets/images/users/oleg-pekos.jpeg'
@@ -489,6 +488,8 @@ import usrNodirJorayev from '@/assets/images/users/nodir-jorayev.jpg'
 import usrUmurzakov from '@/assets/images/users/shavkat-umurzakov.jpg'
 import usrBayzakova from '@/assets/images/users/diana-bayzakova.jpeg'
 import usrKodirkhodjaev from '@/assets/images/users/saidolim-kodirkhodjaev.jpg'
+import usrTurdimov from '@/assets/images/users/erkinjon-turdimov.jpg'
+import usrKaramatov from '@/assets/images/users/azamat-karamatov.jpg'
 
 import imgAcwaPower from '@/assets/images/brands/acwa-power.png'
 import imgTbc from '@/assets/images/brands/tbc.png'
@@ -824,7 +825,7 @@ const iwgGroups: IWGroup[] = [
             { image: usrPak, nameKey: 'wg.vyacheslavPak', positionKey: 'wg.posNappDeputy' },
             { image: usrSherzod, nameKey: 'wg.sherzodShermatov', positionKey: 'wg.posDigitalMinister' },
             { image: usrToshov, nameKey: 'wg.tashov', positionKey: 'wg.posActingStockExchange' },
-            { image: defaultAvatar, nameKey: 'wg.karamatov', positionKey: 'wg.posItPark' },
+            { image: usrKaramatov, nameKey: 'wg.karamatov', positionKey: 'wg.posItPark' },
             { image: usrIlxom, nameKey: 'wg.ilkhom', positionKey: 'wg.posFirstDeputyEcoFin' },
             { image: usrFarrux, nameKey: 'wg.farrukh', positionKey: 'wg.posTaxChairman' },
             { image: usrShuxrat, nameKey: 'wg.shukhratVafaev', positionKey: 'wg.posRdfDirector' },
@@ -997,7 +998,7 @@ const iwgGroups: IWGroup[] = [
         nameKey: 'workingGroupsPage.interagencyGroups.i7.name',
         descriptionKey: 'workingGroupsPage.interagencyGroups.i7.description',
         chairNameKey: 'wg.turdiev',
-        chairPhoto: usrMirmaksudov,
+        chairPhoto: usrTurdiev,
         chairPositionKey: 'wg.turdievPos',
         chairBioKey: 'wg.turdievBio',
         coChairNameKey: 'wg.azizbekAkhmadjonov',
@@ -1102,7 +1103,7 @@ const iwgGroups: IWGroup[] = [
             { image: usrBoburXojayev, nameKey: 'wg.bakhodjaev', positionKey: 'wg.posPresidentDeptFintech' },
             { image: usrMaxmud, nameKey: 'wg.istamov', positionKey: 'wg.posDeputyJustice' },
             { image: usrAliyev, nameKey: 'wg.aliev', positionKey: 'wg.posDeputyInvestMinister' },
-            { image: defaultAvatar, nameKey: 'wg.karamatov', positionKey: 'wg.posItPark' },
+            { image: usrKaramatov, nameKey: 'wg.karamatov', positionKey: 'wg.posItPark' },
             { image: usrFarrux, nameKey: 'wg.farrukh', positionKey: 'wg.posTaxChairman' },
             { image: usrMardiyev, nameKey: 'wg.mardiev', positionKey: 'wg.posEnterpriseUz' },
             { image: defaultAvatar, nameKey: 'wg.byPosition', positionKey: 'wg.posRepIfc' },
@@ -1131,7 +1132,7 @@ const iwgGroups: IWGroup[] = [
             { image: usrNodirJorayev, nameKey: 'wg.nodirJuraev', positionKey: 'wg.posPresidentAdminOfficial' },
             { image: imgTimur, nameKey: 'wg.timur', positionKey: 'wg.posCentralBankChair' },
             { image: usrSherzod, nameKey: 'wg.sherzodShermatov', positionKey: 'wg.posDigitalMinister' },
-            { image: imgKongratbay, nameKey: 'wg.kongratbay', positionKey: 'wg.posHigherEducationMinister' },
+            { image: usrTurdimov, nameKey: 'wg.turdimov', positionKey: 'wg.posFirstDeputyPmEducation' },
             { image: usrFarrux, nameKey: 'wg.farrukh', positionKey: 'wg.posTaxChairman' },
             { image: usrShuxrat, nameKey: 'wg.shukhratVafaev', positionKey: 'wg.posRdfDirector' },
             { image: usrToshov, nameKey: 'wg.tashov', positionKey: 'wg.posActingStockExchange' },

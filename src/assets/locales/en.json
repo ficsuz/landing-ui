@@ -652,7 +652,7 @@
             "description": "Creation of the Regional Alliance of Investment Councils of Central Asia and the Caucasus (RAIC-CAC) to form a competitive investment environment and cross-border coordination."
         },
         "reports": {
-            "title": "NEW APPROACHES — FIVE ANALYTICAL REPORTS",
+            "title": "NEW APPROACHES — ANALYTICAL REPORTS",
             "r1": { "cover": "Management Competencies in the Republic of Uzbekistan", "title": "Development of Management Competencies" },
             "r2": { "cover": "Attracting Creative Investments: Global Experience and Its Adaptation in Uzbekistan", "title": "Creative Investments" },
             "r3": {
@@ -1215,7 +1215,7 @@
             "quote": "Our main goal is for Uzbekistan to become a reliable and long-term partner for foreign investors.",
             "newApproaches": {
                 "label": "Featured Series",
-                "title": "New Approaches — Five Analytical Reports"
+                "title": "New Approaches — Analytical Reports"
             },
             "categories": {
                 "annualReport": "Annual Report",
@@ -1267,7 +1267,7 @@
         "vyacheslavPak": "Vyacheslav Pak",
         "tashov": "Fayzulla Toshov",
         "karamatov": "Azamat Karamatov",
-        "temirov": "S. Temirov",
+        "temirov": "Sardor Temirov",
         "byPosition": "Ex officio (by agreement)",
         "byPositionShort": "Ex officio",
         "istamov": "Maxmud Istamov",
@@ -1292,7 +1292,7 @@
         "posMinEcoFinSecretary": "Responsible Officer of the Ministry of Economy and Finance, Secretary of the Working Group",
         "zaidiPos": "Regional Director of Acwa Power for Uzbekistan, Deputy Head of the Working Group",
         "pekos": "Oleg Pekos",
-        "turdiev": "Mirsaid Mirmaksudov",
+        "turdiev": "Sadriddin Turdiev",
         "turdievPos": "Director of the Cadastre Agency, Head of the Working Group",
         "turdievBio": "",
         "kutbiev": "Sherzod Kutbiev",
@@ -1333,6 +1333,7 @@
         "posTashkentMayor": "Khokim of Tashkent city",
         "posTiacDirector": "Director of the Tashkent International Arbitration Centre",
         "posHigherEducationMinister": "Minister of Higher Education, Science and Innovation",
+        "posFirstDeputyPmEducation": "First Deputy Prime Minister — Minister of Education and Science",
         "tiffcChairPos": "Minister of Investments, Industry and Trade, Head of the Working Group",
         "tiffcCoChairPos": "Chief Executive Officer for Uzbekistan at JPMorgan Chase, Deputy Head of the Working Group",
         "posFirstDeputyDigital": "First Deputy Minister of Digital Technologies",
